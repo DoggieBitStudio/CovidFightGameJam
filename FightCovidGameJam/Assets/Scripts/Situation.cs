@@ -8,4 +8,6 @@ public class Situation
     //List<Action> actions;
     public string identifier;
     public bool Finished_Properly { get; set; }
+
+    public List<DialogueManager.DialogueInfo> dialogues;
 }
