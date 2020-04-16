@@ -25,21 +25,26 @@ public class SituationsManager : MonoBehaviour
 
     public void LoadSituations(string identifier)
     {
-        StreamReader reader = new StreamReader(Path.Combine(Application.dataPath, "JSON/Situations.json"));
-        string json_string = reader.ReadToEnd();
-        reader.Close();
+        TextAsset json_file = Resources.Load(identifier) as TextAsset;
+		JSONObject json = new JSONObject(json_file.text);
 
-		JSONObject json = new JSONObject(json_string);
-        JSONObject day_json = json.GetField(identifier);
-
-        Debug.Log(day_json);
-        JSONObject situations = day_json.GetField("Situations");
-        foreach (JSONObject j in situations.list)
+        JSONObject situations_array = json.GetField("Situations");
+        foreach (JSONObject situation_json in situations_array.list)
         {
-            string situation_string = j.ToString();
-            Debug.Log(situation_string);
-            Situation situation = JsonUtility.FromJson<Situation>(situation_string);
-            Debug.Log(situation.identifier);
+            Situation situation = JsonUtility.FromJson<Situation>(situation_json.ToString());
+
+            situation_json.GetField("dialogues", delegate (JSONObject dialogues)
+            {
+                foreach (JSONObject dialogue_json in dialogues.list)
+                {
+                    DialogueManager.DialogueInfo dialogue_info = JsonUtility.FromJson<DialogueManager.DialogueInfo>(dialogue_json.ToString());
+                    situation.dialogues.Add(dialogue_info);
+                }
+            }, delegate (string name)
+            {
+                Debug.LogWarning("No dialogues found on " + situation.identifier);
+            });
+         
         }
     }
 }

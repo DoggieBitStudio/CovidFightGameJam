@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public uint health = 5;
     public uint positivism = 5;
     public uint mask = 1;
+    public float time = 8.0f;
 
     private void Awake()
     {

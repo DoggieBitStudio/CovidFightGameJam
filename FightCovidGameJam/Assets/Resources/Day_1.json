@@ -1,0 +1,24 @@
+{
+  "Situations": [
+    {
+      "identifier": "Day1_News",
+      "dialogues": [
+        {
+          "text": "sample text",
+          "name": "Pepe",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "text": "sample text",
+          "name": "Pepe",
+          "animation": "Talk",
+          "speed": 5.0
+        }
+      ]
+    },
+    {
+      "identifier": "Take_Ruffus_Out"
+    }
+  ]
+}

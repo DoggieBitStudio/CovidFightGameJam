@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
+    [System.Serializable]
+    public struct DialogueInfo
+    {
+        public string text;
+        public string name;
+        public string animation;
+        public float speed;
+    }
+
     public GameObject myDialogueGO;
     public GameObject NPCDialogueGO;
     Text myDialogueText;
