@@ -11,10 +11,15 @@ public class GameManager : MonoBehaviour
     public uint mask = 1;
     public float time = 8.0f;
 
+    public SituationsManager situations_manager;
+
     private void Awake()
     {
         if (!instance)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
             Destroy(gameObject);
     }
@@ -22,7 +27,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        situations_manager = GetComponent<SituationsManager>();
+    }
+
+    public void AdvanceTime()
+    {
+
     }
 
     // Update is called once per frame
