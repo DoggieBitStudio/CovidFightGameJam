@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class CharacterController : MonoBehaviour
+public class CharacterOrthController : MonoBehaviour
 {
     NavMeshAgent agent;
+    public float distance = 50f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,6 @@ public class CharacterController : MonoBehaviour
     {
         
     }
-
-    public float distance = 50f;
 
     void FixedUpdate()
     {
