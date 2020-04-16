@@ -7,6 +7,10 @@ using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
+    public GameObject verticalTask;
+    public GameObject buttonTask;
+    public bool isTaskMenuOpen = false;
+
     //Dialogue objects
     public GameObject time;
 
