@@ -6,11 +6,13 @@ using UnityEngine.AI;
 public class CharacterOrthController : MonoBehaviour
 {
     NavMeshAgent agent;
+    NavMeshPath path;
     public float distance = 50f;
 
     // Start is called before the first frame update
     void Start()
     {
+        path = new NavMeshPath();
         agent = this.gameObject.GetComponent<NavMeshAgent>();
     }
 
@@ -40,7 +42,7 @@ public class CharacterOrthController : MonoBehaviour
 
     bool IsWalkable(Vector3 point)
     {
-        return NavMesh.CalculatePath(transform.position, point, 0, null);
+        return NavMesh.CalculatePath(transform.position, point, NavMesh.AllAreas, path);
     }
 
     void MoveToDestination(Vector3 destination)
