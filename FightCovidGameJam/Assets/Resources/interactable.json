@@ -1,0 +1,22 @@
+{
+  "Television": [
+    {
+      "optionText": "Ver una serie muy divertida",
+      "time": 30,
+      "health": 1,
+      "positivism": 2
+    },
+    {
+      "optionText": "Ver una pelicula",
+      "time": 90,
+      "health": 1,
+      "positivism": 2
+    },
+    {
+      "optionText": "Ver una pelicula",
+      "time": 90,
+      "health": 1,
+      "positivism": 2
+    }
+  ]
+}

@@ -8,7 +8,7 @@ public class SituationsManager : MonoBehaviour
     List<Situation> completed_situations;
     List<Situation> day_situations;
 
-    Situation current_situation;
+    public Situation current_situation;
 
     // Start is called before the first frame update
     void Start()
