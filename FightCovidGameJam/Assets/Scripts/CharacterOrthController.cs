@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class CharacterOrthController : MonoBehaviour
 {
+    UIManager uiManager;
+
     NavMeshAgent agent;
     NavMeshPath path;
     public float distance = 50f;
@@ -14,6 +16,7 @@ public class CharacterOrthController : MonoBehaviour
     {
         path = new NavMeshPath();
         agent = this.gameObject.GetComponent<NavMeshAgent>();
+        uiManager = GameObject.Find("GameManager").GetComponent<UIManager>();
     }
 
     // Update is called once per frame
@@ -36,6 +39,8 @@ public class CharacterOrthController : MonoBehaviour
                 //log hit area to the console
                 if (IsWalkable(hit.point))
                     MoveToDestination(hit.point);
+                if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen)
+                    hit.collider.gameObject.GetComponent<Interactable>().OnTap();
             }
         }
     }
