@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class SituationsManager : MonoBehaviour
 {
-
     List<Situation> completed_situations;
     List<Situation> day_situations;
 
@@ -14,6 +13,7 @@ public class SituationsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        day_situations = new List<Situation>();
         LoadSituations("Day_1");
     }
 
@@ -44,7 +44,10 @@ public class SituationsManager : MonoBehaviour
             {
                 Debug.LogWarning("No dialogues found on " + situation.identifier);
             });
-         
+
+            day_situations.Add(situation);
         }
+
+        current_situation = day_situations[0];
     }
 }
