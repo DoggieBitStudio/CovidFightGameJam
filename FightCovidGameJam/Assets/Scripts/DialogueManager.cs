@@ -20,8 +20,9 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogue;
     public GameObject player_name;
     public GameObject npc_name;
+    SituationsManager situations_manager;
 
-    uint current_dialog_index, current_dialog_size = 0;
+    int current_dialog_index, current_situation_dialogs_size = 0;
 
     //Dialogue texts
     Text dialogue_text;
@@ -41,6 +42,8 @@ public class DialogueManager : MonoBehaviour
         dialogue_text = dialogue.GetComponentInChildren<Text>();
         player_name_text = player_name.GetComponentInChildren<Text>();
         npc_name_text = npc_name.GetComponentInChildren<Text>();
+
+        situations_manager = GameManager.instance.GetComponent<SituationsManager>();
     }
 
     // Update is called once per frame
@@ -58,10 +61,15 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case DIALOGUE_STATE.ENDED:
                     //SetDialogueText(next_text);
-                    if (current_dialog_index >= current_dialog_size)
+                    if (current_dialog_index >= current_situation_dialogs_size)
+                    {
+                        Finish();
+                        state = DIALOGUE_STATE.NONE;
+                    }
+                    else
                     {
                         EndDialogue();
-                        state = DIALOGUE_STATE.NONE;
+                        StartDialogue(situations_manager.current_situation.dialogues[current_dialog_index]);
                     }
                     break;
                 default:
@@ -107,6 +115,8 @@ public class DialogueManager : MonoBehaviour
             npc_name.SetActive(true);
         }
 
+        current_situation_dialogs_size = situations_manager.current_situation.dialogues.Count;
+        current_dialog_index++;
         dialogue.SetActive(true);
         SetDialogueText(d_info.text, d_info.speed);
     }
@@ -117,7 +127,17 @@ public class DialogueManager : MonoBehaviour
             player_name.SetActive(false);
         else if(npc_name.activeSelf)
             npc_name.SetActive(false);
+    }
+
+    void Finish()
+    {
+        if (player_name.activeSelf)
+            player_name.SetActive(false);
+        else if (npc_name.activeSelf)
+            npc_name.SetActive(false);
 
         dialogue.SetActive(false);
+        current_situation_dialogs_size = 0;
+        current_dialog_index = 0;
     }
 }
