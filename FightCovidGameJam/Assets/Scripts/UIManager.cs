@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -15,6 +15,9 @@ public class UIManager : MonoBehaviour
 
     //Dialogue objects
     public Text time_text;
+
+    public GameObject selection_prefab;
+    public GameObject selection_list;
 
     public void SetTimeText(float time)
     {
@@ -44,5 +47,41 @@ public class UIManager : MonoBehaviour
         {
             GameObject.Destroy(verticalTask.transform.GetChild(i).gameObject);
         }
+    }
+
+    internal void CreateSelection(SituationsManager.SelectionChoice selection)
+    {
+        GameObject selection_go = Instantiate(selection_prefab);
+        selection_go.GetComponentInChildren<Text>().text = selection.text;
+
+        if (GameManager.instance.boolean_stats.ContainsKey(selection.bool_requirement.Item1) 
+            && GameManager.instance.boolean_stats[selection.bool_requirement.Item1] != selection.bool_requirement.Item2)
+        {
+            selection_go.GetComponent<Image>().color = Color.gray;
+            selection_go.GetComponent<Button>().interactable = false;
+        }
+        else if (GameManager.instance.int_stats.ContainsKey(selection.int_requirement.Item1) 
+            && GameManager.instance.int_stats[selection.int_requirement.Item1] < selection.int_requirement.Item2)
+        {
+            selection_go.GetComponent<Image>().color = Color.gray;
+            selection_go.GetComponent<Button>().interactable = false;
+        }
+        selection_go.GetComponent<Button>().onClick.AddListener(delegate { OnSelection(selection); });
+    }
+
+    private void OnSelection(SituationsManager.SelectionChoice selection)
+    {
+        foreach (var item in selection.int_effects)
+        {
+            GameManager.instance.int_stats[item.Item1] += item.Item2;
+        }
+
+        foreach (var item in selection.bool_effects)
+        {
+            GameManager.instance.boolean_stats[item.Item1] = item.Item2;
+        }
+
+        //GameManager.instance.situations_manager.OnStepFinish(); end dialogue does it for now
+        GameManager.instance.dialogue_manager.EndDialogue();
     }
 }

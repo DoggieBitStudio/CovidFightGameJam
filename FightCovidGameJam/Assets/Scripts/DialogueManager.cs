@@ -167,7 +167,7 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
         if (player_name.activeSelf)
             player_name.SetActive(false);
