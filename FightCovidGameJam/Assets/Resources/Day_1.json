@@ -3,15 +3,17 @@
     {
       "identifier": "Day1_News",
       "activation_time": 8,
-      "duration": 0.30,
-      "dialogues": [
+      "duration": 0.50,
+      "sequence": [
         {
+          "type": "Dialogue",
           "text": "sample text",
           "name": "Pepe",
           "animation": "Talk",
           "speed": 5.0
         },
         {
+          "type": "Dialogue",
           "text": "sample text",
           "name": "Pepe",
           "animation": "Talk",
@@ -22,87 +24,54 @@
     {
       "identifier": "Walk_Dog",
       "activation_time": 10,
-      "actions": [
+      "sequence": [
         {
-          "name": "Walk_Type",
-          "type": "Selection"
-        },
-        {
-          "name": "Bathroom_Preparation",
-          "type": "Custom"
-        }
-      ],
-      "dialogues": [
-        {
+          "type": "Dialogue",
           "text": "sample text",
           "name": "Pepe",
           "animation": "Talk",
           "speed": 5.0
         },
         {
-          "text": "sample text",
-          "name": "Pepe",
-          "animation": "Talk",
-          "speed": 5.0
-        }
-      ]
-    },
-    {
-      "identifier": "Shopping",
-      "activation_time": 10,
-      "duration": 1,
-      "actions": [
-        {
-          "name": "Shopping_List",
-          "type": "Custom"
+          "type": "Selection",
+          "options": [
+            {
+              "text": "Salir a que haga sus necesidades",
+              "stat_requirement": {
+                "stat": "Positivism",
+                "value": 5
+              },
+              "time_investment": 0.3
+            },
+            {
+              "text": "Salir y aprovechar para pasear un rato",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                }
+              ],
+              "time_investment": 1.0
+            },
+            {
+              "text": "Salir y aprovechar para hacer ejercicio",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                }
+              ],
+              "time_investment": 1.0
+            }
+          ]
         },
         {
-          "name": "Bathroom_Preparation",
-          "type": "Custom"
-        }
-      ],
-      "dialogues": [
-        {
-          "text": "sample text",
-          "name": "Pepe",
-          "animation": "Talk",
-          "speed": 5.0
-        },
-        {
-          "text": "sample text",
-          "name": "Pepe",
-          "animation": "Talk",
-          "speed": 5.0
-        }
-      ]
-    },
-
-    {
-      "identifier": "Neighbour_Visit",
-      "activation_time": 10,
-      "duration": 1,
-      "actions": [
-        {
-          "name": "Shopping_List",
-          "type": "Custom"
-        },
-        {
-          "name": "Bathroom_Preparation",
-          "type": "Custom"
-        }
-      ],
-      "dialogues": [
-        {
-          "text": "sample text",
-          "name": "Pepe",
-          "animation": "Talk",
-          "speed": 5.0
-        },
-        {
-          "text": "sample text",
-          "name": "Pepe",
-          "animation": "Talk",
-          "speed": 5.0
+          "type": "Action",
+          "name": "Bathroom_Preparation"
         }
       ]
     }

@@ -20,14 +20,35 @@ public class DialogueManager : MonoBehaviour
     public GameObject dialogue;
     public GameObject player_name;
     public GameObject npc_name;
-    SituationsManager situations_manager;
-
-    int current_dialog_index, current_situation_dialogs_size = 0;
 
     //Dialogue texts
     Text dialogue_text;
     Text player_name_text;
     Text npc_name_text;
+
+    public Transform player_model_position, npc_model_position;
+
+    //Dialogue Characters
+    [System.Serializable]
+    public struct CharacterModel
+    {
+        public string name;
+        public GameObject prefab;
+    }
+
+    public CharacterModel[] dialogue_models;
+
+    GameObject FindPrefab(string _name)
+    {
+        foreach (CharacterModel cm in dialogue_models)
+        {
+            if (cm.name == _name)
+            {
+                return cm.prefab;
+            }
+        }
+        return null;
+    }
 
     enum DIALOGUE_STATE { NONE, TWEENING, ENDED };
     DIALOGUE_STATE state = DIALOGUE_STATE.NONE;
@@ -42,8 +63,6 @@ public class DialogueManager : MonoBehaviour
         dialogue_text = dialogue.GetComponentInChildren<Text>();
         player_name_text = player_name.GetComponentInChildren<Text>();
         npc_name_text = npc_name.GetComponentInChildren<Text>();
-
-        situations_manager = GameManager.instance.GetComponent<SituationsManager>();
     }
 
     // Update is called once per frame
@@ -60,17 +79,8 @@ public class DialogueManager : MonoBehaviour
                     state = DIALOGUE_STATE.ENDED;
                     break;
                 case DIALOGUE_STATE.ENDED:
-                    //SetDialogueText(next_text);
-                    if (current_dialog_index >= current_situation_dialogs_size)
-                    {
-                        Finish();
-                        state = DIALOGUE_STATE.NONE;
-                    }
-                    else
-                    {
                         EndDialogue();
-                        StartDialogue(situations_manager.current_situation.dialogues[current_dialog_index]);
-                    }
+                        state = DIALOGUE_STATE.NONE;
                     break;
                 default:
                     break;
@@ -102,8 +112,10 @@ public class DialogueManager : MonoBehaviour
         state = DIALOGUE_STATE.ENDED;
     }
 
-    void StartDialogue(DialogueInfo d_info)
+    public void StartDialogue(JSONObject d_json)
     {
+        DialogueInfo d_info = JsonUtility.FromJson<DialogueInfo>(d_json.ToString());
+
         if (d_info.player)
         {
             player_name.SetActive(true);
@@ -115,21 +127,14 @@ public class DialogueManager : MonoBehaviour
             npc_name.SetActive(true);
         }
 
-        current_situation_dialogs_size = situations_manager.current_situation.dialogues.Count;
-        current_dialog_index++;
+        Instantiate(FindPrefab(d_info.name), player_model_position, true);
         dialogue.SetActive(true);
         SetDialogueText(d_info.text, d_info.speed);
+
+        
     }
 
     void EndDialogue()
-    {
-        if (player_name.activeSelf)
-            player_name.SetActive(false);
-        else if(npc_name.activeSelf)
-            npc_name.SetActive(false);
-    }
-
-    void Finish()
     {
         if (player_name.activeSelf)
             player_name.SetActive(false);
@@ -137,7 +142,14 @@ public class DialogueManager : MonoBehaviour
             npc_name.SetActive(false);
 
         dialogue.SetActive(false);
-        current_situation_dialogs_size = 0;
-        current_dialog_index = 0;
+        RemoveModelPrefabs();
+    }
+
+    void RemoveModelPrefabs()
+    {
+        if(player_model_position.childCount > 0)
+            Destroy(player_model_position.GetChild(0));
+        else if (npc_model_position.childCount > 0)
+            Destroy(npc_model_position.GetChild(0));
     }
 }
