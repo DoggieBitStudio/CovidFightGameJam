@@ -32,12 +32,11 @@ public class UIManager : MonoBehaviour
         
     }
 
-    public void RealizeAction(uint time, int health, int positivism, int mask)
+    public void RealizeAction(uint time, int health, int positivism)
     {
         GameManager.instance.AdvanceTime(time);
         GameManager.instance.AddPositivism(positivism);
         GameManager.instance.AddHealth(health);
-        GameManager.instance.mask += mask;
     }
 
     public void CloseTask()
@@ -57,34 +56,41 @@ public class UIManager : MonoBehaviour
         GameObject selection_go = Instantiate(selection_prefab);
         selection_go.GetComponentInChildren<Text>().text = selection.text;
 
-        if (GameManager.instance.boolean_stats.ContainsKey(selection.bool_requirement.Item1) 
-            && GameManager.instance.boolean_stats[selection.bool_requirement.Item1] != selection.bool_requirement.Item2)
+        if (GameManager.instance.boolean_stats.ContainsKey(selection.bool_requirement.stat) 
+            && GameManager.instance.boolean_stats[selection.bool_requirement.stat] != selection.bool_requirement.value)
         {
             selection_go.GetComponent<Image>().color = Color.gray;
             selection_go.GetComponent<Button>().interactable = false;
         }
-        else if (GameManager.instance.int_stats.ContainsKey(selection.int_requirement.Item1) 
-            && GameManager.instance.int_stats[selection.int_requirement.Item1] < selection.int_requirement.Item2)
+        else if (GameManager.instance.int_stats.ContainsKey(selection.int_requirement.stat) 
+            && GameManager.instance.int_stats[selection.int_requirement.stat] < selection.int_requirement.value)
         {
             selection_go.GetComponent<Image>().color = Color.gray;
             selection_go.GetComponent<Button>().interactable = false;
         }
         selection_go.GetComponent<Button>().onClick.AddListener(delegate { OnSelection(selection); });
+
+        selection_go.transform.SetParent(selection_list.transform, false);
     }
 
     private void OnSelection(SituationsManager.SelectionChoice selection)
     {
         foreach (var item in selection.int_effects)
         {
-            GameManager.instance.int_stats[item.Item1] += item.Item2;
+            GameManager.instance.int_stats[item.stat] += item.value;
         }
 
         foreach (var item in selection.bool_effects)
         {
-            GameManager.instance.boolean_stats[item.Item1] = item.Item2;
+            GameManager.instance.boolean_stats[item.stat] = item.value;
         }
 
         //GameManager.instance.situations_manager.OnStepFinish(); end dialogue does it for now
         GameManager.instance.dialogue_manager.EndDialogue();
+
+        foreach (Transform child in selection_list.transform)
+        {
+            Destroy(child.gameObject);
+        }
     }
 }

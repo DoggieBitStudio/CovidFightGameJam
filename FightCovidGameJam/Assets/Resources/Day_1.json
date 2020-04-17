@@ -20,6 +20,43 @@
           "name": "Presentador",
           "animation": "Talk",
           "speed": 5.0
+        },
+        {
+          "type": "Selection",
+          "options": [
+            {
+              "text": "Salir a que haga sus necesidades.",
+              "stat_requirement": {
+                "stat": "Positivism",
+                "value": 50
+              },
+              "time_investment": 20
+            },
+            {
+              "text": "Salir y aprovechar para pasear un rato",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                }
+              ],
+              "time_investment": 60
+            },
+            {
+              "text": "Salir y aprovechar para hacer ejercicio",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                }
+              ],
+              "time_investment": 120
+            }
+          ]
         }
       ]
     },

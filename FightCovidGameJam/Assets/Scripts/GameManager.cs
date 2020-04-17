@@ -7,13 +7,22 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [System.Serializable]
+    public struct Stat<T>
+    {
+        public string stat;
+        public T value;
+
+        public Stat(string stat, T value)
+        {
+            this.stat = stat;
+            this.value = value;
+        }
+
+    }
     public Dictionary<string, int> int_stats;
     public Dictionary<string, bool> boolean_stats;
 
-    public int health = 5;
-    public int positivism = 50;
-    public int mask = 1;
-    public bool infection = false;
     public float time = 8.0f;
 
     public SituationsManager situations_manager;
@@ -30,6 +39,23 @@ public class GameManager : MonoBehaviour
             situations_manager = GetComponent<SituationsManager>();
             dialogue_manager = GetComponent<DialogueManager>();
             ui_manager = GetComponent<UIManager>();
+
+            int_stats = new Dictionary<string, int>();
+            boolean_stats = new Dictionary<string, bool>();
+
+            int_stats.Add("Health", 5);
+            int_stats.Add("Positivism", 50);
+
+            boolean_stats.Add("Mask", true);
+            boolean_stats.Add("Mask_Crafted", false);
+            boolean_stats.Add("Door", false);
+            boolean_stats.Add("Infection", false);
+            boolean_stats.Add("Badly_Washed", false);
+            boolean_stats.Add("Gel", false);
+            boolean_stats.Add("Clap", false);
+            boolean_stats.Add("Shop", false);
+            boolean_stats.Add("Plant", false);
+            boolean_stats.Add("Went_Out", false);
         }
         else
             Destroy(gameObject);
@@ -57,15 +83,11 @@ public class GameManager : MonoBehaviour
 
     public void AddPositivism(int p)
     {
-        positivism += p;
-        if (positivism < 0)
-            positivism = 0;
+        instance.int_stats["Positivism"] += p;
     }
 
     public void AddHealth(int h)
     {
-        health += h;
-        if (health < 0)
-            health = 0;
+        instance.int_stats["Health"] += h;
     }
 }

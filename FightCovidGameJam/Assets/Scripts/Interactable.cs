@@ -12,7 +12,6 @@ public class Interactable : MonoBehaviour
         public uint time;
         public int health;
         public int positivism;
-        public int mask;
     }
 
     List<InteractableOptions> interactableOptions;
@@ -60,7 +59,7 @@ public class Interactable : MonoBehaviour
             task = Instantiate(uiManager.buttonTask);
             task.GetComponentInChildren<Text>().text = interactable.optionText;
             task.transform.SetParent(uiManager.verticalTask.transform);
-            task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.RealizeAction(interactable.time, interactable.health, interactable.positivism, interactable.mask); });
+            task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.RealizeAction(interactable.time, interactable.health, interactable.positivism); });
         }
 
         //Set Close button
