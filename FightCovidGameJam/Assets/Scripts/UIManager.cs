@@ -25,11 +25,12 @@ public class UIManager : MonoBehaviour
         time_text.text = time.ToString();
     }
 
-    public void RealizeAction()
+    public void RealizeAction(uint time, int health, int positivism, int mask)
     {
-        //gameManager.AdvanceTime();
-        //gameManager.positivism += ;
-        //gameManager.health += ;
+        gameManager.AdvanceTime(time);
+        gameManager.AddPositivism(positivism);
+        gameManager.AddHealth(health);
+        gameManager.mask += mask;
     }
 
     public void CloseTask()
