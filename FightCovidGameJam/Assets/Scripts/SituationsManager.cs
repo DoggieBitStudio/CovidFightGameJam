@@ -46,7 +46,7 @@ public class SituationsManager : MonoBehaviour
     void OnSituationEnd()
     {
         completed_today++;
-        GameManager.instance.AdvanceTime(current_situation.duration);
+        GameManager.instance.AdvanceTime(current_situation.duration / 60);
 
         StartNextSituation();
     }
