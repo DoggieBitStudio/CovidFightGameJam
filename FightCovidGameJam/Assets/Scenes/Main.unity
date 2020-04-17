@@ -2329,6 +2329,8 @@ MonoBehaviour:
     type: 3}
   isTaskMenuOpen: 0
   time_text: {fileID: 1777719103}
+  selection_prefab: {fileID: 0}
+  selection_list: {fileID: 0}
 --- !u!1001 &4101660882866740468
 PrefabInstance:
   m_ObjectHideFlags: 0
