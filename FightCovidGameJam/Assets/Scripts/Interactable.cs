@@ -24,13 +24,11 @@ public class Interactable : MonoBehaviour
         JSONObject json = new JSONObject(json_file.text);
 
         JSONObject interactable_json = json.GetField(gameObject.name);
-        Debug.Log(interactable_json);
 
         foreach (JSONObject j in interactable_json.list)
         {
             InteractableOptions interactable = JsonUtility.FromJson<InteractableOptions>(j.ToString());
             interactableOptions.Add(interactable);
-            Debug.Log(interactable.optionText);
         }
     }
 
