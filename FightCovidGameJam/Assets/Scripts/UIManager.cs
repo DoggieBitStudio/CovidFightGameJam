@@ -16,11 +16,6 @@ public class UIManager : MonoBehaviour
     //Dialogue objects
     public Text time_text;
 
-    void Start()
-    {
-        time_text = time.GetComponent<Text>();
-    }
-
     public void SetTimeText(float time)
     {
         time_text.text = time.ToString("0#.00");
