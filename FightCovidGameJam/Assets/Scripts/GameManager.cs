@@ -1,10 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public Dictionary<string, int> int_stats;
+    public Dictionary<string, bool> boolean_stats;
 
     public int health = 5;
     public int positivism = 50;

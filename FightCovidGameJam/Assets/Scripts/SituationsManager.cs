@@ -12,6 +12,19 @@ public class SituationsManager : MonoBehaviour
     Situation current_situation;
     int completed_today = 0;
 
+    [System.Serializable]
+    public struct SelectionChoice
+    {
+        public string text;
+        public float time_investment;
+
+        public System.Tuple<string, int> int_requirement;
+        public System.Tuple<string, bool> bool_requirement;
+
+        public List<System.Tuple<string, int>> int_effects;
+        public List<System.Tuple<string, bool>> bool_effects;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +47,9 @@ public class SituationsManager : MonoBehaviour
     {
         current_situation.current_step++;
         if(current_situation.current_step < current_situation.sequence.Count())
-        {
             StartStep();
-        }
         else
-        {
             OnSituationEnd();
-        }
     }
 
     void OnSituationEnd()
@@ -88,6 +97,29 @@ public class SituationsManager : MonoBehaviour
 
     void CreateSelection()
     {
+        JSONObject options = current_situation.sequence[current_situation.current_step].Item2.GetField("options");
+        foreach (JSONObject j_option in options.list)
+        {
+            SelectionChoice selection = JsonUtility.FromJson<SelectionChoice>(j_option.ToString());
+            JSONObject stat_requirement = j_option.GetField("stat_requirement");
+            if(stat_requirement)
+            {
+                if (stat_requirement.GetField("value").IsBool)
+                    selection.bool_requirement = JsonUtility.FromJson<System.Tuple<string, bool>>(stat_requirement.ToString());
+                else
+                    selection.int_requirement = JsonUtility.FromJson<System.Tuple<string, int>>(stat_requirement.ToString());
+            }
+            JSONObject effects = j_option.GetField("effect");
+            foreach(JSONObject j_eff in effects.list)
+            {
+                if (j_eff.GetField("value").IsBool)
+                    selection.bool_effects.Add(JsonUtility.FromJson<System.Tuple<string, bool>>(j_eff.ToString()));
+                else
+                    selection.int_effects.Add(JsonUtility.FromJson<System.Tuple<string, int>>(j_eff.ToString()));
+            }
+
+            GameManager.instance.ui_manager.CreateSelection(selection);
+        }
         
     }
 
