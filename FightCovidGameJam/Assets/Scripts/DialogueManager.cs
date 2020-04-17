@@ -88,7 +88,13 @@ public class DialogueManager : MonoBehaviour
                     state = DIALOGUE_STATE.ENDED;
                     break;
                 case DIALOGUE_STATE.ENDED:
-                    EndDialogue();
+                    if (!GameManager.instance.situations_manager.IsNextStepSelection())
+                        EndDialogue();
+                    else
+                    {
+                        GameManager.instance.situations_manager.OnStepFinish();
+                        state = DIALOGUE_STATE.NONE;
+                    }
                     break;
                 default:
                     break;
@@ -109,7 +115,13 @@ public class DialogueManager : MonoBehaviour
                     state = DIALOGUE_STATE.ENDED;
                     break;
                 case DIALOGUE_STATE.ENDED:
-                    EndDialogue();
+                    if(!GameManager.instance.situations_manager.IsNextStepSelection())
+                        EndDialogue();
+                    else
+                    {
+                        GameManager.instance.situations_manager.OnStepFinish();
+                        state = DIALOGUE_STATE.NONE;
+                    }            
                     break;
                 default:
                     break;
@@ -165,6 +177,8 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
+        Debug.Log("end dialogue");
+
         if (player_name.activeSelf)
             player_name.SetActive(false);
         else if (npc_name.activeSelf)
@@ -173,6 +187,7 @@ public class DialogueManager : MonoBehaviour
         dialogue.SetActive(false);
         RemoveModelPrefabs();
 
+        state = DIALOGUE_STATE.NONE;
         GameManager.instance.situations_manager.OnStepFinish();
     }
 
