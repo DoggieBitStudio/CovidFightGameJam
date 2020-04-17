@@ -1590,7 +1590,6 @@ GameObject:
   - component: {fileID: 1987264714}
   - component: {fileID: 1987264713}
   - component: {fileID: 1987264712}
-  - component: {fileID: 1987264711}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1598,22 +1597,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1987264711
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987264710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a544a463a2e499b4d8026f848739ee02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: {fileID: 92363222}
-  player_name: {fileID: 719758991}
-  npc_name: {fileID: 544973692}
-  time: {fileID: 1777719101}
 --- !u!114 &1987264712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1994,6 +1977,8 @@ GameObject:
   - component: {fileID: 2137604750}
   - component: {fileID: 2137604749}
   - component: {fileID: 2137604748}
+  - component: {fileID: 2137604752}
+  - component: {fileID: 2137604751}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2013,6 +1998,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c834fac4625272349a10e66aaa88a3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current_situation:
+    identifier: 
+    dialogues: []
 --- !u!114 &2137604749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2043,3 +2031,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2137604751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137604747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a544a463a2e499b4d8026f848739ee02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  verticalTask: {fileID: 0}
+  buttonTask: {fileID: 0}
+  isTaskMenuOpen: 0
+  time: {fileID: 1286249060}
+--- !u!114 &2137604752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137604747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b70914d220708648b13631a492bb3bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 92363222}
+  player_name: {fileID: 719758991}
+  npc_name: {fileID: 544973692}
