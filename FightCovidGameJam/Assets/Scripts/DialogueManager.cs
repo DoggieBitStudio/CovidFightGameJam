@@ -112,8 +112,10 @@ public class DialogueManager : MonoBehaviour
         state = DIALOGUE_STATE.ENDED;
     }
 
-    void StartDialogue(DialogueInfo d_info)
+    public void StartDialogue(JSONObject d_json)
     {
+        DialogueInfo d_info = JsonUtility.FromJson<DialogueInfo>(d_json.ToString());
+
         if (d_info.player)
         {
             player_name.SetActive(true);

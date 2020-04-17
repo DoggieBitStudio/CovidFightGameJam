@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public float time = 8.0f;
 
     public SituationsManager situations_manager;
+    public DialogueManager dialogue_manager;
+    public UIManager ui_manager;
 
     private void Awake()
     {
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         situations_manager = GetComponent<SituationsManager>();
+        dialogue_manager = GetComponent<DialogueManager>();
+        ui_manager = GetComponent<UIManager>();
     }
 
     public void AdvanceTime()

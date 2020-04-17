@@ -38,21 +38,31 @@ public class SituationsManager : MonoBehaviour
         {
             Situation situation = JsonUtility.FromJson<Situation>(situation_json.ToString());
 
-            situation_json.GetField("dialogues", delegate (JSONObject dialogues)
+            situation_json.GetField("sequence", delegate (JSONObject sequence)
             {
-                foreach (JSONObject dialogue_json in dialogues.list)
+                foreach (JSONObject packet in sequence.list)
                 {
-                    DialogueManager.DialogueInfo dialogue_info = JsonUtility.FromJson<DialogueManager.DialogueInfo>(dialogue_json.ToString());
-                    situation.dialogues.Add(dialogue_info);
+                    string type = packet.GetField("type").ToString();
+                    Situation.PacketType packet_type = Situation.PacketType.NONE;
+
+                    if (type == "Dialogue")
+                        packet_type = Situation.PacketType.DIALOGUE;
+                    else if (type == "Action")
+                        packet_type = Situation.PacketType.ACTION;
+                    else if (type == "Selection")
+                        packet_type = Situation.PacketType.SELECTION;
+
+                    situation.sequence.Add(packet_type, packet);
                 }
             }, delegate (string name)
             {
-                Debug.LogWarning("No dialogues found on " + situation.identifier);
+                Debug.LogWarning("No sequence found on " + situation.identifier);
             });
 
             day_situations.Add(situation);
         }
 
         current_situation = day_situations[0];
+        GameManager.instance.dialogue_manager.StartDialogue(current_situation.sequence[0]);
     }
 }
