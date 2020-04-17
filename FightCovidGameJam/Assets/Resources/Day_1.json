@@ -7,15 +7,17 @@
       "sequence": [
         {
           "type": "Dialogue",
-          "text": "sample text",
-          "name": "Pepe",
+          "text": "El marc come ojete muy biendsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+          "player":  false,
+          "name": "Mi pene",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 20.0
         },
         {
           "type": "Dialogue",
           "text": "sample text",
           "name": "Pepe",
+          "player": false,
           "animation": "Talk",
           "speed": 5.0
         }
