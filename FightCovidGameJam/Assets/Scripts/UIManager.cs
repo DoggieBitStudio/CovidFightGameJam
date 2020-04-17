@@ -7,7 +7,6 @@ using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
-    GameManager gameManager;
     //Task
     public GameObject verticalTask;
     public GameObject buttonTask;
@@ -15,30 +14,29 @@ public class UIManager : MonoBehaviour
     public bool isTaskMenuOpen = false;
 
     //Dialogue objects
-    public GameObject time;
-
-    //Dialogue texts
-    Text time_text;
+    public Text time_text;
 
     void Start()
     {
-        gameManager = GetComponent<GameManager>();
         time_text = time.GetComponent<Text>();
     }
 
     public void SetTimeText(float time)
     {
-        //time_text.text = time.ToString();
+        time_text.text = time.ToString("0#.00");
+    }
+
+    public void Start()
+    {
+        
     }
 
     public void RealizeAction(uint time, int health, int positivism, int mask)
     {
-        gameManager.AdvanceTime(time);
-        gameManager.AddPositivism(positivism);
-        gameManager.AddHealth(health);
-        gameManager.mask += mask;
-
-        CloseTask();
+        GameManager.instance.AdvanceTime(time);
+        GameManager.instance.AddPositivism(positivism);
+        GameManager.instance.AddHealth(health);
+        GameManager.instance.mask += mask;
     }
 
     public void CloseTask()

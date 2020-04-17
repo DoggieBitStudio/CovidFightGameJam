@@ -9,14 +9,13 @@ public class Situation
     public List<Action> actions;
     public string identifier;
     public float activation_time;
-
+    public float duration;
     public int current_step = 0;
 
     Situation()
     {
         sequence = new List<System.Tuple<PacketType, JSONObject>>();
     }
-
     public enum PacketType{
         NONE = -1,
         DIALOGUE,

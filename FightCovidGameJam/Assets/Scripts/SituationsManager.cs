@@ -9,7 +9,8 @@ public class SituationsManager : MonoBehaviour
     List<Situation> completed_situations;
     List<Situation> day_situations;
 
-    public Situation current_situation;
+    Situation current_situation;
+    int completed_today = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -36,7 +37,29 @@ public class SituationsManager : MonoBehaviour
         {
             StartStep();
         }
+        else
+        {
+            OnSituationEnd();
+        }
     }
+
+    void OnSituationEnd()
+    {
+        completed_today++;
+        GameManager.instance.AdvanceTime(current_situation.duration);
+
+        StartNextSituation();
+    }
+
+    public void StartNextSituation()
+    {
+        if (completed_today < day_situations.Count() && day_situations[completed_today].activation_time <= GameManager.instance.time)
+        {
+            current_situation = day_situations[completed_today];
+            StartStep();
+        }
+    }
+
     void StartStep()
     {
         switch (current_situation.sequence[current_situation.current_step].Item1)
@@ -90,7 +113,7 @@ public class SituationsManager : MonoBehaviour
             day_situations.Add(situation);
         }
 
-        current_situation = day_situations[0];
+        current_situation = day_situations[completed_today];
         StartStep();
     }
 }

@@ -33,13 +33,15 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        ui_manager.SetTimeText(time);
     }
 
     public void AdvanceTime(float t)
     {
         time += t;
-        uiManager.SetTimeText(time);
+        ui_manager.SetTimeText(time);
+
+        situations_manager.StartNextSituation();
     }
 
     // Update is called once per frame
