@@ -1,0 +1,56 @@
+{
+  "options": [
+    {
+      "text": "Comida y bebida",
+      "effect": [
+        {
+          "stat": "Shop",
+          "value": true
+        }
+      ]
+    },
+    {
+      "text": "Comprar algún capricho",
+      "effect": [
+        {
+          "stat": "Health",
+          "value": -1
+        },
+        {
+          "stat": "Positivism",
+          "value": 1
+        }
+      ],
+      "time_investment": 10
+    },
+    {
+      "text": "Papel higiénico",
+      "effect": [
+        {
+          "stat": "Positivism",
+          "value": 1
+        }
+      ],
+      "time_investment": 10
+    },
+    {
+      "text": "Gel Desinfectante",
+      "effect": [
+        {
+          "stat": "Gel",
+          "value": true
+        }
+      ],
+      "time_investment": 10
+    },
+    {
+      "text": "No hace falta comprar nada",
+      "stat_requirement": [
+        {
+          "stat": "Shop",
+          "value": true
+        }
+      ]
+    }
+  ]
+}
