@@ -2,6 +2,8 @@
   "Situations": [
     {
       "identifier": "Day1_News",
+      "activation_time": 8,
+      "duration": 0.30,
       "dialogues": [
         {
           "text": "sample text",
@@ -18,7 +20,91 @@
       ]
     },
     {
-      "identifier": "Take_Ruffus_Out"
+      "identifier": "Walk_Dog",
+      "activation_time": 10,
+      "actions": [
+        {
+          "name": "Walk_Type",
+          "type": "Selection"
+        },
+        {
+          "name": "Bathroom_Preparation",
+          "type": "Custom"
+        }
+      ],
+      "dialogues": [
+        {
+          "text": "sample text",
+          "name": "Pepe",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "text": "sample text",
+          "name": "Pepe",
+          "animation": "Talk",
+          "speed": 5.0
+        }
+      ]
+    },
+    {
+      "identifier": "Shopping",
+      "activation_time": 10,
+      "duration": 1,
+      "actions": [
+        {
+          "name": "Shopping_List",
+          "type": "Custom"
+        },
+        {
+          "name": "Bathroom_Preparation",
+          "type": "Custom"
+        }
+      ],
+      "dialogues": [
+        {
+          "text": "sample text",
+          "name": "Pepe",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "text": "sample text",
+          "name": "Pepe",
+          "animation": "Talk",
+          "speed": 5.0
+        }
+      ]
+    },
+
+    {
+      "identifier": "Neighbour_Visit",
+      "activation_time": 10,
+      "duration": 1,
+      "actions": [
+        {
+          "name": "Shopping_List",
+          "type": "Custom"
+        },
+        {
+          "name": "Bathroom_Preparation",
+          "type": "Custom"
+        }
+      ],
+      "dialogues": [
+        {
+          "text": "sample text",
+          "name": "Pepe",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "text": "sample text",
+          "name": "Pepe",
+          "animation": "Talk",
+          "speed": 5.0
+        }
+      ]
     }
   ]
 }

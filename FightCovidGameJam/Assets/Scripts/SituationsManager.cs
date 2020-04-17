@@ -23,6 +23,11 @@ public class SituationsManager : MonoBehaviour
         
     }
 
+    public void CompleteAction(string identifier)
+    {
+        current_situation.CompleteAction(identifier);
+    }
+
     public void LoadSituations(string identifier)
     {
         TextAsset json_file = Resources.Load(identifier) as TextAsset;

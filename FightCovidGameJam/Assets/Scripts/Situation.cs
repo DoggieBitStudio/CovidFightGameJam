@@ -5,9 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class Situation
 {
-    //List<Action> actions;
-    public string identifier;
-    public bool Finished_Properly { get; set; }
+    /*public struct Action
+    {
+        public string name;
+        public float time;
+        bool completed;
+    }*/
 
+    public List<string> actions;
+    public string identifier;
+    public float activation_time;
+
+    public bool Finished_Properly { get; set; }
     public List<DialogueManager.DialogueInfo> dialogues;
 }
