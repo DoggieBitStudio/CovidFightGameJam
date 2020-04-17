@@ -1569,7 +1569,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20:00
+  m_Text: 
 --- !u!222 &1777719104
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2100,7 +2100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2137604750}
   - component: {fileID: 2137604749}
-  - component: {fileID: 2137604751}
   - component: {fileID: 2137604748}
   - component: {fileID: 2137604753}
   - component: {fileID: 2137604752}
@@ -2123,12 +2122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c834fac4625272349a10e66aaa88a3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  current_situation:
-    actions: []
-    identifier: 
-    activation_time: 0
-    current_step: 0
-    dialogues: []
 --- !u!114 &2137604749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2162,25 +2155,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2137604751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2137604747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a544a463a2e499b4d8026f848739ee02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  verticalTask: {fileID: 6192015098505411543, guid: 2c27ce69bf83c3d439f1875c3069b7cf,
-    type: 3}
-  buttonTask: {fileID: 1346616340744108985, guid: 4dd7ad240ad2ee74a8f394e839d6b519,
-    type: 3}
-  closeButton: {fileID: 0}
-  isTaskMenuOpen: 0
-  time: {fileID: 1286249060}
 --- !u!114 &2137604752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2217,7 +2191,7 @@ MonoBehaviour:
   closeButton: {fileID: 7423812811004781316, guid: f4f52e9322e18544788342e8f3302dc9,
     type: 3}
   isTaskMenuOpen: 0
-  time: {fileID: 0}
+  time_text: {fileID: 1777719103}
 --- !u!1001 &4101660882866740468
 PrefabInstance:
   m_ObjectHideFlags: 0

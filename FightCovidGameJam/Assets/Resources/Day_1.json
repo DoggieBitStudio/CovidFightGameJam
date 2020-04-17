@@ -3,7 +3,7 @@
     {
       "identifier": "Day1_News",
       "activation_time": 8,
-      "duration": 0.50,
+      "duration": 0.5,
       "sequence": [
         {
           "type": "Dialogue",
@@ -29,7 +29,7 @@
       "sequence": [
         {
           "type": "Dialogue",
-          "text": "sample text",
+          "text": "Perro",
           "name": "Pepe",
           "animation": "Talk",
           "speed": 5.0
