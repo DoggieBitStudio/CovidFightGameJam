@@ -2270,14 +2270,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47d313fcca986ee4f9ce66de90129704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  positivism: 5
-  mask: 1
-  infection: 0
   time: 8
   situations_manager: {fileID: 0}
   dialogue_manager: {fileID: 0}
   ui_manager: {fileID: 0}
+  action_manager: {fileID: 0}
 --- !u!4 &2137604750
 Transform:
   m_ObjectHideFlags: 0
@@ -2343,6 +2340,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Television
+      objectReference: {fileID: 0}
+    - target: {fileID: 6918692340082599092, guid: 5a741ede54ea2994fb18f779c47204de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8943727525961984000, guid: 5a741ede54ea2994fb18f779c47204de,
         type: 3}
