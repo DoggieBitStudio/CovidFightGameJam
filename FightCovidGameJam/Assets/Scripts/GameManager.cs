@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public SituationsManager situations_manager;
     public DialogueManager dialogue_manager;
     public UIManager ui_manager;
+    public ActionManager action_manager;
 
     private void Awake()
     {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
             situations_manager = GetComponent<SituationsManager>();
             dialogue_manager = GetComponent<DialogueManager>();
             ui_manager = GetComponent<UIManager>();
+            action_manager = GetComponent<ActionManager>();
         }
         else
             Destroy(gameObject);
