@@ -31,12 +31,16 @@ public class UIManager : MonoBehaviour
     {
         
     }
-
-    public void RealizeAction(uint time, int health, int positivism)
+    public void RealizeAction(int action, uint time, int health, int positivism)
     {
         GameManager.instance.AdvanceTime(time);
+
         GameManager.instance.AddPositivism(positivism);
         GameManager.instance.AddHealth(health);
+
+        GameManager.instance.action_manager.DoAction(action);
+
+        CloseTask();
     }
 
     public void CloseTask()

@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     public SituationsManager situations_manager;
     public DialogueManager dialogue_manager;
     public UIManager ui_manager;
+    public ActionManager action_manager;
 
     private void Awake()
     {
@@ -56,6 +57,8 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Shop", false);
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
+
+            action_manager = GetComponent<ActionManager>();
         }
         else
             Destroy(gameObject);
