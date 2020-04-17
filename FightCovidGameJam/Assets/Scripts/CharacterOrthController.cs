@@ -27,10 +27,32 @@ public class CharacterOrthController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.touchCount > 0)
+#if UNITY_STANDALONE_WIN
+        StandaloneInput();
+#endif
+
+#if UNITY_ANDROID
+        PhoneInput();
+#endif
+    }
+
+    bool IsWalkable(Vector3 point)
+    {
+        return NavMesh.CalculatePath(transform.position, point, NavMesh.AllAreas, path);
+    }
+
+    void MoveToDestination(Vector3 destination)
+    {
+        agent.SetDestination(destination);
+    }
+
+    void StandaloneInput()
+    {
+        if (Input.GetMouseButtonDown(0))
         {
             //create a ray cast and set it to the mouses cursor position in game
-            Ray ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            Ray ray;
+            ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, distance))
             {
@@ -44,14 +66,24 @@ public class CharacterOrthController : MonoBehaviour
             }
         }
     }
-
-    bool IsWalkable(Vector3 point)
+    void PhoneInput()
     {
-        return NavMesh.CalculatePath(transform.position, point, NavMesh.AllAreas, path);
-    }
-
-    void MoveToDestination(Vector3 destination)
-    {
-        agent.SetDestination(destination);
+        if (Input.touchCount > 0)
+        {
+            //create a ray cast and set it to the mouses cursor position in game
+            Ray ray;
+            ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, distance))
+            {
+                //draw invisible ray cast/vector
+                Debug.DrawLine(ray.origin, hit.point);
+                //log hit area to the console
+                if (IsWalkable(hit.point))
+                    MoveToDestination(hit.point);
+                if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen)
+                    hit.collider.gameObject.GetComponent<Interactable>().OnTap();
+            }
+        }
     }
 }

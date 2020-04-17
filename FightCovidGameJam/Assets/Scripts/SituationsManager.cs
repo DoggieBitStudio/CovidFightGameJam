@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class SituationsManager : MonoBehaviour
@@ -28,6 +29,33 @@ public class SituationsManager : MonoBehaviour
         //current_situation.CompleteAction(identifier);
     }
 
+    public void OnStepFinish()
+    {
+        current_situation.current_step++;
+        if(current_situation.current_step < current_situation.sequence.Count())
+        {
+            StartStep();
+        }
+    }
+    void StartStep()
+    {
+        switch (current_situation.sequence[current_situation.current_step].Item1)
+        {
+            case Situation.PacketType.NONE:
+                break;
+            case Situation.PacketType.DIALOGUE:
+                GameManager.instance.dialogue_manager.StartDialogue(current_situation.sequence[current_situation.current_step].Item2);
+                break;
+            case Situation.PacketType.SELECTION:
+                break;
+            case Situation.PacketType.ACTION:
+                break;
+            default:
+                break;
+        }
+       
+    }
+
     public void LoadSituations(string identifier)
     {
         TextAsset json_file = Resources.Load(identifier) as TextAsset;
@@ -42,17 +70,17 @@ public class SituationsManager : MonoBehaviour
             {
                 foreach (JSONObject packet in sequence.list)
                 {
-                    string type = packet.GetField("type").ToString();
+                    string type = packet.GetField("type").str;
                     Situation.PacketType packet_type = Situation.PacketType.NONE;
 
-                    if (type == "Dialogue")
+                    if (type.Equals("Dialogue"))
                         packet_type = Situation.PacketType.DIALOGUE;
-                    else if (type == "Action")
+                    else if (type.Equals("Action"))
                         packet_type = Situation.PacketType.ACTION;
-                    else if (type == "Selection")
+                    else if (type.Equals("Selection"))
                         packet_type = Situation.PacketType.SELECTION;
 
-                    situation.sequence.Add(packet_type, packet);
+                    situation.sequence.Add(new System.Tuple<Situation.PacketType, JSONObject>(packet_type, packet));
                 }
             }, delegate (string name)
             {
@@ -63,6 +91,6 @@ public class SituationsManager : MonoBehaviour
         }
 
         current_situation = day_situations[0];
-        GameManager.instance.dialogue_manager.StartDialogue(current_situation.sequence[0]);
+        StartStep();
     }
 }
