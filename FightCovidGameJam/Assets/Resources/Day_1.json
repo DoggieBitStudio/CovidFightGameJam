@@ -7,7 +7,7 @@
       "sequence": [
         {
           "type": "Dialogue",
-          "text": "Se decreta el estado de alarma en nuestro país durante los próximos 15 días. Estamos sólo en la primera fase de un combate contra el virus que libran todos los países del mundo.",
+          "text": "Se decreta el <b>estado de alarma</b> en nuestro país durante los próximos 15 días. Estamos sólo en la primera fase de un combate contra el virus que libran todos los países del mundo.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
