@@ -62,7 +62,10 @@ public class CharacterOrthController : MonoBehaviour
                 if (IsWalkable(hit.point) && !uiManager.isTaskMenuOpen)
                     MoveToDestination(hit.point);
                 if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen)
+                {
                     hit.collider.gameObject.GetComponent<Interactable>().OnTap(hit.point);
+                    MoveToDestination(hit.point);
+                }
             }
         }
     }
@@ -82,7 +85,10 @@ public class CharacterOrthController : MonoBehaviour
                 if (IsWalkable(hit.point) && !uiManager.isTaskMenuOpen)
                     MoveToDestination(hit.point);
                 if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen)
+                {
                     hit.collider.gameObject.GetComponent<Interactable>().OnTap(hit.point);
+                    MoveToDestination(hit.point);
+                }
             }
         }
     }

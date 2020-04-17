@@ -1,21 +1,25 @@
 {
   "Television": [
     {
+      "action":  0,
       "optionText": "Ver un episodio en Netflix",
       "time": 0.5,
       "positivism": 2
     },
     {
+      "action": 0,
       "optionText": "Ver una pelicula dominguera",
       "time": 1.5,
       "positivism": 1
     },
     {
+      "action": 1,
       "optionText": "Hacer cardio",
       "time": 0.5,
       "positivism": 1
     },
     {
+      "action": 1,
       "optionText": "Hacer yoga",
       "time": 1,
       "health": 1,
@@ -24,6 +28,7 @@
   ],
   "Shelf": [
     {
+      "action": 2,
       "optionText": "Leer una revista",
       "time": 0.33,
       "positivism": 1
