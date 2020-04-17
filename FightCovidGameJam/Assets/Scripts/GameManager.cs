@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            situations_manager = GetComponent<SituationsManager>();
+            dialogue_manager = GetComponent<DialogueManager>();
+            ui_manager = GetComponent<UIManager>();
         }
         else
             Destroy(gameObject);
@@ -29,9 +33,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        situations_manager = GetComponent<SituationsManager>();
-        dialogue_manager = GetComponent<DialogueManager>();
-        ui_manager = GetComponent<UIManager>();
+
     }
 
     public void AdvanceTime()

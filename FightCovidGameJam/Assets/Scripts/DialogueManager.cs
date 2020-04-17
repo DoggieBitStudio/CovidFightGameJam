@@ -56,7 +56,7 @@ public class DialogueManager : MonoBehaviour
     float base_text_speed = 40.0f;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         DOTween.Init();
 
@@ -79,8 +79,8 @@ public class DialogueManager : MonoBehaviour
                     state = DIALOGUE_STATE.ENDED;
                     break;
                 case DIALOGUE_STATE.ENDED:
-                        EndDialogue();
-                        state = DIALOGUE_STATE.NONE;
+                    EndDialogue();
+                    state = DIALOGUE_STATE.NONE;
                     break;
                 default:
                     break;
@@ -123,11 +123,11 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            SetNPCName(d_info.name);
             npc_name.SetActive(true);
+            SetNPCName(d_info.name);
         }
 
-        Instantiate(FindPrefab(d_info.name), player_model_position, true);
+       // Instantiate(FindPrefab(d_info.name), player_model_position, true);
         dialogue.SetActive(true);
         SetDialogueText(d_info.text, d_info.speed);
 
@@ -143,6 +143,8 @@ public class DialogueManager : MonoBehaviour
 
         dialogue.SetActive(false);
         RemoveModelPrefabs();
+
+        GameManager.instance.situations_manager.OnStepFinish();
     }
 
     void RemoveModelPrefabs()
