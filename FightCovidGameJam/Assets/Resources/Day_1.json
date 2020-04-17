@@ -41,7 +41,7 @@
               "text": "Salir a que haga sus necesidades",
               "stat_requirement": {
                 "stat": "Positivism",
-                "value": 5
+                "value": 50
               },
               "time_investment": 0.3
             },

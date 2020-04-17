@@ -46,9 +46,15 @@ public class Interactable : MonoBehaviour
 
     }
 
-    public void OnTap()
+    public void OnTap(Vector3 hitPos)
     {
+        //Set Title
         GameObject task;
+        task = Instantiate(uiManager.titleTask);
+        task.GetComponentInChildren<Text>().text = gameObject.name;
+        task.transform.SetParent(uiManager.verticalTask.transform);
+
+        //Set options
         foreach (InteractableOptions interactable in interactableOptions)
         {
             task = Instantiate(uiManager.buttonTask);
@@ -57,10 +63,30 @@ public class Interactable : MonoBehaviour
             task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.RealizeAction(interactable.time, interactable.health, interactable.positivism, interactable.mask); });
         }
 
-        task = Instantiate(uiManager.closeButton);
+        //Set Close button
+        task = Instantiate(uiManager.buttonTask);
+        task.GetComponentInChildren<Text>().text = "Mejor hago otra cosa";
         task.transform.SetParent(uiManager.verticalTask.transform);
         task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.CloseTask(); });
 
         uiManager.isTaskMenuOpen = true;
+        uiManager.verticalTask.transform.position = CalculatePositionOffset(Camera.main.WorldToScreenPoint(hitPos));
+        uiManager.verticalTask.SetActive(true);
+    }
+
+    Vector3 CalculatePositionOffset(Vector3 pos)
+    {
+        Vector3 position = pos;
+        if (pos.x < Screen.width * 0.5)
+            position.x += (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.width * 0.5);
+        else
+            position.x -= (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.width * 0.5);
+
+        if (pos.y < Screen.height * 0.5)
+            position.y += (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.height * 0.5);
+        else
+            position.y -= (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.height * 0.5);
+
+        return position;
     }
 }

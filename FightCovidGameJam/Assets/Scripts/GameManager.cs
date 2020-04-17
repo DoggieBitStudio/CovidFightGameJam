@@ -5,16 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    UIManager uiManager;
 
     public int health = 5;
-    public int positivism = 5;
+    public int positivism = 50;
     public int mask = 1;
     public float time = 8.0f;
 
     public SituationsManager situations_manager;
     public DialogueManager dialogue_manager;
-    public UIManager ui_manager;
+    public UIManager uiManager;
 
     private void Awake()
     {
@@ -25,7 +24,7 @@ public class GameManager : MonoBehaviour
 
             situations_manager = GetComponent<SituationsManager>();
             dialogue_manager = GetComponent<DialogueManager>();
-            ui_manager = GetComponent<UIManager>();
+            uiManager = GetComponent<UIManager>();
         }
         else
             Destroy(gameObject);

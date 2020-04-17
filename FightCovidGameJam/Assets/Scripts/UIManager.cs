@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     //Task
     public GameObject verticalTask;
     public GameObject buttonTask;
-    public GameObject closeButton;
+    public GameObject titleTask;
     public bool isTaskMenuOpen = false;
 
     //Dialogue objects
@@ -20,9 +20,15 @@ public class UIManager : MonoBehaviour
     //Dialogue texts
     Text time_text;
 
+    void Start()
+    {
+        gameManager = GetComponent<GameManager>();
+        time_text = time.GetComponent<Text>();
+    }
+
     public void SetTimeText(float time)
     {
-        time_text.text = time.ToString();
+        //time_text.text = time.ToString();
     }
 
     public void RealizeAction(uint time, int health, int positivism, int mask)
@@ -31,11 +37,14 @@ public class UIManager : MonoBehaviour
         gameManager.AddPositivism(positivism);
         gameManager.AddHealth(health);
         gameManager.mask += mask;
+
+        CloseTask();
     }
 
     public void CloseTask()
     {
         isTaskMenuOpen = false;
+        verticalTask.SetActive(false);
 
         var taskCount = verticalTask.transform.childCount;
         for(int i = 0; i < taskCount; ++i)

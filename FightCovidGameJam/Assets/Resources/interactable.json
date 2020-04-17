@@ -1,21 +1,35 @@
 {
   "Television": [
     {
-      "optionText": "Ver una serie muy divertida",
-      "time": 30,
-      "health": 1,
+      "optionText": "Ver un episodio en Netflix",
+      "time": 0.5,
       "positivism": 2
     },
     {
-      "optionText": "Ver una pelicula",
-      "time": 90,
-      "health": 1,
-      "positivism": 2
+      "optionText": "Ver una pelicula dominguera",
+      "time": 1.5,
+      "positivism": 1
     },
     {
-      "optionText": "Ver una pelicula",
-      "time": 90,
+      "optionText": "Hacer cardio",
+      "time": 0.5,
+      "positivism": 1
+    },
+    {
+      "optionText": "Hacer yoga",
+      "time": 1,
       "health": 1,
+      "positivism": 2
+    }
+  ],
+  "Shelf": [
+    {
+      "optionText": "Leer una revista",
+      "time": 0.33,
+      "positivism": 1
+    },
+    {
+      "optionText": "Leer un libro",
       "positivism": 2
     }
   ]
