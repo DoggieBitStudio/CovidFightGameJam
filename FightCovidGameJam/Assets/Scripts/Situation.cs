@@ -5,16 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class Situation
 {
-    /*public struct Action
-    {
-        public string name;
-        public float time;
-        bool completed;
-    }*/
-
-    public List<string> actions;
+    public List<Action> actions;
     public string identifier;
     public float activation_time;
+
+    public enum PacketType{
+        NONE = -1,
+        DIALOGUE,
+        SELECTION,
+        ACTION
+    }
+    public Dictionary<PacketType, JSONObject> sequence;
 
     public bool Finished_Properly { get; set; }
     public List<DialogueManager.DialogueInfo> dialogues;

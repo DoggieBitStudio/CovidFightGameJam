@@ -5,6 +5,7 @@ using UnityEngine;
 public class Action : MonoBehaviour
 {
     float consumed_time;
+    bool completed;
 
     // Start is called before the first frame update
     void Start()
