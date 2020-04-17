@@ -1,36 +1,149 @@
 {
   "Television": [
     {
+      "action":  0,
       "optionText": "Ver un episodio en Netflix",
-      "time": 0.5,
+      "time": 30,
       "positivism": 2
     },
     {
+      "action": 0,
       "optionText": "Ver una pelicula dominguera",
-      "time": 1.5,
+      "time": 90,
       "positivism": 1
     },
     {
+      "action": 1,
       "optionText": "Hacer cardio",
-      "time": 0.5,
+      "time": 30,
       "positivism": 1
     },
     {
+      "action": 1,
       "optionText": "Hacer yoga",
-      "time": 1,
+      "time": 60,
       "health": 1,
       "positivism": 2
     }
   ],
-  "Shelf": [
+  "Estantería": [
     {
+      "action": 2,
       "optionText": "Leer una revista",
-      "time": 0.33,
+      "time": 20,
       "positivism": 1
     },
     {
       "optionText": "Leer un libro",
       "positivism": 2
+    }
+  ],
+  "Sofa": [
+    {
+      "action": 3,
+      "optionText": "Echarse una siesta",
+      "time": 40,
+      "positivism": 1
+    }
+  ],
+  "Puerta": [
+    {
+      "action": 4,
+      "optionText": "Ir a hablar con la vecina",
+      "time": 60,
+      "positivism": 1
+    },
+    {
+      "action": 5,
+      "optionText": "Dar un paseo",
+      "time": 120,
+      "health": -3
+    }
+  ],
+  "Móvil": [
+    {
+      "action": 6,
+      "optionText": "Hacer videollamada con amigos",
+      "time": 60,
+      "positivism": 3
+    },
+    {
+      "action": 6,
+      "optionText": "Hacer videollamada familiar",
+      "time": 30,
+      "positivism": 1
+    },
+    {
+      "action": 7,
+      "optionText": "Hacer compra online",
+      "time": 60,
+      "positivism": 1
+    }
+  ],
+  "Costurero": [
+    {
+      "action": 8,
+      "optionText": "Hacer una mascarilla",
+      "time": 60
+    }
+  ],
+  "Lavadora": [
+    {
+      "action": 9,
+      "optionText": "Lavar mascarilla a 90ºC",
+      "time": 20,
+      "positivism": 1
+    },
+    {
+      "action": 9,
+      "optionText": "Lavar mascarilla a 30ºC",
+      "time": 1.0,
+      "positivism": 1
+    }
+  ],
+  "Basura": [
+    {
+      "action": 10,
+      "optionText": "Sacar la basura",
+      "time": 10,
+      "positivism": 1,
+      "health": -1
+    }
+  ],
+  "Planta": [
+    {
+      "action": 11,
+      "optionText": "Regar las plantas",
+      "time": 5,
+      "positivism": 1
+    }
+  ],
+  "Cocina": [
+    {
+      "action": 12,
+      "optionText": "Comer",
+      "time": 60,
+      "positivism": 1
+    }
+  ],
+  "Lavabo": [
+    {
+      "action": 13,
+      "optionText": "Ir al servicio",
+      "time": 10,
+      "positivism": 1
+    },
+    {
+      "action": 13,
+      "optionText": "Lavarse las manos",
+      "time": 2,
+      "health": 1
+    },
+    {
+      "action": 13,
+      "optionText": "Usar gel desinfectante",
+      "time": 1,
+      "health": 2
     }
   ]
 }

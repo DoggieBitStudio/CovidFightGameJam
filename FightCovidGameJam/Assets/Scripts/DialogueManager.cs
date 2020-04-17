@@ -53,8 +53,6 @@ public class DialogueManager : MonoBehaviour
     enum DIALOGUE_STATE { NONE, TWEENING, ENDED };
     DIALOGUE_STATE state = DIALOGUE_STATE.NONE;
 
-    float base_text_speed = 40.0f;
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -90,8 +88,13 @@ public class DialogueManager : MonoBehaviour
                     state = DIALOGUE_STATE.ENDED;
                     break;
                 case DIALOGUE_STATE.ENDED:
-                    EndDialogue();
-                    state = DIALOGUE_STATE.NONE;
+                    if (!GameManager.instance.situations_manager.IsNextStepSelection())
+                        EndDialogue();
+                    else
+                    {
+                        GameManager.instance.situations_manager.OnStepFinish();
+                        state = DIALOGUE_STATE.NONE;
+                    }
                     break;
                 default:
                     break;
@@ -112,8 +115,13 @@ public class DialogueManager : MonoBehaviour
                     state = DIALOGUE_STATE.ENDED;
                     break;
                 case DIALOGUE_STATE.ENDED:
-                    EndDialogue();
-                    state = DIALOGUE_STATE.NONE;
+                    if(!GameManager.instance.situations_manager.IsNextStepSelection())
+                        EndDialogue();
+                    else
+                    {
+                        GameManager.instance.situations_manager.OnStepFinish();
+                        state = DIALOGUE_STATE.NONE;
+                    }            
                     break;
                 default:
                     break;
@@ -167,8 +175,10 @@ public class DialogueManager : MonoBehaviour
         
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
+        Debug.Log("end dialogue");
+
         if (player_name.activeSelf)
             player_name.SetActive(false);
         else if (npc_name.activeSelf)
@@ -177,6 +187,7 @@ public class DialogueManager : MonoBehaviour
         dialogue.SetActive(false);
         RemoveModelPrefabs();
 
+        state = DIALOGUE_STATE.NONE;
         GameManager.instance.situations_manager.OnStepFinish();
     }
 

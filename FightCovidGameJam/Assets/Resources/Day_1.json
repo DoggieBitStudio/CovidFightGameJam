@@ -7,7 +7,7 @@
       "sequence": [
         {
           "type": "Dialogue",
-          "text": "Se decreta el estado de alarma en nuestro paÌs durante los prÛximos 15 dÌas. Estamos sÛlo en la primera fase de un combate contra el virus que libran todos los paÌses del mundo.",
+          "text": "Se decreta el estado de alarma en nuestro pa√≠s durante los pr√≥ximos 15 d√≠as. Estamos s√≥lo en la primera fase de un combate contra el virus que libran todos los pa√≠ses del mundo.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -15,12 +15,12 @@
         },
         {
           "type": "Dialogue",
-          "text": "Nos esperan semanas muy duras. Va a ser muy duro y difÌcil pero vamos a parar el virus con unidad, responsabilidad y disciplina social.",
+          "text": "Nos esperan semanas muy duras. Va a ser muy duro y dif√≠cil pero vamos a parar el virus con unidad, responsabilidad y disciplina social.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
           "speed": 5.0
-        }
+        } 
       ]
     },
     {
@@ -29,7 +29,7 @@
       "sequence": [
         {
           "type": "Dialogue",
-          "text": "Rufus me est· pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
+          "text": "Rufus me est√° pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
           "name": "Carmen",
           "animation": "Talk",
           "speed": 5.0
@@ -84,7 +84,7 @@
       "sequence": [
         {
           "type": "Dialogue",
-          "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situaciÛn.",
+          "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situaci√≥n.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -104,7 +104,7 @@
               "time_investment": 0
             },
             {
-              "text": "Comprar alg˙n capricho",
+              "text": "Comprar alg√∫n capricho",
               "effect": [
                 {
                   "stat": "Health",
@@ -118,7 +118,7 @@
               "time_investment": 10
             },
             {
-              "text": "Papel HigiÈnico",
+              "text": "Papel Higi√©nico",
               "stat_requirement": {
                 "stat": "Positivism",
                 "value": 200
@@ -184,7 +184,7 @@
           "type": "Selection",
           "options": [
             {
-              "text": "Contestar a travÈs de la puerta sin abrirla.",
+              "text": "Contestar a trav√©s de la puerta sin abrirla.",
               "stat_requirement": {
                 "stat": "Positivism",
                 "value": 60
@@ -214,7 +214,7 @@
               ]
             },
             {
-              "text": "Hablar con ella con tranquilidad sin tomar medidas de precauciÛn.",
+              "text": "Hablar con ella con tranquilidad sin tomar medidas de precauci√≥n.",
               "effect": [
                 {
                   "stat": "Health",
@@ -234,7 +234,7 @@
         },
         {
           "type": "Dialogue",
-          "text": "Carmen, øhas visto las noticias? Est· la cosa fatal con lo del virus este, se va a contagiar to el mundo, que miedo...",
+          "text": "Carmen, ¬øhas visto las noticias? Est√° la cosa fatal con lo del virus este, se va a contagiar to el mundo, que miedo...",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -242,7 +242,7 @@
         },
         {
           "type": "Dialogue",
-          "text": "y mi niÒo es asm·tico...",
+          "text": "y mi ni√±o es asm√°tico...",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -250,7 +250,7 @@
         },
         {
           "type": "Dialogue",
-          "text": "y han dicho que si las personas tienen problemas respiratorios tienen m·s dificultades con el virus.",
+          "text": "y han dicho que si las personas tienen problemas respiratorios tienen m√°s dificultades con el virus.",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -258,7 +258,7 @@
         },
         {
           "type": "Dialogue",
-          "text": "[anger]°AY! que miedo Carmen.",
+          "text": "[anger]¬°AY! que miedo Carmen.",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -268,17 +268,17 @@
           "type": "Selection",
           "options": [
             {
-              "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na que se contagiar·n cuatro descerebraos y poco m·s.",
+              "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na que se contagiar√°n cuatro descerebraos y poco m√°s.",
               "effect": {
                 "stat": "Infection",
                 "value": true
               }
             },
             {
-              "text": "Est·te tranquila Fina, lo que debes hacer es tomar todas las medidas de precauciÛn que nos digan y evitar al m·ximo el salir de casa. No sÈ el tiempo que estaremos asÌ, pero tarde o temprano se solucionar·. Paciencia, tranquilidad, y act˙a con cabeza. De Èsta saldremos adelante. °¡nimo Fina!"
+              "text": "Est√°te tranquila Fina, lo que debes hacer es tomar todas las medidas de precauci√≥n que nos digan y evitar al m√°ximo el salir de casa. No s√© el tiempo que estaremos as√≠, pero tarde o temprano se solucionar√°. Paciencia, tranquilidad, y act√∫a con cabeza. De √©sta saldremos adelante. ¬°√Ånimo Fina!"
             },
             {
-              "text": "Tira pa casa y enciÈrrate a cal y canto como si no hubiera un maÒana. El mundo se va a acabar, vete corriendo al super y coge to lo que puedas como si fueses a estar una dÈcada encerr· que lo m·s seguro que pase eso, tu hazme caso Fina que de estas cosas yo entiendo.",
+              "text": "Tira pa casa y enci√©rrate a cal y canto como si no hubiera un ma√±ana. El mundo se va a acabar, vete corriendo al super y coge to lo que puedas como si fueses a estar una d√©cada encerr√° que lo m√°s seguro que pase eso, tu hazme caso Fina que de estas cosas yo entiendo.",
               "stat_requirement": {
                 "stat": "DoorClosed",
                 "value": true

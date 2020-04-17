@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,19 @@ public class SituationsManager : MonoBehaviour
 
     Situation current_situation;
     int completed_today = 0;
+
+    [System.Serializable]
+    public struct SelectionChoice
+    {
+        public string text;
+        public float time_investment;
+
+        public GameManager.Stat<int> int_requirement;
+        public GameManager.Stat<bool> bool_requirement;
+
+        public List<GameManager.Stat<int>> int_effects;
+        public List<GameManager.Stat<bool>> bool_effects;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -34,13 +48,9 @@ public class SituationsManager : MonoBehaviour
     {
         current_situation.current_step++;
         if(current_situation.current_step < current_situation.sequence.Count())
-        {
             StartStep();
-        }
         else
-        {
             OnSituationEnd();
-        }
     }
 
     void OnSituationEnd()
@@ -88,6 +98,49 @@ public class SituationsManager : MonoBehaviour
 
     void CreateSelection()
     {
+        JSONObject options = current_situation.sequence[current_situation.current_step].Item2.GetField("options");
+        foreach (JSONObject j_option in options.list)
+        {
+            SelectionChoice selection = JsonUtility.FromJson<SelectionChoice>(j_option.ToString());
+
+            j_option.GetField("stat_requirement", delegate (JSONObject stat_requirement)
+            {
+                if (stat_requirement.GetField("value").IsBool)
+                {
+                    selection.bool_requirement = JsonUtility.FromJson<GameManager.Stat<bool>>(stat_requirement.ToString());
+                    selection.int_requirement = new GameManager.Stat<int>("none", 0);
+                }    
+                else
+                {
+                    selection.int_requirement = JsonUtility.FromJson<GameManager.Stat<int>>(stat_requirement.ToString());
+                    selection.bool_requirement = new GameManager.Stat<bool>("none", false);
+                }
+            }, delegate (string name)
+            {
+                selection.bool_requirement = new GameManager.Stat<bool>("0", false);
+                selection.int_requirement = new GameManager.Stat<int>("0", 0);
+            });
+
+            selection.int_effects = new List<GameManager.Stat<int>>();
+            selection.bool_effects = new List<GameManager.Stat<bool>>();
+
+            j_option.GetField("effect", delegate (JSONObject effects)
+            {
+                foreach (JSONObject j_eff in effects.list)
+                {
+                    if (j_eff.GetField("value").IsBool)
+                        selection.bool_effects.Add(JsonUtility.FromJson<GameManager.Stat<bool>>(j_eff.ToString()));
+                    else
+                        selection.int_effects.Add(JsonUtility.FromJson<GameManager.Stat<int>>(j_eff.ToString()));
+                }
+            }, delegate (string name)
+            {
+                Debug.Log("No effects found on");
+            });
+
+
+            GameManager.instance.ui_manager.CreateSelection(selection);
+        }
         
     }
 
