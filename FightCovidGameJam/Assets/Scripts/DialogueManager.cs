@@ -53,8 +53,6 @@ public class DialogueManager : MonoBehaviour
     enum DIALOGUE_STATE { NONE, TWEENING, ENDED };
     DIALOGUE_STATE state = DIALOGUE_STATE.NONE;
 
-    float base_text_speed = 40.0f;
-
     // Start is called before the first frame update
     void Awake()
     {
@@ -91,7 +89,6 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case DIALOGUE_STATE.ENDED:
                     EndDialogue();
-                    state = DIALOGUE_STATE.NONE;
                     break;
                 default:
                     break;
@@ -113,7 +110,6 @@ public class DialogueManager : MonoBehaviour
                     break;
                 case DIALOGUE_STATE.ENDED:
                     EndDialogue();
-                    state = DIALOGUE_STATE.NONE;
                     break;
                 default:
                     break;

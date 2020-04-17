@@ -18,7 +18,10 @@ public class UIManager : MonoBehaviour
 
     public void SetTimeText(float time)
     {
-        time_text.text = time.ToString("0#.00");
+        double decimal_part = (time - System.Math.Truncate(time));
+        decimal_part = (decimal_part * 0.6) * 100;
+        int intpart = (int)time;
+        time_text.text = intpart.ToString("0#") + ":" + decimal_part.ToString("#00");
     }
 
     public void Start()
