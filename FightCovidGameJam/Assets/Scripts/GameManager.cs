@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    UIManager uiManager;
 
     public uint health = 5;
     public uint positivism = 5;
@@ -28,11 +29,13 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         situations_manager = GetComponent<SituationsManager>();
+        uiManager = GetComponent<UIManager>();
     }
 
-    public void AdvanceTime()
+    public void AdvanceTime(float t)
     {
-
+        time += t;
+        
     }
 
     // Update is called once per frame
