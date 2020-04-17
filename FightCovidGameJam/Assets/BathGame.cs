@@ -82,6 +82,9 @@ public class BathGame : MonoBehaviour
                 ui_images[selected_objects].GetComponent<Image>().color = Color.red;
                 fucked_up = true;
             }
+
+            Finish();
+
         }
     }
 
