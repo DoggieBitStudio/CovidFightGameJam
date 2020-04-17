@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
     }
     public void RealizeAction(int action, uint time, int health, int positivism)
     {
-        GameManager.instance.AdvanceTime(time);
+        GameManager.instance.AdvanceTime(time / 60);
 
         GameManager.instance.AddPositivism(positivism);
         GameManager.instance.AddHealth(health);
