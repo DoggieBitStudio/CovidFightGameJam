@@ -68,6 +68,39 @@ public class DialogueManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_STANDALONE_WIN
+        HandleStandaloneUpdate();
+#endif
+
+#if UNITY_ANDROID
+        HandlePhoneUpdate();
+#endif
+    }
+
+    void HandleStandaloneUpdate()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            switch (state)
+            {
+                case DIALOGUE_STATE.NONE:
+                    break;
+                case DIALOGUE_STATE.TWEENING:
+                    dialogue_text.DOComplete();
+                    state = DIALOGUE_STATE.ENDED;
+                    break;
+                case DIALOGUE_STATE.ENDED:
+                    EndDialogue();
+                    state = DIALOGUE_STATE.NONE;
+                    break;
+                default:
+                    break;
+            }
+        }
+    }
+
+    void HandlePhoneUpdate()
+    {
         if (Input.touchCount > 0)
         {
             switch (state)
@@ -79,8 +112,8 @@ public class DialogueManager : MonoBehaviour
                     state = DIALOGUE_STATE.ENDED;
                     break;
                 case DIALOGUE_STATE.ENDED:
-                        EndDialogue();
-                        state = DIALOGUE_STATE.NONE;
+                    EndDialogue();
+                    state = DIALOGUE_STATE.NONE;
                     break;
                 default:
                     break;
