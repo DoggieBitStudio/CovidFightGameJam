@@ -60,6 +60,12 @@ public class SituationsManager : MonoBehaviour
         }
     }
 
+    public bool IsNextStepSelection()
+    {
+        return (current_situation.current_step + 1 < current_situation.sequence.Count() 
+            && current_situation.sequence[current_situation.current_step + 1].Item1 == Situation.PacketType.SELECTION);
+    }
+
     void StartStep()
     {
         switch (current_situation.sequence[current_situation.current_step].Item1)
@@ -70,6 +76,7 @@ public class SituationsManager : MonoBehaviour
                 GameManager.instance.dialogue_manager.StartDialogue(current_situation.sequence[current_situation.current_step].Item2);
                 break;
             case Situation.PacketType.SELECTION:
+                CreateSelection();
                 break;
             case Situation.PacketType.ACTION:
                 break;
@@ -77,6 +84,11 @@ public class SituationsManager : MonoBehaviour
                 break;
         }
        
+    }
+
+    void CreateSelection()
+    {
+        
     }
 
     public void LoadSituations(string identifier)
