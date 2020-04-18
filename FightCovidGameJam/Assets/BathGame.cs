@@ -9,6 +9,8 @@ public class BathGame : MonoBehaviour
     public GameObject[] ui_images;
     public GameObject[] secuence_images;
     public GameObject secuence;
+    public GameObject soapWin;
+    public GameObject soapLose;
     public float distance = 50f;
     int selected_objects = 0;
     bool fucked_up = false;
@@ -123,20 +125,23 @@ public class BathGame : MonoBehaviour
 
         }
 
+        FillStep(name);
+
         if (name.Equals("Mask"))
             GameManager.instance.boolean_stats["Mask"] = false;
 
-        FillStep(name);
+
     }
 
     public void Finish()
     {
         if (cleared)
         {
-           
+            soapWin.SetActive(true);
         }
         else
         {
+            soapLose.SetActive(true);
             GameManager.instance.int_stats["Health"] -= 1;
         }
 
