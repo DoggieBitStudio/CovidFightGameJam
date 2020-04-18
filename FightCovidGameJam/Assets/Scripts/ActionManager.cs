@@ -315,11 +315,11 @@ public class ActionManager : MonoBehaviour
             case Actions.CRAFT_MASK:
                 if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                 {
-                    fadeToBlack.SetActive(true);
-                    Color col = fadeToBlack.GetComponent<Image>().color;
+                    GameManager.instance.fade.gameObject.SetActive(true);
+                    Color col = GameManager.instance.fade.color;
                     Debug.Log(col.a);
                     col.a += (float)0.5 * Time.deltaTime;
-                    fadeToBlack.GetComponent<Image>().color = col;
+                    GameManager.instance.fade.color = col;
 
                     if (col.a >= 1)
                     {
@@ -329,13 +329,13 @@ public class ActionManager : MonoBehaviour
                 }
                 else if (firstAction && !bathroomDoor.GetComponent<AudioSource>().isPlaying && !secondAction)
                 {
-                    Color col = fadeToBlack.GetComponent<Image>().color;
+                    Color col = GameManager.instance.fade.color;
                     col.a -= (float)0.5 * Time.deltaTime;
-                    fadeToBlack.GetComponent<Image>().color = col;
+                    GameManager.instance.fade.color = col;
 
                     if (col.a <= 0)
                     {
-                        fadeToBlack.SetActive(false);
+                        GameManager.instance.fade.gameObject.SetActive(false);
                         secondAction = true;
                         agent.SetDestination(swegingBox.transform.position);
                     }
