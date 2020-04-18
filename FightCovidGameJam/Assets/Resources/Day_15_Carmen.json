@@ -95,7 +95,7 @@
               "next_step": 3
             },
             {
-              "text": "Salir y aprovechar para pasear un rato",
+              "text": "Salir y aprovechar para pasear un rato.",
               "effect": [
                 {
                   "stat": "Health",
@@ -106,7 +106,7 @@
               "next_step": 3
             },
             {
-              "text": "Salir y aprovechar para hacer ejercicio",
+              "text": "Salir y aprovechar para hacer ejercicio.",
               "effect": [
                 {
                   "stat": "Health",
@@ -487,7 +487,8 @@
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 1,
+          "sound": "clap"
         },
         {
           "step_type": "SELECTION",
