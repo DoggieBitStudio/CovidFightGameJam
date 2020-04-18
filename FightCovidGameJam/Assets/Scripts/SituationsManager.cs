@@ -64,7 +64,7 @@ public class SituationsManager : MonoBehaviour
             OnSituationEnd();
     }
 
-    void OnSituationEnd()
+    public void OnSituationEnd()
     {
         completed_today++;
 

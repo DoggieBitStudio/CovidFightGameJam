@@ -45,6 +45,7 @@
         {
           "step_type": "DIALOGUE",
           "text": "Rufus me está pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
+          "player": true,
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,

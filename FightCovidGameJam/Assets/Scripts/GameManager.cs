@@ -152,6 +152,8 @@ public class GameManager : MonoBehaviour
     {
         time = 8;
         ui_manager.SetTimeText(time);
+
+        boolean_stats["Plant"] = false;
     }
 
     void OnGUI()
