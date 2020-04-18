@@ -123,6 +123,9 @@ public class BathGame : MonoBehaviour
 
         }
 
+        if (name.Equals("Mask"))
+            GameManager.instance.boolean_stats["Mask"] = false;
+
         FillStep(name);
     }
 
@@ -130,11 +133,11 @@ public class BathGame : MonoBehaviour
     {
         if (cleared)
         {
-            Debug.Log("All correct");
+           
         }
         else
         {
-            Debug.Log("Fucked up");
+            GameManager.instance.int_stats["Health"] -= 1;
         }
 
         GameManager.instance.boolean_stats["Went_Out"] = true;

@@ -393,10 +393,9 @@ public class ActionManager : MonoBehaviour
                     if ((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
                     {
                         //OpenDoor
-                        fadeToBlack.SetActive(true);
-                        Color col = fadeToBlack.GetComponent<Image>().color;
+                        Color col = GameManager.instance.fade.color;
                         col.a += (float)0.5 * Time.deltaTime;
-                        fadeToBlack.GetComponent<Image>().color = col;
+                        GameManager.instance.fade.color = col;
 
                         if (col.a >= 1)
                         {
@@ -406,13 +405,12 @@ public class ActionManager : MonoBehaviour
                     }
                     else if (firstAction && !houseDoorSource.isPlaying)
                     {
-                        Color col = fadeToBlack.GetComponent<Image>().color;
+                        Color col = GameManager.instance.fade.color;
                         col.a -= (float)0.5 * Time.deltaTime;
-                        fadeToBlack.GetComponent<Image>().color = col;
+                        GameManager.instance.fade.color = col;
 
                         if (col.a <= 0)
                         {
-                            fadeToBlack.SetActive(false);
                             firstAction = false;
                             currentAction = Actions.NONE;
                             FinalizeAction();
@@ -490,7 +488,7 @@ public class ActionManager : MonoBehaviour
                 agent.SetDestination(plant.transform.position);
                 break;
             case Actions.DINNER:
-                agent.SetDestinations(kitchen.transform.position);
+                agent.SetDestination(kitchen.transform.position);
                 break;
             case Actions.WASH_HANDS:
                 break;
