@@ -176,7 +176,12 @@ public class DialogueManager : MonoBehaviour
             SetNPCName(d_info.name);
         }
 
-       // Instantiate(FindPrefab(d_info.name), player_model_position, true);
+
+        if (d_info.name == "Carmen")
+        {
+            FindPrefab(d_info.name).GetComponent<Animator>().Play("Talk");
+            Instantiate(FindPrefab(d_info.name), player_model_position, false);
+        }
         dialogue.SetActive(true);
         SetDialogueText(d_info.text, d_info.speed);
 
@@ -200,9 +205,9 @@ public class DialogueManager : MonoBehaviour
     void RemoveModelPrefabs()
     {
         if(player_model_position.childCount > 0)
-            Destroy(player_model_position.GetChild(0));
+            Destroy(player_model_position.GetChild(0).gameObject);
         else if (npc_model_position.childCount > 0)
-            Destroy(npc_model_position.GetChild(0));
+            Destroy(npc_model_position.GetChild(0).gameObject);
     }
 
     private void OnLevelWasLoaded(int level)
