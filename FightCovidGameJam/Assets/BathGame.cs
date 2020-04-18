@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BathGame : MonoBehaviour
 {
     public GameObject[] ui_images;
+    public GameObject[] secuence_images;
+    public GameObject secuence;
     public float distance = 50f;
     int selected_objects = 0;
     bool fucked_up = false;
@@ -50,6 +53,7 @@ public class BathGame : MonoBehaviour
                 ui_images[selected_objects].GetComponent<Image>().color = Color.red;
                 fucked_up = true;
             }
+
         }else if(selected_objects == 1)
         {
             if (name.Equals("Mask") && !fucked_up)
@@ -86,6 +90,8 @@ public class BathGame : MonoBehaviour
             Finish();
 
         }
+
+        FillStep(name);
     }
 
     public void Finish()
@@ -98,6 +104,29 @@ public class BathGame : MonoBehaviour
         {
             Debug.Log("Fucked up");
         }
+
+        GameManager.instance.situations_manager.OnStepFinish();
+        SceneManager.LoadScene("Main");
+    }
+
+    void FillStep(string name)
+    {
+        if (selected_objects > 0)
+            Instantiate(secuence_images[3], secuence.transform);
+
+        if (name.Equals("Soap"))
+        {
+            Instantiate(secuence_images[0], secuence.transform);
+        }
+        if (name.Equals("Mask"))
+        {
+            Instantiate(secuence_images[1], secuence.transform);
+        }
+        if (name.Equals("Gloves"))
+        {
+            Instantiate(secuence_images[2], secuence.transform);
+        }
+
     }
 }
 
