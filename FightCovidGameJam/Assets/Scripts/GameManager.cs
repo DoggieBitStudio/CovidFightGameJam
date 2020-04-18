@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     public DialogueManager dialogue_manager;
     public UIManager ui_manager;
     public ActionManager action_manager;
-    public GameObject fade;
+    public Image fade;
 
     internal int carmen_day = 1;
     internal int julian_day = 1;
@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
             situations_manager = GetComponent<SituationsManager>();
             dialogue_manager = GetComponent<DialogueManager>();
             ui_manager = GetComponent<UIManager>();
+            action_manager = GetComponent<ActionManager>();
 
             int_stats = new Dictionary<string, int>();
             boolean_stats = new Dictionary<string, bool>();
@@ -70,10 +71,7 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Shop", false);
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
-            boolean_stats.Add("Buy_Online", false);
-
-            action_manager = GetComponent<ActionManager>();
-            fade = GameObject.FindGameObjectWithTag("Fade");
+            boolean_stats.Add("Doctor_Out", false);
         }
         else
             Destroy(gameObject);
@@ -96,7 +94,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            AdvanceTime(1);
+        }
     }
 
     public void AddPositivism(int p)
@@ -112,7 +113,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadSceneFade(string name)
     {
-        fade.GetComponent<Image>().DOFade(1.0f, 2.0f).OnComplete(()=>LoadScene(name));
+        fade.DOFade(1.0f, 2.0f).OnComplete(()=>LoadScene(name));
     }
 
     void LoadScene(string name)
@@ -132,7 +133,7 @@ public class GameManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        fade = GameObject.FindGameObjectWithTag("Fade");
-        fade.GetComponent<Image>().DOFade(0.0f, 2.0f);
+        fade.DOFade(0.0f, 2.0f);
+        situations_manager.OnLevelFinshedLoading(scene);
     }
 }

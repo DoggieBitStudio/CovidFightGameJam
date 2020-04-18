@@ -137,8 +137,9 @@ public class BathGame : MonoBehaviour
             Debug.Log("Fucked up");
         }
 
-        GameManager.instance.situations_manager.OnStepFinish();
+        GameManager.instance.boolean_stats["Went_Out"] = true;
         GameManager.instance.LoadSceneFade("Main");
+        GameManager.instance.situations_manager.OnStepFinish();
     }
 
     void FillStep(string name)

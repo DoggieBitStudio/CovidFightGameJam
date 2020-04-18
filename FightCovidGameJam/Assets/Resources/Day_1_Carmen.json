@@ -253,11 +253,11 @@
               "next_step": 7
             },
             {
-              "text": "Estáte tranquila Fina, lo que debes hacer es tomar todas las medidas de precaución...",
+              "text": "Estáte tranquila Fina, lo que debes hacer es...",
               "next_step": 8
             },
             {
-              "text": "Tira pa casa y enciérrate a cal y canto como si no hubiera un mañana. El mundo se va a acabar...",
+              "text": "Tira pa casa y enciérrate a cal y canto...",
               "stat_requirement": {
                 "stat": "DoorClosed",
                 "value": true

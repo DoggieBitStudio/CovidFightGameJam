@@ -85,6 +85,7 @@ public class UIManager : MonoBehaviour
             GameManager.instance.boolean_stats[item.stat] = item.value;
         }
 
+        GameManager.instance.situations_manager.current_situation.duration += selection.time_investment;
         //GameManager.instance.situations_manager.OnStepFinish(); end dialogue does it for now
         GameManager.instance.situations_manager.current_situation.current_step.next_step = selection.next_step;
         GameManager.instance.dialogue_manager.EndDialogue();
