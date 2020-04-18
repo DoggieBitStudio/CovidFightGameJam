@@ -96,7 +96,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            AdvanceTime(1);
+        }
     }
 
     public void AddPositivism(int p)

@@ -378,4 +378,26 @@ public class ActionManager : MonoBehaviour
         GameManager.instance.AddPositivism(positivismGained);
         GameManager.instance.AddHealth(healthGained);
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 0)
+        {
+            player = GameObject.Find("MariCarmen");
+            agent = player.GetComponent<NavMeshAgent>();
+            tv = GameObject.Find("Television");
+            sofa = GameObject.Find("Sofa");
+            shelf = GameObject.Find("Estantería");
+            couch = GameObject.Find("Sillón");
+            book = GameObject.Find("Book");
+            houseDoor = GameObject.Find("Puerta");
+            houseDoorSource = houseDoor.GetComponent<AudioSource>();
+            neighbourDoor = GameObject.Find("Puerta Vecino");
+            smartphone = GameObject.Find("Móvil");
+            smartphonePos = GameObject.Find("SmartphonePos");
+            bathroomDoor = GameObject.Find("Lavabo");
+            chair = GameObject.Find("Silla");
+            swegingBox = GameObject.Find("Costurero");
+        }
+    }
 }

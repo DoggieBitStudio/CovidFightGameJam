@@ -206,4 +206,13 @@ public class DialogueManager : MonoBehaviour
         else if (npc_model_position.childCount > 0)
             Destroy(npc_model_position.GetChild(0));
     }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 0)
+        {
+            player_model_position = GameObject.Find("PlayerModelPosition").transform;
+            npc_model_position = GameObject.Find("NPCModelPosition").transform;
+        }
+    }
 }

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class SituationsManager : MonoBehaviour
 {
-    GameObject shopping_event;
+    public GameObject shopping_event;
 
     List<Situation> completed_situations;
     List<Situation> day_situations;
@@ -40,8 +40,6 @@ public class SituationsManager : MonoBehaviour
         string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
         
         LoadSituations("Day_"+day+"_"+character);
-
-        shopping_event = GameObject.Find("ShoppingPanel");
     }
 
     // Update is called once per frame
@@ -81,6 +79,7 @@ public class SituationsManager : MonoBehaviour
         if (completed_today < day_situations.Count() && day_situations[completed_today].activation_time <= GameManager.instance.time)
         {
             current_situation = day_situations[completed_today];
+            current_situation.current_step = current_situation.sequence[0].Item1;
             StartStep();
         }
     }
@@ -197,7 +196,7 @@ public class SituationsManager : MonoBehaviour
             day_situations.Add(situation);
         }
 
-        current_situation = day_situations[0];
+        current_situation = day_situations[2];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }
