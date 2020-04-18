@@ -216,7 +216,7 @@
           "index": 5,
           "options": [
             {
-              "text": "Venga va, voy yo que ya estoy preparada, espero que seas consciente del riesgo que supone, la próxima vez mira bien si te falta algo antes de que salga a comprar.",
+              "text": "Venga va, voy yo que ya estoy preparada...",
               "stat_requirement": {
                 "stat": "Positivism",
                 "value": 50
@@ -224,7 +224,7 @@
               "next_step": 6
             },
             {
-              "text": "¿Tu te crees que esto es jauja? Te aguantas hasta la semana que viene y punto, seguro que la próxima vez lo compruebas antes de que salga de casa a comprar.",
+              "text": "¿Tu te crees que esto es jauja?...",
               "effect": [
                 {
                   "stat": "Positivism",
@@ -234,7 +234,7 @@
               "next_step": 7
             },
             {
-              "text": "Pues tira, pero la mascarilla es de uso personal y sólo tenemos la mía, así que te vas sin mascarilla, en tu conciencia queda si pasa algo.",
+              "text": "Pues tira, pero la mascarilla es de uso personal...",
               "effect": [
                 {
                   "stat": "Infection",
