@@ -208,8 +208,9 @@ public class SituationsManager : MonoBehaviour
             string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
             string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
 
-            Debug.Log("Day_" + day + "_" + character);
             day_situations.Clear();
+            completed_today = 0;
+            GameManager.instance.ResetTime();
             LoadSituations("Day_" + day + "_" + character);
         }
     }

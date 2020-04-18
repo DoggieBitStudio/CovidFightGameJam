@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviour
     internal int julian_day = 1;
     public CHARACTER current_character = CHARACTER.CARMEN;
 
+    bool show_stats = false;
+    GUIStyle debug_style;
+
     private void Awake()
     {
         if (!instance)
@@ -72,6 +75,10 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
             boolean_stats.Add("Doctor_Out", false);
+
+            debug_style = new GUIStyle();
+            debug_style.fontSize = 22;
+            debug_style.normal.textColor = Color.red;
         }
         else
             Destroy(gameObject);
@@ -97,6 +104,10 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F1))
         {
             AdvanceTime(1);
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            show_stats = !show_stats;
         }
     }
 
@@ -135,5 +146,32 @@ public class GameManager : MonoBehaviour
     {
         fade.DOFade(0.0f, 2.0f);
         situations_manager.OnLevelFinshedLoading(scene);
+    }
+
+    internal void ResetTime()
+    {
+        time = 8;
+        ui_manager.SetTimeText(time);
+    }
+
+    void OnGUI()
+    {
+        if(show_stats)
+        {
+            int y = 10;
+            foreach (var item in int_stats)
+            {
+                GUI.Label(new Rect(Camera.main.pixelWidth-220, y, 200, 50), item.Key + ": " + item.Value.ToString(), debug_style);
+                y += 30;
+            }
+
+            y = 10;
+            foreach (var item in boolean_stats)
+            {
+                GUI.Label(new Rect(Camera.main.pixelWidth - 450, y, 200, 50), item.Key + ": " + item.Value.ToString(), debug_style);
+                y += 30;
+            }
+        }
+
     }
 }

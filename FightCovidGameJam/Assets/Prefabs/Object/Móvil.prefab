@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1251251495999584}
   - component: {fileID: 3178292384247956743}
   - component: {fileID: 401840730667840790}
+  - component: {fileID: 6680566899540017008}
   m_Layer: 0
   m_Name: "M\xF3vil"
   m_TagString: Selectable
@@ -203,3 +204,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5150bb41b62183243b9b0dbaeee57663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6680566899540017008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3937389263903674837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []

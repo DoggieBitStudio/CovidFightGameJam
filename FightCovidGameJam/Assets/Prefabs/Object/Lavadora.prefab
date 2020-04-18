@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8644175741184371827}
   - component: {fileID: 5196211485670416795}
   - component: {fileID: 595375450}
+  - component: {fileID: 5848582094015754841}
   m_Layer: 0
   m_Name: Lavadora
   m_TagString: Untagged
@@ -203,3 +204,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5848582094015754841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2243716502884676413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []
