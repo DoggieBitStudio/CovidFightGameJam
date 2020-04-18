@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     public ActionManager action_manager;
     public Image fade;
 
+    public AudioSource audio_source;
+
     internal int carmen_day = 1;
     internal int julian_day = 1;
     public CHARACTER current_character = CHARACTER.CARMEN;
@@ -57,6 +59,7 @@ public class GameManager : MonoBehaviour
             dialogue_manager = GetComponent<DialogueManager>();
             ui_manager = GetComponent<UIManager>();
             action_manager = GetComponent<ActionManager>();
+            audio_source = GetComponent<AudioSource>();
 
             int_stats = new Dictionary<string, int>();
             boolean_stats = new Dictionary<string, bool>();
