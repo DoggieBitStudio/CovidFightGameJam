@@ -103,6 +103,10 @@ public class ActionManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(animator)
+        {
+            animator.SetFloat("Positivism", GameManager.instance.int_stats["Positivism"]);
+        }
         switch(currentAction)
         {
             case Actions.TELEVISION_WATCH:
