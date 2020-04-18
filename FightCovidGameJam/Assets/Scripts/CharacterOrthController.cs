@@ -61,9 +61,9 @@ public class CharacterOrthController : MonoBehaviour
                 //draw invisible ray cast/vector
                 Debug.DrawLine(ray.origin, hit.point);
                 //log hit area to the console
-                if (IsWalkable(hit.point) && !uiManager.isTaskMenuOpen)
+                if (IsWalkable(hit.point) && !uiManager.isTaskMenuOpen && !GameManager.instance.action_manager.isDoingAction)
                     MoveToDestination(hit.point);
-                if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen && !GameManager.instance.ui_opened)
+                if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen && !GameManager.instance.action_manager.isDoingAction)
                 {
                     hit.collider.gameObject.GetComponent<Interactable>().OnTap(hit.point);
                     MoveToDestination(hit.point);
@@ -84,9 +84,9 @@ public class CharacterOrthController : MonoBehaviour
                 //draw invisible ray cast/vector
                 Debug.DrawLine(ray.origin, hit.point);
                 //log hit area to the console
-                if (IsWalkable(hit.point) && !uiManager.isTaskMenuOpen)
+                if (IsWalkable(hit.point) && !uiManager.isTaskMenuOpen && !GameManager.instance.action_manager.isDoingAction)
                     MoveToDestination(hit.point);
-                if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen)
+                if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen && !GameManager.instance.action_manager.isDoingAction)
                 {
                     hit.collider.gameObject.GetComponent<Interactable>().OnTap(hit.point);
                     MoveToDestination(hit.point);
