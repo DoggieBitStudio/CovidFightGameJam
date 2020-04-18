@@ -143,8 +143,16 @@ public class DialogueManager : MonoBehaviour
     void SetDialogueText(string text, float d_speed)
     {
         float speed = text.Length / d_speed;
+
+        if (text.Contains("[anger]"))
+        {
+            dialogue.transform.DOShakePosition(speed, 1, 40, 0, false, false);
+            text = text.Replace("[anger]", "");
+        }
+
         dialogue_text.text = "";
-        dialogue_text.DOText(text, speed).OnComplete(EndedTextTween);
+        dialogue_text.DOText(text, speed).OnComplete(EndedTextTween).SetEase(Ease.Linear);
+
         state = DIALOGUE_STATE.TWEENING;
     }
 

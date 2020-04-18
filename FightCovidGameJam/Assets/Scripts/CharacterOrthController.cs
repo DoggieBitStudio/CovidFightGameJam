@@ -11,7 +11,7 @@ public class CharacterOrthController : MonoBehaviour
     NavMeshPath path;
     Animator animator;
     public float distance = 50f;
-
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {

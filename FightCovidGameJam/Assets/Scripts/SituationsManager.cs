@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SituationsManager : MonoBehaviour
 {
+    GameObject shopping_event;
+
     List<Situation> completed_situations;
     List<Situation> day_situations;
 
-    Situation current_situation;
+    public Situation current_situation;
     int completed_today = 0;
 
     [System.Serializable]
@@ -18,6 +21,7 @@ public class SituationsManager : MonoBehaviour
     {
         public string text;
         public float time_investment;
+        public int next_step;
 
         public GameManager.Stat<int> int_requirement;
         public GameManager.Stat<bool> bool_requirement;
@@ -30,7 +34,14 @@ public class SituationsManager : MonoBehaviour
     void Start()
     {
         day_situations = new List<Situation>();
-        LoadSituations("Day_1");
+        completed_situations = new List<Situation>();
+
+        string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
+        string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
+        
+        LoadSituations("Day_"+day+"_"+character);
+
+        shopping_event = GameObject.Find("ShoppingPanel");
     }
 
     // Update is called once per frame
@@ -46,9 +57,11 @@ public class SituationsManager : MonoBehaviour
 
     public void OnStepFinish()
     {
-        current_situation.current_step++;
-        if(current_situation.current_step < current_situation.sequence.Count())
+        if(current_situation.current_step.next_step > 0)
+        {
+            current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
             StartStep();
+        }
         else
             OnSituationEnd();
     }
@@ -56,7 +69,9 @@ public class SituationsManager : MonoBehaviour
     void OnSituationEnd()
     {
         completed_today++;
+
         GameManager.instance.AdvanceTime(current_situation.duration / 60);
+        completed_situations.Add(current_situation);
 
         StartNextSituation();
     }
@@ -72,23 +87,35 @@ public class SituationsManager : MonoBehaviour
 
     public bool IsNextStepSelection()
     {
-        return (current_situation.current_step + 1 < current_situation.sequence.Count() 
-            && current_situation.sequence[current_situation.current_step + 1].Item1 == Situation.PacketType.SELECTION);
+        return (current_situation.current_step.next_step > 0 
+            && current_situation.sequence[current_situation.current_step.next_step].Item1.step_type == Step_Type.SELECTION);
     }
 
     void StartStep()
     {
-        switch (current_situation.sequence[current_situation.current_step].Item1)
+        switch (current_situation.current_step.step_type)
         {
-            case Situation.PacketType.NONE:
+            case Step_Type.NONE:
                 break;
-            case Situation.PacketType.DIALOGUE:
-                GameManager.instance.dialogue_manager.StartDialogue(current_situation.sequence[current_situation.current_step].Item2);
+            case Step_Type.DIALOGUE:
+                GameManager.instance.dialogue_manager.StartDialogue(current_situation.sequence[current_situation.current_step.index].Item2);
                 break;
-            case Situation.PacketType.SELECTION:
+            case Step_Type.SELECTION:
                 CreateSelection();
                 break;
-            case Situation.PacketType.ACTION:
+            case Step_Type.SHOPPING:
+                shopping_event.SetActive(true);
+                break;
+            case Step_Type.BATHROOM:
+                SceneManager.LoadScene("bathroom");
+                break;
+            case Step_Type.SLEEP:
+                if (GameManager.instance.current_character == CHARACTER.CARMEN)
+                    GameManager.instance.carmen_day += (int)current_situation.duration;
+                else
+                    GameManager.instance.julian_day += (int)current_situation.duration;
+
+                SceneManager.LoadScene("Main");
                 break;
             default:
                 break;
@@ -98,7 +125,7 @@ public class SituationsManager : MonoBehaviour
 
     void CreateSelection()
     {
-        JSONObject options = current_situation.sequence[current_situation.current_step].Item2.GetField("options");
+        JSONObject options = current_situation.sequence[current_situation.current_step.index].Item2.GetField("options");
         foreach (JSONObject j_option in options.list)
         {
             SelectionChoice selection = JsonUtility.FromJson<SelectionChoice>(j_option.ToString());
@@ -156,19 +183,11 @@ public class SituationsManager : MonoBehaviour
 
             situation_json.GetField("sequence", delegate (JSONObject sequence)
             {
-                foreach (JSONObject packet in sequence.list)
+                foreach (JSONObject j_step in sequence.list)
                 {
-                    string type = packet.GetField("type").str;
-                    Situation.PacketType packet_type = Situation.PacketType.NONE;
-
-                    if (type.Equals("Dialogue"))
-                        packet_type = Situation.PacketType.DIALOGUE;
-                    else if (type.Equals("Action"))
-                        packet_type = Situation.PacketType.ACTION;
-                    else if (type.Equals("Selection"))
-                        packet_type = Situation.PacketType.SELECTION;
-
-                    situation.sequence.Add(new System.Tuple<Situation.PacketType, JSONObject>(packet_type, packet));
+                    Step step = JsonUtility.FromJson<Step>(j_step.ToString());
+                    step.step_type = (Step_Type)Enum.Parse(typeof(Step_Type), j_step.GetField("step_type").str);
+                    situation.sequence.Add(new System.Tuple<Step, JSONObject>(step, j_step));
                 }
             }, delegate (string name)
             {
@@ -178,7 +197,8 @@ public class SituationsManager : MonoBehaviour
             day_situations.Add(situation);
         }
 
-        current_situation = day_situations[completed_today];
+        current_situation = day_situations[0];
+        current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }
 }

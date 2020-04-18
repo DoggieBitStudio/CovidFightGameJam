@@ -4,25 +4,38 @@ using UnityEngine;
 using System.Collections.Specialized;
 
 [System.Serializable]
+public enum Step_Type
+{
+    NONE = -1,
+    DIALOGUE,
+    SELECTION,
+    SHOPPING,
+    BATHROOM,
+    SLEEP
+}
+
+[System.Serializable]
+public struct Step
+{
+    public Step_Type step_type;
+    public int next_step;
+    public int index;
+}
+
+[System.Serializable]
 public class Situation
 {
     public List<Action> actions;
     public string identifier;
     public float activation_time;
     public float duration;
-    public int current_step = 0;
+    public Step current_step;
 
     Situation()
     {
-        sequence = new List<System.Tuple<PacketType, JSONObject>>();
+        sequence = new List<System.Tuple<Step, JSONObject>>();
     }
-    public enum PacketType{
-        NONE = -1,
-        DIALOGUE,
-        SELECTION,
-        ACTION
-    }
-    public List<System.Tuple<PacketType, JSONObject>> sequence;
+    public List<System.Tuple<Step, JSONObject>> sequence;
 
     public bool Finished_Properly { get; set; }
     public List<DialogueManager.DialogueInfo> dialogues;
