@@ -51,6 +51,7 @@ public class ActionManager : MonoBehaviour
     GameObject washingMachine;
     GameObject plant;
     GameObject kitchen;
+    GameObject hygieneGel;
 
     AudioSource houseDoorSource;
 
@@ -61,6 +62,7 @@ public class ActionManager : MonoBehaviour
     public AudioClip dramaticFx;
     public AudioClip openAppFx;
     public AudioClip buyOnlineFx;
+    public AudioClip flushFx;
 
     //Timer
     bool firstAction = false;
@@ -69,6 +71,7 @@ public class ActionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("MariCarmen");
         agent = player.GetComponent<NavMeshAgent>();
         tv = GameObject.Find("Television");
         sofa = GameObject.Find("Sofa");
@@ -85,6 +88,8 @@ public class ActionManager : MonoBehaviour
         swegingBox = GameObject.Find("Costurero");
         washingMachine = GameObject.Find("Lavadora");
         kitchen = GameObject.Find("Kitchen");
+        plant = GameObject.Find("Planta");
+        hygieneGel = GameObject.Find("Gel Desinfectante");
     }
 
     // Update is called once per frame
@@ -431,13 +436,79 @@ public class ActionManager : MonoBehaviour
                     {
                         firstAction = false;
                         currentAction = Actions.NONE;
+                        GameManager.instance.boolean_stats["Plant"] = true;
+                        plant.tag = "Untagged";
                         FinalizeAction();
                     }
                 }
                 break;
             case Actions.DINNER:
                 break;
+            case Actions.GO_BATHROOM:
+                {
+                    if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    {
+                        Color col = GameManager.instance.fade.color;
+                        col.a += (float)0.5 * Time.deltaTime;
+                        GameManager.instance.fade.color = col;
+
+                        if (col.a >= 1)
+                        {
+                            firstAction = true;
+                            bathroomDoor.GetComponent<AudioSource>().PlayOneShot(flushFx);
+                        }
+                    }
+                    else if(firstAction && !bathroomDoor.GetComponent<AudioSource>().isPlaying)
+                    {
+                        Color col = GameManager.instance.fade.color;
+                        col.a -= (float)0.5 * Time.deltaTime;
+                        GameManager.instance.fade.color = col;
+
+                        if (col.a <= 0)
+                        {
+                            firstAction = false;
+                            currentAction = Actions.NONE;
+                            FinalizeAction();
+                        }
+                    }
+
+                }
+                break;
             case Actions.WASH_HANDS:
+                if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                {
+                    Color col = GameManager.instance.fade.color;
+                    col.a += (float)0.5 * Time.deltaTime;
+                    GameManager.instance.fade.color = col;
+
+                    if (col.a >= 1)
+                    {
+                        firstAction = true;
+                        bathroomDoor.GetComponent<AudioSource>().Play();
+                    }
+                }
+                else if (firstAction && !bathroomDoor.GetComponent<AudioSource>().isPlaying)
+                {
+                    Color col = GameManager.instance.fade.color;
+                    col.a -= (float)0.5 * Time.deltaTime;
+                    GameManager.instance.fade.color = col;
+
+                    if (col.a <= 0)
+                    {
+                        firstAction = false;
+                        currentAction = Actions.NONE;
+                        FinalizeAction();
+                    }
+                }
+                break;
+            case Actions.HYGIENE_GEL:
+                if ((hygieneGel.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                {
+                    hygieneGel.GetComponent<AudioSource>().Play();
+                    firstAction = false;
+                    currentAction = Actions.NONE;
+                    FinalizeAction();
+                }
                 break;
         }
     }
@@ -490,7 +561,14 @@ public class ActionManager : MonoBehaviour
             case Actions.DINNER:
                 agent.SetDestination(kitchen.transform.position);
                 break;
+            case Actions.GO_BATHROOM:
+                agent.SetDestination(bathroomDoor.transform.position);
+                break;
             case Actions.WASH_HANDS:
+                agent.SetDestination(bathroomDoor.transform.position);
+                break;
+            case Actions.HYGIENE_GEL:
+                agent.SetDestination(hygieneGel.transform.position);
                 break;
 
         }
@@ -528,6 +606,13 @@ public class ActionManager : MonoBehaviour
             bathroomDoor = GameObject.Find("Lavabo");
             chair = GameObject.Find("Silla");
             swegingBox = GameObject.Find("Costurero");
+            washingMachine = GameObject.Find("Lavadora");
+            kitchen = GameObject.Find("Kitchen");
+            plant = GameObject.Find("Planta");
+            hygieneGel = GameObject.Find("Gel Desinfectante");
         }
+
+        //When change day we need to activate
+            // Planta no regada, poner que se pueda regar
     }
 }

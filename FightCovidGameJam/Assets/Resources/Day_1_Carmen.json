@@ -17,7 +17,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Estamos sólo en la primera fase de un combate contra el\n<color=#f1ce51ff>coronavirus</color> que provoca la enfermedad denominada <color=#f1ce51ff>Covid-19</color>.",
+          "text": "Estamos sólo en la primera fase de un combate contra el\n<color=#f1ce51ff>coronavirus</color> que puede provocar la enfermedad denominada <color=#f1ce51ff>Covid-19</color>.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",

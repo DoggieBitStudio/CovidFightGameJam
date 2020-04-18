@@ -138,14 +138,17 @@
     {
       "action": 14,
       "optionText": "Lavarse las manos",
-      "time": 2,
+      "time": 5,
       "health": 1
-    },
+    }
+  ],
+  "Gel Desinfectante": [
     {
-      "action": 13,
-      "optionText": "Usar gel desinfectante",
-      "time": 1,
-      "health": 2
+      "action": 15,
+      "optionText": "Desinfectarse las manos",
+      "time": 5,
+      "positivism": 1,
+      "health": 1
     }
   ]
 }
