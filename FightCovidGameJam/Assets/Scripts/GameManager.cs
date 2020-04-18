@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
 
             boolean_stats.Add("Mask", true);
             boolean_stats.Add("Mask_Crafted", false);
-            boolean_stats.Add("Door", false);
+            boolean_stats.Add("DoorClosed", false);
             boolean_stats.Add("Infection", false);
             boolean_stats.Add("Badly_Washed", false);
             boolean_stats.Add("Gel", false);
@@ -155,28 +155,7 @@ public class GameManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        if (new_day)
-        {
-            switch (current_character)
-            {
-                case CHARACTER.CARMEN:
-                    character_text.text = "Carmen";
-                    day_text.text = "Día " + carmen_day + " de confinamiento";
-                    break;
-                case CHARACTER.JULIAN:
-                    day_text.text = "Día " + julian_day + " de confinamiento";
-                    character_text.text = "Julian";
-                    break;
-                default:
-                    break;
-            }
-            character_text.DOFade(1.0f, 2.0f).OnComplete(ShowDayText);
-            new_day = false;
-        }
-        else
-        {
-            HideFade();
-        }
+        HideFade();
         situations_manager.OnLevelFinshedLoading(scene);
     }
 
@@ -197,12 +176,39 @@ public class GameManager : MonoBehaviour
     void HidePrepTexts()
     {
         day_text.DOFade(0.0f, 2.0f);
-        character_text.DOFade(0.0f, 2.0f).OnComplete(HideFade);
+        character_text.DOFade(0.0f, 2.0f).OnComplete(situations_manager.StartSituation);
     }
+
+
 
     void HideFade()
     {
-        fade.DOFade(0.0f, 2.0f);
+
+        if (new_day)
+        {
+            fade.DOFade(0.0f, 2.0f).OnComplete(NewDay);
+        }
+        else
+            fade.DOFade(0.0f, 2.0f);
+    }
+
+    void NewDay()
+    {
+        switch (current_character)
+        {
+            case CHARACTER.CARMEN:
+                character_text.text = "Carmen";
+                day_text.text = "Día " + carmen_day + " de confinamiento";
+                break;
+            case CHARACTER.JULIAN:
+                day_text.text = "Día " + julian_day + " de confinamiento";
+                character_text.text = "Julian";
+                break;
+            default:
+                break;
+        }
+        character_text.DOFade(1.0f, 2.0f).OnComplete(ShowDayText);
+        new_day = false;
     }
 
     void OnGUI()

@@ -179,19 +179,19 @@ public class DialogueManager : MonoBehaviour
         {
             player_name.SetActive(true);
             SetPlayerName(d_info.name);
+            GameObject model_dialogue = Instantiate(FindPrefab(d_info.name), player_model_position, false);
+            if(d_info.animation != null)
+                model_dialogue.GetComponent<Animator>().Play(d_info.animation);
         }
         else
         {
             npc_name.SetActive(true);
             SetNPCName(d_info.name);
+            GameObject model_dialogue = Instantiate(FindPrefab(d_info.name), npc_model_position, false);
+            if (d_info.animation != null)
+                model_dialogue.GetComponent<Animator>().Play(d_info.animation);
         }
 
-
-        if (d_info.name == "Carmen")
-        {
-            GameObject model_dialogue = Instantiate(FindPrefab(d_info.name), player_model_position, false);
-            model_dialogue.GetComponent<Animator>().Play("Think");
-        }
         dialogue.SetActive(true);
         SetDialogueText(d_info.text, d_info.speed);
 

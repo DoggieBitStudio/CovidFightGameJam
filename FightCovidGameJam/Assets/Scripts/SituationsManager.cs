@@ -198,7 +198,10 @@ public class SituationsManager : MonoBehaviour
 
             day_situations.Add(situation);
         }
+    }
 
+    public void StartSituation()
+    {
         current_situation = day_situations[0];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
