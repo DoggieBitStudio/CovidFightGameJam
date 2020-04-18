@@ -161,10 +161,10 @@ public class GameManager : MonoBehaviour
             {
                 case CHARACTER.CARMEN:
                     character_text.text = "Carmen";
-                    day_text.text = "Día " + carmen_day + " de confinamiento.";
+                    day_text.text = "Día " + carmen_day + " de confinamiento";
                     break;
                 case CHARACTER.JULIAN:
-                    day_text.text = "Día " + julian_day + " de confinamiento.";
+                    day_text.text = "Día " + julian_day + " de confinamiento";
                     character_text.text = "Julian";
                     break;
                 default:
@@ -191,6 +191,7 @@ public class GameManager : MonoBehaviour
     void ShowDayText()
     {
         day_text.DOFade(1.0f, 2.0f).OnComplete(HidePrepTexts);
+        audio_source.PlayOneShot(new_day_sfx);
     }
 
     void HidePrepTexts()
