@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +32,7 @@ public class GameManager : MonoBehaviour
     public DialogueManager dialogue_manager;
     public UIManager ui_manager;
     public ActionManager action_manager;
+    public GameObject fade;
 
     private void Awake()
     {
@@ -59,6 +63,7 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Went_Out", false);
 
             action_manager = GetComponent<ActionManager>();
+            fade = GameObject.FindGameObjectWithTag("Fade");
         }
         else
             Destroy(gameObject);
@@ -92,5 +97,31 @@ public class GameManager : MonoBehaviour
     public void AddHealth(int h)
     {
         instance.int_stats["Health"] += h;
+    }
+
+    public void LoadSceneFade(string name)
+    {
+        fade.GetComponent<Image>().DOFade(1.0f, 2.0f).OnComplete(()=>LoadScene(name));
+    }
+
+    void LoadScene(string name)
+    {
+        SceneManager.LoadScene(name);
+    }
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        fade = GameObject.FindGameObjectWithTag("Fade");
+        fade.GetComponent<Image>().DOFade(0.0f, 2.0f);
     }
 }
