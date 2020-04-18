@@ -10,7 +10,7 @@
           "text": "Se decreta el <color=#f1ce51ff>estado de alarma</color> en nuestro país durante los\npróximos 15 días.",
           "player": false,
           "name": "Presentador",
-          "animation": "Talk",
+          "animation": "Think",
           "speed": 30.0,
           "index": 0,
           "next_step": 1
