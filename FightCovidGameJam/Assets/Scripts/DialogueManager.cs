@@ -195,9 +195,8 @@ public class DialogueManager : MonoBehaviour
         dialogue.SetActive(true);
         SetDialogueText(d_info.text, d_info.speed);
 
-        GameManager.instance.ui_opened = true;
-
-        
+        Debug.Log("hola1");
+        GameManager.instance.ui_opened = true;  
     }
 
     public void EndDialogue()
@@ -213,6 +212,7 @@ public class DialogueManager : MonoBehaviour
         state = DIALOGUE_STATE.NONE;
 
         GameManager.instance.situations_manager.OnStepFinish();
+        Debug.Log("hola2");
         GameManager.instance.ui_opened = false;
     }
 

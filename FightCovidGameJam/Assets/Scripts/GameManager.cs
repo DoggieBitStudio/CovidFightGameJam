@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public Text day_text;
     public AudioSource audio_source;
 
-    internal int carmen_day = 15;
+    internal int carmen_day = 1;
     internal int julian_day = 1;
     public CHARACTER current_character = CHARACTER.CARMEN;
 
@@ -155,6 +155,7 @@ public class GameManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        ui_opened = true;
         HideFade();
         situations_manager.OnLevelFinshedLoading(scene);
     }
@@ -177,6 +178,7 @@ public class GameManager : MonoBehaviour
     {
         day_text.DOFade(0.0f, 2.0f);
         character_text.DOFade(0.0f, 2.0f).OnComplete(situations_manager.StartSituation);
+        ui_opened = false;
     }
 
 

@@ -111,6 +111,7 @@ public class SituationsManager : MonoBehaviour
                 GameManager.instance.LoadSceneFade("bathroom");
                 break;
             case Step_Type.DOCTOR_VOTE:
+                GameManager.instance.ui_opened = true;
                 doctor_vote.SetActive(true);
                 break;
             case Step_Type.SLEEP:
@@ -206,7 +207,7 @@ public class SituationsManager : MonoBehaviour
 
     public void StartSituation()
     {
-        current_situation = day_situations[4];
+        current_situation = day_situations[0];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }

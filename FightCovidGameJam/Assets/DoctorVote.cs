@@ -6,19 +6,6 @@ using DG.Tweening;
 
 public class DoctorVote : MonoBehaviour
 {
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Accept()
     {
         transform.GetChild(3).gameObject.SetActive(true);
@@ -29,6 +16,7 @@ public class DoctorVote : MonoBehaviour
     public void Decline()
     {
         this.gameObject.SetActive(false);
+        GameManager.instance.ui_opened = false;
         GameManager.instance.situations_manager.OnStepFinish();
     }
 
@@ -40,6 +28,7 @@ public class DoctorVote : MonoBehaviour
     public void Disappear()
     {
         this.gameObject.SetActive(false);
+        GameManager.instance.ui_opened = false;
         GameManager.instance.boolean_stats["Doctor_Out"] = true;
         GameManager.instance.situations_manager.OnStepFinish();
     }
