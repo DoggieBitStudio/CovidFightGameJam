@@ -86,6 +86,7 @@ public class SituationsManager : MonoBehaviour
     public void FinishAnimationSequence()
     {
         GameManager.instance.ui_opened = false;
+        GameManager.instance.action_manager.animator.Play("Idle");
         OnStepFinish();
     }
 
