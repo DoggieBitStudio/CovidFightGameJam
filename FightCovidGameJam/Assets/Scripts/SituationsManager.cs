@@ -106,6 +106,7 @@ public class SituationsManager : MonoBehaviour
                 break;
             case Step_Type.SHOPPING:
                 shopping_event.SetActive(true);
+                shopping_event.GetComponent<ShoppingEvent>().LoadEvent(current_situation.sequence[current_situation.current_step.index].Item2);
                 break;
             case Step_Type.BATHROOM:
                 GameManager.instance.LoadSceneFade("bathroom");
@@ -207,7 +208,7 @@ public class SituationsManager : MonoBehaviour
 
     public void StartSituation()
     {
-        current_situation = day_situations[0];
+        current_situation = day_situations[2];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }

@@ -99,6 +99,11 @@ public class ShoppingEvent : MonoBehaviour
 
     private void OnEnable()
     {
+       
+    }
+
+    internal void LoadEvent(JSONObject json)
+    {
         GameManager.instance.ui_opened = true;
         close_button.interactable = GameManager.instance.boolean_stats["Shop"];
         accept_button.interactable = false;
@@ -107,9 +112,6 @@ public class ShoppingEvent : MonoBehaviour
         {
             Destroy(child.gameObject);
         }
-
-        TextAsset json_file = Resources.Load("Shopping_Event") as TextAsset;
-        JSONObject json = new JSONObject(json_file.text);
 
         JSONObject options = json.GetField("options");
         foreach (JSONObject j_option in options.list)

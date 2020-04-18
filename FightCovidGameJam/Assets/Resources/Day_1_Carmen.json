@@ -128,7 +128,60 @@
         {
           "step_type": "SHOPPING",
           "index": 1,
-          "next_step": 2
+          "next_step": 2,
+          "options": [
+            {
+              "text": "Comida y bebida",
+              "effect": [
+                {
+                  "stat": "Shop",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "text": "Comprar algún capricho",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                }
+              ],
+              "time_investment": 10
+            },
+            {
+              "text": "Papel higiénico",
+              "stat_requirement": {
+                "stat": "Positivism",
+                "value": 200
+              },
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                }
+              ],
+              "time_investment": 10
+            },
+            {
+              "text": "Gel Desinfectante",
+              "effect": [
+                {
+                  "stat": "Gel",
+                  "value": true
+                }
+              ],
+              "time_investment": 10
+            }
+          ]
         },
         {
           "step_type": "BATHROOM",

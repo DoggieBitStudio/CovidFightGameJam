@@ -301,29 +301,56 @@
       ]
     },
     {
-      "identifier": "SHOPPING",
-      "activation_time": 17,
-      "duration": 45,
-      "sequence": [
+      "step_type": "SHOPPING",
+      "index": 1,
+      "next_step": 2,
+      "options": [
         {
-          "step_type": "DIALOGUE",
-          "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situación.",
-          "player": true,
-          "name": "Carmen",
-          "animation": "Think",
-          "speed": 30.0,
-          "index": 0,
-          "next_step": 1
+          "text": "Comida y bebida",
+          "effect": [
+            {
+              "stat": "Shop",
+              "value": true
+            }
+          ]
         },
         {
-          "step_type": "SHOPPING",
-          "index": 1,
-          "next_step": 2
+          "text": "Comprar algún capricho",
+          "effect": [
+            {
+              "stat": "Health",
+              "value": -1
+            },
+            {
+              "stat": "Positivism",
+              "value": 1
+            }
+          ],
+          "time_investment": 10
         },
         {
-          "step_type": "BATHROOM",
-          "index": 2,
-          "next_step": 0
+          "text": "Papel higiénico",
+          "effect": [
+            {
+              "stat": "Health",
+              "value": -1
+            },
+            {
+              "stat": "Positivism",
+              "value": 1
+            }
+          ],
+          "time_investment": 10
+        },
+        {
+          "text": "Gel Desinfectante",
+          "effect": [
+            {
+              "stat": "Gel",
+              "value": true
+            }
+          ],
+          "time_investment": 10
         }
       ]
     },
