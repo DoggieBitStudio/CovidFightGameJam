@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public class SituationsManager : MonoBehaviour
 {
     public GameObject shopping_event;
+    public GameObject doctor_vote;
 
     List<Situation> completed_situations;
     List<Situation> day_situations;
@@ -109,6 +110,9 @@ public class SituationsManager : MonoBehaviour
             case Step_Type.BATHROOM:
                 GameManager.instance.LoadSceneFade("bathroom");
                 break;
+            case Step_Type.DOCTOR_VOTE:
+                doctor_vote.SetActive(true);
+                break;
             case Step_Type.SLEEP:
                 if (GameManager.instance.current_character == CHARACTER.CARMEN)
                     GameManager.instance.carmen_day += (int)current_situation.duration;
@@ -202,7 +206,7 @@ public class SituationsManager : MonoBehaviour
 
     public void StartSituation()
     {
-        current_situation = day_situations[0];
+        current_situation = day_situations[4];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }
