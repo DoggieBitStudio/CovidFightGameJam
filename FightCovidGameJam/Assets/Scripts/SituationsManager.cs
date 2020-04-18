@@ -33,7 +33,7 @@ public class SituationsManager : MonoBehaviour
     void Start()
     {
         day_situations = new List<Situation>();
-        LoadSituations("Day_1");
+        LoadSituations("Day_1_Carmen");
         shopping_event = GameObject.Find("ShoppingPanel");
     }
 

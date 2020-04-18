@@ -10,19 +10,20 @@ public class CharacterOrthController : MonoBehaviour
     NavMeshAgent agent;
     NavMeshPath path;
     public float distance = 50f;
-
+    Animator anim;
     // Start is called before the first frame update
     void Start()
     {
         path = new NavMeshPath();
         agent = this.gameObject.GetComponent<NavMeshAgent>();
         uiManager = GameObject.Find("GameManager").GetComponent<UIManager>();
+        anim = gameObject.GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        anim.SetFloat("Speed", agent.velocity.magnitude);
     }
 
     void FixedUpdate()
