@@ -63,7 +63,6 @@ public class ActionManager : MonoBehaviour
     //Timer
     bool firstAction = false;
     bool secondAction = false;
-    public GameObject fadeToBlack;
 
     // Start is called before the first frame update
     void Start()
@@ -211,10 +210,10 @@ public class ActionManager : MonoBehaviour
                 {
                     if((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
                     {
-                        Color col = fadeToBlack.GetComponent<Image>().color;
+                        Color col = GameManager.instance.fade.color;
                         Debug.Log(col.a);
                         col.a += (float)0.5 * Time.deltaTime;
-                        fadeToBlack.GetComponent<Image>().color = col;
+                        GameManager.instance.fade.color = col;
 
                         if (col.a >= 1)
                         {
@@ -229,13 +228,13 @@ public class ActionManager : MonoBehaviour
                     }
                     else if(firstAction  && secondAction)
                     {
-                        Color col = fadeToBlack.GetComponent<Image>().color;
+                        Color col = GameManager.instance.fade.color;
                         col.a -= (float)0.5 * Time.deltaTime;
-                        fadeToBlack.GetComponent<Image>().color = col;
+                        GameManager.instance.fade.color = col;
 
                         if (col.a <= 0)
                         {
-                            fadeToBlack.SetActive(false);
+                            GameManager.instance.fade.gameObject.SetActive(false);
                             firstAction = false;
                             secondAction = false;
                             currentAction = Actions.NONE;
@@ -316,11 +315,11 @@ public class ActionManager : MonoBehaviour
             case Actions.CRAFT_MASK:
                 if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                 {
-                    fadeToBlack.SetActive(true);
-                    Color col = fadeToBlack.GetComponent<Image>().color;
+                    GameManager.instance.fade.gameObject.SetActive(true);
+                    Color col = GameManager.instance.fade.color;
                     Debug.Log(col.a);
                     col.a += (float)0.5 * Time.deltaTime;
-                    fadeToBlack.GetComponent<Image>().color = col;
+                    GameManager.instance.fade.color = col;
 
                     if (col.a >= 1)
                     {
@@ -330,13 +329,13 @@ public class ActionManager : MonoBehaviour
                 }
                 else if (firstAction && !bathroomDoor.GetComponent<AudioSource>().isPlaying && !secondAction)
                 {
-                    Color col = fadeToBlack.GetComponent<Image>().color;
+                    Color col = GameManager.instance.fade.color;
                     col.a -= (float)0.5 * Time.deltaTime;
-                    fadeToBlack.GetComponent<Image>().color = col;
+                    GameManager.instance.fade.color = col;
 
                     if (col.a <= 0)
                     {
-                        fadeToBlack.SetActive(false);
+                        GameManager.instance.fade.gameObject.SetActive(false);
                         secondAction = true;
                         agent.SetDestination(swegingBox.transform.position);
                     }
@@ -410,7 +409,7 @@ public class ActionManager : MonoBehaviour
                 agent.SetDestination(houseDoor.transform.position);
                 break;
             case Actions.TAKE_WALK:
-                fadeToBlack.SetActive(true);
+                GameManager.instance.fade.gameObject.SetActive(true);
                 houseDoorSource.Play();
                 break;
             case Actions.VIDEOCALL:
@@ -436,5 +435,27 @@ public class ActionManager : MonoBehaviour
         GameManager.instance.AddPositivism(positivismGained);
         GameManager.instance.AddHealth(healthGained);
         GameManager.instance.boolean_stats["Went_Out"] = false;
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 0)
+        {
+            player = GameObject.Find("MariCarmen");
+            agent = player.GetComponent<NavMeshAgent>();
+            tv = GameObject.Find("Television");
+            sofa = GameObject.Find("Sofa");
+            shelf = GameObject.Find("Estantería");
+            couch = GameObject.Find("Sillón");
+            book = GameObject.Find("Book");
+            houseDoor = GameObject.Find("Puerta");
+            houseDoorSource = houseDoor.GetComponent<AudioSource>();
+            neighbourDoor = GameObject.Find("Puerta Vecino");
+            smartphone = GameObject.Find("Móvil");
+            smartphonePos = GameObject.Find("SmartphonePos");
+            bathroomDoor = GameObject.Find("Lavabo");
+            chair = GameObject.Find("Silla");
+            swegingBox = GameObject.Find("Costurero");
+        }
     }
 }

@@ -185,8 +185,6 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        Debug.Log("end dialogue");
-
         if (player_name.activeSelf)
             player_name.SetActive(false);
         else if (npc_name.activeSelf)
@@ -205,5 +203,14 @@ public class DialogueManager : MonoBehaviour
             Destroy(player_model_position.GetChild(0));
         else if (npc_model_position.childCount > 0)
             Destroy(npc_model_position.GetChild(0));
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if(level == 0)
+        {
+            player_model_position = GameObject.Find("PlayerModelPosition").transform;
+            npc_model_position = GameObject.Find("NPCModelPosition").transform;
+        }
     }
 }

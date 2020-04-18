@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class SituationsManager : MonoBehaviour
 {
-    GameObject shopping_event;
+    public GameObject shopping_event;
 
     List<Situation> completed_situations;
     List<Situation> day_situations;
@@ -40,8 +40,6 @@ public class SituationsManager : MonoBehaviour
         string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
         
         LoadSituations("Day_"+day+"_"+character);
-
-        shopping_event = GameObject.Find("ShoppingPanel");
     }
 
     // Update is called once per frame
@@ -81,6 +79,7 @@ public class SituationsManager : MonoBehaviour
         if (completed_today < day_situations.Count() && day_situations[completed_today].activation_time <= GameManager.instance.time)
         {
             current_situation = day_situations[completed_today];
+            current_situation.current_step = current_situation.sequence[0].Item1;
             StartStep();
         }
     }
@@ -107,7 +106,7 @@ public class SituationsManager : MonoBehaviour
                 shopping_event.SetActive(true);
                 break;
             case Step_Type.BATHROOM:
-                SceneManager.LoadScene("bathroom");
+                GameManager.instance.LoadSceneFade("bathroom");
                 break;
             case Step_Type.SLEEP:
                 if (GameManager.instance.current_character == CHARACTER.CARMEN)
@@ -115,7 +114,7 @@ public class SituationsManager : MonoBehaviour
                 else
                     GameManager.instance.julian_day += (int)current_situation.duration;
 
-                SceneManager.LoadScene("Main");
+                GameManager.instance.LoadSceneFade("Main");
                 break;
             default:
                 break;
@@ -200,5 +199,18 @@ public class SituationsManager : MonoBehaviour
         current_situation = day_situations[0];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
+    }
+
+    public void OnLevelFinshedLoading(Scene scene)
+    {
+        if(scene.name == "Main" && current_situation.identifier == "Sleep")
+        {
+            string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
+            string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
+
+            Debug.Log("Day_" + day + "_" + character);
+            day_situations.Clear();
+            LoadSituations("Day_" + day + "_" + character);
+        }
     }
 }
