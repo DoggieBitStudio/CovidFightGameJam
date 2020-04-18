@@ -22,6 +22,7 @@ public class SituationsManager : MonoBehaviour
         public string text;
         public float time_investment;
         public int next_step;
+        public string sound;
 
         public GameManager.Stat<int> int_requirement;
         public GameManager.Stat<bool> bool_requirement;
@@ -115,6 +116,7 @@ public class SituationsManager : MonoBehaviour
                     GameManager.instance.julian_day += (int)current_situation.duration;
 
                 GameManager.instance.LoadSceneFade("Main");
+                GameManager.instance.new_day = true;
                 break;
             default:
                 break;
@@ -124,6 +126,7 @@ public class SituationsManager : MonoBehaviour
 
     void CreateSelection()
     {
+        GameManager.instance.ui_opened = true;
         JSONObject options = current_situation.sequence[current_situation.current_step.index].Item2.GetField("options");
         foreach (JSONObject j_option in options.list)
         {
@@ -195,7 +198,10 @@ public class SituationsManager : MonoBehaviour
 
             day_situations.Add(situation);
         }
+    }
 
+    public void StartSituation()
+    {
         current_situation = day_situations[0];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();

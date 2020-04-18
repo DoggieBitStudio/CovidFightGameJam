@@ -39,9 +39,18 @@ public class GameManager : MonoBehaviour
     public ActionManager action_manager;
     public Image fade;
 
+    public bool ui_opened = false;
+
+    public bool new_day = true;
+    public Text character_text;
+    public Text day_text;
+    public AudioSource audio_source;
+
     internal int carmen_day = 1;
     internal int julian_day = 1;
     public CHARACTER current_character = CHARACTER.CARMEN;
+
+    public AudioClip new_day_sfx;
 
     bool show_stats = false;
     GUIStyle debug_style;
@@ -57,6 +66,7 @@ public class GameManager : MonoBehaviour
             dialogue_manager = GetComponent<DialogueManager>();
             ui_manager = GetComponent<UIManager>();
             action_manager = GetComponent<ActionManager>();
+            audio_source = GetComponent<AudioSource>();
 
             int_stats = new Dictionary<string, int>();
             boolean_stats = new Dictionary<string, bool>();
@@ -66,7 +76,7 @@ public class GameManager : MonoBehaviour
 
             boolean_stats.Add("Mask", true);
             boolean_stats.Add("Mask_Crafted", false);
-            boolean_stats.Add("Door", false);
+            boolean_stats.Add("DoorClosed", false);
             boolean_stats.Add("Infection", false);
             boolean_stats.Add("Badly_Washed", false);
             boolean_stats.Add("Gel", false);
@@ -79,6 +89,7 @@ public class GameManager : MonoBehaviour
             debug_style = new GUIStyle();
             debug_style.fontSize = 22;
             debug_style.normal.textColor = Color.red;
+            new_day = true;
         }
         else
             Destroy(gameObject);
@@ -144,7 +155,7 @@ public class GameManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        fade.DOFade(0.0f, 2.0f);
+        HideFade();
         situations_manager.OnLevelFinshedLoading(scene);
     }
 
@@ -154,6 +165,50 @@ public class GameManager : MonoBehaviour
         ui_manager.SetTimeText(time);
 
         boolean_stats["Plant"] = false;
+    }
+
+    void ShowDayText()
+    {
+        day_text.DOFade(1.0f, 2.0f).OnComplete(HidePrepTexts);
+        audio_source.PlayOneShot(new_day_sfx);
+    }
+
+    void HidePrepTexts()
+    {
+        day_text.DOFade(0.0f, 2.0f);
+        character_text.DOFade(0.0f, 2.0f).OnComplete(situations_manager.StartSituation);
+    }
+
+
+
+    void HideFade()
+    {
+
+        if (new_day)
+        {
+            fade.DOFade(0.0f, 2.0f).OnComplete(NewDay);
+        }
+        else
+            fade.DOFade(0.0f, 2.0f);
+    }
+
+    void NewDay()
+    {
+        switch (current_character)
+        {
+            case CHARACTER.CARMEN:
+                character_text.text = "Carmen";
+                day_text.text = "Día " + carmen_day + " de confinamiento";
+                break;
+            case CHARACTER.JULIAN:
+                day_text.text = "Día " + julian_day + " de confinamiento";
+                character_text.text = "Julian";
+                break;
+            default:
+                break;
+        }
+        character_text.DOFade(1.0f, 2.0f).OnComplete(ShowDayText);
+        new_day = false;
     }
 
     void OnGUI()
