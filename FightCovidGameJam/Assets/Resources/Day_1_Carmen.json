@@ -269,7 +269,7 @@
                   "value": -4
                 }
               ],
-              "next_step": 9
+              "next_step": 10
             }
           ]
         },
@@ -290,8 +290,8 @@
           "animation": "Talk",
           "speed": 30.0,
           "index": 8,
-          "next_step": 0,
-          "text": "Estáte tranquila Fina, lo que debes hacer es tomar todas las medidas de precaución que nos digan y evitar al máximo el salir de casa. No sé el tiempo que estaremos así, pero tarde o temprano se solucionará. Paciencia, tranquilidad, y actúa con cabeza. De ésta saldremos adelante. ¡Ánimo Fina!"
+          "next_step": 9,
+          "text": "Estáte tranquila Fina, lo que debes hacer es tomar todas las medidas de precaución que nos digan y evitar al máximo el salir de casa."
         },
         {
           "step_type": "DIALOGUE",
@@ -301,7 +301,37 @@
           "speed": 30.0,
           "index": 9,
           "next_step": 0,
-          "text": "Tira pa casa y enciérrate a cal y canto como si no hubiera un mañana. El mundo se va a acabar, vete corriendo al super y coge to lo que puedas como si fueses a estar una década encerrá que lo más seguro que pase eso, tu hazme caso Fina que de estas cosas yo entiendo."
+          "text": "No sé el tiempo que estaremos así, pero tarde o temprano se solucionará. Paciencia, tranquilidad, y actúa con cabeza. De ésta saldremos adelante. ¡Ánimo Fina!"
+        },
+        {
+          "step_type": "DIALOGUE",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 10,
+          "next_step": 11,
+          "text": "Tira pa casa y enciérrate a cal y canto como si no hubiera un mañana."
+        },
+        {
+          "step_type": "DIALOGUE",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 11,
+          "next_step": 12,
+          "text": "[anger]¡El mundo se va a acabar!"
+        },
+        {
+          "step_type": "DIALOGUE",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 12,
+          "next_step": 0,
+          "text": "Vete corriendo al super y coge to lo que puedas como si fueses a estar una década encerrá que lo más seguro que pase eso, tu hazme caso Fina que de estas cosas yo entiendo."
         }
       ]
     },
