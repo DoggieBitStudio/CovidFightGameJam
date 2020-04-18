@@ -1,0 +1,142 @@
+{
+  "Situations": [
+    {
+      "identifier": "Day15_Thoughts",
+      "activation_time": 8,
+      "duration": 10,
+      "sequence": [
+        {
+          "step_type": "DIALOGUE",
+          "text": "Uff, llevamos 8 días desde el estado de alarma y cada vez tenemos más pacientes en la UCI.",
+          "player": false,
+          "name": "Julián",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Jamás había vivido una situación como esta. Decir que estamos estresados es un eufemismo. Ánimo Julián, otro día más, tu puedes.",
+          "player": false,
+          "name": "Julián",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 1,
+          "next_step": 2
+        }
+      ]
+    },
+    {
+      "identifier": "Patients_coming",
+      "activation_time": 12,
+      "duration": 20,
+      "sequence": [
+        {
+          "step_type": "DIALOGUE",
+          "text": "Julián, estan llegando muchos más casos de los que podemos atender, ¿Qué hacemos?",
+          "player": false,
+          "name": "Adrián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
+
+        },
+        {
+          "step_type": "SELECTION",
+          "index": 1,
+          "options": [
+            {
+              "text": "Mientras haya camas libres, yo me ocuparé de ellos...",
+              "stat_requirement": {
+                "stat": "Positivism",
+                "value": 50
+              },
+              "next_step": 2
+            },
+            {
+              "text": "Yo ya estoy hasta arriba y no voy a poder atender a más...",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                }
+              ],
+              "next_step": 3
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Mientras haya camas libres, yo me ocuparé de ellos, lo importante es atenderlos a todos, ve haciéndoles pruebas para poder organizarlos mejor.",
+          "player": true,
+          "name": "Julian",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 2,
+          "next_step": 0
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Yo ya estoy hasta arriba y no voy a poder atender a más, busca a otro médico que tenga más tiempo libre.",
+          "player": true,
+          "name": "Julian",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 2,
+          "next_step": 0
+        }
+      ]
+    },
+    {
+      "identifier": "Clap",
+      "activation_time": 20,
+      "duration": 10,
+      "sequence": [
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ya se oyen los ánimos de la gente, hoy cambiaban la hora a las 8 para que los niños también participaran.",
+          "player": true,
+          "name": "Julian",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "No sé a quién se le habrá ocurrido esta iniciativa, pero la verdad es que si que anima mucho. La participación es más alta de lo que esperaba. ¡Gracias!",
+          "player": true,
+          "name": "Julian",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
+        }
+      ]
+    },
+    {
+      "identifier": "Leave_work",
+      "activation_time": 22,
+      "duration": 7,
+      "sequence": [
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ya se está haciendo tarde y llevo todo el día trabajando. Necesito irme a descansar un rato para estar más fresco mañana.",
+          "player": true,
+          "name": "Julian",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
+        },
+        {
+          "step_type": "LEAVEWORK",
+          "index": 1,
+          "next_step": 0
+        }
+      ]
+    }
+  ]
+}

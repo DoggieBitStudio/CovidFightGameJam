@@ -105,7 +105,7 @@
               "next_step": 3
             },
             {
-              "text": "Salir y aprovechar para pasear un rato",
+              "text": "Salir y aprovechar para pasear un rato.",
               "effect": [
                 {
                   "stat": "Health",
@@ -116,7 +116,7 @@
               "next_step": 3
             },
             {
-              "text": "Salir y aprovechar para hacer ejercicio",
+              "text": "Salir y aprovechar para hacer ejercicio.",
               "effect": [
                 {
                   "stat": "Health",
@@ -157,7 +157,60 @@
         {
           "step_type": "SHOPPING",
           "index": 1,
-          "next_step": 2
+          "next_step": 2,
+          "options": [
+            {
+              "text": "Comida y bebida",
+              "effect": [
+                {
+                  "stat": "Shop",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "text": "Comprar algún capricho",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                }
+              ],
+              "time_investment": 10
+            },
+            {
+              "text": "Papel higiénico",
+              "stat_requirement": {
+                "stat": "Positivism",
+                "value": 200
+              },
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                }
+              ],
+              "time_investment": 10
+            },
+            {
+              "text": "Gel Desinfectante",
+              "effect": [
+                {
+                  "stat": "Gel",
+                  "value": true
+                }
+              ],
+              "time_investment": 10
+            }
+          ]
         },
         {
           "step_type": "BATHROOM",
@@ -189,7 +242,21 @@
           "animation": "Talk",
           "speed": 30.0,
           "index": 1,
-          "next_step": 2
+          "next_step": 3,
+          "stat_requirement": {
+            "stat": "Shop",
+            "value": true
+          }
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Eres lerdo",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 2,
+          "next_step": 3
         },
         {
           "step_type": "DIALOGUE",
@@ -198,8 +265,8 @@
           "name": "Jaime",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 2,
-          "next_step": 3
+          "index": 3,
+          "next_step": 4
         },
         {
           "step_type": "DIALOGUE",
@@ -208,8 +275,8 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 3,
-          "next_step": 4
+          "index": 4,
+          "next_step": 5
         },
         {
           "step_type": "DIALOGUE",
@@ -218,12 +285,12 @@
           "name": "Jaime",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 4,
-          "next_step": 5
+          "index": 5,
+          "next_step": 6
         },
         {
           "step_type": "SELECTION",
-          "index": 5,
+          "index": 6,
           "options": [
             {
               "text": "Venga va, voy yo que ya estoy preparada...",
@@ -231,7 +298,7 @@
                 "stat": "Positivism",
                 "value": 50
               },
-              "next_step": 6
+              "next_step": 7
             },
             {
               "text": "¿Tu te crees que esto es jauja?...",
@@ -241,7 +308,7 @@
                   "value": -6
                 }
               ],
-              "next_step": 7
+              "next_step": 8
             },
             {
               "text": "Pues tira, pero la mascarilla es de uso personal...",
@@ -251,7 +318,7 @@
                   "value": true
                 }
               ],
-              "next_step": 8
+              "next_step": 9
             }
           ]
         },
@@ -262,7 +329,7 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 6,
+          "index": 7,
           "next_step": 0
         },
         {
@@ -272,7 +339,7 @@
           "name": "Carmen",
           "animation": "AngryTalk",
           "speed": 30.0,
-          "index": 7,
+          "index": 8,
           "next_step": 0
         },
         {
@@ -282,7 +349,7 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 8,
+          "index": 9,
           "next_step": 0
         }
       ]
@@ -300,7 +367,8 @@
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 1,
+          "sound": "clap"
         },
         {
           "step_type": "SELECTION",
@@ -318,7 +386,7 @@
                   "value": true
                 }
               ],
-              "next_step": 0
+              "next_step": 2
             },
             {
               "text": "No salir a dar palmas.",
@@ -331,6 +399,23 @@
               "next_step": 0
             }
           ]
+        },
+        {
+          "step_type": "MOVE_TO",
+          "index": 2,
+          "next_step": 3,
+          "position": {
+            "x": -2.15,
+            "y": 2.3,
+            "z": 6.1
+          }
+        },
+        {
+          "step_type": "PLAY_ANIMATION",
+          "index": 3,
+          "next_step": 0,
+          "animation": "Clap",
+          "time": 2
         }
       ]
     },

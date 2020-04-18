@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public Text day_text;
     public AudioSource audio_source;
 
-    internal int carmen_day = 1;
+    internal int carmen_day = 8;
     internal int julian_day = 1;
     public CHARACTER current_character = CHARACTER.CARMEN;
 
@@ -181,8 +181,6 @@ public class GameManager : MonoBehaviour
         character_text.DOFade(0.0f, 2.0f).OnComplete(situations_manager.StartSituation);
         ui_opened = false;
     }
-
-
 
     void HideFade()
     {

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class SituationsManager : MonoBehaviour
 {
@@ -47,7 +48,34 @@ public class SituationsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        switch (current_situation.current_step.step_type)
+        {
+            case Step_Type.NONE:
+                break;
+            case Step_Type.DIALOGUE:
+                break;
+            case Step_Type.SELECTION:
+                break;
+            case Step_Type.SHOPPING:
+                break;
+            case Step_Type.BATHROOM:
+                break;
+            case Step_Type.SLEEP:
+                break;
+            case Step_Type.DOCTOR_VOTE:
+                break;
+            case Step_Type.MOVE_TO:
+                if (Vector3.Distance(GameManager.instance.action_manager.player.transform.position, GameManager.instance.action_manager.agent.destination) <= 1.1f)
+                {
+                    GameManager.instance.ui_opened = false;
+                    OnStepFinish();
+                }              
+                break;
+            case Step_Type.PLAY_ANIMATION:
+                break;
+            default:
+                break;
+        }
     }
 
     public void CompleteAction(string identifier)
@@ -55,11 +83,45 @@ public class SituationsManager : MonoBehaviour
         //current_situation.CompleteAction(identifier);
     }
 
+    public void FinishAnimationSequence()
+    {
+        GameManager.instance.ui_opened = false;
+        GameManager.instance.action_manager.animator.Play("Idle");
+        OnStepFinish();
+    }
+
     public void OnStepFinish()
     {
-        if(current_situation.current_step.next_step > 0)
+        if (current_situation.current_step.next_step > 0)
         {
-            current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
+            if (current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.stat != null)
+            {
+                if(GameManager.instance.boolean_stats[current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.stat] 
+                    == current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.value)
+                {
+                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
+                }
+                else
+                {
+                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step + 1].Item1;
+                }
+            }
+            else if(current_situation.sequence[current_situation.current_step.next_step].Item1.int_requirement.stat != null)
+            {
+                if (GameManager.instance.int_stats[current_situation.sequence[current_situation.current_step.next_step].Item1.int_requirement.stat]
+                     == current_situation.sequence[current_situation.current_step.next_step].Item1.int_requirement.value)
+                {
+                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
+                }
+                else
+                {
+                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step + 1].Item1;
+                }
+            }
+            else
+                current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
+
+
             StartStep();
         }
         else
@@ -106,9 +168,21 @@ public class SituationsManager : MonoBehaviour
                 break;
             case Step_Type.SHOPPING:
                 shopping_event.SetActive(true);
+                shopping_event.GetComponent<ShoppingEvent>().LoadEvent(current_situation.sequence[current_situation.current_step.index].Item2);
                 break;
             case Step_Type.BATHROOM:
                 GameManager.instance.LoadSceneFade("bathroom");
+                break;
+            case Step_Type.MOVE_TO:
+                GameManager.instance.ui_opened = true;
+                Vector3 position = JsonUtility.FromJson<Vector3>(current_situation.sequence[current_situation.current_step.index].Item2.GetField("position").ToString());
+                GameManager.instance.action_manager.agent.SetDestination(position);
+                break;
+            case Step_Type.PLAY_ANIMATION:
+                GameManager.instance.ui_opened = true;
+                string anim_string = current_situation.sequence[current_situation.current_step.index].Item2.GetField("animation").str;
+                GameManager.instance.action_manager.animator.Play(anim_string);
+                Invoke("FinishAnimationSequence", current_situation.sequence[current_situation.current_step.index].Item2.GetField("time").f);
                 break;
             case Step_Type.DOCTOR_VOTE:
                 GameManager.instance.ui_opened = true;
@@ -171,8 +245,6 @@ public class SituationsManager : MonoBehaviour
             {
                 Debug.Log("No effects found on");
             });
-
-
             GameManager.instance.ui_manager.CreateSelection(selection);
         }
         
@@ -194,6 +266,19 @@ public class SituationsManager : MonoBehaviour
                 {
                     Step step = JsonUtility.FromJson<Step>(j_step.ToString());
                     step.step_type = (Step_Type)Enum.Parse(typeof(Step_Type), j_step.GetField("step_type").str);
+                    j_step.GetField("stat_requirement", delegate (JSONObject stat_requirement)
+                    {
+                        if (stat_requirement.GetField("value").IsBool)
+                        {
+                            step.bool_requirement = JsonUtility.FromJson<GameManager.Stat<bool>>(stat_requirement.ToString());
+                        }
+                        else
+                        {
+                            step.int_requirement = JsonUtility.FromJson<GameManager.Stat<int>>(stat_requirement.ToString());
+                        }
+                    }, delegate (string name)
+                    {
+                    });
                     situation.sequence.Add(new System.Tuple<Step, JSONObject>(step, j_step));
                 }
             }, delegate (string name)
@@ -207,7 +292,7 @@ public class SituationsManager : MonoBehaviour
 
     public void StartSituation()
     {
-        current_situation = day_situations[0];
+        current_situation = day_situations[4];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }

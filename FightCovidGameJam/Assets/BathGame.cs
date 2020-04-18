@@ -54,7 +54,7 @@ public class BathGame : MonoBehaviour
 
     void HandlePhoneInput()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended)
         {
             //create a ray cast and set it to the mouses cursor position in game
             Ray ray;
