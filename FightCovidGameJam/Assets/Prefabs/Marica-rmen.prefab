@@ -10,7 +10,7 @@ Animator:
   m_GameObject: {fileID: 4639014192454198974}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e62d83d944083674ca7344572c5f25b0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3f3c368541b751542bfb9cf35e386fc8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -129,7 +129,7 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 500
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
@@ -306,12 +306,12 @@ PrefabInstance:
     - target: {fileID: -2463916837961704322, guid: d936797911d457d42b4bdbfd038110d0,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00009565093
+      value: -0.00009565094
       objectReference: {fileID: 0}
     - target: {fileID: -2463916837961704322, guid: d936797911d457d42b4bdbfd038110d0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.014311865
+      value: 0.014311866
       objectReference: {fileID: 0}
     - target: {fileID: -2463916837961704322, guid: d936797911d457d42b4bdbfd038110d0,
         type: 3}
