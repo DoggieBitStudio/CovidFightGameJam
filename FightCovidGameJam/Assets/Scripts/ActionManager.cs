@@ -18,7 +18,8 @@ public class ActionManager : MonoBehaviour
         VIDEOCALL = 6,
         BUY_ONLINE = 7,
         CRAFT_MASK = 8,
-        WASH_MASK = 9,
+        WASH_MASK_RIGHT = 9,
+        WASH_MASK_WRONG = 10,
         TRASH_OUT = 10,
         WATER_PLANTS = 11,
         DINNER = 12,
@@ -38,12 +39,15 @@ public class ActionManager : MonoBehaviour
     GameObject sofa;
     GameObject shelf;
     GameObject couch;
+    GameObject chair;
     GameObject book;
     GameObject houseDoor;
     GameObject neighbourDoor;
     GameObject neighbour;
-    GameObject smarthphone;
+    GameObject smartphone;
     GameObject smartphonePos;
+    GameObject bathroomDoor;
+    GameObject swegingBox;
 
     AudioSource houseDoorSource;
 
@@ -52,6 +56,8 @@ public class ActionManager : MonoBehaviour
     NavMeshAgent agent;
 
     public AudioClip dramaticFx;
+    public AudioClip openAppFx;
+    public AudioClip buyOnlineFx;
 
     //Timer
     bool firstAction = false;
@@ -70,8 +76,11 @@ public class ActionManager : MonoBehaviour
         houseDoor = GameObject.Find("Puerta");
         houseDoorSource = houseDoor.GetComponent<AudioSource>();
         neighbourDoor = GameObject.Find("Puerta Vecino");
-        smarthphone = GameObject.Find("Móvil");
+        smartphone = GameObject.Find("Móvil");
         smartphonePos = GameObject.Find("SmartphonePos");
+        bathroomDoor = GameObject.Find("Lavabo");
+        chair = GameObject.Find("Silla");
+        swegingBox = GameObject.Find("Costurero");
     }
 
     // Update is called once per frame
@@ -187,6 +196,10 @@ public class ActionManager : MonoBehaviour
                         currentAction = Actions.NONE;
                         firstAction = false;
                         secondAction = false;
+                        if(GameManager.instance.int_stats["Health"] <= 0)
+                        {
+                            GameManager.instance.boolean_stats["Infection"] = true;
+                        }
                         FinalizeAction();
                     }
 
@@ -231,35 +244,88 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.VIDEOCALL:
                 {
-                    if ((smarthphone.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((smartphone.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
                     {
                         agent.SetDestination(couch.transform.position);
-                        smarthphone.SetActive(false);
+                        smartphone.SetActive(false);
                         firstAction = true;
                     }
                     else if ((couch.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && !secondAction)
                     {
                         //Smartphone
-                        smarthphone.SetActive(true);
-                        smarthphone.transform.position = player.transform.position;
+                        smartphone.SetActive(true);
+                        smartphone.transform.position = player.transform.position;
                         //Sit in couch
-                        smarthphone.GetComponent<AudioSource>().Play();
+                        smartphone.GetComponent<AudioSource>().Play();
                         secondAction = true;
                     }
-                    else if(firstAction && secondAction && !smarthphone.GetComponent<AudioSource>().isPlaying)
+                    else if(firstAction && secondAction && !smartphone.GetComponent<AudioSource>().isPlaying)
                     {
                         agent.SetDestination(smartphonePos.transform.position);
-                        smarthphone.SetActive(false);
+                        smartphone.SetActive(false);
                         if ((smartphonePos.transform.position - player.transform.position).sqrMagnitude < 3)
                         {
-                            smarthphone.SetActive(true);
-                            smarthphone.transform.position = smartphonePos.transform.position;
+                            smartphone.SetActive(true);
+                            smartphone.transform.position = smartphonePos.transform.position;
                             currentAction = Actions.NONE;
                             firstAction = false;
                             secondAction = false;
                             FinalizeAction();
                         }
                     }
+                }
+                break;
+            case Actions.BUY_ONLINE:
+                if ((smartphone.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                {
+                    smartphone.SetActive(false);
+                    agent.SetDestination(chair.transform.position);
+                    firstAction = true;
+                }
+                else if((chair.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && !secondAction)
+                {
+                    // Sit in chair
+                    smartphone.GetComponent<AudioSource>().PlayOneShot(openAppFx);
+                    smartphone.SetActive(true);
+                    smartphone.transform.position = player.transform.position;
+                    //Open minigame buy online
+                    //Do action buying online
+                    //When finished action
+                    secondAction = true;
+                    smartphone.GetComponent<AudioSource>().PlayOneShot(buyOnlineFx);
+                }
+                else if (firstAction && secondAction && !smartphone.GetComponent<AudioSource>().isPlaying)
+                {
+                    agent.SetDestination(smartphonePos.transform.position);
+                    smartphone.SetActive(false);
+                    if ((smartphonePos.transform.position - player.transform.position).sqrMagnitude < 3)
+                    {
+                        smartphone.SetActive(true);
+                        smartphone.transform.position = smartphonePos.transform.position;
+                        currentAction = Actions.NONE;
+                        firstAction = false;
+                        secondAction = false;
+                        GameManager.instance.boolean_stats["Buy_Online"] = true;
+                        FinalizeAction();
+                    }
+                }
+                break;
+            case Actions.CRAFT_MASK:
+                if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
+                {
+                    bathroomDoor.GetComponent<AudioSource>().Play();
+                    //Open Door animation
+                    //Activates wash hands minigame
+                    firstAction = true;
+                }
+                else if(firstAction /*&& videogamefinished*/)
+                {
+                    firstAction = false;
+                    GameManager.instance.boolean_stats["Mask_Crafted"] = true;
+                    GameManager.instance.boolean_stats["Mask"] = true;
+                    swegingBox.tag = "Untagged";
+                    currentAction = Actions.NONE;
+                    FinalizeAction();
                 }
                 break;
         }
@@ -290,7 +356,13 @@ public class ActionManager : MonoBehaviour
                 houseDoorSource.Play();
                 break;
             case Actions.VIDEOCALL:
-                agent.SetDestination(smarthphone.transform.position);
+                agent.SetDestination(smartphone.transform.position);
+                break;
+            case Actions.BUY_ONLINE:
+                agent.SetDestination(smartphone.transform.position);
+                break;
+            case Actions.CRAFT_MASK:
+                agent.SetDestination(bathroomDoor.transform.position);
                 break;
         }
         timePassed = (float)time;

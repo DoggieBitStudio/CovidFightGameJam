@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Shop", false);
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
+            boolean_stats.Add("Buy_Online", false);
 
             action_manager = GetComponent<ActionManager>();
             fade = GameObject.FindGameObjectWithTag("Fade");
@@ -105,7 +106,8 @@ public class GameManager : MonoBehaviour
 
     public void AddHealth(int h)
     {
-        instance.int_stats["Health"] += h;
+        if(instance.int_stats["Health"] > 0)
+            instance.int_stats["Health"] += h;
     }
 
     public void LoadSceneFade(string name)

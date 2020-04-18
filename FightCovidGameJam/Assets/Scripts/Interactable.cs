@@ -78,14 +78,14 @@ public class Interactable : MonoBehaviour
     {
         Vector3 position = pos;
         if (pos.x < Screen.width * 0.5)
-            position.x += (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.width * 0.5);
+            position.x += (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.width * 0.7);
         else
-            position.x -= (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.width * 0.5);
+            position.x -= (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.width * 0.7);
 
         if (pos.y < Screen.height * 0.5)
-            position.y += (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.height * 0.5);
+            position.y += (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.height * 0.7);
         else
-            position.y -= (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.height * 0.5);
+            position.y -= (float)(uiManager.verticalTask.GetComponent<Image>().rectTransform.rect.height * 0.7);
 
         return position;
     }
