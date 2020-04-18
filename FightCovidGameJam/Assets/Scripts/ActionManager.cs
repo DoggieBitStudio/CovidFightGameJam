@@ -19,7 +19,7 @@ public class ActionManager : MonoBehaviour
         BUY_ONLINE = 7,
         CRAFT_MASK = 8,
         WASH_MASK_RIGHT = 9,
-        WASH_MASK_WRONG = 10,
+        WASH_MASK_WRONG = 16,
         TRASH_OUT = 10,
         WATER_PLANTS = 11,
         DINNER = 12,
@@ -48,6 +48,7 @@ public class ActionManager : MonoBehaviour
     GameObject smartphonePos;
     GameObject bathroomDoor;
     GameObject swegingBox;
+    GameObject washingMachine;
 
     AudioSource houseDoorSource;
 
@@ -80,6 +81,7 @@ public class ActionManager : MonoBehaviour
         bathroomDoor = GameObject.Find("Lavabo");
         chair = GameObject.Find("Silla");
         swegingBox = GameObject.Find("Costurero");
+        washingMachine = GameObject.Find("Lavadora");
     }
 
     // Update is called once per frame
@@ -304,7 +306,8 @@ public class ActionManager : MonoBehaviour
                         currentAction = Actions.NONE;
                         firstAction = false;
                         secondAction = false;
-                        GameManager.instance.boolean_stats["Buy_Online"] = true;
+                        GameManager.instance.boolean_stats["Shop"] = true;
+                        GameManager.instance.boolean_stats["Went_Out"] = true;
                         FinalizeAction();
                     }
                 }
@@ -312,17 +315,72 @@ public class ActionManager : MonoBehaviour
             case Actions.CRAFT_MASK:
                 if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                 {
-                    bathroomDoor.GetComponent<AudioSource>().Play();
-                    //Open Door animation
-                    //Activates wash hands minigame
-                    firstAction = true;
+                    fadeToBlack.SetActive(true);
+                    Color col = fadeToBlack.GetComponent<Image>().color;
+                    Debug.Log(col.a);
+                    col.a += (float)0.5 * Time.deltaTime;
+                    fadeToBlack.GetComponent<Image>().color = col;
+
+                    if (col.a >= 1)
+                    {
+                        firstAction = true;
+                        bathroomDoor.GetComponent<AudioSource>().Play();
+                    }
                 }
-                else if(firstAction /*&& videogamefinished*/)
+                else if (firstAction && !bathroomDoor.GetComponent<AudioSource>().isPlaying && !secondAction)
+                {
+                    Color col = fadeToBlack.GetComponent<Image>().color;
+                    col.a -= (float)0.5 * Time.deltaTime;
+                    fadeToBlack.GetComponent<Image>().color = col;
+
+                    if (col.a <= 0)
+                    {
+                        fadeToBlack.SetActive(false);
+                        secondAction = true;
+                        agent.SetDestination(swegingBox.transform.position);
+                    }
+                }
+                else if ((swegingBox.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && secondAction)
                 {
                     firstAction = false;
+                    swegingBox.GetComponent<AudioSource>().Play();
                     GameManager.instance.boolean_stats["Mask_Crafted"] = true;
                     GameManager.instance.boolean_stats["Mask"] = true;
                     swegingBox.tag = "Untagged";
+                    firstAction = false;
+                    secondAction = false;
+                    currentAction = Actions.NONE;
+                    washingMachine.tag = "Selectable";
+                    FinalizeAction();
+                }
+                break;
+            case Actions.WASH_MASK_RIGHT:
+                if((washingMachine.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
+                {
+                    firstAction = true;
+                    washingMachine.GetComponent<AudioSource>().Play();
+                }
+                else if(firstAction && !washingMachine.GetComponent<AudioSource>().isPlaying)
+                {
+                    firstAction = false;
+                    washingMachine.tag = "Untagged";
+                    GameManager.instance.boolean_stats["Mask"] = true;
+                    currentAction = Actions.NONE;
+                    FinalizeAction();
+                }
+                break;
+            case Actions.WASH_MASK_WRONG:
+                if ((washingMachine.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
+                {
+                    firstAction = true;
+                    washingMachine.GetComponent<AudioSource>().Play();
+                }
+                else if (firstAction && !washingMachine.GetComponent<AudioSource>().isPlaying)
+                {
+                    firstAction = false;
+                    washingMachine.tag = "Untagged";
+                    GameManager.instance.boolean_stats["Mask"] = true;
+                    GameManager.instance.boolean_stats["Badly_Wash"] = true;
                     currentAction = Actions.NONE;
                     FinalizeAction();
                 }
@@ -376,6 +434,7 @@ public class ActionManager : MonoBehaviour
 
         GameManager.instance.AddPositivism(positivismGained);
         GameManager.instance.AddHealth(healthGained);
+        GameManager.instance.boolean_stats["Went_Out"] = false;
     }
 
     private void OnLevelWasLoaded(int level)
