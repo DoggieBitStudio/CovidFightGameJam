@@ -2598,6 +2598,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c834fac4625272349a10e66aaa88a3ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  current_situation:
+    actions: []
+    identifier: 
+    activation_time: 0
+    duration: 0
+    current_step:
+      step_type: 0
+      next_step: 0
+      index: 0
+    dialogues: []
 --- !u!114 &2137604749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2615,6 +2625,8 @@ MonoBehaviour:
   dialogue_manager: {fileID: 0}
   ui_manager: {fileID: 0}
   action_manager: {fileID: 0}
+  fade: {fileID: 0}
+  current_character: 0
 --- !u!4 &2137604750
 Transform:
   m_ObjectHideFlags: 0
