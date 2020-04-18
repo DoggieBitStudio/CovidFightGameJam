@@ -24,11 +24,10 @@
           "speed": 30.0,
           "index": 1,
           "next_step": 2
-
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Nos esperan semanas muy duras. Va a ser muy duro y difícil pero\nvamos a parar el virus con <color=#f1ce51ff>unidad, responsabilidad</color> y <color=#f1ce51ff>disciplina\nsocial</color>.",
+          "text": "Nos esperan semanas muy duras. Va a ser muy duro y difícil, pero\nvamos a parar el virus con <color=#f1ce51ff>unidad, responsabilidad</color> y <color=#f1ce51ff>disciplina\nsocial</color>.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -76,7 +75,7 @@
               "next_step": 3
             },
             {
-              "text": "Salir y aprovechar para pasear un rato",
+              "text": "Salir y aprovechar para pasear un rato.",
               "effect": [
                 {
                   "stat": "Health",
@@ -87,7 +86,7 @@
               "next_step": 3
             },
             {
-              "text": "Salir y aprovechar para hacer ejercicio",
+              "text": "Salir y aprovechar para hacer ejercicio.",
               "effect": [
                 {
                   "stat": "Health",
@@ -172,7 +171,7 @@
               "next_step": 2
             },
             {
-              "text": "Abrir la puerta pero mantener distancias.",
+              "text": "Abrir la puerta manteniendo las distancias.",
               "effect": [
                 {
                   "stat": "Health",
@@ -191,7 +190,7 @@
               "sound": "OpenDoor"
             },
             {
-              "text": "Hablar con ella con tranquilidad sin tomar medidas de precaución.",
+              "text": "Hablar con ella tranquilamente sin tomar medidas de precaución.",
               "effect": [
                 {
                   "stat": "Health",
@@ -213,7 +212,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Carmen, ¿has visto las noticias? Está la cosa fatal con lo del virus este, se va a contagiar to el mundo, que miedo...",
+          "text": "Carmen, ¿has visto las noticias? Está la cosa fatal con lo del virus este, se va a contagiar to' el mundo, qué miedo...",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -243,7 +242,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "[anger]¡AY! que miedo Carmen.",
+          "text": "[anger]¡AY! Qué miedo Carmen.",
           "player": false,
           "name": "Fina",
           "animation": "AngryTalk",
@@ -256,7 +255,7 @@
           "index": 6,
           "options": [
             {
-              "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na...",
+              "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na'...",
               "effect": [
                 {
                   "stat": "Infection",
@@ -266,11 +265,11 @@
               "next_step": 7
             },
             {
-              "text": "Estáte tranquila Fina, lo que debes hacer es...",
+              "text": "Estate tranquila Fina, lo que debes hacer es...",
               "next_step": 8
             },
             {
-              "text": "Tira pa casa y enciérrate a cal y canto...",
+              "text": "Tira pa' casa y enciérrate a cal y canto...",
               "stat_requirement": {
                 "stat": "DoorClosed",
                 "value": true
@@ -293,7 +292,7 @@
           "speed": 30.0,
           "index": 7,
           "next_step": 0,
-          "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na que se contagiarán cuatro descerebraos y poco más."
+          "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na' que se contagiarán cuatro descerebra'os y poco más."
         },
         {
           "step_type": "DIALOGUE",
@@ -303,7 +302,7 @@
           "speed": 30.0,
           "index": 8,
           "next_step": 9,
-          "text": "Estáte tranquila Fina, lo que debes hacer es tomar todas las medidas de precaución que nos digan y evitar al máximo el salir de casa."
+          "text": "Estate tranquila Fina, lo que debes hacer es tomar todas las medidas de precaución que nos digan y evitar al máximo el salir de casa."
         },
         {
           "step_type": "DIALOGUE",
@@ -323,7 +322,7 @@
           "speed": 30.0,
           "index": 10,
           "next_step": 11,
-          "text": "Tira pa casa y enciérrate a cal y canto como si no hubiera un mañana."
+          "text": "Tira pa' casa y enciérrate a cal y canto como si no hubiera un mañana."
         },
         {
           "step_type": "DIALOGUE",
@@ -343,7 +342,7 @@
           "speed": 30.0,
           "index": 12,
           "next_step": 0,
-          "text": "Vete corriendo al super y coge to lo que puedas como si fueses a estar una década encerrá que lo más seguro que pase eso, tu hazme caso Fina que de estas cosas yo entiendo."
+          "text": "Vete corriendo al súper y coge to' lo que puedas como si fueses a estar una década encerrá' que lo más seguro e' que pase eso, tú hazme caso Fina que de estas cosas yo entiendo."
         }
       ]
     },
@@ -354,7 +353,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Uy que tarde se ha hecho, creo que deberia irme a la cama",
+          "text": "¡Uy! Qué tarde se ha hecho, creo que debería irme a la cama.",
           "player": true,
           "name": "Carmen",
           "animation": "Think",
