@@ -105,6 +105,13 @@ public class UIManager : MonoBehaviour
         }
 
         GameManager.instance.situations_manager.current_situation.duration += selection.time_investment;
+        if (selection.sound != null)
+        {
+            GameManager.instance.audio_source.PlayOneShot(Resources.Load<AudioClip>("Sounds/" + selection.sound));
+            Debug.Log("Playing audio " + selection.sound);
+        }
+
+
         //GameManager.instance.situations_manager.OnStepFinish(); end dialogue does it for now
         GameManager.instance.situations_manager.current_situation.current_step.next_step = selection.next_step;
         GameManager.instance.dialogue_manager.EndDialogue();

@@ -151,7 +151,8 @@
           "animation": "Talk",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 1,
+          "sound": "DingDong"
         },
         {
           "step_type": "SELECTION",
@@ -187,7 +188,8 @@
                   "value": false
                 }
               ],
-              "next_step": 2
+              "next_step": 2,
+              "sound": "OpenDoor"
             },
             {
               "text": "Hablar con ella con tranquilidad sin tomar medidas de precaución.",
@@ -205,7 +207,8 @@
                   "value": false
                 }
               ],
-              "next_step": 2
+              "next_step": 2,
+              "sound": "OpenDoor"
             }
           ]
         },
