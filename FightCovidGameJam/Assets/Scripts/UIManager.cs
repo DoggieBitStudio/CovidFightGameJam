@@ -74,6 +74,7 @@ public class UIManager : MonoBehaviour
             selection_go.GetComponent<Button>().interactable = false;
 
             RawImage img = selection_go.GetComponentInChildren<RawImage>();
+            Debug.Log(selection.bool_requirement.stat);
             img.texture = emojis[selection.bool_requirement.stat];
             img.enabled = true;
         }
