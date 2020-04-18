@@ -22,11 +22,43 @@ public class BathGame : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+#if UNITY_STANDALONE_WIN
+        HandleStandaloneInput();
+#endif
+#if UNITY_ANDROID
+        HandlePhoneInput();
+#endif
+    }
+
+    void HandleStandaloneInput()
+    {
         if (Input.GetMouseButtonDown(0))
         {
             //create a ray cast and set it to the mouses cursor position in game
             Ray ray;
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit, distance))
+            {
+                //draw invisible ray cast/vector
+                Debug.DrawLine(ray.origin, hit.point);
+                //log hit area to the console
+                if (hit.collider.CompareTag("BathSelectable"))
+                {
+                    CheckSelected(hit.collider.gameObject.GetComponent<BathInteractable>().name);
+                    selected_objects++;
+                }
+            }
+        }
+    }
+
+    void HandlePhoneInput()
+    {
+        if (Input.touchCount > 0)
+        {
+            //create a ray cast and set it to the mouses cursor position in game
+            Ray ray;
+            ray = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
             RaycastHit hit;
             if (Physics.Raycast(ray, out hit, distance))
             {
@@ -106,7 +138,7 @@ public class BathGame : MonoBehaviour
         }
 
         GameManager.instance.situations_manager.OnStepFinish();
-        SceneManager.LoadScene("Main");
+        GameManager.instance.LoadSceneFade("Main");
     }
 
     void FillStep(string name)
