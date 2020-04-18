@@ -7,27 +7,27 @@
       "sequence": [
         {
           "type": "Dialogue",
-          "text": "Se decreta el <color=#f1ce51ff>estado de alarma</color> en nuestro país durante los próximos 15 días.",
+          "text": "Se decreta el <color=#f1ce51ff>estado de alarma</color> en nuestro país durante los\npróximos 15 días.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         },
         {
           "type": "Dialogue",
-          "text": "Estamos sólo en la primera fase de un combate contra el <color=#f1ce51ff>coronavirus</color> que provoca la enfermedad denominada <color=#f1ce51ff>Covid-19</color>.",
+          "text": "Estamos sólo en la primera fase de un combate contra el\n<color=#f1ce51ff>coronavirus</color> que provoca la enfermedad denominada <color=#f1ce51ff>Covid-19</color>.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         },
         {
           "type": "Dialogue",
-          "text": "Nos esperan semanas muy duras. Va a ser muy duro y difícil pero vamos a parar el virus con <color=#f1ce51ff>unidad, responsabilidad</color> y <color=#f1ce51ff>disciplina social</color>.",
+          "text": "Nos esperan semanas muy duras. Va a ser muy duro y difícil pero\nvamos a parar el virus con <color=#f1ce51ff>unidad, responsabilidad</color> y <color=#f1ce51ff>disciplina\nsocial</color>.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         }
       ]
     },
@@ -40,7 +40,7 @@
           "text": "Rufus me está pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
           "name": "Carmen",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         },
         {
           "type": "Selection",
@@ -95,7 +95,7 @@
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         },
         {
           "type": "Shopping"
@@ -116,7 +116,7 @@
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         },
         {
           "type": "Selection",
@@ -176,7 +176,7 @@
           "player": false,
           "name": "Fina",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         },
         {
           "type": "Dialogue",
@@ -184,7 +184,7 @@
           "player": false,
           "name": "Fina",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         },
         {
           "type": "Dialogue",
@@ -192,7 +192,7 @@
           "player": false,
           "name": "Fina",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         },
         {
           "type": "Dialogue",
@@ -200,7 +200,7 @@
           "player": false,
           "name": "Fina",
           "animation": "Talk",
-          "speed": 5.0
+          "speed": 30.0
         },
         {
           "type": "Selection",
