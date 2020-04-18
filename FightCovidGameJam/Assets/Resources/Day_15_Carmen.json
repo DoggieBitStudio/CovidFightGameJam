@@ -487,7 +487,8 @@
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 1,
+          "sound": "clap"
         },
         {
           "step_type": "SELECTION",

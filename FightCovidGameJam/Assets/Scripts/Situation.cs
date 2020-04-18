@@ -21,6 +21,9 @@ public struct Step
     public Step_Type step_type;
     public int next_step;
     public int index;
+
+    public GameManager.Stat<int> int_requirement;
+    public GameManager.Stat<bool> bool_requirement;
 }
 
 [System.Serializable]

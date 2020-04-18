@@ -59,7 +59,34 @@ public class SituationsManager : MonoBehaviour
     {
         if(current_situation.current_step.next_step > 0)
         {
-            current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
+            if (current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.stat != null)
+            {
+                if(GameManager.instance.boolean_stats[current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.stat] 
+                    == current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.value)
+                {
+                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
+                }
+                else
+                {
+                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step + 1].Item1;
+                }
+            }
+            else if(current_situation.sequence[current_situation.current_step.next_step].Item1.int_requirement.stat != null)
+            {
+                if (GameManager.instance.int_stats[current_situation.sequence[current_situation.current_step.next_step].Item1.int_requirement.stat]
+                     == current_situation.sequence[current_situation.current_step.next_step].Item1.int_requirement.value)
+                {
+                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
+                }
+                else
+                {
+                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step + 1].Item1;
+                }
+            }
+            else
+                current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
+
+
             StartStep();
         }
         else
@@ -172,8 +199,6 @@ public class SituationsManager : MonoBehaviour
             {
                 Debug.Log("No effects found on");
             });
-
-
             GameManager.instance.ui_manager.CreateSelection(selection);
         }
         
@@ -195,6 +220,19 @@ public class SituationsManager : MonoBehaviour
                 {
                     Step step = JsonUtility.FromJson<Step>(j_step.ToString());
                     step.step_type = (Step_Type)Enum.Parse(typeof(Step_Type), j_step.GetField("step_type").str);
+                    j_step.GetField("stat_requirement", delegate (JSONObject stat_requirement)
+                    {
+                        if (stat_requirement.GetField("value").IsBool)
+                        {
+                            step.bool_requirement = JsonUtility.FromJson<GameManager.Stat<bool>>(stat_requirement.ToString());
+                        }
+                        else
+                        {
+                            step.int_requirement = JsonUtility.FromJson<GameManager.Stat<int>>(stat_requirement.ToString());
+                        }
+                    }, delegate (string name)
+                    {
+                    });
                     situation.sequence.Add(new System.Tuple<Step, JSONObject>(step, j_step));
                 }
             }, delegate (string name)
@@ -208,7 +246,7 @@ public class SituationsManager : MonoBehaviour
 
     public void StartSituation()
     {
-        current_situation = day_situations[2];
+        current_situation = day_situations[0];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }
