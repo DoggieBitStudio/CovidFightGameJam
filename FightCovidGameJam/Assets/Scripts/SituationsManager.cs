@@ -33,7 +33,12 @@ public class SituationsManager : MonoBehaviour
     void Start()
     {
         day_situations = new List<Situation>();
-        LoadSituations("Day_1_Carmen");
+
+        string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
+        string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
+        
+        LoadSituations("Day_"+day+"_"+character);
+
         shopping_event = GameObject.Find("ShoppingPanel");
     }
 
@@ -86,26 +91,34 @@ public class SituationsManager : MonoBehaviour
     public bool IsNextStepSelection()
     {
         return (current_situation.current_step + 1 < current_situation.sequence.Count() 
-            && current_situation.sequence[current_situation.current_step + 1].Item1 == Situation.PacketType.SELECTION);
+            && current_situation.sequence[current_situation.current_step + 1].Item1 == Step.SELECTION);
     }
 
     void StartStep()
     {
         switch (current_situation.sequence[current_situation.current_step].Item1)
         {
-            case Situation.PacketType.NONE:
+            case Step.NONE:
                 break;
-            case Situation.PacketType.DIALOGUE:
+            case Step.DIALOGUE:
                 GameManager.instance.dialogue_manager.StartDialogue(current_situation.sequence[current_situation.current_step].Item2);
                 break;
-            case Situation.PacketType.SELECTION:
+            case Step.SELECTION:
                 CreateSelection();
                 break;
-            case Situation.PacketType.SHOPPING:
+            case Step.SHOPPING:
                 shopping_event.SetActive(true);
                 break;
-            case Situation.PacketType.BATHROOM:
+            case Step.BATHROOM:
                 SceneManager.LoadScene("bathroom");
+                break;
+            case Step.SLEEP:
+                if (GameManager.instance.current_character == CHARACTER.CARMEN)
+                    GameManager.instance.carmen_day += (int)current_situation.duration;
+                else
+                    GameManager.instance.julian_day += (int)current_situation.duration;
+
+                SceneManager.LoadScene("Main");
                 break;
             default:
                 break;
@@ -176,18 +189,18 @@ public class SituationsManager : MonoBehaviour
                 foreach (JSONObject packet in sequence.list)
                 {
                     string type = packet.GetField("type").str;
-                    Situation.PacketType packet_type = Situation.PacketType.NONE;
+                    Step packet_type = Step.NONE;
 
                     if (type.Equals("Dialogue"))
-                        packet_type = Situation.PacketType.DIALOGUE;
+                        packet_type = Step.DIALOGUE;
                     else if (type.Equals("Bathroom"))
-                        packet_type = Situation.PacketType.BATHROOM;
+                        packet_type = Step.BATHROOM;
                     else if (type.Equals("Selection"))
-                        packet_type = Situation.PacketType.SELECTION;
+                        packet_type = Step.SELECTION;
                     else if (type.Equals("Shopping"))
-                        packet_type = Situation.PacketType.SHOPPING;
+                        packet_type = Step.SHOPPING;
 
-                    situation.sequence.Add(new System.Tuple<Situation.PacketType, JSONObject>(packet_type, packet));
+                    situation.sequence.Add(new System.Tuple<Step, JSONObject>(packet_type, packet));
                 }
             }, delegate (string name)
             {

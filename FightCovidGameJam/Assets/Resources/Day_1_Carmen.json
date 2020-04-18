@@ -231,6 +231,24 @@
           ]
         }
       ]
+    },
+    {
+      "identifier": "Sleep",
+      "activation_time": 23,
+      "duration": 7,
+      "sequence": [
+        {
+          "type": "Dialogue",
+          "text": "Uy que tarde se ha hecho, creo que deberia irme a la cama",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0
+        },
+        {
+          "type": "Sleep"
+        }
+      ]
     }
   ]
 }

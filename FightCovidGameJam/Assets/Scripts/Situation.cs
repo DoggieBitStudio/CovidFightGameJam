@@ -3,6 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Specialized;
 
+public enum Step
+{
+    NONE = -1,
+    DIALOGUE,
+    SELECTION,
+    SHOPPING,
+    BATHROOM,
+    SLEEP
+}
+
 [System.Serializable]
 public class Situation
 {
@@ -14,16 +24,9 @@ public class Situation
 
     Situation()
     {
-        sequence = new List<System.Tuple<PacketType, JSONObject>>();
+        sequence = new List<System.Tuple<Step, JSONObject>>();
     }
-    public enum PacketType{
-        NONE = -1,
-        DIALOGUE,
-        SELECTION,
-        SHOPPING,
-        BATHROOM
-    }
-    public List<System.Tuple<PacketType, JSONObject>> sequence;
+    public List<System.Tuple<Step, JSONObject>> sequence;
 
     public bool Finished_Properly { get; set; }
     public List<DialogueManager.DialogueInfo> dialogues;

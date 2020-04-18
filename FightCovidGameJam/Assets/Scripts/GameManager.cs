@@ -3,6 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CHARACTER
+{
+    CARMEN,
+    JULIAN
+}
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -29,6 +34,10 @@ public class GameManager : MonoBehaviour
     public DialogueManager dialogue_manager;
     public UIManager ui_manager;
     public ActionManager action_manager;
+
+    internal int carmen_day = 1;
+    internal int julian_day = 1;
+    public CHARACTER current_character = CHARACTER.CARMEN;
 
     private void Awake()
     {

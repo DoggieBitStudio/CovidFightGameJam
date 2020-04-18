@@ -61,7 +61,18 @@ public class ShoppingEvent : MonoBehaviour
         foreach (var item in toggles)
         {
             if (item.Key.isOn)
+            {
                 time_increment += item.Value.time_investment;
+                foreach (var ints in item.Value.int_effects)
+                {
+                    GameManager.instance.int_stats[ints.stat] += ints.value;
+                }
+
+                foreach (var bools in item.Value.bool_effects)
+                {
+                    GameManager.instance.boolean_stats[bools.stat] = bools.value;
+                }
+            }
         }
 
         GameManager.instance.situations_manager.current_situation.duration += time_increment;
