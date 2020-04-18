@@ -211,7 +211,6 @@ public class DialogueManager : MonoBehaviour
         RemoveModelPrefabs();
 
         state = DIALOGUE_STATE.NONE;
-        GameManager.instance.audio_source.Stop();
 
         GameManager.instance.situations_manager.OnStepFinish();
         GameManager.instance.ui_opened = false;

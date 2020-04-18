@@ -22,6 +22,7 @@ public class SituationsManager : MonoBehaviour
         public string text;
         public float time_investment;
         public int next_step;
+        public string sound;
 
         public GameManager.Stat<int> int_requirement;
         public GameManager.Stat<bool> bool_requirement;
@@ -197,7 +198,7 @@ public class SituationsManager : MonoBehaviour
             day_situations.Add(situation);
         }
 
-        current_situation = day_situations[0];
+        current_situation = day_situations[3];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }
