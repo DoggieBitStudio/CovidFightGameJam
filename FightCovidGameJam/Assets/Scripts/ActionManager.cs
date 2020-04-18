@@ -33,6 +33,7 @@ public class ActionManager : MonoBehaviour
     float timePassed;
     int healthGained;
     int positivismGained;
+    public bool isDoingAction;
 
     //Objects
     GameObject tv;
@@ -516,6 +517,7 @@ public class ActionManager : MonoBehaviour
     public void DoAction(int action, double time, int health, int positivism)
     {
         currentAction = (Actions)action;
+        isDoingAction = true;
         switch(currentAction)
         {
             case Actions.TELEVISION_WATCH:
@@ -585,6 +587,7 @@ public class ActionManager : MonoBehaviour
         GameManager.instance.AddPositivism(positivismGained);
         GameManager.instance.AddHealth(healthGained);
         GameManager.instance.boolean_stats["Went_Out"] = false;
+        isDoingAction = false;
     }
 
     private void OnLevelWasLoaded(int level)
