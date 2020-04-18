@@ -292,8 +292,35 @@ public class SituationsManager : MonoBehaviour
 
     public void StartSituation()
     {
-        current_situation = day_situations[4];
-        current_situation.current_step = current_situation.sequence[0].Item1;
+        current_situation = day_situations[0];
+
+        if (current_situation.sequence[0].Item1.bool_requirement.stat != null)
+        {
+            if (GameManager.instance.boolean_stats[current_situation.sequence[0].Item1.bool_requirement.stat]
+                == current_situation.sequence[0].Item1.bool_requirement.value)
+            {
+                current_situation.current_step = current_situation.sequence[0].Item1;
+            }
+            else
+            {
+                current_situation.current_step = current_situation.sequence[1].Item1;
+            }
+        }
+        else if (current_situation.sequence[0].Item1.int_requirement.stat != null)
+        {
+            if (GameManager.instance.int_stats[current_situation.sequence[0].Item1.int_requirement.stat]
+                 == current_situation.sequence[0].Item1.int_requirement.value)
+            {
+                current_situation.current_step = current_situation.sequence[0].Item1;
+            }
+            else
+            {
+                current_situation.current_step = current_situation.sequence[1].Item1;
+            }
+        }
+        else
+            current_situation.current_step = current_situation.sequence[0].Item1;
+
         StartStep();
     }
 

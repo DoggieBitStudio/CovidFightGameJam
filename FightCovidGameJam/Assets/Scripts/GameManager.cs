@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public Text day_text;
     public AudioSource audio_source;
 
-    internal int carmen_day = 8;
+    internal int carmen_day = 1;
     internal int julian_day = 1;
     public CHARACTER current_character = CHARACTER.CARMEN;
 
