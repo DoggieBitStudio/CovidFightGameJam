@@ -187,9 +187,9 @@ public class DialogueManager : MonoBehaviour
         {
             npc_name.SetActive(true);
             SetNPCName(d_info.name);
-           // GameObject model_dialogue = Instantiate(FindPrefab(d_info.name), npc_model_position, false);
-           // if (d_info.animation != null)
-            //    model_dialogue.GetComponent<Animator>().Play(d_info.animation);
+            GameObject model_dialogue = Instantiate(FindPrefab(d_info.name), npc_model_position, false);
+            if (d_info.animation != null)
+                model_dialogue.GetComponent<Animator>().Play(d_info.animation);
         }
 
         dialogue.SetActive(true);
