@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:FightCovidGameJam/Assets/Resources/Day_8_Julián.json.meta
 guid: 82cf91f376b6a7a46bb94e2ae4156866
 TextScriptImporter:
+=======
+guid: fdec58a0f12868e4bb291544e5948c24
+folderAsset: yes
+DefaultImporter:
+>>>>>>> 0f9f4797f06c4f966be4fd19df875ebed7a266b9:FightCovidGameJam/Assets/Prefabs/Hospital.meta
   externalObjects: {}
   userData: 
   assetBundleName: 

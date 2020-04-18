@@ -93,18 +93,27 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
+          "text": "[anger]Guau... guau, guau... ¡GUAUUUUU!",
+          "player": false,
+          "name": "Rufus",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1,
+          "sound": "dog_bark"
+        },
+        {
+          "step_type": "DIALOGUE",
           "text": "Rufus me está pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
           "player": true,
           "name": "Carmen",
-          "animation": "Talk",
+          "animation": "Think",
           "speed": 30.0,
-          "index": 0,
-          "next_step": 1
-
+          "index": 1,
+          "next_step": 2
         },
         {
           "step_type": "SELECTION",
-          "index": 1,
+          "index": 2,
           "options": [
             {
               "text": "Salir a que haga sus necesidades.",
@@ -113,7 +122,7 @@
                 "value": 50
               },
               "time_investment": 20,
-              "next_step": 2
+              "next_step": 3
             },
             {
               "text": "Salir y aprovechar para pasear un rato",
@@ -124,7 +133,7 @@
                 }
               ],
               "time_investment": 60,
-              "next_step": 2
+              "next_step": 3
             },
             {
               "text": "Salir y aprovechar para hacer ejercicio",
@@ -139,13 +148,13 @@
                 }
               ],
               "time_investment": 120,
-              "next_step": 2
+              "next_step": 3
             }
           ]
         },
         {
           "step_type": "BATHROOM",
-          "index": 2,
+          "index": 3,
           "next_step": 0
         }
       ]
@@ -157,7 +166,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Carmen, la ropa del trabajo ha encogio.",
+          "text": "Carmen, la ropa del trabajo ha encogío.",
           "player": false,
           "name": "Alfonso",
           "animation": "Talk",
@@ -190,7 +199,7 @@
           "text": "¿Me acabas de llamar gorda?",
           "player": true,
           "name": "Carmen",
-          "animation": "Talk",
+          "animation": "AngryTalk",
           "speed": 30.0,
           "index": 3,
           "next_step": 4
@@ -254,7 +263,7 @@
           "text": "Pues llamas a tu madre y le dices que te lo arregle ella, que me tienes harta ya, pareces tonto a veces.",
           "player": true,
           "name": "Carmen",
-          "animation": "Talk",
+          "animation": "AngryTalk",
           "speed": 30.0,
           "index": 6,
           "next_step": 0
@@ -284,7 +293,7 @@
           "text": "Paso de contestarte, vete a dar una vuelta anda, que paso de aguantate así",
           "player": true,
           "name": "Carmen",
-          "animation": "Talk",
+          "animation": "AngryTalk",
           "speed": 30.0,
           "index": 9,
           "next_step": 0
@@ -301,7 +310,7 @@
           "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situación.",
           "player": true,
           "name": "Carmen",
-          "animation": "Talk",
+          "animation": "Think",
           "speed": 30.0,
           "index": 0,
           "next_step": 1
@@ -372,10 +381,10 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Estoy muy cansada, por hoy ya he hecho bastante, me voy a dormir.",
+          "text": "Uy que tarde se ha hecho, creo que deberia irme a la cama",
           "player": true,
           "name": "Carmen",
-          "animation": "Talk",
+          "animation": "Think",
           "speed": 30.0,
           "index": 0,
           "next_step": 1
