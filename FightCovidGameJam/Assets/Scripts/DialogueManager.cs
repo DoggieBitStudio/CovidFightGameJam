@@ -195,6 +195,8 @@ public class DialogueManager : MonoBehaviour
         dialogue.SetActive(true);
         SetDialogueText(d_info.text, d_info.speed);
 
+        GameManager.instance.ui_opened = true;
+
         
     }
 
@@ -211,6 +213,7 @@ public class DialogueManager : MonoBehaviour
         state = DIALOGUE_STATE.NONE;
 
         GameManager.instance.situations_manager.OnStepFinish();
+        GameManager.instance.ui_opened = false;
     }
 
     void RemoveModelPrefabs()
