@@ -42,6 +42,7 @@ public class ActionManager : MonoBehaviour
     GameObject couch;
     GameObject chair;
     GameObject book;
+    GameObject bookPos;
     GameObject houseDoor;
     GameObject neighbourDoor;
     GameObject neighbour;
@@ -82,6 +83,7 @@ public class ActionManager : MonoBehaviour
         shelf = GameObject.Find("Estantería");
         couch = GameObject.Find("Sillón");
         book = GameObject.Find("Book");
+        bookPos = GameObject.Find("BookPos");
         houseDoor = GameObject.Find("Puerta");
         houseDoorSource = houseDoor.GetComponent<AudioSource>();
         neighbourDoor = GameObject.Find("Puerta Vecino");
@@ -103,7 +105,7 @@ public class ActionManager : MonoBehaviour
         {
             case Actions.TELEVISION_WATCH:
                 {
-                    if ((sofa.transform.position - player.transform.position).sqrMagnitude < 2 && agent.remainingDistance == 0 && !firstAction)
+                    if ((sofa.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && !firstAction)
                     {
                         tv.GetComponent<AudioSource>().Play();
                         tv.transform.GetChild(0).gameObject.SetActive(true);
@@ -122,7 +124,7 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.TELEVISION_EXERCISE:
                 {
-                    if ((tv.transform.position - player.transform.position).sqrMagnitude < 2 && agent.remainingDistance == 0 && !firstAction)
+                    if ((tv.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && !firstAction)
                     {
                         tv.GetComponent<AudioSource>().PlayOneShot(danceMusic);
                         tv.transform.GetChild(0).gameObject.SetActive(true);
@@ -141,24 +143,27 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.READ:
                 {
-                    if ((shelf.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction && !secondAction)
+                    if ((shelf.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 &&  !firstAction && !secondAction)
                     {
                         book.SetActive(false);
                         agent.SetDestination(couch.transform.position);
                         firstAction = true;
                     }
-                    else if ((couch.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction)
+                    else if ((couch.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && firstAction)
                     {
                         //Book
                         book.SetActive(true);
                         book.transform.position = player.transform.position;
-                        //Sit in couch
-                        //When finished reading
+                        book.GetComponent<AudioSource>().Play();
+                        animator.Play("Read");
+                    }
+                    else if(firstAction && secondAction && book.GetComponent<AudioSource>().isPlaying)
+                    {
                         agent.SetDestination(shelf.transform.position);
                         book.SetActive(false);
                         secondAction = true;
                     }
-                    else if ((shelf.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && secondAction)
+                    else if ((shelf.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && firstAction && secondAction)
                     {
                         book.transform.position = shelf.transform.position;
                         currentAction = Actions.NONE;
@@ -604,6 +609,7 @@ public class ActionManager : MonoBehaviour
             shelf = GameObject.Find("Estantería");
             couch = GameObject.Find("Sillón");
             book = GameObject.Find("Book");
+            bookPos = GameObject.Find("BookPos");
             houseDoor = GameObject.Find("Puerta");
             houseDoorSource = houseDoor.GetComponent<AudioSource>();
             neighbourDoor = GameObject.Find("Puerta Vecino");

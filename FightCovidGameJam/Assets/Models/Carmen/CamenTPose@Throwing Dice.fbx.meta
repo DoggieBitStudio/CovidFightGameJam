@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: d936797911d457d42b4bdbfd038110d0
+guid: 5d5fba217869fe24290d4d7fc42732ef
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -203655887218126122
+    second: mixamo.com
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -67,17 +70,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 02380c946bdb2ae4ea5b86732ec1facb
-  - 98812c32a2b72b24699cbd9478dfc42d
-  - 2e65c2392c106fd46bc3397ecc0e8b77
-  - 360a59478d6690840969f15bc6f10c55
-  - 47d86bfa64a609049ad27639c3ec9abf
-  - 272aedc975d894b478367fc83aed2edb
-  - 2b559943f67133a4382b26f1e27ec996
-  - 5d5fba217869fe24290d4d7fc42732ef
-  - d6d6c91612d37cd48b627cd258d9c61d
-  - 31efe183a6111bb4db4550359d93f397
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -91,7 +84,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: Root
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -99,7 +92,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
