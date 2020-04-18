@@ -126,6 +126,7 @@ public class SituationsManager : MonoBehaviour
 
     void CreateSelection()
     {
+        GameManager.instance.ui_opened = true;
         JSONObject options = current_situation.sequence[current_situation.current_step.index].Item2.GetField("options");
         foreach (JSONObject j_option in options.list)
         {
@@ -198,7 +199,7 @@ public class SituationsManager : MonoBehaviour
             day_situations.Add(situation);
         }
 
-        current_situation = day_situations[3];
+        current_situation = day_situations[0];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }

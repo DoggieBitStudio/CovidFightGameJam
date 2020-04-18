@@ -115,7 +115,7 @@ public class UIManager : MonoBehaviour
         //GameManager.instance.situations_manager.OnStepFinish(); end dialogue does it for now
         GameManager.instance.situations_manager.current_situation.current_step.next_step = selection.next_step;
         GameManager.instance.dialogue_manager.EndDialogue();
-
+        GameManager.instance.ui_opened = false;
         foreach (Transform child in selection_list.transform)
         {
             Destroy(child.gameObject);
