@@ -439,7 +439,7 @@
           "text": "Me voy a dormir ya. Mañana será otro día.",
           "player": true,
           "name": "Carmen",
-          "animation": "SadTalk",
+          "animation": "Talk",
           "speed": 30.0,
           "index": 0,
           "next_step": 2,
