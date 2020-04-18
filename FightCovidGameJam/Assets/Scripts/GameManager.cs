@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
 
             boolean_stats.Add("Mask", true);
             boolean_stats.Add("Mask_Crafted", false);
-            boolean_stats.Add("Door", false);
+            boolean_stats.Add("DoorClosed", false);
             boolean_stats.Add("Infection", false);
             boolean_stats.Add("Badly_Washed", false);
             boolean_stats.Add("Gel", false);
