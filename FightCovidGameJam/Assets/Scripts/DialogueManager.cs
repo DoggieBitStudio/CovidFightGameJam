@@ -144,7 +144,7 @@ public class DialogueManager : MonoBehaviour
     {
         float speed = text.Length / d_speed;
         dialogue_text.text = "";
-        dialogue_text.DOText(text, speed).OnComplete(EndedTextTween);
+        dialogue_text.DOText(text, speed).OnComplete(EndedTextTween).SetEase(Ease.Linear);
         state = DIALOGUE_STATE.TWEENING;
     }
 
