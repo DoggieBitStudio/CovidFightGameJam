@@ -103,7 +103,7 @@ public class ActionManager : MonoBehaviour
         {
             case Actions.TELEVISION_WATCH:
                 {
-                    if (agent.remainingDistance == 0 && !firstAction)
+                    if ((sofa.transform.position - player.transform.position).sqrMagnitude < 2 && agent.remainingDistance == 0 && !firstAction)
                     {
                         tv.GetComponent<AudioSource>().Play();
                         tv.transform.GetChild(0).gameObject.SetActive(true);
@@ -122,7 +122,7 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.TELEVISION_EXERCISE:
                 {
-                    if (agent.remainingDistance == 0 && !firstAction)
+                    if ((tv.transform.position - player.transform.position).sqrMagnitude < 2 && agent.remainingDistance == 0 && !firstAction)
                     {
                         tv.GetComponent<AudioSource>().PlayOneShot(danceMusic);
                         tv.transform.GetChild(0).gameObject.SetActive(true);

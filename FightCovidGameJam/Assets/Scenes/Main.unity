@@ -2934,7 +2934,7 @@ MonoBehaviour:
   openAppFx: {fileID: 8300000, guid: 72423ce34295cb240ae860bae040d94a, type: 3}
   buyOnlineFx: {fileID: 8300000, guid: 68ccc2571928cdb45990f166503c96b8, type: 3}
   flushFx: {fileID: 8300000, guid: ad15c2abba91847429c3261dff54b1d1, type: 3}
-  danceMusic: {fileID: 0}
+  danceMusic: {fileID: 8300000, guid: 5a7c2988c98083a42b163babce870f34, type: 3}
 --- !u!114 &2137604752
 MonoBehaviour:
   m_ObjectHideFlags: 0
