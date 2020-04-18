@@ -70,6 +70,7 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Shop", false);
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
+            boolean_stats.Add("Doctor_Out", false);
 
             action_manager = GetComponent<ActionManager>();
             fade = GameObject.FindGameObjectWithTag("Fade");

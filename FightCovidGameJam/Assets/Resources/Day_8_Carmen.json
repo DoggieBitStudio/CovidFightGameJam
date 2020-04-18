@@ -158,7 +158,7 @@
     },
     {
       "identifier": "Son_Discussion",
-      "activation_time": 20,
+      "activation_time": 18,
       "duration": 15,
       "sequence": [
         {
@@ -278,8 +278,8 @@
       ]
     },
     {
-      "identifier": "Palmas",
-      "activation_time": 17,
+      "identifier": "Clap",
+      "activation_time": 20,
       "duration": 45,
       "sequence": [
         {
