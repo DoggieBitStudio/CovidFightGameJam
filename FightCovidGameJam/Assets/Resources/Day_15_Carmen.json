@@ -17,7 +17,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Todo apunta a que sí, por lo que los ciudadanos deberán permanecer en sus casas hasta el 26 de abril ya que las medidas de confinamiento se has mostrado efectivas en la lucha contra la pandemia de coronavirus.",
+          "text": "Todo apunta a que sí, por lo que los ciudadanos deberán permanecer en sus casas hasta el 26 de abril ya que las medidas de confinamiento se has mostrado efectivas...",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -27,7 +27,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Por otro lado, cerca de <color=#f1ce51ff>25.000 profesionales sanitarios están contagiados</color> por coronavirus Covid-19 en España.",
+          "text": "...en la lucha contra la pandemia de coronavirus.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -37,13 +37,23 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Los sanitarios <color=#f1ce51ff>representan ahora el 15,45 por ciento del total de positivos</color> en nuestro país.",
+          "text": "Por otro lado, cerca de <color=#f1ce51ff>25.000 profesionales sanitarios están contagiados</color> por coronavirus Covid-19 en España.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
           "speed": 30.0,
           "index": 3,
           "next_step": 4
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Los sanitarios <color=#f1ce51ff>representan ahora el 15,45 por ciento del total de positivos</color> en nuestro país.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 4,
+          "next_step": 0
         }
       ]
     },
