@@ -185,8 +185,6 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        Debug.Log("end dialogue");
-
         if (player_name.activeSelf)
             player_name.SetActive(false);
         else if (npc_name.activeSelf)

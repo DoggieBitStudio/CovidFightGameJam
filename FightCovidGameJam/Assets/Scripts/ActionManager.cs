@@ -62,7 +62,6 @@ public class ActionManager : MonoBehaviour
     //Timer
     bool firstAction = false;
     bool secondAction = false;
-    public GameObject fadeToBlack;
 
     // Start is called before the first frame update
     void Start()
@@ -209,10 +208,10 @@ public class ActionManager : MonoBehaviour
                 {
                     if((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
                     {
-                        Color col = fadeToBlack.GetComponent<Image>().color;
+                        Color col = GameManager.instance.fade.color;
                         Debug.Log(col.a);
                         col.a += (float)0.5 * Time.deltaTime;
-                        fadeToBlack.GetComponent<Image>().color = col;
+                        GameManager.instance.fade.color = col;
 
                         if (col.a >= 1)
                         {
@@ -227,13 +226,13 @@ public class ActionManager : MonoBehaviour
                     }
                     else if(firstAction  && secondAction)
                     {
-                        Color col = fadeToBlack.GetComponent<Image>().color;
+                        Color col = GameManager.instance.fade.color;
                         col.a -= (float)0.5 * Time.deltaTime;
-                        fadeToBlack.GetComponent<Image>().color = col;
+                        GameManager.instance.fade.color = col;
 
                         if (col.a <= 0)
                         {
-                            fadeToBlack.SetActive(false);
+                            GameManager.instance.fade.gameObject.SetActive(false);
                             firstAction = false;
                             secondAction = false;
                             currentAction = Actions.NONE;
@@ -352,7 +351,7 @@ public class ActionManager : MonoBehaviour
                 agent.SetDestination(houseDoor.transform.position);
                 break;
             case Actions.TAKE_WALK:
-                fadeToBlack.SetActive(true);
+                GameManager.instance.fade.gameObject.SetActive(true);
                 houseDoorSource.Play();
                 break;
             case Actions.VIDEOCALL:

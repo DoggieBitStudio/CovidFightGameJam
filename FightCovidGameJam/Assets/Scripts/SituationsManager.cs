@@ -106,7 +106,7 @@ public class SituationsManager : MonoBehaviour
                 shopping_event.SetActive(true);
                 break;
             case Step_Type.BATHROOM:
-                SceneManager.LoadScene("bathroom");
+                GameManager.instance.LoadSceneFade("bathroom");
                 break;
             case Step_Type.SLEEP:
                 if (GameManager.instance.current_character == CHARACTER.CARMEN)
@@ -114,7 +114,7 @@ public class SituationsManager : MonoBehaviour
                 else
                     GameManager.instance.julian_day += (int)current_situation.duration;
 
-                SceneManager.LoadScene("Main");
+                GameManager.instance.LoadSceneFade("Main");
                 break;
             default:
                 break;
@@ -196,8 +196,21 @@ public class SituationsManager : MonoBehaviour
             day_situations.Add(situation);
         }
 
-        current_situation = day_situations[2];
+        current_situation = day_situations[0];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
+    }
+
+    public void OnLevelFinshedLoading(Scene scene)
+    {
+        if(scene.name == "Main" && current_situation.identifier == "Sleep")
+        {
+            string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
+            string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
+
+            Debug.Log("Day_" + day + "_" + character);
+            day_situations.Clear();
+            LoadSituations("Day_" + day + "_" + character);
+        }
     }
 }
