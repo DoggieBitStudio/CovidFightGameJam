@@ -1,11 +1,8 @@
 fileFormatVersion: 2
-guid: 3a9032eba04b673419ecdd5d40fd22e4
+guid: 394b3fce585cf9042ab06c9cbd10de96
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable:
-  - first:
-      74: -203655887218126122
-    second: Sitting
+  internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -33,36 +30,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Sitting
-      takeName: mixamo.com
-      internalID: 0
-      firstFrame: 0
-      lastFrame: 147
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -99,7 +67,13 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - 02380c946bdb2ae4ea5b86732ec1facb
+  - 98812c32a2b72b24699cbd9478dfc42d
+  - 360a59478d6690840969f15bc6f10c55
+  - 272aedc975d894b478367fc83aed2edb
+  - 2b559943f67133a4382b26f1e27ec996
+  - 31efe183a6111bb4db4550359d93f397
   importAnimation: 1
   humanDescription:
     serializedVersion: 3

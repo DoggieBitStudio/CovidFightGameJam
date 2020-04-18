@@ -106,7 +106,7 @@ public class DialogueManager : MonoBehaviour
 
     void HandlePhoneUpdate()
     {
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Ended)
         {
             switch (state)
             {

@@ -59,11 +59,13 @@ public class ActionManager : MonoBehaviour
     //Player
     public GameObject player;
     NavMeshAgent agent;
+    Animator animator;
 
     public AudioClip dramaticFx;
     public AudioClip openAppFx;
     public AudioClip buyOnlineFx;
     public AudioClip flushFx;
+    public AudioClip danceMusic;
 
     //Timer
     bool firstAction = false;
@@ -74,6 +76,7 @@ public class ActionManager : MonoBehaviour
     {
         player = GameObject.Find("MariCarmen");
         agent = player.GetComponent<NavMeshAgent>();
+        animator = player.GetComponentInChildren<Animator>();
         tv = GameObject.Find("Television");
         sofa = GameObject.Find("Sofa");
         shelf = GameObject.Find("Estantería");
@@ -100,11 +103,11 @@ public class ActionManager : MonoBehaviour
         {
             case Actions.TELEVISION_WATCH:
                 {
-                    if ((sofa.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
+                    if (agent.remainingDistance == 0 && !firstAction)
                     {
                         tv.GetComponent<AudioSource>().Play();
                         tv.transform.GetChild(0).gameObject.SetActive(true);
-                        player.GetComponentInChildren<Animator>().Play("Sitting");
+                        animator.Play("Sitting");
                         player.transform.LookAt(tv.transform);
                         firstAction = true;
                     }
@@ -119,11 +122,11 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.TELEVISION_EXERCISE:
                 {
-                    if ((sofa.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if (agent.remainingDistance == 0 && !firstAction)
                     {
-                        tv.GetComponent<AudioSource>().Play();
+                        tv.GetComponent<AudioSource>().PlayOneShot(danceMusic);
                         tv.transform.GetChild(0).gameObject.SetActive(true);
-                        //DoSitAnimation
+                        animator.Play("Twist Dance");
                         player.transform.LookAt(tv.transform);
                         firstAction = true;
                     }
@@ -524,7 +527,7 @@ public class ActionManager : MonoBehaviour
                 agent.SetDestination(sofa.transform.position);
                 break;
             case Actions.TELEVISION_EXERCISE:
-                agent.SetDestination(sofa.transform.position);
+                agent.SetDestination(tv.transform.position);
                 break;
             case Actions.READ:
                 agent.SetDestination(shelf.transform.position);
