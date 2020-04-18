@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
         public string name;
         public string animation;
         public float speed;
+        public string sound;
     }
 
     //Dialogue objects
@@ -94,6 +95,7 @@ public class DialogueManager : MonoBehaviour
                     {
                         GameManager.instance.situations_manager.OnStepFinish();
                         state = DIALOGUE_STATE.NONE;
+                        GameManager.instance.audio_source.Stop();
                     }
                     break;
                 default:
@@ -115,12 +117,13 @@ public class DialogueManager : MonoBehaviour
                     state = DIALOGUE_STATE.ENDED;
                     break;
                 case DIALOGUE_STATE.ENDED:
-                    if(!GameManager.instance.situations_manager.IsNextStepSelection())
+                    if (!GameManager.instance.situations_manager.IsNextStepSelection())
                         EndDialogue();
                     else
                     {
                         GameManager.instance.situations_manager.OnStepFinish();
                         state = DIALOGUE_STATE.NONE;
+                        GameManager.instance.audio_source.Stop();
                     }            
                     break;
                 default:
@@ -165,20 +168,34 @@ public class DialogueManager : MonoBehaviour
     {
         DialogueInfo d_info = JsonUtility.FromJson<DialogueInfo>(d_json.ToString());
 
+        if(d_info.sound != null)
+        {
+            GameManager.instance.audio_source.volume = 0.5f;
+            GameManager.instance.audio_source.PlayOneShot(Resources.Load<AudioClip>("Sounds/" + d_info.sound));
+        }
+            
+
         if (d_info.player)
         {
             player_name.SetActive(true);
             SetPlayerName(d_info.name);
+            GameObject model_dialogue = Instantiate(FindPrefab(d_info.name), player_model_position, false);
+            if(d_info.animation != null)
+                model_dialogue.GetComponent<Animator>().Play(d_info.animation);
         }
         else
         {
             npc_name.SetActive(true);
             SetNPCName(d_info.name);
+           // GameObject model_dialogue = Instantiate(FindPrefab(d_info.name), npc_model_position, false);
+           // if (d_info.animation != null)
+            //    model_dialogue.GetComponent<Animator>().Play(d_info.animation);
         }
 
-       // Instantiate(FindPrefab(d_info.name), player_model_position, true);
         dialogue.SetActive(true);
         SetDialogueText(d_info.text, d_info.speed);
+
+        GameManager.instance.ui_opened = true;
 
         
     }
@@ -194,15 +211,17 @@ public class DialogueManager : MonoBehaviour
         RemoveModelPrefabs();
 
         state = DIALOGUE_STATE.NONE;
+
         GameManager.instance.situations_manager.OnStepFinish();
+        GameManager.instance.ui_opened = false;
     }
 
     void RemoveModelPrefabs()
     {
         if(player_model_position.childCount > 0)
-            Destroy(player_model_position.GetChild(0));
+            Destroy(player_model_position.GetChild(0).gameObject);
         else if (npc_model_position.childCount > 0)
-            Destroy(npc_model_position.GetChild(0));
+            Destroy(npc_model_position.GetChild(0).gameObject);
     }
 
     private void OnLevelWasLoaded(int level)

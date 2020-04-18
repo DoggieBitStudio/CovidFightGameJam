@@ -60,7 +60,7 @@ public class ShoppingEvent : MonoBehaviour
 
         foreach (var item in toggles)
         {
-            if (item.Key.isOn)
+            if (!item.Key.isOn)
             {
                 time_increment += item.Value.time_investment;
                 foreach (var ints in item.Value.int_effects)
@@ -77,6 +77,7 @@ public class ShoppingEvent : MonoBehaviour
 
         GameManager.instance.situations_manager.current_situation.duration += time_increment;
         GameManager.instance.situations_manager.OnStepFinish();
+        GameManager.instance.ui_opened = false;
 
         gameObject.SetActive(false);
     }
@@ -84,9 +85,10 @@ public class ShoppingEvent : MonoBehaviour
     public void Close()
     {
         GameManager.instance.situations_manager.current_situation.duration = 0;
-       // GameManager.instance.situations_manager.OnStepFinish(2);
+        GameManager.instance.situations_manager.OnSituationEnd();
 
         gameObject.SetActive(false);
+        GameManager.instance.ui_opened = false;
     }
 
     // Update is called once per frame
@@ -97,6 +99,7 @@ public class ShoppingEvent : MonoBehaviour
 
     private void OnEnable()
     {
+        GameManager.instance.ui_opened = true;
         close_button.interactable = GameManager.instance.boolean_stats["Shop"];
         accept_button.interactable = false;
 

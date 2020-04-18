@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:FightCovidGameJam/Assets/Models/Editor.meta
+guid: b94fdf5d498fab74a82e1fdadb009612
+folderAsset: yes
+DefaultImporter:
+=======
 guid: c57a485707eac6c45920be06461a215b
 PrefabImporter:
+>>>>>>> 1cd53509c753af04fbcb3eb4177632aef9eac052:FightCovidGameJam/Assets/Prefabs/Main Camera.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
