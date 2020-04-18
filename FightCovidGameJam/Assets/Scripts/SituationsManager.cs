@@ -4,13 +4,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SituationsManager : MonoBehaviour
 {
+    GameObject shopping_event;
+
     List<Situation> completed_situations;
     List<Situation> day_situations;
 
-    Situation current_situation;
+    public Situation current_situation;
     int completed_today = 0;
 
     [System.Serializable]
@@ -31,6 +34,7 @@ public class SituationsManager : MonoBehaviour
     {
         day_situations = new List<Situation>();
         LoadSituations("Day_1");
+        shopping_event = GameObject.Find("ShoppingPanel");
     }
 
     // Update is called once per frame
@@ -48,6 +52,15 @@ public class SituationsManager : MonoBehaviour
     {
         current_situation.current_step++;
         if(current_situation.current_step < current_situation.sequence.Count())
+            StartStep();
+        else
+            OnSituationEnd();
+    }
+
+    public void OnStepFinish(int v)
+    {
+        current_situation.current_step += v;
+        if (current_situation.current_step < current_situation.sequence.Count())
             StartStep();
         else
             OnSituationEnd();
@@ -88,7 +101,11 @@ public class SituationsManager : MonoBehaviour
             case Situation.PacketType.SELECTION:
                 CreateSelection();
                 break;
-            case Situation.PacketType.ACTION:
+            case Situation.PacketType.SHOPPING:
+                shopping_event.SetActive(true);
+                break;
+            case Situation.PacketType.BATHROOM:
+                SceneManager.LoadScene("bathroom");
                 break;
             default:
                 break;
@@ -163,10 +180,12 @@ public class SituationsManager : MonoBehaviour
 
                     if (type.Equals("Dialogue"))
                         packet_type = Situation.PacketType.DIALOGUE;
-                    else if (type.Equals("Action"))
-                        packet_type = Situation.PacketType.ACTION;
+                    else if (type.Equals("Bathroom"))
+                        packet_type = Situation.PacketType.BATHROOM;
                     else if (type.Equals("Selection"))
                         packet_type = Situation.PacketType.SELECTION;
+                    else if (type.Equals("Shopping"))
+                        packet_type = Situation.PacketType.SHOPPING;
 
                     situation.sequence.Add(new System.Tuple<Situation.PacketType, JSONObject>(packet_type, packet));
                 }

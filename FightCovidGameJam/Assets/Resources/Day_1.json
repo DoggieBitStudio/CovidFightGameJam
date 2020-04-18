@@ -72,8 +72,7 @@
           ]
         },
         {
-          "type": "Action",
-          "name": "Bathroom_Preparation"
+          "type": "Bathroom"
         }
       ]
     },
@@ -91,79 +90,10 @@
           "speed": 5.0
         },
         {
-          "type": "Shopping_Selection",
-          "options": [
-            {
-              "text": "Comida y bebida esencial.",
-              "effect": [
-                {
-                  "stat": "Shop",
-                  "value": true
-                }
-              ],
-              "time_investment": 0
-            },
-            {
-              "text": "Comprar algún capricho",
-              "effect": [
-                {
-                  "stat": "Health",
-                  "value": -1
-                },
-                {
-                  "stat": "Positivism",
-                  "value": 1
-                }
-              ],
-              "time_investment": 10
-            },
-            {
-              "text": "Papel Higiénico",
-              "stat_requirement": {
-                "stat": "Positivism",
-                "value": 200
-              },
-              "effect": [
-                {
-                  "stat": "Health",
-                  "value": -1
-                },
-                {
-                  "stat": "Positivism",
-                  "value": 1
-                }
-              ],
-              "time_investment": 10
-            },
-            {
-              "text": "Gel Desinfectante",
-              "effect": [
-                {
-                  "stat": "Gel",
-                  "value": true
-                }
-              ],
-              "time_investment": 10
-            },
-            {
-              "text": "No hace falta comprar nada",
-              "stat_requirement": {
-                "stat": "Shop",
-                "value": true
-              },
-              "effect": [
-                {
-                  "stat": "Shop",
-                  "value": false
-                }
-              ],
-              "time_investment": -45
-            }
-          ]
+          "type": "Shopping"
         },
         {
-          "type": "Action",
-          "name": "Bathroom_Preparation"
+          "type": "Bathroom"
         }
       ]
     },
