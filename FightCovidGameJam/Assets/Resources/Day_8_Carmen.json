@@ -386,7 +386,7 @@
                   "value": true
                 }
               ],
-              "next_step": 0
+              "next_step": 2
             },
             {
               "text": "No salir a dar palmas.",
@@ -399,6 +399,23 @@
               "next_step": 0
             }
           ]
+        },
+        {
+          "step_type": "MOVE_TO",
+          "index": 2,
+          "next_step": 3,
+          "position": {
+            "x": -3.21,
+            "y": 0.5,
+            "z": -2.0
+          }
+        },
+        {
+          "step_type": "PLAY_ANIMATION",
+          "index": 3,
+          "next_step": 0,
+          "animation": "Clap",
+          "time": "2"
         }
       ]
     },

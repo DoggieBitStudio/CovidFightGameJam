@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.AI;
 
 public class SituationsManager : MonoBehaviour
 {
@@ -47,7 +48,31 @@ public class SituationsManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        switch (current_situation.current_step.step_type)
+        {
+            case Step_Type.NONE:
+                break;
+            case Step_Type.DIALOGUE:
+                break;
+            case Step_Type.SELECTION:
+                break;
+            case Step_Type.SHOPPING:
+                break;
+            case Step_Type.BATHROOM:
+                break;
+            case Step_Type.SLEEP:
+                break;
+            case Step_Type.DOCTOR_VOTE:
+                break;
+            case Step_Type.MOVE_TO:
+                if (GameManager.instance.action_manager.agent.remainingDistance == 0.0f)
+                    OnStepFinish();
+                break;
+            case Step_Type.PLAY_ANIMATION:
+                break;
+            default:
+                break;
+        }
     }
 
     public void CompleteAction(string identifier)
@@ -137,6 +162,15 @@ public class SituationsManager : MonoBehaviour
                 break;
             case Step_Type.BATHROOM:
                 GameManager.instance.LoadSceneFade("bathroom");
+                break;
+            case Step_Type.MOVE_TO:
+                Vector3 position = JsonUtility.FromJson<Vector3>(current_situation.sequence[current_situation.current_step.index].Item2.GetField("position").ToString());
+                GameManager.instance.action_manager.agent.SetDestination(position);
+                break;
+            case Step_Type.PLAY_ANIMATION:
+                string anim_string = current_situation.sequence[current_situation.current_step.index].Item2.GetField("animation").str;
+                GameManager.instance.action_manager.animator.Play(anim_string);
+                Invoke("OnStepFinish", current_situation.sequence[current_situation.current_step.index].Item2.GetField("time").f);
                 break;
             case Step_Type.DOCTOR_VOTE:
                 GameManager.instance.ui_opened = true;
@@ -246,7 +280,7 @@ public class SituationsManager : MonoBehaviour
 
     public void StartSituation()
     {
-        current_situation = day_situations[0];
+        current_situation = day_situations[4];
         current_situation.current_step = current_situation.sequence[0].Item1;
         StartStep();
     }

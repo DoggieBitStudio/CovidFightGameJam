@@ -12,7 +12,9 @@ public enum Step_Type
     SHOPPING,
     BATHROOM,
     SLEEP,
-    DOCTOR_VOTE
+    DOCTOR_VOTE,
+    MOVE_TO,
+    PLAY_ANIMATION
 }
 
 [System.Serializable]
