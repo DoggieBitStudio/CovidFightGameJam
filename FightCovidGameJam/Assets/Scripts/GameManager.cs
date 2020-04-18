@@ -198,6 +198,7 @@ public class GameManager : MonoBehaviour
     {
         day_text.DOFade(0.0f, 2.0f);
         character_text.DOFade(0.0f, 2.0f).OnComplete(HideFade);
+        GameManager.instance.situations_manager.StartSituation();
     }
 
     void HideFade()

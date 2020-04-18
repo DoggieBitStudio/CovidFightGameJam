@@ -47,7 +47,6 @@
           "text": "[anger]Guau... guau, guau... ¡GUAUUUUU!",
           "player": false,
           "name": "Rufus",
-          "animation": "Talk",
           "speed": 30.0,
           "index": 0,
           "next_step": 1,
