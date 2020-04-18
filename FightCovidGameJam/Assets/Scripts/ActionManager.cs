@@ -616,6 +616,7 @@ public class ActionManager : MonoBehaviour
             kitchen = GameObject.Find("Kitchen");
             plant = GameObject.Find("Planta");
             hygieneGel = GameObject.Find("Gel Desinfectante");
+            animator = player.GetComponentInChildren<Animator>();
         }
 
         //When change day we need to activate

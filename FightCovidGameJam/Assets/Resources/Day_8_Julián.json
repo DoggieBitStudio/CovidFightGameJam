@@ -3,14 +3,14 @@
     {
       "identifier": "Day8_Thoughts",
       "activation_time": 8,
-      "duration": 30,
+      "duration": 10,
       "sequence": [
         {
           "step_type": "DIALOGUE",
           "text": "Uff, llevamos 8 días desde el estado de alarma y cada vez tenemos más pacientes en la UCI.",
           "player": false,
           "name": "Julián",
-          "animation": "Talk",
+          "animation": "Think",
           "speed": 30.0,
           "index": 0,
           "next_step": 1
@@ -20,21 +20,22 @@
           "text": "Jamás había vivido una situación como esta. Decir que estamos estresados es un eufemismo. Ánimo Julián, otro día más, tu puedes.",
           "player": false,
           "name": "Julián",
-          "animation": "Talk",
+          "animation": "Think",
           "speed": 30.0,
           "index": 1,
           "next_step": 2
-        },
+        }
       ]
     },
     {
       "identifier": "Patients_coming",
       "activation_time": 12,
+      "duration": 20,
       "sequence": [
         {
           "step_type": "DIALOGUE",
           "text": "Julián, estan llegando muchos más casos de los que podemos atender, ¿Qué hacemos?",
-          "player": true,
+          "player": false,
           "name": "Adrián",
           "animation": "Talk",
           "speed": 30.0,
@@ -52,173 +53,38 @@
                 "stat": "Positivism",
                 "value": 50
               },
-              "time_investment": 20,
               "next_step": 2
             },
             {
-              "text": "Salir y aprovechar para pasear un rato",
+              "text": "Yo ya estoy hasta arriba y no voy a poder atender a más...",
               "effect": [
                 {
                   "stat": "Health",
                   "value": -1
                 }
               ],
-              "time_investment": 60,
-              "next_step": 2
-            }
-          ]
-        },
-        {
-          "step_type": "BATHROOM",
-          "index": 2,
-          "next_step": 0
-        }
-      ]
-    },
-    {
-      "identifier": "SHOPPING",
-      "activation_time": 17,
-      "duration": 45,
-      "sequence": [
-        {
-          "step_type": "DIALOGUE",
-          "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situación.",
-          "player": true,
-          "name": "Carmen",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 0,
-          "next_step": 1
-        },
-        {
-          "step_type": "SHOPPING",
-          "index": 1,
-          "next_step": 2
-        },
-        {
-          "step_type": "BATHROOM",
-          "index": 2,
-          "next_step": 0
-        }
-      ]
-    },
-    {
-      "identifier": "Son_Discussion",
-      "activation_time": 18,
-      "duration": 15,
-      "sequence": [
-        {
-          "step_type": "DIALOGUE",
-          "text": "Mama, me he quedado sin cereales.",
-          "player": false,
-          "name": "Jaime",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 0,
-          "next_step": 1
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "A ver Jaime, acabo de ir a comprar. ¿No podías habermelo dicho antes?",
-          "player": true,
-          "name": "Carmen",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 1,
-          "next_step": 2
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Es que no me había dado cuenta de que me faltaban hasta ahora.",
-          "player": false,
-          "name": "Jaime",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 2,
-          "next_step": 3
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "¿Y no puedes esperar hasta la semana que viene que vuelva a ir a comprar?",
-          "player": true,
-          "name": "Carmen",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 3,
-          "next_step": 4
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Es que estar una semana entera sin cereales, vaya faena, andaaaaa, voy yo en un momento, no pasa na.",
-          "player": false,
-          "name": "Jaime",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 4,
-          "next_step": 5
-        },
-        {
-          "step_type": "SELECTION",
-          "index": 5,
-          "options": [
-            {
-              "text": "Venga va, voy yo que ya estoy preparada...",
-              "stat_requirement": {
-                "stat": "Positivism",
-                "value": 50
-              },
-              "next_step": 6
-            },
-            {
-              "text": "¿Tu te crees que esto es jauja?...",
-              "effect": [
-                {
-                  "stat": "Positivism",
-                  "value": -6
-                }
-              ],
-              "next_step": 7
-            },
-            {
-              "text": "Pues tira, pero la mascarilla es de uso personal...",
-              "effect": [
-                {
-                  "stat": "Infection",
-                  "value": true
-                }
-              ],
-              "next_step": 8
+              "next_step": 3
             }
           ]
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Venga va, voy yo que ya estoy preparada, espero que seas consciente del riesgo que supone, la próxima vez mira bien si te falta algo antes de que salga a comprar.",
+          "text": "Mientras haya camas libres, yo me ocuparé de ellos, lo importante es atenderlos a todos, ve haciéndoles pruebas para poder organizarlos mejor.",
           "player": true,
-          "name": "Carmen",
+          "name": "Julian",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 6,
+          "index": 2,
           "next_step": 0
         },
         {
           "step_type": "DIALOGUE",
-          "text": "¿Tu te crees que esto es jauja? Te aguantas hasta la semana que viene y punto, seguro que la próxima vez lo compruebas antes de que salga de casa a comprar.",
+          "text": "Yo ya estoy hasta arriba y no voy a poder atender a más, busca a otro médico que tenga más tiempo libre.",
           "player": true,
-          "name": "Carmen",
-          "animation": "Talk",
+          "name": "Julian",
+          "animation": "SadTalk",
           "speed": 30.0,
-          "index": 7,
-          "next_step": 0
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Pues tira, pero la mascarilla es de uso personal y sólo tenemos la mía, así que te vas sin mascarilla, en tu conciencia queda si pasa algo.",
-          "player": true,
-          "name": "Carmen",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 8,
+          "index": 2,
           "next_step": 0
         }
       ]
@@ -226,67 +92,47 @@
     {
       "identifier": "Clap",
       "activation_time": 20,
-      "duration": 45,
+      "duration": 10,
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "¿Y ese ruido? Ahhh, esto debe ser lo que decían en las noticias de salir a los balcones.",
+          "text": "Ya se oyen los ánimos de la gente, hoy cambiaban la hora a las 8 para que los niños también participaran.",
           "player": true,
-          "name": "Carmen",
-          "animation": "Talk",
+          "name": "Julian",
+          "animation": "Think",
           "speed": 30.0,
           "index": 0,
           "next_step": 1
         },
         {
-          "step_type": "SELECTION",
-          "index": 1,
-          "options": [
-            {
-              "text": "Salir a dar palmas en apoyo a los valientes.",
-              "effect": [
-                {
-                  "stat": "Positivism",
-                  "value": 1
-                },
-                {
-                  "stat": "Clap",
-                  "value": true
-                }
-              ],
-              "next_step": 0
-            },
-            {
-              "text": "No salir a dar palmas.",
-              "effect": [
-                {
-                  "stat": "Clap",
-                  "value": false
-                }
-              ],
-              "next_step": 0
-            }
-          ]
+          "step_type": "DIALOGUE",
+          "text": "No sé a quién se le habrá ocurrido esta iniciativa, pero la verdad es que si que anima mucho. La participación es más alta de lo que esperaba. ¡Gracias!",
+          "player": true,
+          "name": "Julian",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
         }
       ]
     },
     {
-      "identifier": "Sleep",
-      "activation_time": 23,
+      "identifier": "Leave_work",
+      "activation_time": 22,
       "duration": 7,
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Estoy muy cansada, por hoy ya he hecho bastante, me voy a dormir.",
+          "text": "Ya se está haciendo tarde y llevo todo el día trabajando. Necesito irme a descansar un rato para estar más fresco mañana.",
           "player": true,
-          "name": "Carmen",
-          "animation": "Talk",
+          "name": "Julian",
+          "animation": "Think",
           "speed": 30.0,
           "index": 0,
           "next_step": 1
         },
         {
-          "step_type": "SLEEP",
+          "step_type": "LEAVEWORK",
           "index": 1,
           "next_step": 0
         }

@@ -202,7 +202,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Carmen, Carmen, oye, me ha dicho el presidente de la comunidad que resulta que tenemos un médico como vecino y algunos no se sienten cómodos ya que podría traernos el virus aquí.",
+          "text": "Carmen, Carmen, oye, me ha dicho el presidente de la comunidad que resulta que tenemos un médico como vecino y... algunos no se sienten cómodos ya que podría traernos el virus aquí.",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -212,7 +212,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Van a realizar una votación esta tarde. ¿Qué vas a votar tú?",
+          "text": "...algunos no se sienten cómodos ya que podría traernos el virus aquí.",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -222,7 +222,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Yo es que no estoy muy segura, por un lado tener un médico cerca es bueno en general por si nos pasa algo, pero claro, ",
+          "text": "Van a realizar una votación esta tarde. ¿Qué vas a votar tú?",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -232,7 +232,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "también tenemos más papeletas de que nos contagiemos si le tenemos aquí. ¿Tú que opinas?",
+          "text": "Yo es que no estoy muy segura, por un lado tener un médico cerca es bueno en general por si nos pasa algo, pero claro, ",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -241,8 +241,18 @@
           "next_step": 6
         },
         {
-          "step_type": "SELECTION",
+          "step_type": "DIALOGUE",
+          "text": "también tenemos más papeletas de que nos contagiemos si le tenemos aquí. ¿Tú que opinas?",
+          "player": false,
+          "name": "Fina",
+          "animation": "Talk",
+          "speed": 30.0,
           "index": 6,
+          "next_step": 7
+        },
+        {
+          "step_type": "SELECTION",
+          "index": 7,
           "options": [
             {
               "text": "Yo votaré que lo echen porque sino es un riesgo enorme para todos...",
@@ -252,11 +262,11 @@
                   "value": -8
                 }
               ],
-              "next_step": 7
+              "next_step": 8
             },
             {
               "text": "Yo votaré que no lo echen, siempre es bueno tener un médico cerca...",
-              "next_step": 8
+              "next_step": 9
             },
             {
               "text": "De ninguna manera le pueden echar, pero ¿en qué mundo vivimos?...",
@@ -270,7 +280,7 @@
                   "value": 4
                 }
               ],
-              "next_step": 9
+              "next_step": 10
             }
           ]
         },
@@ -281,7 +291,7 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 7,
+          "index": 8,
           "next_step": 0
         },
         {
@@ -291,17 +301,27 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 8,
+          "index": 9,
           "next_step": 0
         },
         {
           "step_type": "DIALOGUE",
-          "text": "De ninguna manera le pueden echar, pero ¿en qué mundo vivimos?, ¿como se nos ocurre siguiera echar a una persona que además está luchando contra este virus de forma tan activa?",
+          "text": "De ninguna manera le pueden echar, pero ¿en qué mundo vivimos?",
           "player": true,
           "name": "Carmen",
           "animation": "AngryTalk",
           "speed": 30.0,
-          "index": 9,
+          "index": 10,
+          "next_step": 11
+        }
+        {
+          "step_type": "DIALOGUE",
+          "text": "¿Cómo se nos ocurre siquiera echar a una persona que además está luchando contra este virus de forma tan activa?",
+          "player": true,
+          "name": "Carmen",
+          "animation": "AngryTalk",
+          "speed": 30.0,
+          "index": 11,
           "next_step": 0
         }
       ]
