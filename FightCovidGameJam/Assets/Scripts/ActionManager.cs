@@ -32,6 +32,7 @@ public class ActionManager : MonoBehaviour
     GameObject sofa;
     GameObject shelf;
     GameObject couch;
+    GameObject book;
 
     //Player
     public GameObject player;
@@ -47,8 +48,9 @@ public class ActionManager : MonoBehaviour
         agent = player.GetComponent<NavMeshAgent>();
         tv = GameObject.Find("Television");
         sofa = GameObject.Find("Sofa");
-        shelf = GameObject.Find("Shelf");
-        couch = GameObject.Find("Couch");
+        shelf = GameObject.Find("Estantería");
+        couch = GameObject.Find("Sillón");
+        book = GameObject.Find("Book");
     }
 
     // Update is called once per frame
@@ -94,13 +96,20 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.READ:
                 {
-                    if ((shelf.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((couch.transform.position - player.transform.position).sqrMagnitude < 3)
                     {
-                        tv.GetComponent<AudioSource>().Play();
-                        tv.transform.GetChild(0).gameObject.SetActive(true);
-                        //DoSitAnimation
-                        player.transform.LookAt(tv.transform);
-                        firstAction = true;
+                        //Book
+                        book.SetActive(true);
+                        book.transform.position = player.transform.position;
+                        //Sit in couch
+                        //When finished reading
+                        agent.SetDestination(shelf.transform.position);
+                    }
+                    else if ((shelf.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    {
+                        book.transform.position = shelf.transform.position;
+                        firstAction = false;
+                        secondAction = false;
                     }
                 }
                 break;
@@ -119,7 +128,8 @@ public class ActionManager : MonoBehaviour
                 agent.SetDestination(sofa.transform.position);
                 break;
             case Actions.READ:
-                agent.SetDestination(shelf.transform.position);
+                agent.SetDestination(couch.transform.position);
+                book.SetActive(false);
                 break;
         }
     }

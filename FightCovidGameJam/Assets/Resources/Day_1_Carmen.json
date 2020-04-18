@@ -7,7 +7,7 @@
       "sequence": [
         {
           "type": "Dialogue",
-          "text": "Se decreta el estado de alarma en nuestro país durante los próximos 15 días. Estamos sólo en la primera fase de un combate contra el virus que libran todos los países del mundo.",
+          "text": "Se decreta el <color=#f1ce51ff>estado de alarma</color> en nuestro país durante los próximos 15 días.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -15,12 +15,20 @@
         },
         {
           "type": "Dialogue",
-          "text": "Nos esperan semanas muy duras. Va a ser muy duro y difícil pero vamos a parar el virus con unidad, responsabilidad y disciplina social.",
+          "text": "Estamos sólo en la primera fase de un combate contra el <color=#f1ce51ff>coronavirus</color> que provoca la enfermedad denominada <color=#f1ce51ff>Covid-19</color>.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
           "speed": 5.0
-        } 
+        },
+        {
+          "type": "Dialogue",
+          "text": "Nos esperan semanas muy duras. Va a ser muy duro y difícil pero vamos a parar el virus con <color=#f1ce51ff>unidad, responsabilidad</color> y <color=#f1ce51ff>disciplina social</color>.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 5.0
+        }
       ]
     },
     {

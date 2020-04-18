@@ -1,7 +1,7 @@
 {
   "Television": [
     {
-      "action":  0,
+      "action": 0,
       "optionText": "Ver un episodio en Netflix",
       "time": 30,
       "positivism": 2
@@ -26,7 +26,7 @@
       "positivism": 2
     }
   ],
-  "Estantería": [
+  "EstanterÃ­a": [
     {
       "action": 2,
       "optionText": "Leer una revista",
@@ -34,7 +34,9 @@
       "positivism": 1
     },
     {
+      "action": 2,
       "optionText": "Leer un libro",
+      "time": 40,
       "positivism": 2
     }
   ],
@@ -60,7 +62,7 @@
       "health": -3
     }
   ],
-  "Móvil": [
+  "MÃ³vil": [
     {
       "action": 6,
       "optionText": "Hacer videollamada con amigos",
@@ -90,13 +92,13 @@
   "Lavadora": [
     {
       "action": 9,
-      "optionText": "Lavar mascarilla a 90ºC",
+      "optionText": "Lavar mascarilla a 90ÂºC",
       "time": 20,
       "positivism": 1
     },
     {
       "action": 9,
-      "optionText": "Lavar mascarilla a 30ºC",
+      "optionText": "Lavar mascarilla a 30ÂºC",
       "time": 1.0,
       "positivism": 1
     }
@@ -134,7 +136,7 @@
       "positivism": 1
     },
     {
-      "action": 13,
+      "action": 14,
       "optionText": "Lavarse las manos",
       "time": 2,
       "health": 1
