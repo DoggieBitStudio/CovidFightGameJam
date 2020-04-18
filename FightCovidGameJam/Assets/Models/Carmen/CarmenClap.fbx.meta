@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 98812c32a2b72b24699cbd9478dfc42d
+guid: c90dd2f37ba98df47a8e8b962a3bfaff
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Clapping
+    second: CarmenClap
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -35,7 +35,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Clapping
+      name: CarmenClap
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0

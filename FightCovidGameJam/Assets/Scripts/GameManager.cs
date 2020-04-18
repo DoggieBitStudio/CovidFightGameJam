@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Badly_Washed", false);
             boolean_stats.Add("Gel", false);
             boolean_stats.Add("Clap", false);
-            boolean_stats.Add("Shop", true);
+            boolean_stats.Add("Shop", false);
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
             boolean_stats.Add("Doctor_Out", false);
@@ -189,7 +189,11 @@ public class GameManager : MonoBehaviour
             fade.DOFade(0.0f, 2.0f).OnComplete(NewDay);
         }
         else
+        {
             fade.DOFade(0.0f, 2.0f);
+            ui_opened = false;
+        }
+           
     }
 
     void NewDay()

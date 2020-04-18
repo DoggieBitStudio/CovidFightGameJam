@@ -47,7 +47,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "la pandemia del coronavirus Covid-19 y que a su vez <color=#f1ce51ff>son los ciudadanos más expuestos</color> al contagio.",
+          "text": "la pandemia del coronavirus Covid-19 y que, a su vez, <color=#f1ce51ff>son los ciudadanos más expuestos</color> al contagio.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -83,7 +83,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Rufus me está pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
+          "text": "Rufus necesita que lo saque a hacer sus necesidades.",
           "player": true,
           "name": "Carmen",
           "animation": "Think",
@@ -190,10 +190,6 @@
               },
               "effect": [
                 {
-                  "stat": "Health",
-                  "value": -1
-                },
-                {
                   "stat": "Positivism",
                   "value": 1
                 }
@@ -201,7 +197,7 @@
               "time_investment": 10
             },
             {
-              "text": "Gel Desinfectante",
+              "text": "Gel desinfectante",
               "effect": [
                 {
                   "stat": "Gel",
@@ -221,7 +217,7 @@
     },
     {
       "identifier": "Son_Discussion",
-      "activation_time": 18,
+      "activation_time": 19,
       "duration": 15,
       "sequence": [
         {
@@ -236,7 +232,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "A ver Jaime, acabo de ir a comprar. ¿No podías habermelo dicho antes?",
+          "text": "A ver, Jaime, acabo de ir a comprar. ¿No podías habermelo dicho antes?",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -250,7 +246,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Eres lerdo",
+          "text": "Esta semana aún tenemos provisiones y no tenía pensado ir. Podrías habérmelo dicho la semana pasada y te hubiese traído más.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -280,7 +276,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Es que estar una semana entera sin cereales, vaya faena, andaaaaa, voy yo en un momento, no pasa na.",
+          "text": "Es que estar una semana entera sin cereales... vaya faena. Andaaaaa, voy yo en un momento, no pasa na'.",
           "player": false,
           "name": "Jaime",
           "animation": "Talk",
@@ -301,7 +297,7 @@
               "next_step": 7
             },
             {
-              "text": "¿Tu te crees que esto es jauja?...",
+              "text": "¿Tú te crees que esto es jauja?...",
               "effect": [
                 {
                   "stat": "Positivism",
@@ -324,7 +320,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Venga va, voy yo que ya estoy preparada, espero que seas consciente del riesgo que supone, la próxima vez mira bien si te falta algo antes de que salga a comprar.",
+          "text": "Venga va, voy yo que ya estoy preparada. Espero que seas consciente del riesgo que supone, la próxima vez mira bien si te falta algo antes de que salga a comprar.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -334,7 +330,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "¿Tu te crees que esto es jauja? Te aguantas hasta la semana que viene y punto, seguro que la próxima vez lo compruebas antes de que salga de casa a comprar.",
+          "text": "¿Tú te crees que esto es jauja? Te aguantas hasta la semana que viene y punto, seguro que la próxima vez lo compruebas antes de que salga de casa a comprar.",
           "player": true,
           "name": "Carmen",
           "animation": "AngryTalk",
@@ -344,7 +340,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Pues tira, pero la mascarilla es de uso personal y sólo tenemos la mía, así que te vas sin mascarilla, en tu conciencia queda si pasa algo.",
+          "text": "Pues tira, pero la mascarilla es de uso personal y sólo tenemos la mía, así que te vas sin mascarilla. En tu conciencia queda si pasa algo.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -386,7 +382,7 @@
                   "value": true
                 }
               ],
-              "next_step": 0
+              "next_step": 2
             },
             {
               "text": "No salir a dar palmas.",
@@ -399,6 +395,23 @@
               "next_step": 0
             }
           ]
+        },
+        {
+          "step_type": "MOVE_TO",
+          "index": 2,
+          "next_step": 3,
+          "position": {
+            "x": -2.15,
+            "y": 2.3,
+            "z": 6.1
+          }
+        },
+        {
+          "step_type": "PLAY_ANIMATION",
+          "index": 3,
+          "next_step": 0,
+          "animation": "Clap",
+          "time": 2
         }
       ]
     },
@@ -409,17 +422,31 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Uy que tarde se ha hecho, creo que deberia irme a la cama",
+          "text": "Ya son las once, hora de irse a descansar.",
           "player": true,
           "name": "Carmen",
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 2,
+          "stat_requirement": {
+            "stat": "Positivism",
+            "value": 50
+          }
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "¿Ya son las once? Otro día más...",
+          "player": true,
+          "name": "Carmen",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 1,
+          "next_step": 2
         },
         {
           "step_type": "SLEEP",
-          "index": 1,
+          "index": 2,
           "next_step": 0
         }
       ]

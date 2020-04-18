@@ -53,7 +53,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Rufus me está pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
+          "text": "Rufus me está pidiendo a ladrido limpio que por favor lo saque a hacer sus necesidades.",
           "player": true,
           "name": "Carmen",
           "animation": "Think",
@@ -160,10 +160,6 @@
               },
               "effect": [
                 {
-                  "stat": "Health",
-                  "value": -1
-                },
-                {
                   "stat": "Positivism",
                   "value": 1
                 }
@@ -171,7 +167,7 @@
               "time_investment": 10
             },
             {
-              "text": "Gel Desinfectante",
+              "text": "Gel desinfectante",
               "effect": [
                 {
                   "stat": "Gel",

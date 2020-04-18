@@ -170,7 +170,6 @@ public class DialogueManager : MonoBehaviour
 
         if(d_info.sound != null)
         {
-            GameManager.instance.audio_source.volume = 0.5f;
             GameManager.instance.audio_source.PlayOneShot(Resources.Load<AudioClip>("Sounds/" + d_info.sound));
         }
             

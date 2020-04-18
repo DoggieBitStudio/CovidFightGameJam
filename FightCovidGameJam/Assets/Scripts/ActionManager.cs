@@ -54,13 +54,14 @@ public class ActionManager : MonoBehaviour
     GameObject plant;
     GameObject kitchen;
     GameObject hygieneGel;
+    GameObject table;
 
     AudioSource houseDoorSource;
 
     //Player
     public GameObject player;
-    NavMeshAgent agent;
-    Animator animator;
+    public NavMeshAgent agent;
+    public Animator animator;
 
     public AudioClip dramaticFx;
     public AudioClip openAppFx;
@@ -96,11 +97,16 @@ public class ActionManager : MonoBehaviour
         kitchen = GameObject.Find("Kitchen");
         plant = GameObject.Find("Planta");
         hygieneGel = GameObject.Find("Gel Desinfectante");
+        table = GameObject.Find("Mesa");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(animator)
+        {
+            animator.SetFloat("Positivism", GameManager.instance.int_stats["Positivism"]);
+        }
         switch(currentAction)
         {
             case Actions.TELEVISION_WATCH:
@@ -149,23 +155,25 @@ public class ActionManager : MonoBehaviour
                         agent.SetDestination(couch.transform.position);
                         firstAction = true;
                     }
-                    else if ((couch.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && firstAction)
+                    else if ((couch.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && firstAction && !secondAction)
                     {
                         //Book
                         book.SetActive(true);
                         book.transform.position = player.transform.position;
                         book.GetComponent<AudioSource>().Play();
                         animator.Play("Read");
+                        player.transform.LookAt(table.transform.position);
+                        secondAction = true;
                     }
-                    else if(firstAction && secondAction && book.GetComponent<AudioSource>().isPlaying)
+                    else if(firstAction && secondAction && !book.GetComponent<AudioSource>().isPlaying && book.active)
                     {
                         agent.SetDestination(shelf.transform.position);
                         book.SetActive(false);
-                        secondAction = true;
                     }
                     else if ((shelf.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && firstAction && secondAction)
                     {
-                        book.transform.position = shelf.transform.position;
+                        book.transform.position = bookPos.transform.position;
+                        book.SetActive(true);
                         currentAction = Actions.NONE;
                         firstAction = false;
                         secondAction = false;
@@ -177,13 +185,13 @@ public class ActionManager : MonoBehaviour
                 {
                     if((sofa.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
                     {
-                        // Estirarse en el sofa
+                        animator.Play("Lie Down");
                         sofa.GetComponent<AudioSource>().Play();
                         firstAction = true;
                     }
                     else if(firstAction && !sofa.GetComponent<AudioSource>().isPlaying)
                     {
-                        //Get Up of sofa
+                        animator.Play("Idle");
                         firstAction = false;
                         currentAction = Actions.NONE;
                         FinalizeAction();
@@ -194,31 +202,33 @@ public class ActionManager : MonoBehaviour
                 {
                     if ((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
                     {
-                        //OpenDoor
-                        houseDoorSource.Play();
-                        //When door is opened
-                        agent.SetDestination(neighbourDoor.transform.position);
-                        firstAction = true;
+                        Color col = GameManager.instance.fade.color;
+                        col.a += (float)0.5 * Time.deltaTime;
+                        GameManager.instance.fade.color = col;
+
+                        if (col.a >= 1)
+                        {
+                            firstAction = true;
+                            houseDoorSource.PlayOneShot(dramaticFx);
+                        }
                     }
                     else if((neighbourDoor.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction)
                     {
-                        neighbourDoor.GetComponent<AudioSource>().Play();
-                        //Vecina sale, hablan
-                        //When finished talking, return house
-                        agent.SetDestination(houseDoor.transform.position);
-                        secondAction = true;
-                    }
-                    else if((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && secondAction)
-                    {
-                        //Close door
-                        currentAction = Actions.NONE;
-                        firstAction = false;
-                        secondAction = false;
-                        if(GameManager.instance.int_stats["Health"] <= 0)
+                        Color col = GameManager.instance.fade.color;
+                        col.a -= (float)0.5 * Time.deltaTime;
+                        GameManager.instance.fade.color = col;
+
+                        if (col.a <= 0)
                         {
-                            GameManager.instance.boolean_stats["Infection"] = true;
+                            firstAction = false;
+                            secondAction = false;
+                            currentAction = Actions.NONE;
+                            if (GameManager.instance.int_stats["Health"] <= 0)
+                            {
+                                GameManager.instance.boolean_stats["Infection"] = true;
+                            }
+                            FinalizeAction();
                         }
-                        FinalizeAction();
                     }
 
                 }
@@ -228,7 +238,6 @@ public class ActionManager : MonoBehaviour
                     if((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
                     {
                         Color col = GameManager.instance.fade.color;
-                        Debug.Log(col.a);
                         col.a += (float)0.5 * Time.deltaTime;
                         GameManager.instance.fade.color = col;
 
@@ -251,7 +260,6 @@ public class ActionManager : MonoBehaviour
 
                         if (col.a <= 0)
                         {
-                            GameManager.instance.fade.gameObject.SetActive(false);
                             firstAction = false;
                             secondAction = false;
                             currentAction = Actions.NONE;
@@ -264,16 +272,15 @@ public class ActionManager : MonoBehaviour
                 {
                     if ((smartphone.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
                     {
-                        agent.SetDestination(couch.transform.position);
+                        agent.SetDestination(chair.transform.position);
                         smartphone.SetActive(false);
                         firstAction = true;
                     }
-                    else if ((couch.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && !secondAction)
+                    else if ((chair.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && !secondAction)
                     {
                         //Smartphone
                         smartphone.SetActive(true);
                         smartphone.transform.position = player.transform.position;
-                        //Sit in couch
                         smartphone.GetComponent<AudioSource>().Play();
                         secondAction = true;
                     }
@@ -302,7 +309,6 @@ public class ActionManager : MonoBehaviour
                 }
                 else if((chair.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && !secondAction)
                 {
-                    // Sit in chair
                     smartphone.GetComponent<AudioSource>().PlayOneShot(openAppFx);
                     smartphone.SetActive(true);
                     smartphone.transform.position = player.transform.position;
@@ -334,7 +340,6 @@ public class ActionManager : MonoBehaviour
                 {
                     GameManager.instance.fade.gameObject.SetActive(true);
                     Color col = GameManager.instance.fade.color;
-                    Debug.Log(col.a);
                     col.a += (float)0.5 * Time.deltaTime;
                     GameManager.instance.fade.color = col;
 
@@ -623,6 +628,7 @@ public class ActionManager : MonoBehaviour
             plant = GameObject.Find("Planta");
             hygieneGel = GameObject.Find("Gel Desinfectante");
             animator = player.GetComponentInChildren<Animator>();
+            table = GameObject.Find("Mesa");
         }
 
         //When change day we need to activate
