@@ -12,8 +12,8 @@
           "name": "Presentador",
           "animation": "Talk",
           "speed": 30.0,
-          "next_step": 1,
-          "index": 0
+          "index": 0,
+          "next_step": 1
         },
         {
           "step_type": "DIALOGUE",
@@ -22,8 +22,9 @@
           "name": "Presentador",
           "animation": "Talk",
           "speed": 30.0,
-          "next_step": 2,
-          "index": 1
+          "index": 1,
+          "next_step": 2
+
         },
         {
           "step_type": "DIALOGUE",
@@ -32,8 +33,8 @@
           "name": "Presentador",
           "animation": "Talk",
           "speed": 30.0,
-          "next_step": 0,
-          "index": 2
+          "index": 2,
+          "next_step": 0
         }
       ]
     },
@@ -47,13 +48,13 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "next_step": 1,
-          "index": 0
+          "index": 0,
+          "next_step": 1
+
         },
         {
           "step_type": "SELECTION",
           "index": 1,
-          "next_step": 2,
           "options": [
             {
               "text": "Salir a que haga sus necesidades.",
@@ -62,6 +63,7 @@
                 "value": 50
               },
               "time_investment": 20,
+              "next_step": 2
             },
             {
               "text": "Salir y aprovechar para pasear un rato",
@@ -71,7 +73,8 @@
                   "value": -1
                 }
               ],
-              "time_investment": 60
+              "time_investment": 60,
+              "next_step": 2
             },
             {
               "text": "Salir y aprovechar para hacer ejercicio",
@@ -85,7 +88,8 @@
                   "value": 1
                 }
               ],
-              "time_investment": 120
+              "time_investment": 120,
+              "next_step": 2
             }
           ]
         },
@@ -312,10 +316,12 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 0
+          "index": 0,
+          "next_step": 1
         },
         {
           "step_type": "SLEEP",
+          "index": 1,
           "next_step": 0
         }
       ]
