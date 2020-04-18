@@ -84,7 +84,7 @@ public class ShoppingEvent : MonoBehaviour
     public void Close()
     {
         GameManager.instance.situations_manager.current_situation.duration = 0;
-        GameManager.instance.situations_manager.OnStepFinish(2);
+       // GameManager.instance.situations_manager.OnStepFinish(2);
 
         gameObject.SetActive(false);
     }

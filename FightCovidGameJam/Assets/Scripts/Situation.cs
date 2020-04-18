@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections.Specialized;
 
-public enum Step
+[System.Serializable]
+public enum Step_Type
 {
     NONE = -1,
     DIALOGUE,
@@ -14,13 +15,21 @@ public enum Step
 }
 
 [System.Serializable]
+public struct Step
+{
+    public Step_Type step_type;
+    public int next_step;
+    public int index;
+}
+
+[System.Serializable]
 public class Situation
 {
     public List<Action> actions;
     public string identifier;
     public float activation_time;
     public float duration;
-    public int current_step = 0;
+    public Step current_step;
 
     Situation()
     {
