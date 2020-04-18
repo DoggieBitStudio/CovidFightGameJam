@@ -63,7 +63,7 @@ public class CharacterOrthController : MonoBehaviour
                 //log hit area to the console
                 if (IsWalkable(hit.point) && !uiManager.isTaskMenuOpen)
                     MoveToDestination(hit.point);
-                if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen)
+                if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen && !GameManager.instance.ui_opened)
                 {
                     hit.collider.gameObject.GetComponent<Interactable>().OnTap(hit.point);
                     MoveToDestination(hit.point);
