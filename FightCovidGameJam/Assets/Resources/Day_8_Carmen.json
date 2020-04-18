@@ -6,7 +6,7 @@
       "duration": 30,
       "sequence": [
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "Avalancha de <color=#f1ce51ff>ERTEs</color> (Expedientes de Regulación Temporal de Empleo) por el coronavirus en España,",
           "player": false,
           "name": "Presentador",
@@ -16,7 +16,7 @@
           "next_step": 1
         },
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "al menos 33.000 empresas ya lo han solicitado y hay más de <color=#f1ce51ff>250.000 trabajadores afectados</color>.",
           "player": false,
           "name": "Presentador",
@@ -26,7 +26,7 @@
           "next_step": 2
         },
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "En otro orden de asuntos, la campaña anónima surgida en las redes sociales para <color=#f1ce51ff>reconocer el trabajo del personal sanitario</color> ha tenido una respuesta masiva.",
           "player": false,
           "name": "Presentador",
@@ -36,7 +36,7 @@
           "next_step": 3
         },
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "A las 22:00 de anoche, se escuchó un aplauso unánime en ventanas y balcones dedicado a los trabajadores que luchan directamente contra",
           "player": false,
           "name": "Presentador",
@@ -46,7 +46,7 @@
           "next_step": 4
         },
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "la pandemia del coronavirus Covid-19 y que a su vez <color=#f1ce51ff>son los ciudadanos más expuestos</color> al contagio.",
           "player": false,
           "name": "Presentador",
@@ -56,7 +56,7 @@
           "next_step": 5
         },
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "A partir de hoy se hace un llamamiento para cambiarlo <color=#f1ce51ff>a las 20:00</color> para que los más pequeños de la casa puedan participar.",
           "player": false,
           "name": "Presentador",
@@ -162,7 +162,7 @@
       "duration": 15,
       "sequence": [
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "Mama, me he quedado sin cereales.",
           "player": false,
           "name": "Jaime",
@@ -172,7 +172,7 @@
           "next_step": 1
         },
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "A ver Jaime, acabo de ir a comprar. ¿No podías habermelo dicho antes?",
           "player": true,
           "name": "Carmen",
@@ -182,7 +182,7 @@
           "next_step": 2
         },
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "Es que no me había dado cuenta de que me faltaban hasta ahora.",
           "player": false,
           "name": "Jaime",
@@ -192,7 +192,7 @@
           "next_step": 3
         },
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "¿Y no puedes esperar hasta la semana que viene que vuelva a ir a comprar?",
           "player": true,
           "name": "Carmen",
@@ -202,7 +202,7 @@
           "next_step": 4
         },
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "Es que estar una semana entera sin cereales, vaya faena, andaaaaa, voy yo en un momento, no pasa na.",
           "player": false,
           "name": "Jaime",
@@ -212,7 +212,7 @@
           "next_step": 5
         },
         {
-          "type": "SELECTION",
+          "step_type": "SELECTION",
           "index": 5,
           "options": [
             {
@@ -283,7 +283,7 @@
       "duration": 45,
       "sequence": [
         {
-          "type": "DIALOGUE",
+          "step_type": "DIALOGUE",
           "text": "¿Y ese ruido? Ahhh, esto debe ser lo que decían en las noticias de salir a los balcones.",
           "player": true,
           "name": "Carmen",
@@ -293,7 +293,7 @@
           "next_step": 1
         },
         {
-          "type": "SELECTION",
+          "step_type": "SELECTION",
           "index": 1,
           "options": [
             {
