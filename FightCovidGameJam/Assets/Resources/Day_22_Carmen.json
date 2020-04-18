@@ -17,7 +17,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "y llama a los países a <color=#f1ce51ff>controlar la transmisión del virus</color> antes de levantar restricciones.",
+          "text": "y llama a los países a <color=#f1ce51ff>controlar la transmisión del virus</color> antes de levantar las restricciones.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -37,7 +37,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "1. Lavarse las manos con frecuencia con un deesinfectante de manos a base de alcohol o con agua y jabón.",
+          "text": "1. Lavarse las manos con frecuencia con un desinfectante de manos a base de alcohol o con agua y jabón.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -57,7 +57,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "3. Evite tocarse los ojos, la nariz y la boca. /n 4. Si tiene fiebre, tos y dificultad para respirar, solicite atención médica a tiempo.",
+          "text": "3. Evite tocarse los ojos, la nariz y la boca. \n 4. Si tiene fiebre, tos y dificultad para respirar, solicite atención médica a tiempo.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -103,17 +103,31 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Rufus me está pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
+          "text": "Vamos Rufus.",
           "player": true,
           "name": "Carmen",
-          "animation": "Think",
+          "animation": "Talk",
           "speed": 30.0,
           "index": 1,
-          "next_step": 2
+          "next_step": 3,
+          "stat_requirement": {
+            "stat": "Positivism",
+            "value": 20
+          }
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Vamos Rufus...",
+          "player": true,
+          "name": "Carmen",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 2,
+          "next_step": 3
         },
         {
           "step_type": "SELECTION",
-          "index": 2,
+          "index": 3,
           "options": [
             {
               "text": "Salir a que haga sus necesidades.",
@@ -122,7 +136,7 @@
                 "value": 50
               },
               "time_investment": 20,
-              "next_step": 3
+              "next_step": 4
             },
             {
               "text": "Salir y aprovechar para pasear un rato.",
@@ -133,7 +147,7 @@
                 }
               ],
               "time_investment": 60,
-              "next_step": 3
+              "next_step": 4
             },
             {
               "text": "Salir y aprovechar para hacer ejercicio.",
@@ -148,13 +162,13 @@
                 }
               ],
               "time_investment": 120,
-              "next_step": 3
+              "next_step": 4
             }
           ]
         },
         {
           "step_type": "BATHROOM",
-          "index": 3,
+          "index": 4,
           "next_step": 0
         }
       ]
@@ -166,7 +180,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Carmen, la ropa del trabajo ha encogío.",
+          "text": "Carmen, la ropa del trabajo ha encogí'o.",
           "player": false,
           "name": "Alfonso",
           "animation": "Talk",
@@ -176,7 +190,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Igual has engordao estando aquí encerrao en casa.",
+          "text": "Igual has engorda'o estando aquí encerra'o en casa.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -186,7 +200,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Tú sí que has egordao, yo no he cogio ni un solo kilo, esto es culpa tuya que algo le has hecho a mi ropa.",
+          "text": "Tú sí que has engorda'o, yo no he cogí'o ni un solo kilo, esto es culpa tuya que algo le has hecho a mi ropa.",
           "player": false,
           "name": "Alfonso",
           "animation": "Talk",
@@ -206,7 +220,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Era broma mi amor, no te enfades, que estás estupenda. Pero dime, ¿que le has hecho a mi ropa? ¿Cómo lo soluciono?",
+          "text": "Era broma mi amor, no te enfades, que estás estupenda. Pero dime, ¿qué le has hecho a mi ropa? ¿Cómo lo soluciono?",
           "player": false,
           "name": "Alfonso",
           "animation": "Talk",
@@ -229,7 +243,7 @@
               "next_step": 6
             },
             {
-              "text": "Eso ha sio al lavarlo a tanta temperatura...",
+              "text": "Eso ha sí'o al lavarlo a tanta temperatura...",
               "stat_requirement": {
                 "stat": "Positivism",
                 "value": 40
@@ -247,7 +261,7 @@
               "next_step": 7
             },
             {
-              "text": "Paso de contestarte, vete a dar una vuelta...",
+              "text": "Paso de contestarte. Vete a dar una vuelta...",
               "effect": [
                 {
                   "stat": "Infection",
@@ -260,7 +274,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Pues llamas a tu madre y le dices que te lo arregle ella, que me tienes harta ya, pareces tonto a veces.",
+          "text": "Pues llamas a tu madre y le dices que te lo arregle ella, que me tienes harta ya. Pareces tonto a veces.",
           "player": true,
           "name": "Carmen",
           "animation": "AngryTalk",
@@ -270,7 +284,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Eso ha sio al lavarlo a tanta temperatura para matar el virus. Tu ropa de trabajo es de algodón, y claro, encoge.",
+          "text": "Eso ha sí'o al lavarlo a tanta temperatura para matar el virus. Tu ropa de trabajo es de algodón y, claro, encoge.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -290,7 +304,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Paso de contestarte, vete a dar una vuelta anda, que paso de aguantate así",
+          "text": "Paso de contestarte. Vete a dar una vuelta anda que paso de aguantate así.",
           "player": true,
           "name": "Carmen",
           "animation": "AngryTalk",
@@ -332,10 +346,6 @@
           "text": "Papel higiénico",
           "effect": [
             {
-              "stat": "Health",
-              "value": -1
-            },
-            {
               "stat": "Positivism",
               "value": 1
             }
@@ -343,7 +353,7 @@
           "time_investment": 10
         },
         {
-          "text": "Gel Desinfectante",
+          "text": "Gel desinfectante",
           "effect": [
             {
               "stat": "Gel",
@@ -361,7 +371,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "¿Y ese ruido? Ahhh, esto debe ser lo que decían en las noticias de salir a los balcones.",
+          "text": "Ya son las ocho.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -386,7 +396,7 @@
                   "value": true
                 }
               ],
-              "next_step": 0
+              "next_step": 2
             },
             {
               "text": "No salir a dar palmas.",
@@ -399,6 +409,23 @@
               "next_step": 0
             }
           ]
+        },
+        {
+          "step_type": "MOVE_TO",
+          "index": 2,
+          "next_step": 3,
+          "position": {
+            "x": -2.15,
+            "y": 2.3,
+            "z": 6.1
+          }
+        },
+        {
+          "step_type": "PLAY_ANIMATION",
+          "index": 3,
+          "next_step": 0,
+          "animation": "Clap",
+          "time": 2
         }
       ]
     },
@@ -409,17 +436,31 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Uy que tarde se ha hecho, creo que deberia irme a la cama",
+          "text": "Me voy a dormir ya. Mañana será otro día.",
           "player": true,
           "name": "Carmen",
-          "animation": "Think",
+          "animation": "Talk",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 2,
+          "stat_requirement": {
+            "stat": "Positivism",
+            "value": 10
+          }
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ya es hora de descansar, seguro que todo acaba pronto.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 1,
+          "next_step": 2
         },
         {
           "step_type": "SLEEP",
-          "index": 1,
+          "index": 2,
           "next_step": 0
         }
       ]
