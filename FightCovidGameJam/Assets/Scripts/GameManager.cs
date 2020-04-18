@@ -37,11 +37,14 @@ public class GameManager : MonoBehaviour
     public DialogueManager dialogue_manager;
     public UIManager ui_manager;
     public ActionManager action_manager;
-    public GameObject fade;
+    public Image fade;
 
     internal int carmen_day = 1;
     internal int julian_day = 1;
     public CHARACTER current_character = CHARACTER.CARMEN;
+
+    bool show_stats = false;
+    GUIStyle debug_style;
 
     private void Awake()
     {
@@ -53,6 +56,7 @@ public class GameManager : MonoBehaviour
             situations_manager = GetComponent<SituationsManager>();
             dialogue_manager = GetComponent<DialogueManager>();
             ui_manager = GetComponent<UIManager>();
+            action_manager = GetComponent<ActionManager>();
 
             int_stats = new Dictionary<string, int>();
             boolean_stats = new Dictionary<string, bool>();
@@ -70,9 +74,11 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Shop", false);
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
+            boolean_stats.Add("Doctor_Out", false);
 
-            action_manager = GetComponent<ActionManager>();
-            fade = GameObject.FindGameObjectWithTag("Fade");
+            debug_style = new GUIStyle();
+            debug_style.fontSize = 22;
+            debug_style.normal.textColor = Color.red;
         }
         else
             Destroy(gameObject);
@@ -95,7 +101,14 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            AdvanceTime(1);
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            show_stats = !show_stats;
+        }
     }
 
     public void AddPositivism(int p)
@@ -111,7 +124,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadSceneFade(string name)
     {
-        fade.GetComponent<Image>().DOFade(1.0f, 2.0f).OnComplete(()=>LoadScene(name));
+        fade.DOFade(1.0f, 2.0f).OnComplete(()=>LoadScene(name));
     }
 
     void LoadScene(string name)
@@ -131,7 +144,34 @@ public class GameManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        fade = GameObject.FindGameObjectWithTag("Fade");
-        fade.GetComponent<Image>().DOFade(0.0f, 2.0f);
+        fade.DOFade(0.0f, 2.0f);
+        situations_manager.OnLevelFinshedLoading(scene);
+    }
+
+    internal void ResetTime()
+    {
+        time = 8;
+        ui_manager.SetTimeText(time);
+    }
+
+    void OnGUI()
+    {
+        if(show_stats)
+        {
+            int y = 10;
+            foreach (var item in int_stats)
+            {
+                GUI.Label(new Rect(Camera.main.pixelWidth-220, y, 200, 50), item.Key + ": " + item.Value.ToString(), debug_style);
+                y += 30;
+            }
+
+            y = 10;
+            foreach (var item in boolean_stats)
+            {
+                GUI.Label(new Rect(Camera.main.pixelWidth - 450, y, 200, 50), item.Key + ": " + item.Value.ToString(), debug_style);
+                y += 30;
+            }
+        }
+
     }
 }
