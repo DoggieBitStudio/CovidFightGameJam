@@ -94,27 +94,6 @@
       ]
     },
     {
-      "identifier": "Shopping",
-      "activation_time": 17,
-      "duration": 45,
-      "sequence": [
-        {
-          "type": "Dialogue",
-          "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situación.",
-          "player": true,
-          "name": "Carmen",
-          "animation": "Talk",
-          "speed": 5.0
-        },
-        {
-          "type": "Shopping"
-        },
-        {
-          "type": "Bathroom"
-        }
-      ]
-    },
-    {
       "identifier": "Day15_Neighbor",
       "activation_time": 20,
       "duration": 15,
@@ -230,118 +209,95 @@
               ]
             }
           ]
+        }
+      ]
+    },
+    {
+      "identifier": "Shopping",
+      "activation_time": 17,
+      "duration": 45,
+      "sequence": [
+        {
+          "type": "Dialogue",
+          "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situación.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 5.0
         },
         {
-          "identifier": "Son_Discussion",
-          "activation_time": 20,
-          "duration": 15,
-          "sequence": [
+          "type": "Shopping"
+        },
+        {
+          "type": "Bathroom"
+        }
+      ]
+    },
+    {
+      "identifier": "Vote_Doctor",
+      "activation_time": 17,
+      "duration": 45,
+      "sequence": [
+        {
+          "type": "Dialogue",
+          "text": "Han introducido un papel por debajo de la puerta, a ver que pone...",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Dialogue",
+          "text": "Hola Vecino/a /n En la comunidad tenemos a un médico como vecino. Sabemos de su buena labor en el hospital y se agradece,",
+          "player": false,
+          "name": "Presidente",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Dialogue",
+          "text": "pero debemos pensar también en los vecinos. En nuestra comunidad viven niños y ancianos.",
+          "player": false,
+          "name": "Presidente",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Dialogue",
+          "text": "Hay lugares como el Barataria donde están alojando a profesionales mientras esto dure. Te pido que lo pienses y contestes cuanto antes diciendo si votas por expulsar al médico o no.",
+          "player": false,
+          "name": "Presidente",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Dialogue",
+          "text": "Un cordial saludo, /n El Presidente de la comunidad, /n Ginés Sánchez",
+          "player": false,
+          "name": "Presidente",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Selection",
+          "options": [
             {
-              "type": "Dialogue",
-              "text": "Mama, me he quedado sin cereales.",
-              "player": false,
-              "name": "Jaime",
-              "animation": "Talk",
-              "speed": 5.0
+              "text": "Expulsar médico",
+              "effect": {
+                "stat": "Doctor_Out",
+                "value": true
+              }
             },
             {
-              "type": "Dialogue",
-              "text": "A ver Jaime, acabo de ir a comprar. ¿No podías habermelo dicho antes?",
-              "player": true,
-              "name": "Carmen",
-              "animation": "Talk",
-              "speed": 5.0
-            },
-            {
-              "type": "Dialogue",
-              "text": "Es que no me había dado cuenta de que me faltaban hasta ahora.",
-              "player": false,
-              "name": "Jaime",
-              "animation": "Talk",
-              "speed": 5.0
-            },
-            {
-              "type": "Dialogue",
-              "text": "¿Y no puedes esperar hasta la semana que viene que vuelva a ir a comprar?",
-              "player": true,
-              "name": "Carmen",
-              "animation": "Talk",
-              "speed": 5.0
-            },
-            {
-              "type": "Dialogue",
-              "text": "Es que estar una semana entera sin cereales, vaya faena, andaaaaa, voy yo en un momento, no pasa na.",
-              "player": false,
-              "name": "Jaime",
-              "animation": "Talk",
-              "speed": 5.0
-            },
-            {
-              "type": "Selection",
-              "options": [
-                {
-                  "text": "Venga va, voy yo que ya estoy preparada, espero que seas consciente del riesgo que supone, la próxima vez mira bien si te falta algo antes de que salga a comprar.",
-                  "stat_requirement": {
-                    "stat": "Positivism",
-                    "value": 50
-                  }
-                },
-                {
-                  "text": "¿Tu te crees que esto es jauja? Te aguantas hasta la semana que viene y punto, seguro que la próxima vez lo compruebas antes de que salga de casa a comprar.",
-                  "effect": [
-                    {
-                      "stat": "Positivism",
-                      "value": -6
-                    }
-                  ]
-                },
-                {
-                  "text": "Pues tira, pero la mascarilla es de uso personal y sólo tenemos la mía, así que te vas sin mascarilla, en tu conciencia queda si pasa algo.",
-                  "effect": [
-                    {
-                      "stat": "Infection",
-                      "value": true
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "type": "Dialogue",
-              "text": "¿Y ese ruido? Ahhh, esto debe ser lo que decían en las noticias de salir a los balcones.",
-              "player": true,
-              "name": "Carmen",
-              "animation": "Talk",
-              "speed": 5.0
-            },
-            {
-              "type": "Selection",
-              "options": [
-                {
-                  "text": "Salir a dar palmas en apoyo a los valientes.",
-                  "effect": [
-                    {
-                      "stat": "Positivism",
-                      "value": 1
-                    },
-                    {
-                      "stat": "Clap",
-                      "value": true
-                    }
-                  ]
-                },
-                {
-                  "text": "No salir a dar palmas.",
-                  "effect": [
-                    {
-                      "stat": "Clap",
-                      "value": false
-                    }
-                  ]
-                }
-              ]
+              "text": "No expulsar médico",
+              "effect": {
+                "stat": "Doctor_Out",
+                "value": false
+              }
             }
           ]
         }
       ]
     }
+  ]
+}
