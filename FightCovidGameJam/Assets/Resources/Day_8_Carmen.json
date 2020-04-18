@@ -405,9 +405,9 @@
           "index": 2,
           "next_step": 3,
           "position": {
-            "x": -3.21,
-            "y": 0.5,
-            "z": -2.0
+            "x": -2.15,
+            "y": 2.3,
+            "z": 6.1
           }
         },
         {
@@ -415,7 +415,7 @@
           "index": 3,
           "next_step": 0,
           "animation": "Clap",
-          "time": "2"
+          "time": 2
         }
       ]
     },

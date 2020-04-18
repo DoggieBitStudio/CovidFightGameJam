@@ -65,8 +65,11 @@ public class SituationsManager : MonoBehaviour
             case Step_Type.DOCTOR_VOTE:
                 break;
             case Step_Type.MOVE_TO:
-                if (GameManager.instance.action_manager.agent.remainingDistance == 0.0f)
+                if (Vector3.Distance(GameManager.instance.action_manager.player.transform.position, GameManager.instance.action_manager.agent.destination) <= 1.1f)
+                {
+                    GameManager.instance.ui_opened = false;
                     OnStepFinish();
+                }              
                 break;
             case Step_Type.PLAY_ANIMATION:
                 break;
@@ -80,9 +83,15 @@ public class SituationsManager : MonoBehaviour
         //current_situation.CompleteAction(identifier);
     }
 
+    public void FinishAnimationSequence()
+    {
+        GameManager.instance.ui_opened = false;
+        OnStepFinish();
+    }
+
     public void OnStepFinish()
     {
-        if(current_situation.current_step.next_step > 0)
+        if (current_situation.current_step.next_step > 0)
         {
             if (current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.stat != null)
             {
@@ -164,13 +173,15 @@ public class SituationsManager : MonoBehaviour
                 GameManager.instance.LoadSceneFade("bathroom");
                 break;
             case Step_Type.MOVE_TO:
+                GameManager.instance.ui_opened = true;
                 Vector3 position = JsonUtility.FromJson<Vector3>(current_situation.sequence[current_situation.current_step.index].Item2.GetField("position").ToString());
                 GameManager.instance.action_manager.agent.SetDestination(position);
                 break;
             case Step_Type.PLAY_ANIMATION:
+                GameManager.instance.ui_opened = true;
                 string anim_string = current_situation.sequence[current_situation.current_step.index].Item2.GetField("animation").str;
                 GameManager.instance.action_manager.animator.Play(anim_string);
-                Invoke("OnStepFinish", current_situation.sequence[current_situation.current_step.index].Item2.GetField("time").f);
+                Invoke("FinishAnimationSequence", current_situation.sequence[current_situation.current_step.index].Item2.GetField("time").f);
                 break;
             case Step_Type.DOCTOR_VOTE:
                 GameManager.instance.ui_opened = true;
