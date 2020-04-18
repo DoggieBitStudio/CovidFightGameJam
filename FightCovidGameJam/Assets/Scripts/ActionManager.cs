@@ -60,8 +60,8 @@ public class ActionManager : MonoBehaviour
 
     //Player
     public GameObject player;
-    NavMeshAgent agent;
-    Animator animator;
+    public NavMeshAgent agent;
+    public Animator animator;
 
     public AudioClip dramaticFx;
     public AudioClip openAppFx;

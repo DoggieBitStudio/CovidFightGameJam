@@ -46,7 +46,7 @@ public class GameManager : MonoBehaviour
     public Text day_text;
     public AudioSource audio_source;
 
-    internal int carmen_day = 1;
+    internal int carmen_day = 8;
     internal int julian_day = 1;
     public CHARACTER current_character = CHARACTER.CARMEN;
 
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Badly_Washed", false);
             boolean_stats.Add("Gel", false);
             boolean_stats.Add("Clap", false);
-            boolean_stats.Add("Shop", true);
+            boolean_stats.Add("Shop", false);
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
             boolean_stats.Add("Doctor_Out", false);
