@@ -179,8 +179,8 @@ public class DialogueManager : MonoBehaviour
 
         if (d_info.name == "Carmen")
         {
-            FindPrefab(d_info.name).GetComponent<Animator>().Play("Talk");
-            Instantiate(FindPrefab(d_info.name), player_model_position, false);
+            GameObject model_dialogue = Instantiate(FindPrefab(d_info.name), player_model_position, false);
+            model_dialogue.GetComponent<Animator>().Play("Think");
         }
         dialogue.SetActive(true);
         SetDialogueText(d_info.text, d_info.speed);
