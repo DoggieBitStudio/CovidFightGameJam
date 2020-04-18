@@ -65,7 +65,7 @@ public class GameManager : MonoBehaviour
             boolean_stats = new Dictionary<string, bool>();
 
             int_stats.Add("Health", 5);
-            int_stats.Add("Positivism", 10);
+            int_stats.Add("Positivism", 50);
 
             boolean_stats.Add("Mask", true);
             boolean_stats.Add("Mask_Crafted", false);
