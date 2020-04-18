@@ -20,7 +20,8 @@ public class Situation
         NONE = -1,
         DIALOGUE,
         SELECTION,
-        ACTION
+        SHOPPING,
+        BATHROOM
     }
     public List<System.Tuple<PacketType, JSONObject>> sequence;
 

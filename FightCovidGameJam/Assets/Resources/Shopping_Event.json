@@ -25,7 +25,15 @@
     },
     {
       "text": "Papel higiénico",
+      "stat_requirement": {
+        "stat": "Positivism",
+        "value": 200
+      },
       "effect": [
+        {
+          "stat": "Health",
+          "value": -1
+        },
         {
           "stat": "Positivism",
           "value": 1
@@ -42,15 +50,6 @@
         }
       ],
       "time_investment": 10
-    },
-    {
-      "text": "No hace falta comprar nada",
-      "stat_requirement": [
-        {
-          "stat": "Shop",
-          "value": true
-        }
-      ]
-    }
+    }  
   ]
 }
