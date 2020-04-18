@@ -115,6 +115,7 @@ public class SituationsManager : MonoBehaviour
                     GameManager.instance.julian_day += (int)current_situation.duration;
 
                 GameManager.instance.LoadSceneFade("Main");
+                GameManager.instance.new_day = true;
                 break;
             default:
                 break;
