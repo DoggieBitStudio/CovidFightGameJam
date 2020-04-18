@@ -1,0 +1,347 @@
+{
+  "Situations": [
+    {
+      "identifier": "Day15_News",
+      "activation_time": 8,
+      "duration": 30,
+      "sequence": [
+        {
+          "type": "Dialogue",
+          "text": "El presidente Pedro Sánchez comunicará hoy a la población si decide o no prorrogar el estado de alarma en nuestro país.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Dialogue",
+          "text": "Todo apunta a que sí, por lo que los ciudadanos deberán permanecer en sus casas hasta el 26 de abril ya que las medidas de confinamiento se has mostrado efectivas en la lucha contra la pandemia de coronavirus.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Dialogue",
+          "text": "Por otro lado, cerca de <color=#f1ce51ff>25.000 profesionales sanitarios están contagiados</color> por coronavirus Covid-19 en España.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Dialogue",
+          "text": "Los sanitarios <color=#f1ce51ff>representan ahora el 15,45 por ciento del total de positivos</color> en nuestro país.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 5.0
+        }
+      ]
+    },
+    {
+      "identifier": "Walk_Dog",
+      "activation_time": 10,
+      "sequence": [
+        {
+          "type": "Dialogue",
+          "text": "Rufus me está pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Selection",
+          "options": [
+            {
+              "text": "Salir a que haga sus necesidades.",
+              "stat_requirement": {
+                "stat": "Positivism",
+                "value": 50
+              },
+              "time_investment": 20
+            },
+            {
+              "text": "Salir y aprovechar para pasear un rato",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                }
+              ],
+              "time_investment": 60
+            },
+            {
+              "text": "Salir y aprovechar para hacer ejercicio",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                }
+              ],
+              "time_investment": 120
+            }
+          ]
+        },
+        {
+          "type": "Action",
+          "name": "Bathroom_Preparation"
+        }
+      ]
+    },
+    {
+      "identifier": "Shopping",
+      "activation_time": 17,
+      "duration": 45,
+      "sequence": [
+        {
+          "type": "Dialogue",
+          "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situación.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Shopping"
+        },
+        {
+          "type": "Bathroom"
+        }
+      ]
+    },
+    {
+      "identifier": "Day15_Neighbor",
+      "activation_time": 20,
+      "duration": 15,
+      "sequence": [
+        {
+          "type": "Dialogue",
+          "text": "Han llamado a la puerta, vuelve otra vez la vecina.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Selection",
+          "options": [
+            {
+              "text": "Contestar a través de la puerta sin abrirla.",
+              "stat_requirement": {
+                "stat": "Positivism",
+                "value": 60
+              },
+              "effect": [
+                {
+                  "stat": "DoorClosed",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "text": "Abrir la puerta pero mantener distancias.",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                },
+                {
+                  "stat": "DoorClosed",
+                  "value": false
+                }
+              ]
+            },
+            {
+              "text": "Hablar con ella con tranquilidad sin tomar medidas de precaución.",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -2
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 2
+                },
+                {
+                  "stat": "DoorClosed",
+                  "value": false
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "Dialogue",
+          "text": "Carmen, Carmen, oye, me ha dicho el presidente de la comunidad que resulta que tenemos un médico como vecino y algunos no se sienten cómodos ya que podría traernos el virus aquí.",
+          "player": false,
+          "name": "Fina",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Dialogue",
+          "text": "Van a realizar una votación esta tarde. ¿Qué vas a votar tú?",
+          "player": false,
+          "name": "Fina",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Dialogue",
+          "text": "Yo es que no estoy muy segura, por un lado tener un médico cerca es bueno en general por si nos pasa algo, pero claro, también tenemos más papeletas de que nos contagiemos si le tenemos aquí. ¿Tú que opinas?",
+          "player": false,
+          "name": "Fina",
+          "animation": "Talk",
+          "speed": 5.0
+        },
+        {
+          "type": "Selection",
+          "options": [
+            {
+              "text": "Yo votaré que lo echen porque sino es un riesgo enorme para todos, piensa en tu hijo.",
+              "effect": {
+                "stat": "Positivism",
+                "value": -8
+              }
+            },
+            {
+              "text": "Yo votaré que no lo echen, siempre es bueno tener un médico cerca por si acaso."
+            },
+            {
+              "text": "De ninguna manera le pueden echar, pero ¿en qué mundo vivimos?, ¿como se nos ocurre siguiera echar a una persona que además está luchando contra este virus de forma tan activa?",
+              "stat_requirement": {
+                "stat": "Clap",
+                "value": true
+              },
+              "effect": [
+                {
+                  "stat": "Positivism",
+                  "value": 4
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "identifier": "Son_Discussion",
+          "activation_time": 20,
+          "duration": 15,
+          "sequence": [
+            {
+              "type": "Dialogue",
+              "text": "Mama, me he quedado sin cereales.",
+              "player": false,
+              "name": "Jaime",
+              "animation": "Talk",
+              "speed": 5.0
+            },
+            {
+              "type": "Dialogue",
+              "text": "A ver Jaime, acabo de ir a comprar. ¿No podías habermelo dicho antes?",
+              "player": true,
+              "name": "Carmen",
+              "animation": "Talk",
+              "speed": 5.0
+            },
+            {
+              "type": "Dialogue",
+              "text": "Es que no me había dado cuenta de que me faltaban hasta ahora.",
+              "player": false,
+              "name": "Jaime",
+              "animation": "Talk",
+              "speed": 5.0
+            },
+            {
+              "type": "Dialogue",
+              "text": "¿Y no puedes esperar hasta la semana que viene que vuelva a ir a comprar?",
+              "player": true,
+              "name": "Carmen",
+              "animation": "Talk",
+              "speed": 5.0
+            },
+            {
+              "type": "Dialogue",
+              "text": "Es que estar una semana entera sin cereales, vaya faena, andaaaaa, voy yo en un momento, no pasa na.",
+              "player": false,
+              "name": "Jaime",
+              "animation": "Talk",
+              "speed": 5.0
+            },
+            {
+              "type": "Selection",
+              "options": [
+                {
+                  "text": "Venga va, voy yo que ya estoy preparada, espero que seas consciente del riesgo que supone, la próxima vez mira bien si te falta algo antes de que salga a comprar.",
+                  "stat_requirement": {
+                    "stat": "Positivism",
+                    "value": 50
+                  }
+                },
+                {
+                  "text": "¿Tu te crees que esto es jauja? Te aguantas hasta la semana que viene y punto, seguro que la próxima vez lo compruebas antes de que salga de casa a comprar.",
+                  "effect": [
+                    {
+                      "stat": "Positivism",
+                      "value": -6
+                    }
+                  ]
+                },
+                {
+                  "text": "Pues tira, pero la mascarilla es de uso personal y sólo tenemos la mía, así que te vas sin mascarilla, en tu conciencia queda si pasa algo.",
+                  "effect": [
+                    {
+                      "stat": "Infection",
+                      "value": true
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "Dialogue",
+              "text": "¿Y ese ruido? Ahhh, esto debe ser lo que decían en las noticias de salir a los balcones.",
+              "player": true,
+              "name": "Carmen",
+              "animation": "Talk",
+              "speed": 5.0
+            },
+            {
+              "type": "Selection",
+              "options": [
+                {
+                  "text": "Salir a dar palmas en apoyo a los valientes.",
+                  "effect": [
+                    {
+                      "stat": "Positivism",
+                      "value": 1
+                    },
+                    {
+                      "stat": "Clap",
+                      "value": true
+                    }
+                  ]
+                },
+                {
+                  "text": "No salir a dar palmas.",
+                  "effect": [
+                    {
+                      "stat": "Clap",
+                      "value": false
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
