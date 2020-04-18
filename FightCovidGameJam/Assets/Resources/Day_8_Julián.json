@@ -23,7 +23,7 @@
           "animation": "Think",
           "speed": 30.0,
           "index": 1,
-          "next_step": 2
+          "next_step": 0
         }
       ]
     },
@@ -84,7 +84,7 @@
           "name": "Julian",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 2,
+          "index": 3,
           "next_step": 0
         }
       ]

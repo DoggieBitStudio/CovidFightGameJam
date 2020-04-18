@@ -17,7 +17,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Todo apunta a que sí, por lo que los ciudadanos deberán permanecer en sus casas hasta el 26 de abril ya que las medidas de confinamiento se has mostrado efectivas...",
+          "text": "Todo apunta a que sí, por lo que los ciudadanos deberán permanecer en sus casas hasta el 26 de abril ya que las medidas de confinamiento se han mostrado efectivas...",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -73,10 +73,10 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Rufus me está pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
+          "text": "Tienes ganas de salir, ¿eh? Yo también, vamos.",
           "player": true,
           "name": "Carmen",
-          "animation": "Think",
+          "animation": "Talk",
           "speed": 30.0,
           "index": 1,
           "next_step": 2
@@ -163,7 +163,7 @@
               "next_step": 2
             },
             {
-              "text": "Abrir la puerta pero mantener distancias.",
+              "text": "Abrir la puerta manteniendo las distancias.",
               "effect": [
                 {
                   "stat": "Health",
@@ -181,7 +181,7 @@
               "next_step": 2
             },
             {
-              "text": "Hablar con ella con tranquilidad sin tomar medidas de precaución.",
+              "text": "Hablar con ella tranquilamente sin tomar medidas de precaución.",
               "effect": [
                 {
                   "stat": "Health",
@@ -202,7 +202,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Carmen, Carmen, oye, me ha dicho el presidente de la comunidad que resulta que tenemos un médico como vecino y... algunos no se sienten cómodos ya que podría traernos el virus aquí.",
+          "text": "Carmen, Carmen, oye, me ha dicho el presidente de la comunidad que resulta que tenemos un médico como vecino y...",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -265,7 +265,7 @@
               "next_step": 8
             },
             {
-              "text": "Yo votaré que no lo echen, siempre es bueno tener un médico cerca...",
+              "text": "Yo votaré que no lo echen. Siempre es bueno tener un médico cerca...",
               "next_step": 9
             },
             {
@@ -286,7 +286,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Yo votaré que lo echen porque sino es un riesgo enorme para todos, piensa en tu hijo.",
+          "text": "Yo votaré que lo echen porque sino es un riesgo enorme para todos. Piensa en tu hijo.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -296,7 +296,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Yo votaré que no lo echen, siempre es bueno tener un médico cerca por si acaso.",
+          "text": "Yo votaré que no lo echen. Siempre es bueno tener un médico cerca por si acaso.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -306,7 +306,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "De ninguna manera le pueden echar, pero ¿en qué mundo vivimos?",
+          "text": "¡De ninguna manera le pueden echar! ¿Pero en qué mundo vivimos?",
           "player": true,
           "name": "Carmen",
           "animation": "AngryTalk",
@@ -373,10 +373,6 @@
               "text": "Papel higiénico",
               "effect": [
                 {
-                  "stat": "Health",
-                  "value": -1
-                },
-                {
                   "stat": "Positivism",
                   "value": 1
                 }
@@ -384,7 +380,7 @@
               "time_investment": 10
             },
             {
-              "text": "Gel Desinfectante",
+              "text": "Gel desinfectante",
               "effect": [
                 {
                   "stat": "Gel",
@@ -409,7 +405,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Han introducido un papel por debajo de la puerta, a ver que pone...",
+          "text": "Han introducido un papel por debajo de la puerta, a ver qué pone...",
           "player": true,
           "name": "Carmen",
           "animation": "Think",
@@ -419,7 +415,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Hola Vecino/a \nEn la comunidad tenemos a un médico como vecino. Sabemos de su buena labor en el hospital y se agradece...",
+          "text": "Hola Vecino/a \nEn la comunidad tenemos a un médico como vecino. Sabemos de su buena labor en el hospital y se agradece,...",
           "player": false,
           "name": "Presidente",
           "animation": "Talk",
@@ -481,7 +477,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "¿Y ese ruido? Ahhh, esto debe ser lo que decían en las noticias de salir a los balcones.",
+          "text": "¡Anda! Ya son las ocho.",
           "player": true,
           "name": "Carmen",
           "animation": "Think",
@@ -529,17 +525,31 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Uy que tarde se ha hecho, creo que deberia irme a la cama",
+          "text": "¿Ya son las once? Mañana continuaré lo que estaba haciendo. Me voy a dormir.",
           "player": true,
           "name": "Carmen",
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 2,
+          "stat_requirement": {
+            "stat": "Positivism",
+            "value": 50
+          }
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "No sé ni en qué día vivo ya. Me voy a dormir.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 1,
+          "next_step": 2
         },
         {
           "step_type": "SLEEP",
-          "index": 1,
+          "index": 2,
           "next_step": 0
         }
       ]
