@@ -189,7 +189,11 @@ public class GameManager : MonoBehaviour
             fade.DOFade(0.0f, 2.0f).OnComplete(NewDay);
         }
         else
+        {
             fade.DOFade(0.0f, 2.0f);
+            ui_opened = false;
+        }
+           
     }
 
     void NewDay()
