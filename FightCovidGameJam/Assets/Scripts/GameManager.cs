@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
 
+public enum CHARACTER
+{
+    CARMEN,
+    JULIAN
+}
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -33,6 +38,10 @@ public class GameManager : MonoBehaviour
     public UIManager ui_manager;
     public ActionManager action_manager;
     public GameObject fade;
+
+    internal int carmen_day = 1;
+    internal int julian_day = 1;
+    public CHARACTER current_character = CHARACTER.CARMEN;
 
     private void Awake()
     {

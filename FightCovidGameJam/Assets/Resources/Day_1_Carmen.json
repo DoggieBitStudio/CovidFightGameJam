@@ -6,28 +6,34 @@
       "duration": 30,
       "sequence": [
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "Se decreta el <color=#f1ce51ff>estado de alarma</color> en nuestro país durante los\npróximos 15 días.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "next_step": 1,
+          "index": 0
         },
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "Estamos sólo en la primera fase de un combate contra el\n<color=#f1ce51ff>coronavirus</color> que provoca la enfermedad denominada <color=#f1ce51ff>Covid-19</color>.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "next_step": 2,
+          "index": 1
         },
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "Nos esperan semanas muy duras. Va a ser muy duro y difícil pero\nvamos a parar el virus con <color=#f1ce51ff>unidad, responsabilidad</color> y <color=#f1ce51ff>disciplina\nsocial</color>.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "next_step": 0,
+          "index": 2
         }
       ]
     },
@@ -36,14 +42,18 @@
       "activation_time": 10,
       "sequence": [
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "Rufus me está pidiendo a ladrido limpio que por favor le saque a hacer sus necesidades.",
           "name": "Carmen",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "next_step": 1,
+          "index": 0
         },
         {
-          "type": "Selection",
+          "step_type": "SELECTION",
+          "index": 1,
+          "next_step": 2,
           "options": [
             {
               "text": "Salir a que haga sus necesidades.",
@@ -51,7 +61,7 @@
                 "stat": "Positivism",
                 "value": 50
               },
-              "time_investment": 20
+              "time_investment": 20,
             },
             {
               "text": "Salir y aprovechar para pasear un rato",
@@ -80,28 +90,36 @@
           ]
         },
         {
-          "type": "Bathroom"
+          "step_type": "BATHROOM",
+          "index": 2,
+          "next_step": 0         
         }
       ]
     },
     {
-      "identifier": "Shopping",
+      "identifier": "SHOPPING",
       "activation_time": 17,
       "duration": 45,
       "sequence": [
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situación.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
         },
         {
-          "type": "Shopping"
+          "step_type": "SHOPPING",
+          "index": 1,
+          "next_step": 2
         },
         {
-          "type": "Bathroom"
+          "step_type": "BATHROOM",
+          "index": 2,
+          "next_step": 0
         }
       ]
     },
@@ -111,15 +129,18 @@
       "duration": 15,
       "sequence": [
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "Han llamado a la puerta, es la vecina.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
         },
         {
-          "type": "Selection",
+          "step_type": "SELECTION",
+          "index": 1,
           "options": [
             {
               "text": "Contestar a través de la puerta sin abrirla.",
@@ -132,7 +153,8 @@
                   "stat": "DoorClosed",
                   "value": true
                 }
-              ]
+              ],
+              "next_step": 2
             },
             {
               "text": "Abrir la puerta pero mantener distancias.",
@@ -149,7 +171,8 @@
                   "stat": "DoorClosed",
                   "value": false
                 }
-              ]
+              ],
+              "next_step": 2
             },
             {
               "text": "Hablar con ella con tranquilidad sin tomar medidas de precaución.",
@@ -166,57 +189,71 @@
                   "stat": "DoorClosed",
                   "value": false
                 }
-              ]
+              ],
+              "next_step": 2
             }
           ]
         },
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "Carmen, ¿has visto las noticias? Está la cosa fatal con lo del virus este, se va a contagiar to el mundo, que miedo...",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "index": 2,
+          "next_step": 3
         },
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "y mi niño es asmático...",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "index": 3,
+          "next_step": 4
         },
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "y han dicho que si las personas tienen problemas respiratorios tienen más dificultades con el virus.",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "index": 4,
+          "next_step": 5
         },
         {
-          "type": "Dialogue",
+          "step_type": "DIALOGUE",
           "text": "[anger]¡AY! que miedo Carmen.",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
-          "speed": 30.0
+          "speed": 30.0,
+          "index": 5,
+          "next_step": 6
         },
         {
-          "type": "Selection",
+          "step_type": "SELECTION",
+          "index": 6,
           "options": [
             {
-              "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na que se contagiarán cuatro descerebraos y poco más.",
-              "effect": {
-                "stat": "Infection",
-                "value": true
-              }
+              "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na...",
+              "effect": [
+                {
+                  "stat": "Infection",
+                  "value": true
+                }
+              ],
+              "next_step": 7
             },
             {
-              "text": "Estáte tranquila Fina, lo que debes hacer es tomar todas las medidas de precaución que nos digan y evitar al máximo el salir de casa. No sé el tiempo que estaremos así, pero tarde o temprano se solucionará. Paciencia, tranquilidad, y actúa con cabeza. De ésta saldremos adelante. ¡Ánimo Fina!"
+              "text": "Estáte tranquila Fina, lo que debes hacer es tomar todas las medidas de precaución...",
+              "next_step": 8
             },
             {
-              "text": "Tira pa casa y enciérrate a cal y canto como si no hubiera un mañana. El mundo se va a acabar, vete corriendo al super y coge to lo que puedas como si fueses a estar una década encerrá que lo más seguro que pase eso, tu hazme caso Fina que de estas cosas yo entiendo.",
+              "text": "Tira pa casa y enciérrate a cal y canto como si no hubiera un mañana. El mundo se va a acabar...",
               "stat_requirement": {
                 "stat": "DoorClosed",
                 "value": true
@@ -226,9 +263,60 @@
                   "stat": "Positivism",
                   "value": -4
                 }
-              ]
+              ],
+              "next_step": 9
             }
           ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 7,
+          "next_step": 0,
+          "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na que se contagiarán cuatro descerebraos y poco más."
+        },
+        {
+          "step_type": "DIALOGUE",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 8,
+          "next_step": 0,
+          "text": "Estáte tranquila Fina, lo que debes hacer es tomar todas las medidas de precaución que nos digan y evitar al máximo el salir de casa. No sé el tiempo que estaremos así, pero tarde o temprano se solucionará. Paciencia, tranquilidad, y actúa con cabeza. De ésta saldremos adelante. ¡Ánimo Fina!"
+        },
+        {
+          "step_type": "DIALOGUE",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 9,
+          "next_step": 0,
+          "text": "Tira pa casa y enciérrate a cal y canto como si no hubiera un mañana. El mundo se va a acabar, vete corriendo al super y coge to lo que puedas como si fueses a estar una década encerrá que lo más seguro que pase eso, tu hazme caso Fina que de estas cosas yo entiendo."
+        }
+      ]
+    },
+    {
+      "identifier": "Sleep",
+      "activation_time": 23,
+      "duration": 7,
+      "sequence": [
+        {
+          "step_type": "DIALOGUE",
+          "text": "Uy que tarde se ha hecho, creo que deberia irme a la cama",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 0
+        },
+        {
+          "step_type": "SLEEP",
+          "next_step": 0
         }
       ]
     }
