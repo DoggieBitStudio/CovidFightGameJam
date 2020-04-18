@@ -1,13 +1,13 @@
 {
   "Situations": [
     {
-      "identifier": "Day15_News",
+      "identifier": "Day22_News",
       "activation_time": 8,
       "duration": 30,
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "El presidente Pedro Sánchez comunicará hoy a la población si decide o no prorrogar el estado de alarma en nuestro país.",
+          "text": "El <color=#f1ce51ff>director regional de la OMS para Europa</color>, ha avisado de que Europa sigue estando en el ojo de la tormenta del <color=#f1ce51ff>Covid-19</color>",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -17,7 +17,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Todo apunta a que sí, por lo que los ciudadanos deberán permanecer en sus casas hasta el 26 de abril ya que las medidas de confinamiento se has mostrado efectivas en la lucha contra la pandemia de coronavirus.",
+          "text": "y llama a los países a <color=#f1ce51ff>controlar la transmisión del virus</color> antes de levantar restricciones.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -27,7 +27,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Por otro lado, cerca de <color=#f1ce51ff>25.000 profesionales sanitarios están contagiados</color> por coronavirus Covid-19 en España.",
+          "text": "Basándose en las evidencias de las que disponemos por el momento ha publicado una serie de<color=#f1ce51ff>medidas de protección básicas</color> para toda la ciudadanía:",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
@@ -37,13 +37,53 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Los sanitarios <color=#f1ce51ff>representan ahora el 15,45 por ciento del total de positivos</color> en nuestro país.",
+          "text": "1. Lavarse las manos con frecuencia con un deesinfectante de manos a base de alcohol o con agua y jabón.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
           "speed": 30.0,
           "index": 3,
           "next_step": 4
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "2. Mantenga al menos 1 metro de distancia entre usted y las demás personas, particularmente aquellas que tosan, estornuden y tengan fiebre.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 4,
+          "next_step": 5
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "3. Evite tocarse los ojos, la nariz y la boca. /n 4. Si tiene fiebre, tos y dificultad para respirar, solicite atención médica a tiempo.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 5,
+          "next_step": 6
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "5. Manténgase informado y siga las recomendaciones de los profesionales sanitarios.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 6,
+          "next_step": 7
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "6. Permanezca en casa si empieza a encontrarse mal, aunque se trate de síntomas leves como cefalea y rinorrea leve, hasta que se recupere.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 7,
+          "next_step": 0
         }
       ]
     },
@@ -111,81 +151,35 @@
       ]
     },
     {
-      "identifier": "Day15_Neighbor",
+      "identifier": "Husband_Discussion",
       "activation_time": 16,
       "duration": 15,
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Han llamado a la puerta, vuelve otra vez la vecina.",
-          "player": true,
-          "name": "Carmen",
+          "text": "Carmen, la ropa del trabajo ha encogio.",
+          "player": false,
+          "name": "Alfonso",
           "animation": "Talk",
           "speed": 30.0,
           "index": 0,
           "next_step": 1
         },
         {
-          "step_type": "SELECTION",
+          "step_type": "DIALOGUE",
+          "text": "Igual has engordao estando aquí encerrao en casa.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
           "index": 1,
-          "options": [
-            {
-              "text": "Contestar a través de la puerta sin abrirla.",
-              "stat_requirement": {
-                "stat": "Positivism",
-                "value": 60
-              },
-              "effect": [
-                {
-                  "stat": "DoorClosed",
-                  "value": true
-                }
-              ],
-              "next_step": 2
-            },
-            {
-              "text": "Abrir la puerta pero mantener distancias.",
-              "effect": [
-                {
-                  "stat": "Health",
-                  "value": -1
-                },
-                {
-                  "stat": "Positivism",
-                  "value": 1
-                },
-                {
-                  "stat": "DoorClosed",
-                  "value": false
-                }
-              ],
-              "next_step": 2
-            },
-            {
-              "text": "Hablar con ella con tranquilidad sin tomar medidas de precaución.",
-              "effect": [
-                {
-                  "stat": "Health",
-                  "value": -2
-                },
-                {
-                  "stat": "Positivism",
-                  "value": 2
-                },
-                {
-                  "stat": "DoorClosed",
-                  "value": false
-                }
-              ],
-              "next_step": 2
-            }
-          ]
+          "next_step": 2
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Carmen, Carmen, oye, me ha dicho el presidente de la comunidad que resulta que tenemos un médico como vecino y algunos no se sienten cómodos ya que podría traernos el virus aquí.",
+          "text": "Tú sí que has egordao, yo no he cogio ni un solo kilo, esto es culpa tuya que algo le has hecho a mi ropa.",
           "player": false,
-          "name": "Fina",
+          "name": "Alfonso",
           "animation": "Talk",
           "speed": 30.0,
           "index": 2,
@@ -193,9 +187,9 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Van a realizar una votación esta tarde. ¿Qué vas a votar tú?",
-          "player": false,
-          "name": "Fina",
+          "text": "¿Me acabas de llamar gorda?",
+          "player": true,
+          "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
           "index": 3,
@@ -203,9 +197,9 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Yo es que no estoy muy segura, por un lado tener un médico cerca es bueno en general por si nos pasa algo, pero claro, también tenemos más papeletas de que nos contagiemos si le tenemos aquí. ¿Tú que opinas?",
+          "text": "Era broma mi amor, no te enfades, que estás estupenda. Pero dime, ¿que le has hecho a mi ropa? ¿Cómo lo soluciono?",
           "player": false,
-          "name": "Fina",
+          "name": "Alfonso",
           "animation": "Talk",
           "speed": 30.0,
           "index": 4,
@@ -216,7 +210,7 @@
           "index": 5,
           "options": [
             {
-              "text": "Yo votaré que lo echen porque sino es un riesgo enorme para todos...",
+              "text": "Pues llamas a tu madre y le dices que te lo arregle ella...",
               "effect": [
                 {
                   "stat": "Positivism",
@@ -226,28 +220,38 @@
               "next_step": 6
             },
             {
-              "text": "Yo votaré que no lo echen, siempre es bueno tener un médico cerca...",
-              "next_step": 7
-            },
-            {
-              "text": "De ninguna manera le pueden echar, pero ¿en qué mundo vivimos?...",
+              "text": "Eso ha sio al lavarlo a tanta temperatura...",
               "stat_requirement": {
-                "stat": "Clap",
-                "value": true
+                "stat": "Positivism",
+                "value": 40
               },
               "effect": [
                 {
                   "stat": "Positivism",
-                  "value": 4
+                  "value": 8
+                },
+                {
+                  "stat": "Health",
+                  "value": 1
                 }
               ],
-              "next_step": 8
+              "next_step": 7
+            },
+            {
+              "text": "Paso de contestarte, vete a dar una vuelta...",
+              "effect": [
+                {
+                  "stat": "Infection",
+                  "value": true
+                }
+              ],
+              "next_step": 9
             }
           ]
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Yo votaré que lo echen porque sino es un riesgo enorme para todos, piensa en tu hijo.",
+          "text": "Pues llamas a tu madre y le dices que te lo arregle ella, que me tienes harta ya, pareces tonto a veces.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
@@ -257,22 +261,32 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Yo votaré que no lo echen, siempre es bueno tener un médico cerca por si acaso.",
+          "text": "Eso ha sio al lavarlo a tanta temperatura para matar el virus. Tu ropa de trabajo es de algodón, y claro, encoge.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
           "index": 7,
-          "next_step": 0
+          "next_step": 8
         },
         {
           "step_type": "DIALOGUE",
-          "text": "De ninguna manera le pueden echar, pero ¿en qué mundo vivimos?, ¿como se nos ocurre siguiera echar a una persona que además está luchando contra este virus de forma tan activa?",
+          "text": "Pídele a tu jefe que os dejen ir con otro tipo de ropa o que os proporcionen ropa adecuada para lavar a alta temperatura.",
           "player": true,
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
           "index": 8,
+          "next_step": 0
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Paso de contestarte, vete a dar una vuelta anda, que paso de aguantate así",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 9,
           "next_step": 0
         }
       ]
@@ -301,89 +315,6 @@
           "step_type": "BATHROOM",
           "index": 2,
           "next_step": 0
-        }
-      ]
-    },
-    {
-      "identifier": "Vote_Doctor",
-      "activation_time": 19,
-      "duration": 45,
-      "sequence": [
-        {
-          "step_type": "DIALOGUE",
-          "text": "Han introducido un papel por debajo de la puerta, a ver que pone...",
-          "player": true,
-          "name": "Carmen",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 0,
-          "next_step": 1
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Hola Vecino/a /n En la comunidad tenemos a un médico como vecino. Sabemos de su buena labor en el hospital y se agradece,",
-          "player": false,
-          "name": "Presidente",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 1,
-          "next_step": 2
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "pero debemos pensar también en los vecinos. En nuestra comunidad viven niños y ancianos.",
-          "player": false,
-          "name": "Presidente",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 2,
-          "next_step": 3
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Hay lugares como el Barataria donde están alojando a profesionales mientras esto dure. Te pido que lo pienses y contestes cuanto antes diciendo si votas por expulsar al médico o no.",
-          "player": false,
-          "name": "Presidente",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 3,
-          "next_step": 4
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Un cordial saludo, /n El Presidente de la comunidad, /n Ginés Sánchez",
-          "player": false,
-          "name": "Presidente",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 4,
-          "next_step": 5
-        },
-        {
-          "step_type": "SELECTION",
-          "index": 5,
-          "options": [
-            {
-              "text": "Expulsar médico",
-              "effect": [
-                {
-                  "stat": "Doctor_Out",
-                  "value": true
-                }
-              ],
-              "next_step": 0
-            },
-            {
-              "text": "No expulsar médico",
-              "effect": [
-                {
-                  "stat": "Doctor_Out",
-                  "value": false
-                }
-              ],
-              "next_step": 0
-            }
-          ]
         }
       ]
     },

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6618758518573076178}
   - component: {fileID: 5571860813576054976}
   - component: {fileID: 3782697309318075864}
+  - component: {fileID: 6858834381551307312}
   m_Layer: 0
   m_Name: Basura
   m_TagString: Selectable
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4609482369632504423}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 4.8, y: 1.288, z: -4.019}
   m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!33 &1397224239013627699
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -106,3 +107,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5150bb41b62183243b9b0dbaeee57663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6858834381551307312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4609482369632504423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []

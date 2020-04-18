@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7236729367482734104}
   - component: {fileID: 1525311690}
   - component: {fileID: 1525311695}
+  - component: {fileID: 3902482785044755924}
   m_Layer: 0
   m_Name: Sofa
   m_TagString: Selectable
@@ -203,3 +204,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3902482785044755924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392910289852214722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []

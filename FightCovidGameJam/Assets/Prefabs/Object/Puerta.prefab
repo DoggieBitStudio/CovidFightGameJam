@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2806315931561836589}
   - component: {fileID: 251201257867503548}
   - component: {fileID: 5364006604548230039}
+  - component: {fileID: 3819354164900795607}
   m_Layer: 0
   m_Name: Puerta
   m_TagString: Selectable
@@ -203,3 +204,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3819354164900795607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2271576223435236141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf3575480402db40813e763382412fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: 0
+  eraseRenderer: 0
+  originalLayer: 0
+  originalMaterials: []

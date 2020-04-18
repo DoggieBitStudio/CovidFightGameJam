@@ -49,6 +49,8 @@ public class ActionManager : MonoBehaviour
     GameObject bathroomDoor;
     GameObject swegingBox;
     GameObject washingMachine;
+    GameObject plant;
+    GameObject kitchen;
 
     AudioSource houseDoorSource;
 
@@ -82,6 +84,7 @@ public class ActionManager : MonoBehaviour
         chair = GameObject.Find("Silla");
         swegingBox = GameObject.Find("Costurero");
         washingMachine = GameObject.Find("Lavadora");
+        kitchen = GameObject.Find("Kitchen");
     }
 
     // Update is called once per frame
@@ -385,6 +388,59 @@ public class ActionManager : MonoBehaviour
                     FinalizeAction();
                 }
                 break;
+            case Actions.TRASH_OUT:
+                {
+                    if ((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    {
+                        //OpenDoor
+                        fadeToBlack.SetActive(true);
+                        Color col = fadeToBlack.GetComponent<Image>().color;
+                        col.a += (float)0.5 * Time.deltaTime;
+                        fadeToBlack.GetComponent<Image>().color = col;
+
+                        if (col.a >= 1)
+                        {
+                            firstAction = true;
+                            houseDoorSource.Play();
+                        }
+                    }
+                    else if (firstAction && !houseDoorSource.isPlaying)
+                    {
+                        Color col = fadeToBlack.GetComponent<Image>().color;
+                        col.a -= (float)0.5 * Time.deltaTime;
+                        fadeToBlack.GetComponent<Image>().color = col;
+
+                        if (col.a <= 0)
+                        {
+                            fadeToBlack.SetActive(false);
+                            firstAction = false;
+                            currentAction = Actions.NONE;
+                            FinalizeAction();
+                        }
+                    }
+
+                }
+                break;
+            case Actions.WATER_PLANTS:
+                {
+                    if ((plant.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    {
+                        //Water plants animation
+                        firstAction = true;
+                        plant.GetComponent<AudioSource>().Play();
+                    }
+                    else if(firstAction /*&& player animation is finished*/)
+                    {
+                        firstAction = false;
+                        currentAction = Actions.NONE;
+                        FinalizeAction();
+                    }
+                }
+                break;
+            case Actions.DINNER:
+                break;
+            case Actions.WASH_HANDS:
+                break;
         }
     }
 
@@ -421,6 +477,24 @@ public class ActionManager : MonoBehaviour
             case Actions.CRAFT_MASK:
                 agent.SetDestination(bathroomDoor.transform.position);
                 break;
+            case Actions.WASH_MASK_RIGHT:
+                agent.SetDestination(washingMachine.transform.position);
+                break;
+            case Actions.WASH_MASK_WRONG:
+                agent.SetDestination(washingMachine.transform.position);
+                break;
+            case Actions.TRASH_OUT:
+                agent.SetDestination(houseDoor.transform.position);
+                break;
+            case Actions.WATER_PLANTS:
+                agent.SetDestination(plant.transform.position);
+                break;
+            case Actions.DINNER:
+                agent.SetDestinations(kitchen.transform.position);
+                break;
+            case Actions.WASH_HANDS:
+                break;
+
         }
         timePassed = (float)time;
         healthGained = health;
