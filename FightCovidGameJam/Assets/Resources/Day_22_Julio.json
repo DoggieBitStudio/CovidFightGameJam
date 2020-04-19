@@ -276,7 +276,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Ultima hora: Una mujer se ha quitado la vida a las 23:20 de esta noche. Según su familia la mujer estaba pasando un mal momento debido a toda esta situción,...",
+          "text": "Ultima hora: Una mujer ha sido ingresada en un centro. Según su familia la mujer estaba pasando un mal momento debido a toda esta situación...",
           "player": false,
           "name": "Presentador",
           "animation": "SadTalk",
@@ -297,7 +297,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "...su optimismo y felicidad por la vida parecía haberse apagado ultimamente. La familia está totalmente concernada.",
+          "text": "...su optimismo y felicidad por la vida parecía haberse apagado ultimamente. La familia está totalmente consternada.",
           "player": false,
           "name": "Presentador",
           "animation": "SadTalk",
@@ -307,7 +307,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "En la situación actual no van a poder despedir a Carmen como hubiesen esperado. Desde aquí les damos mucho ánimo para superar esta difícil situación.",
+          "text": "En la situación actual no van a poder visitar a Carmen. Desde aquí les damos mucho ánimo para superar esta difícil situación.",
           "player": false,
           "name": "Presentador",
           "animation": "SadTalk",
