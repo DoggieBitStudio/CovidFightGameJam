@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
             debug_style = new GUIStyle();
             debug_style.fontSize = 22;
             debug_style.normal.textColor = Color.red;
-            new_day = true;
+            new_day = false;
         }
         else
             Destroy(gameObject);
@@ -167,6 +167,12 @@ public class GameManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        if(prevScene == "News")
+        {
+            action_manager.enabled = true;
+            ui_manager.time_text.gameObject.transform.parent.gameObject.SetActive(true);
+            ui_manager.mask_ui.gameObject.transform.parent.gameObject.SetActive(true);
+        }
         ui_opened = true;
         HideFade();
         situations_manager.OnLevelFinshedLoading(scene);
@@ -205,7 +211,13 @@ public class GameManager : MonoBehaviour
             fade.DOFade(0.0f, 2.0f);
             ui_opened = false;
         }
-           
+
+        if (SceneManager.GetActiveScene().name == "News")
+        {
+            Debug.Log("asd");
+            situations_manager.LoadSituations("Introduction");
+        }
+
     }
 
     void NewDay()

@@ -18,6 +18,8 @@ public class SituationsManager : MonoBehaviour
     public Situation current_situation;
     int completed_today = 0;
 
+    bool intro = true;
+
     [System.Serializable]
     public struct SelectionChoice
     {
@@ -36,13 +38,14 @@ public class SituationsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Debug.Log("asd");
         day_situations = new List<Situation>();
         completed_situations = new List<Situation>();
 
         string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
         string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
-        
-        LoadSituations("Day_"+day+"_"+character);
+
     }
 
     // Update is called once per frame
@@ -140,7 +143,6 @@ public class SituationsManager : MonoBehaviour
 
     public void StartNextSituation()
     {
-        Debug.Log(GameManager.instance.time + " " + day_situations[completed_today].activation_time);
         if (completed_today < day_situations.Count() && day_situations[completed_today].activation_time <= GameManager.instance.time)
         {
             current_situation = day_situations[completed_today];
@@ -217,6 +219,12 @@ public class SituationsManager : MonoBehaviour
                 doctor_vote.SetActive(true);
                 break;
             case Step_Type.SLEEP:
+                if(SceneManager.GetActiveScene().name == "News")
+                {
+                    GameManager.instance.LoadSceneFade("Main");
+                    GameManager.instance.prevScene = "News";
+                    break;
+                }
                 if (GameManager.instance.current_character == CHARACTER.CARMEN)
                     GameManager.instance.carmen_day += (int)current_situation.duration;
                 else
