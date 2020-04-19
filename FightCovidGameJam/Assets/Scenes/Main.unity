@@ -3453,7 +3453,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4b5802f0b178b21419a0fa820826e493,
+      objectReference: {fileID: 21300000, guid: 18cb341fb3c795141baa43d3e7036d1a,
         type: 3}
     - target: {fileID: 943182330321486558, guid: eff0804bfa7f52c4583d88b6d6374d2f,
         type: 3}
@@ -3599,6 +3599,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466702097357193798, guid: eff0804bfa7f52c4583d88b6d6374d2f,
+        type: 3}
+      propertyPath: full_color.r
+      value: 0.46844962
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466702097357193798, guid: eff0804bfa7f52c4583d88b6d6374d2f,
+        type: 3}
+      propertyPath: full_color.g
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 3466702097357193798, guid: eff0804bfa7f52c4583d88b6d6374d2f,
+        type: 3}
+      propertyPath: full_color.b
+      value: 0.46844962
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eff0804bfa7f52c4583d88b6d6374d2f, type: 3}
@@ -3847,6 +3862,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1176624183}
     m_Modifications:
+    - target: {fileID: 9037581983620354588, guid: 1530f22b27629bf488e5c5e46862441f,
+        type: 3}
+      propertyPath: full_color.r
+      value: 0.46844962
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037581983620354588, guid: 1530f22b27629bf488e5c5e46862441f,
+        type: 3}
+      propertyPath: full_color.g
+      value: 0.8207547
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037581983620354588, guid: 1530f22b27629bf488e5c5e46862441f,
+        type: 3}
+      propertyPath: full_color.b
+      value: 0.46844962
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037581983620354588, guid: 1530f22b27629bf488e5c5e46862441f,
+        type: 3}
+      propertyPath: stat
+      value: Positivism
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037581983620354588, guid: 1530f22b27629bf488e5c5e46862441f,
+        type: 3}
+      propertyPath: max_stat
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 9116069555455471104, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3871,7 +3911,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 4b5802f0b178b21419a0fa820826e493,
+      objectReference: {fileID: 21300000, guid: 18cb341fb3c795141baa43d3e7036d1a,
         type: 3}
     - target: {fileID: 9116069555455471167, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
@@ -3881,7 +3921,7 @@ PrefabInstance:
     - target: {fileID: 9116069556598681029, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9116069556598681029, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
