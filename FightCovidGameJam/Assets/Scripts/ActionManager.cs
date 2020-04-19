@@ -76,31 +76,28 @@ public class ActionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("MariCarmen");
         agent = player.GetComponent<NavMeshAgent>();
         animator = player.GetComponentInChildren<Animator>();
-        if (player.name == "MariCarmen")
-        {
-            tv = GameObject.Find("Television");
-            sofa = GameObject.Find("Sofa");
-            shelf = GameObject.Find("Estantería");
-            couch = GameObject.Find("Sillón");
-            book = GameObject.Find("Book");
-            bookPos = GameObject.Find("BookPos");
-            houseDoor = GameObject.Find("Puerta");
-            houseDoorSource = houseDoor.GetComponent<AudioSource>();
-            neighbourDoor = GameObject.Find("Puerta Vecino");
-            smartphone = GameObject.Find("Móvil");
-            smartphonePos = GameObject.Find("SmartphonePos");
-            bathroomDoor = GameObject.Find("Lavabo");
-            chair = GameObject.Find("Silla");
-            swegingBox = GameObject.Find("Costurero");
-            washingMachine = GameObject.Find("Lavadora");
-            kitchen = GameObject.Find("Kitchen");
-            plant = GameObject.Find("Planta");
-            hygieneGel = GameObject.Find("Gel Desinfectante");
-            table = GameObject.Find("Mesa");
-        }
+        tv = GameObject.Find("Television");
+        sofa = GameObject.Find("Sofa");
+        shelf = GameObject.Find("Estantería");
+        couch = GameObject.Find("Sillón");
+        book = GameObject.Find("Book");
+        bookPos = GameObject.Find("BookPos");
+        houseDoor = GameObject.Find("Puerta");
+        houseDoorSource = houseDoor.GetComponent<AudioSource>();
+        neighbourDoor = GameObject.Find("Puerta Vecino");
+        smartphone = GameObject.Find("Móvil");
+        smartphonePos = GameObject.Find("SmartphonePos");
+        bathroomDoor = GameObject.Find("Lavabo");
+        chair = GameObject.Find("Silla");
+        swegingBox = GameObject.Find("Costurero");
+        washingMachine = GameObject.Find("Lavadora");
+        kitchen = GameObject.Find("Kitchen");
+        plant = GameObject.Find("Planta");
+        hygieneGel = GameObject.Find("Gel Desinfectante");
+        table = GameObject.Find("Mesa");
     }
 
     // Update is called once per frame
