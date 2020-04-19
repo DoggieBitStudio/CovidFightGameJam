@@ -1,277 +1,169 @@
 {
   "Situations": [
     {
-      "identifier": "Day22_Thoughts",
+      "identifier": "Final",
       "activation_time": 8,
       "duration": 10,
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Cada vez son más las muertes. No puedo seguir viendo como se me escapan así. Esta impotencia me está matando.",
+          "text": "Ultima hora: Una mujer se ha quitado la vida a las 23:20 de esta noche. Según su familia la mujer estaba pasando un mal momento debido a toda esta situción,...",
           "player": false,
-          "name": "Julian",
+          "name": "Presentador",
           "animation": "SadTalk",
           "speed": 30.0,
           "index": 0,
           "next_step": 1,
           "stat_requirement": [
             {
-              "stat": "Doctor_Out",
+              "stat": "End_Carmen_Depressed",
               "value": true
             }
           ]
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Y encima mis vecinos me han echado de mi propia casa... En el fondo entiendo sus miedos... Pero su respuesta carece de humanidad.",
+          "text": "...su optimismo y felicidad por la vida parecía haberse apagado ultimamente. La familia está totalmente concernada.",
           "player": false,
-          "name": "Julian",
+          "name": "Presentador",
           "animation": "SadTalk",
-          "speed": 30.0,
-          "index": 1,
-          "next_step": 0,
-          "stat_requirement": [
-            {
-              "stat": "Doctor_Out",
-              "value": true
-            }
-          ]
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Hoy vengo algo más animado, ya se me notaba decaido. Un pequeño cambio en positivo puede cambiar tu vida entera, o eso dicen.",
-          "player": false,
-          "name": "Julian",
-          "animation": "Think",
           "speed": 30.0,
           "index": 1,
           "next_step": 2,
           "stat_requirement": [
             {
-              "stat": "Doctor_Out",
-              "value": false
+              "stat": "End_Carmen_Depressed",
+              "value": true
             }
           ]
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Además mis vecinos han demostrado tener fuerza y humanidad. Fuí yo quién le dijo al presidente que realizara la encuesta por si tenían demasiado miedo...",
+          "text": "En la situación actual no van a poder despedir a Carmen como hubiesen esperado. Desde aquí les damos mucho ánimo para superar esta difícil situación.",
           "player": false,
-          "name": "Julian",
-          "animation": "Think",
+          "name": "Presentador",
+          "animation": "SadTalk",
           "speed": 30.0,
           "index": 2,
           "next_step": 3,
           "stat_requirement": [
             {
-              "stat": "Doctor_Out",
-              "value": false
-            }
-          ]
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "...y buscarme otro sitio, pero resultó que son más valientes que yo. Han respondido unanimamente que me quede allí. Gracias vecinos.",
-          "player": false,
-          "name": "Julian",
-          "animation": "Think",
-          "speed": 30.0,
-          "index": 3,
-          "next_step": 4,
-          "stat_requirement": [
-            {
-              "stat": "Doctor_Out",
-              "value": false
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "identifier": "Nervous_Patients",
-      "activation_time": 21,
-      "duration": 20,
-      "sequence": [
-        {
-          "step_type": "DIALOGUE",
-          "text": "Julian, han venido más pacientes y están nerviosos, incluso nos están amenazando para que les atendamos. ¿Qué hacemos?",
-          "player": false,
-          "name": "Adrián",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 0,
-          "next_step": 1
-
-        },
-        {
-          "step_type": "SELECTION",
-          "index": 1,
-          "options": [
-            {
-              "text": "Esas no son formas...",
-              "next_step": 2
-            },
-            {
-              "text": "Llama a la policía...",
-              "effect": [
-                {
-                  "stat": "Health",
-                  "value": -1
-                }
-              ],
-              "next_step": 3
-            }
-          ]
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Esas no son formas de venir a un hospital. Diles que se calmen y que en un rato salgo a hablar con ellos.",
-          "player": true,
-          "name": "Julian",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 2,
-          "next_step": 0
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "[anger]Llama a la policía y deshazte de ellos cuanto antes. Ya tenemos bastante como para que nos vengan con malos modales.",
-          "player": true,
-          "name": "Julian",
-          "animation": "AngryTalk",
-          "speed": 30.0,
-          "index": 3,
-          "next_step": 0
-        }
-      ]
-    },
-    {
-      "identifier": "Clap",
-      "activation_time": 20,
-      "duration": 10,
-      "sequence": [
-        {
-          "step_type": "DIALOGUE",
-          "text": "Ya son las ocho. Cada vez se oye a más gente aplaudiendo... son incansables... escucharlos me anima... aún hay esperanza.",
-          "player": true,
-          "name": "Julian",
-          "animation": "Think",
-          "speed": 30.0,
-          "index": 0,
-          "next_step": 1
-        }
-      ]
-    },
-    {
-      "identifier": "Child_Neighbour",
-      "activation_time": 21,
-      "duration": 20,
-      "sequence": [
-        {
-          "step_type": "DIALOGUE",
-          "text": "Julian, ha venido un niño muy enfermo, su madre se llama Fina y está muy nerviosa porque su hijo es asmático. ¿Tienes un hueco Julián? ¿Está realmente mal?",
-          "player": false,
-          "name": "Adrián",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 0,
-          "next_step": 2,
-          "stat_requirement": [
-            {
-              "stat": "Infection",
+              "stat": "End_Carmen_Depressed",
               "value": true
             }
           ]
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Julian, ha venido un niño muy enfermo. ¿Tienes un hueco Julián? ¿Está realmente mal?",
+          "text": "Ultima hora: Un niño de 10 años con COVID-19 ha sido ingresado en la UCI. El niño padecía asma y fue contagiado por su vecina.",
           "player": false,
-          "name": "Adrián",
-          "animation": "Talk",
-          "speed": 30.0,
-          "index": 1,
-          "next_step": 2,
-          "stat_requirement": [
-            {
-              "stat": "Infection",
-              "value": false
-            }
-          ]
-        },
-        {
-          "step_type": "SELECTION",
-          "index": 2,
-          "options": [
-            {
-              "text": "Por supuesto, ingréselo directamente aquí...",
-              "stat_requirement": [
-                {
-                  "stat": "Doctor_Out",
-                  "value": false
-                }
-              ],
-              "effect": [
-                {
-                  "stat": "End_Child_Live",
-                  "value": true
-                }
-              ],
-              "next_step": 3
-            },
-            {
-              "text": "Páselo aquí y veremos que podemos hacer...",
-              "effect": [
-                {
-                  "stat": "End_Child_Die",
-                  "value": true
-                }
-              ],
-              "next_step": 4
-            }
-          ]
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "[anger]Por supuesto, ingréselo directamente aquí en la UCI. Me ocuparé personalmente de él.",
-          "player": true,
-          "name": "Julian",
-          "animation": "AngryTalk",
-          "speed": 30.0,
-          "index": 3,
-          "next_step": 0
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Paselo aquí y veremos que podemos hacer. Es un exvecino mío, intentaré hacer todo lo que pueda para salvarlo.",
-          "player": true,
-          "name": "Julian",
+          "name": "Presentador",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 4,
-          "next_step": 0
-        }
-      ]
-    },
-    {
-      "identifier": "Leave_work",
-      "activation_time": 22,
-      "duration": 7,
-      "sequence": [
-        {
-          "step_type": "DIALOGUE",
-          "text": "Vaya día más raro ha sido este. Me voy a descansar, si es que puedo...",
-          "player": true,
-          "name": "Julian",
-          "animation": "Think",
-          "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 1,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
         },
         {
-          "step_type": "LEAVEWORK",
-          "index": 1,
-          "next_step": 0
+          "step_type": "DIALOGUE",
+          "text": "Por suerte, gracias a la ayuda y gran entusiasmo del Doctor Julio el niño a estas horas está estable y mejora notablemente.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "El Doctor se ha volcado profundamente por salvar al niño. Hace unos días hubo una votación comenzada por el propio Doctor.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Preguntaba si preferían que se fuese de la comunidad al ser personal sanitario, y la respuesta unánime de que se quedase en la comunidad conmovió profundamente al Doctor.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ultima hora: Un niño de 10 años con COVID-19 ha fallecido esta noche en la UCI. El niño padecía asma y fue contagiado por su vecina.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Die",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "El Doctor se ha volcado profundamente por salvar al niño. Hace unos días hubo una votación comenzada por el propio Doctor.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Preguntaba si preferían que se fuese de la comunidad al ser personal sanitario, y la respuesta unánime de que se fuese de la comunidad afectó profundamente al Doctor.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
         }
       ]
     }
