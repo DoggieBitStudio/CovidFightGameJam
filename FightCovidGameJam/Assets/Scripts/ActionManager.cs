@@ -731,30 +731,27 @@ public class ActionManager : MonoBehaviour
             animator = player.GetComponentInChildren<Animator>();
         }
 
-        if (level == 0)
+        if (SceneManager.GetActiveScene().name == "Main")
         {
-            if (SceneManager.GetActiveScene().name == "Main")
-            {
-                tv = GameObject.Find("Television");
-                sofa = GameObject.Find("Sofa");
-                shelf = GameObject.Find("Estantería");
-                couch = GameObject.Find("Sillón");
-                book = GameObject.Find("Book");
-                bookPos = GameObject.Find("BookPos");
-                houseDoor = GameObject.Find("Puerta");
-                houseDoorSource = houseDoor.GetComponent<AudioSource>();
-                neighbourDoor = GameObject.Find("Puerta Vecino");
-                smartphone = GameObject.Find("Móvil");
-                smartphonePos = GameObject.Find("SmartphonePos");
-                bathroomDoor = GameObject.Find("Lavabo");
-                chair = GameObject.Find("Silla");
-                swegingBox = GameObject.Find("Costurero");
-                washingMachine = GameObject.Find("Lavadora");
-                kitchen = GameObject.Find("Kitchen");
-                plant = GameObject.Find("Planta");
-                hygieneGel = GameObject.Find("Gel Desinfectante");
-                table = GameObject.Find("Mesa");
-            }
+            tv = GameObject.Find("Television");
+            sofa = GameObject.Find("Sofa");
+            shelf = GameObject.Find("Estantería");
+            couch = GameObject.Find("Sillón");
+            book = GameObject.Find("Book");
+            bookPos = GameObject.Find("BookPos");
+            houseDoor = GameObject.Find("Puerta");
+            houseDoorSource = houseDoor.GetComponent<AudioSource>();
+            neighbourDoor = GameObject.Find("Puerta Vecino");
+            smartphone = GameObject.Find("Móvil");
+            smartphonePos = GameObject.Find("SmartphonePos");
+            bathroomDoor = GameObject.Find("Lavabo");
+            chair = GameObject.Find("Silla");
+            swegingBox = GameObject.Find("Costurero");
+            washingMachine = GameObject.Find("Lavadora");
+            kitchen = GameObject.Find("Kitchen");
+            plant = GameObject.Find("Planta");
+            hygieneGel = GameObject.Find("Gel Desinfectante");
+            table = GameObject.Find("Mesa");
         }
         if (SceneManager.GetActiveScene().name == "HospitalUpdated")
         {
