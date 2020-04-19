@@ -28,8 +28,8 @@ public class SituationsManager : MonoBehaviour
         public int next_step;
         public string sound;
 
-        public GameManager.Stat<int> int_requirement;
-        public GameManager.Stat<bool> bool_requirement;
+        public List<GameManager.Stat<int>> int_requirements;
+        public List<GameManager.Stat<bool>> bool_requirements;
 
         public List<GameManager.Stat<int>> int_effects;
         public List<GameManager.Stat<bool>> bool_effects;
@@ -108,10 +108,8 @@ public class SituationsManager : MonoBehaviour
     {
         completed_today++;
 
-        GameManager.instance.AdvanceTime(current_situation.duration / 60);
         completed_situations.Add(current_situation);
-
-        StartNextSituation();
+        GameManager.instance.AdvanceTime(current_situation.duration / 60);
     }
 
     public void StartNextSituation()
@@ -211,23 +209,20 @@ public class SituationsManager : MonoBehaviour
         foreach (JSONObject j_option in options.list)
         {
             SelectionChoice selection = JsonUtility.FromJson<SelectionChoice>(j_option.ToString());
+            selection.int_requirements = new List<GameManager.Stat<int>>();
+            selection.bool_requirements = new List<GameManager.Stat<bool>>();
 
             j_option.GetField("stat_requirement", delegate (JSONObject stat_requirement)
             {
-                if (stat_requirement.GetField("value").IsBool)
+                foreach (JSONObject j_req in stat_requirement.list)
                 {
-                    selection.bool_requirement = JsonUtility.FromJson<GameManager.Stat<bool>>(stat_requirement.ToString());
-                    selection.int_requirement = new GameManager.Stat<int>("none", 0);
-                }    
-                else
-                {
-                    selection.int_requirement = JsonUtility.FromJson<GameManager.Stat<int>>(stat_requirement.ToString());
-                    selection.bool_requirement = new GameManager.Stat<bool>("none", false);
+                    if (j_req.GetField("value").IsBool)
+                        selection.bool_requirements.Add(JsonUtility.FromJson<GameManager.Stat<bool>>(j_req.ToString()));
+                    else
+                        selection.int_requirements.Add(JsonUtility.FromJson<GameManager.Stat<int>>(j_req.ToString()));
                 }
             }, delegate (string name)
             {
-                selection.bool_requirement = new GameManager.Stat<bool>("0", false);
-                selection.int_requirement = new GameManager.Stat<int>("0", 0);
             });
 
             selection.int_effects = new List<GameManager.Stat<int>>();
@@ -266,21 +261,19 @@ public class SituationsManager : MonoBehaviour
                 foreach (JSONObject j_step in sequence.list)
                 {
                     Step step = JsonUtility.FromJson<Step>(j_step.ToString());
+                    step.int_requirements = new List<GameManager.Stat<int>>();
+                    step.bool_requirements = new List<GameManager.Stat<bool>>();
+
                     step.step_type = (Step_Type)Enum.Parse(typeof(Step_Type), j_step.GetField("step_type").str);
                     j_step.GetField("stat_requirement", delegate (JSONObject stat_requirement)
                     {
                         foreach (JSONObject j_req in stat_requirement.list)
                         {
                             if (j_req.GetField("value").IsBool)
-                            {
                                 step.bool_requirements.Add(JsonUtility.FromJson<GameManager.Stat<bool>>(j_req.ToString()));
-                            }
                             else
-                            {
                                 step.int_requirements.Add(JsonUtility.FromJson<GameManager.Stat<int>>(j_req.ToString()));
-                            }
                         }
-    
                     }, delegate (string name)
                     {
                     });
