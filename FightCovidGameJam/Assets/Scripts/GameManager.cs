@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
 
             boolean_stats.Add("End_Carmen_Depressed", false);
             boolean_stats.Add("End_Child_Live", false);
-            boolean_stats.Add("End_Child_Die", false);
+            boolean_stats.Add("End_Child_Die", true);
 
 
             debug_style = new GUIStyle();
