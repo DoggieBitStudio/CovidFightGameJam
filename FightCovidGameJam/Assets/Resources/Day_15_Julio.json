@@ -113,7 +113,7 @@
       ]
     },
     {
-      "identifier": "Leave_work",
+      "identifier": "Sleep",
       "activation_time": 23,
       "duration": 7,
       "sequence": [
@@ -128,7 +128,7 @@
           "next_step": 1
         },
         {
-          "step_type": "LEAVEWORK",
+          "step_type": "SLEEP",
           "index": 1,
           "next_step": 0
         }

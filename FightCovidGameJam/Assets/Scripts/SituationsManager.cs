@@ -196,6 +196,13 @@ public class SituationsManager : MonoBehaviour
                 }
                 GameManager.instance.new_day = true;
                 break;
+            case Step_Type.FINISH:
+                GameManager.instance.ui_opened = true;
+                GameObject.FindGameObjectWithTag("Black").SetActive(true);
+                GameManager.instance.ui_manager.time_text.gameObject.transform.parent.gameObject.SetActive(false);
+                GameManager.instance.ui_manager.mask_ui.gameObject.transform.parent.gameObject.SetActive(false);
+                OnStepFinish();
+                break;
             default:
                 break;
         }

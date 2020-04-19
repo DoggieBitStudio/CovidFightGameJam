@@ -143,7 +143,7 @@
           "step_type": "FADE",
           "time": 2,
           "index": 5,
-          "next_step": 6
+          "next_step": 0
         }
       ]
     },
@@ -335,7 +335,7 @@
           "speed": 30.0,
           "index": 10,
           "next_step": 11
-        }
+        },
         {
           "step_type": "DIALOGUE",
           "text": "¿Cómo se nos ocurre siquiera echar a una persona que además está luchando contra este virus de forma tan activa?",
@@ -432,7 +432,7 @@
           "step_type": "FADE",
           "time": 2,
           "index": 4,
-          "next_step": 5
+          "next_step": 0
         }
       ]
     },
@@ -454,8 +454,8 @@
         {
           "step_type": "DIALOGUE",
           "text": "Hola Vecino/a \nEn la comunidad tenemos a un médico como vecino. Sabemos de su buena labor en el hospital y se agradece,...",
-          "player": false,
-          "name": "Presidente",
+          "player": true,
+          "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
           "index": 1,
@@ -464,8 +464,8 @@
         {
           "step_type": "DIALOGUE",
           "text": "...pero debemos pensar también en los vecinos. En nuestra comunidad viven niños y ancianos.",
-          "player": false,
-          "name": "Presidente",
+          "player": true,
+          "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
           "index": 2,
@@ -474,8 +474,8 @@
         {
           "step_type": "DIALOGUE",
           "text": "Hay lugares como el Barataria donde están alojando a profesionales mientras esto dure.",
-          "player": false,
-          "name": "Presidente",
+          "player": true,
+          "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
           "index": 3,
@@ -484,8 +484,8 @@
         {
           "step_type": "DIALOGUE",
           "text": "Te pido que lo pienses y contestes cuanto antes diciendo si votas por expulsar al médico o no.",
-          "player": false,
-          "name": "Presidente",
+          "player": true,
+          "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
           "index": 4,
@@ -494,8 +494,8 @@
         {
           "step_type": "DIALOGUE",
           "text": "Un cordial saludo, \nEl Presidente de la comunidad, \nGinés Sánchez",
-          "player": false,
-          "name": "Presidente",
+          "player": true,
+          "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
           "index": 5,

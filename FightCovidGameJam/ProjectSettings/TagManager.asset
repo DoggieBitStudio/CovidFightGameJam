@@ -9,6 +9,7 @@ TagManager:
   - Fade
   - DialogPosition
   - SelectableHospital
+  - Black
   layers:
   - Default
   - TransparentFX
