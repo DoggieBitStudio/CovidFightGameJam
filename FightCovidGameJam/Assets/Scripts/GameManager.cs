@@ -149,6 +149,19 @@ public class GameManager : MonoBehaviour
         fade.DOFade(1.0f, 2.0f).OnComplete(()=>LoadScene(name));
     }
 
+    public void DoInSceneFade(float time, float value)
+    {
+        ui_opened = true;
+        if (value == 0.0f)
+            fade.DOFade(value, time * 0.5f).OnComplete(() => OnEndFade());
+        else
+            fade.DOFade(value, time * 0.5f).OnComplete(() => DoInSceneFade(time, 0.0f));
+    }
+    public void OnEndFade()
+    {
+        ui_opened = false;
+        situations_manager.OnStepFinish();
+    }
     void LoadScene(string name)
     {
         SceneManager.LoadScene(name);
@@ -170,6 +183,8 @@ public class GameManager : MonoBehaviour
         HideFade();
         situations_manager.OnLevelFinshedLoading(scene);
     }
+
+
 
     internal void ResetTime()
     {
@@ -194,7 +209,6 @@ public class GameManager : MonoBehaviour
 
     void HideFade()
     {
-
         if (new_day)
         {
             fade.DOFade(0.0f, 2.0f).OnComplete(NewDay);
@@ -203,8 +217,9 @@ public class GameManager : MonoBehaviour
         {
             fade.DOFade(0.0f, 2.0f);
             ui_opened = false;
-        }
-           
+            if (prevScene == "bathroom")
+                situations_manager.OnStepFinish();
+        }         
     }
 
     void NewDay()

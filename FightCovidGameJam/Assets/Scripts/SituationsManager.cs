@@ -94,34 +94,7 @@ public class SituationsManager : MonoBehaviour
     {
         if (current_situation.current_step.next_step > 0)
         {
-            if (current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.stat != null)
-            {
-                if(GameManager.instance.boolean_stats[current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.stat] 
-                    == current_situation.sequence[current_situation.current_step.next_step].Item1.bool_requirement.value)
-                {
-                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
-                }
-                else
-                {
-                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step + 1].Item1;
-                }
-            }
-            else if(current_situation.sequence[current_situation.current_step.next_step].Item1.int_requirement.stat != null)
-            {
-                if (GameManager.instance.int_stats[current_situation.sequence[current_situation.current_step.next_step].Item1.int_requirement.stat]
-                     == current_situation.sequence[current_situation.current_step.next_step].Item1.int_requirement.value)
-                {
-                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
-                }
-                else
-                {
-                    current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step + 1].Item1;
-                }
-            }
-            else
-                current_situation.current_step = current_situation.sequence[current_situation.current_step.next_step].Item1;
-
-
+            SelectStep(current_situation.current_step.next_step);
             StartStep();
         }
         else
@@ -143,34 +116,7 @@ public class SituationsManager : MonoBehaviour
         if (completed_today < day_situations.Count() && day_situations[completed_today].activation_time <= GameManager.instance.time)
         {
             current_situation = day_situations[completed_today];
-
-            if (current_situation.sequence[0].Item1.bool_requirement.stat != null)
-            {
-                if (GameManager.instance.boolean_stats[current_situation.sequence[0].Item1.bool_requirement.stat]
-                    == current_situation.sequence[0].Item1.bool_requirement.value)
-                {
-                    current_situation.current_step = current_situation.sequence[0].Item1;
-                }
-                else
-                {
-                    current_situation.current_step = current_situation.sequence[1].Item1;
-                }
-            }
-            else if (current_situation.sequence[0].Item1.int_requirement.stat != null)
-            {
-                if (GameManager.instance.int_stats[current_situation.sequence[0].Item1.int_requirement.stat]
-                     == current_situation.sequence[0].Item1.int_requirement.value)
-                {
-                    current_situation.current_step = current_situation.sequence[0].Item1;
-                }
-                else
-                {
-                    current_situation.current_step = current_situation.sequence[1].Item1;
-                }
-            }
-            else
-                current_situation.current_step = current_situation.sequence[0].Item1;
-
+            SelectStep(0);
             StartStep();
         }
     }
@@ -214,6 +160,9 @@ public class SituationsManager : MonoBehaviour
             case Step_Type.DOCTOR_VOTE:
                 GameManager.instance.ui_opened = true;
                 doctor_vote.SetActive(true);
+                break;
+            case Step_Type.FADE:
+                GameManager.instance.DoInSceneFade(current_situation.sequence[current_situation.current_step.index].Item2.GetField("time").f, 1.0f);
                 break;
             case Step_Type.SLEEP:
                 if (GameManager.instance.current_character == CHARACTER.CARMEN)
@@ -295,14 +244,18 @@ public class SituationsManager : MonoBehaviour
                     step.step_type = (Step_Type)Enum.Parse(typeof(Step_Type), j_step.GetField("step_type").str);
                     j_step.GetField("stat_requirement", delegate (JSONObject stat_requirement)
                     {
-                        if (stat_requirement.GetField("value").IsBool)
+                        foreach (JSONObject j_req in stat_requirement.list)
                         {
-                            step.bool_requirement = JsonUtility.FromJson<GameManager.Stat<bool>>(stat_requirement.ToString());
+                            if (j_req.GetField("value").IsBool)
+                            {
+                                step.bool_requirements.Add(JsonUtility.FromJson<GameManager.Stat<bool>>(j_req.ToString()));
+                            }
+                            else
+                            {
+                                step.int_requirements.Add(JsonUtility.FromJson<GameManager.Stat<int>>(j_req.ToString()));
+                            }
                         }
-                        else
-                        {
-                            step.int_requirement = JsonUtility.FromJson<GameManager.Stat<int>>(stat_requirement.ToString());
-                        }
+    
                     }, delegate (string name)
                     {
                     });
@@ -321,34 +274,36 @@ public class SituationsManager : MonoBehaviour
     {
         current_situation = day_situations[0];
 
-        if (current_situation.sequence[0].Item1.bool_requirement.stat != null)
-        {
-            if (GameManager.instance.boolean_stats[current_situation.sequence[0].Item1.bool_requirement.stat]
-                == current_situation.sequence[0].Item1.bool_requirement.value)
-            {
-                current_situation.current_step = current_situation.sequence[0].Item1;
-            }
-            else
-            {
-                current_situation.current_step = current_situation.sequence[1].Item1;
-            }
-        }
-        else if (current_situation.sequence[0].Item1.int_requirement.stat != null)
-        {
-            if (GameManager.instance.int_stats[current_situation.sequence[0].Item1.int_requirement.stat]
-                 == current_situation.sequence[0].Item1.int_requirement.value)
-            {
-                current_situation.current_step = current_situation.sequence[0].Item1;
-            }
-            else
-            {
-                current_situation.current_step = current_situation.sequence[1].Item1;
-            }
-        }
-        else
-            current_situation.current_step = current_situation.sequence[0].Item1;
-
+        SelectStep(0);
         StartStep();
+    }
+
+    private void SelectStep(int v)
+    {
+        bool booleans_check = true;
+        bool ints_check = true;
+
+        foreach (var item in current_situation.sequence[v].Item1.bool_requirements)
+        {
+            if (GameManager.instance.boolean_stats[item.stat] != item.value)
+            {
+                booleans_check = false;
+                break;
+            }
+        }
+        foreach (var item in current_situation.sequence[v].Item1.int_requirements)
+        {
+            if (GameManager.instance.int_stats[item.stat] < item.value)
+            {
+                ints_check = false;
+                break;
+            }
+        }
+
+        if(booleans_check && ints_check)
+            current_situation.current_step = current_situation.sequence[v].Item1;
+        else
+            current_situation.current_step = current_situation.sequence[v+1].Item1;
     }
 
     public void OnLevelFinshedLoading(Scene scene)
