@@ -492,6 +492,11 @@ PrefabInstance:
       propertyPath: npc_model_position
       value: 
       objectReference: {fileID: 2119059704}
+    - target: {fileID: 154624313317857455, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: dialogue_models.Array.data[7].name
+      value: Julio
+      objectReference: {fileID: 0}
     - target: {fileID: 154624313317857456, guid: 041e1b370f7bfd542b0decb0d91d8c95,
         type: 3}
       propertyPath: m_Enabled
