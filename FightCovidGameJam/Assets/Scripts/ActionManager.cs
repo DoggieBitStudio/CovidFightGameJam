@@ -31,8 +31,7 @@ public class ActionManager : MonoBehaviour
         GIVE_MEDICAMENTS = 18,
         RCP = 19,
         PATIENT_DEATH = 20,
-        YOUTUBE_VIDEO = 21,
-        CLAP_VIDEO = 22
+        YOUTUBE_VIDEO = 21
 
     }
     Actions currentAction = Actions.NONE;
@@ -84,10 +83,13 @@ public class ActionManager : MonoBehaviour
     bool firstAction = false;
     bool secondAction = false;
 
+    //Hospital
+    GameObject currentPatient;
+
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("MariCarmen");
+        player = GameObject.FindWithTag("Player");
         agent = player.GetComponent<NavMeshAgent>();
         if (SceneManager.GetActiveScene().name == "Main")
         {
@@ -509,22 +511,78 @@ public class ActionManager : MonoBehaviour
                 }
                 break;
             case Actions.TEST_PATIENTS:
-                { }
+                {
+                    if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    {
+                        medicalCarrito.GetComponent<AudioSource>().Play();
+                        firstAction = true;
+                    }
+                    else if(firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying)
+                    {
+                        currentPatient.GetComponent<AudioSource>().Play();
+                        currentPatient.GetComponent<PatientData>().infected = true;
+
+                        FinalizeHospitalAction();
+                    }
+                }
                 break;
             case Actions.GIVE_MEDICAMENTS:
-                { }
+                {
+                    if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    {
+                        medicalCarrito.GetComponent<AudioSource>().Play();
+                        firstAction = true;
+                    }
+                    else if (firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying)
+                    {
+                        currentPatient.GetComponent<AudioSource>().Play();
+                        FinalizeHospitalAction();
+                    }
+                }
                 break;
             case Actions.RCP:
-                { }
+                {
+                    if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    {
+                        medicalCarrito.GetComponent<AudioSource>().Play();
+                        firstAction = true;
+                    }
+                    else if (firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying)
+                    {
+                        currentPatient.GetComponent<AudioSource>().Play();
+                        FinalizeHospitalAction();
+                    }
+                }
                 break;
             case Actions.PATIENT_DEATH:
-                { }
+                {
+                    {
+                        if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                        {
+                            medicalCarrito.GetComponent<AudioSource>().Play();
+                            firstAction = true;
+                        }
+                        else if (firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying)
+                        {
+                            currentPatient.GetComponent<AudioSource>().Play();
+                            currentPatient.GetComponent<PatientData>().goodBye = true;
+                            FinalizeHospitalAction();
+                        }
+                    }
+                }
                 break;
             case Actions.YOUTUBE_VIDEO:
-                { }
-                break;
-            case Actions.CLAP_VIDEO:
-                { }
+                {
+                    if ((smartphoneMed.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    {
+                        smartphoneMed.GetComponent<AudioSource>().Play();
+                        firstAction = true;
+                    }
+                    else if (firstAction && !smartphoneMed.GetComponent<AudioSource>().isPlaying)
+                    {
+                        FinalizeAction();
+                    }
+                }
                 break;
         }
     }
@@ -586,6 +644,24 @@ public class ActionManager : MonoBehaviour
             case Actions.HYGIENE_GEL:
                 agent.SetDestination(hygieneGel.transform.position);
                 break;
+            case Actions.YOUTUBE_VIDEO:
+                agent.SetDestination(smartphoneMed.transform.position);
+                break;
+
+        }
+        timePassed = (float)time;
+        healthGained = health;
+        positivismGained = positivism;
+
+    }
+
+    public void DoActionHospital(GameObject patient, int action, double time, int health, int positivism)
+    {
+        currentAction = (Actions)action;
+        currentPatient = patient;
+        isDoingAction = true;
+        switch (currentAction)
+        {
             case Actions.TEST_PATIENTS:
                 agent.SetDestination(medicalCarrito.transform.position);
                 break;
@@ -597,12 +673,6 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.PATIENT_DEATH:
                 agent.SetDestination(medicalCarrito.transform.position);
-                break;
-            case Actions.YOUTUBE_VIDEO:
-                agent.SetDestination(smartphoneMed.transform.position);
-                break;
-            case Actions.CLAP_VIDEO:
-                agent.SetDestination(smartphoneMed.transform.position);
                 break;
 
         }
@@ -632,11 +702,25 @@ public class ActionManager : MonoBehaviour
         currentAction = Actions.NONE;
     }
 
+    void FinalizeHospitalAction()
+    {
+        GameManager.instance.AdvanceTime(timePassed);
+        GameManager.instance.AddHealth(healthGained);
+        currentPatient.GetComponent<PatientData>().AddHealth(healthGained);
+        
+        GameManager.instance.AddPositivism(positivismGained);
+
+        firstAction = false;
+        secondAction = false;
+        isDoingAction = false;
+        currentAction = Actions.NONE;
+    }
+
     private void OnLevelWasLoaded(int level)
     {
         if (level == 0)
         {
-            player = GameObject.Find("MariCarmen");
+            player = GameObject.FindWithTag("Player");
             agent = player.GetComponent<NavMeshAgent>();
             if (SceneManager.GetActiveScene().name == "Main")
             {

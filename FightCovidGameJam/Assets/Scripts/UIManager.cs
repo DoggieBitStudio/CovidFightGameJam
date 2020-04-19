@@ -53,6 +53,15 @@ public class UIManager : MonoBehaviour
         CloseTask();
     }
 
+    public void RealizeActionHospital(GameObject patient, int action, uint time, int health, int positivism)
+    {
+        double decimal_time = (float)time / 60.0;
+        GameManager.instance.action_manager.DoActionHospital(patient, action, decimal_time, health, positivism);
+
+        CloseTask();
+    }
+
+
     public void Update()
     {
         if (Input.GetKey(KeyCode.F3))
@@ -130,9 +139,6 @@ public class UIManager : MonoBehaviour
                 else if (Math.Abs(item.value) >= 4)
                     scale = 1.5f;
             }
-                
-
-
 
             eff_obj.transform.localScale = new Vector3(scale, scale, 1);
         }

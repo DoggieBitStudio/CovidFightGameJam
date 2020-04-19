@@ -114,6 +114,94 @@ public class Interactable : MonoBehaviour
         uiManager.verticalTask.SetActive(true);
     }
 
+    public void OnTapHospital(Vector3 hitPos)
+    {
+        //Set Title
+        GameObject task;
+        task = Instantiate(uiManager.titleTask);
+        task.GetComponentInChildren<Text>().text = gameObject.name;
+        task.transform.SetParent(uiManager.verticalTask.transform);
+
+        int current_button = 0;
+        //Set options
+        foreach (InteractableOptions interactable in interactableOptions)
+        {
+            task = Instantiate(uiManager.buttonTask);
+            task.GetComponentInChildren<Text>().text = interactable.optionText;
+            task.transform.SetParent(uiManager.verticalTask.transform);
+            task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.RealizeActionHospital(gameObject, interactable.action, interactable.time, interactable.health, interactable.positivism); });
+            RawImage postivism_task = task.transform.GetChild(1).GetComponent<RawImage>();
+            RawImage health_task = task.transform.GetChild(2).GetComponent<RawImage>();
+
+            //Positivism
+            GameObject eff_obj = task.transform.GetChild(1).gameObject;
+            float scale = 1.2f;
+
+            if (interactable.positivism == 0)
+                eff_obj.SetActive(false);
+            else
+            {
+                eff_obj.SetActive(true);
+                eff_obj.GetComponent<RawImage>().texture = interactable.positivism > 0 ? Resources.Load<Texture>("UI/green_face") : Resources.Load<Texture>("UI/Positivism");
+            }
+
+            if (Mathf.Abs(interactable.positivism) <= 5)
+                scale = 0.7f;
+            else if (Mathf.Abs(interactable.positivism) > 5 && Mathf.Abs(interactable.positivism) < 10)
+                scale = 1.0f;
+
+            eff_obj.transform.localScale = new Vector3(scale, scale, 1);
+
+            //Health
+            eff_obj = task.transform.GetChild(2).gameObject;
+
+            if (interactable.health == 0 || (!GameManager.instance.boolean_stats["Went_Out"] && interactable.health > 0))
+                eff_obj.SetActive(false);
+            else
+            {
+                eff_obj.SetActive(true);
+                eff_obj.GetComponent<RawImage>().texture = interactable.health > 0 ? Resources.Load<Texture>("UI/Health_Positive") : Resources.Load<Texture>("UI/Health");
+            }
+
+            if (Mathf.Abs(interactable.health) <= 1)
+                scale = 0.7f;
+
+            eff_obj.transform.localScale = new Vector3(scale, scale, 1);
+
+            PatientData patientData = gameObject.GetComponent<PatientData>();
+
+            if(current_button == 0)
+            {
+                task.GetComponent<Button>().interactable = !patientData.infected;
+            }
+            else if(current_button == 1)
+            {
+                task.GetComponent<Button>().interactable = patientData.infected;
+            }
+            else if(current_button == 2)
+            {
+                task.GetComponent<Button>().interactable = (patientData.health == 1) ? true : false;
+            }
+            else if (current_button == 3)
+            {
+                task.GetComponent<Button>().interactable = (patientData.health == 0) ? true : false;
+            }
+            current_button++;
+        }
+
+        //Set Close button
+        task = Instantiate(uiManager.buttonTask);
+        task.GetComponentInChildren<Text>().text = "Tengo otra cosa que hacer";
+        task.transform.SetParent(uiManager.verticalTask.transform);
+        task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.CloseTask(); });
+        task.transform.GetChild(1).gameObject.SetActive(false);
+        task.transform.GetChild(2).gameObject.SetActive(false);
+
+        uiManager.isTaskMenuOpen = true;
+        uiManager.verticalTask.transform.position = CalculatePositionOffset(Camera.main.WorldToScreenPoint(hitPos));
+        uiManager.verticalTask.SetActive(true);
+    }
+
     Vector3 CalculatePositionOffset(Vector3 pos)
     {
         Vector3 position = pos;
