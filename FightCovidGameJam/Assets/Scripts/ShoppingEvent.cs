@@ -131,6 +131,8 @@ public class ShoppingEvent : MonoBehaviour
         foreach (JSONObject j_option in options.list)
         {
             SituationsManager.SelectionChoice selection = JsonUtility.FromJson<SituationsManager.SelectionChoice>(j_option.ToString());
+            selection.int_requirements = new List<GameManager.Stat<int>>();
+            selection.bool_requirements = new List<GameManager.Stat<bool>>();
 
             j_option.GetField("stat_requirement", delegate (JSONObject stat_requirement)
             {
