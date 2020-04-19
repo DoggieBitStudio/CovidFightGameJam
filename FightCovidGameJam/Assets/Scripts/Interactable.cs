@@ -62,6 +62,16 @@ public class Interactable : MonoBehaviour
             task.GetComponentInChildren<Text>().text = interactable.optionText;
             task.transform.SetParent(uiManager.verticalTask.transform);
             task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.RealizeAction(interactable.action, interactable.time, interactable.health, interactable.positivism); });
+            
+            //if (interactable.positivism < 0)
+            //    task.transform.GetChild(1).GetComponent<Image>().sprite = ;
+            //else
+            //    task.transform.GetChild(1).GetComponent<Image>().sprite = ;
+
+            //if (interactable.health < 0)
+            //    task.transform.GetChild(1).GetComponent<Image>().sprite = ;
+            //else
+            //    task.transform.GetChild(1).GetComponent<Image>().sprite = ;
         }
 
         //Set Close button
