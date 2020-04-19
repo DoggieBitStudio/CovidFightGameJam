@@ -1,15 +1,9 @@
 fileFormatVersion: 2
-guid: 4e58b1711137b374181cba42caf4bb3d
+guid: 953b4e1de5a1b69488fc9db34610c137
 ModelImporter:
   serializedVersion: 19300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: -8399844405388310995, guid: a9f870644718bf64882080447053ad03,
-      type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -73,7 +67,15 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips: []
+  referencedClips:
+  - e2c19e1494636d2448fb900ad2a0b0fb
+  - a17e69eda6026da41ae3dbfa331a4061
+  - 6a3577406b94c3d4d9bf72780a3bdd1b
+  - 84616060f5fca8e45bc061f0dbc98014
+  - 4160e02d17aaf0443abda3b5f18397de
+  - af6f6d3f37a69f343a2e46c08e074eb0
+  - 9a9a8ead9db644e4fb53b53fc90a13f3
+  - bfe1337c3934c4d419633bfc8a50bd3d
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
@@ -87,7 +89,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: Root
+    rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
@@ -95,7 +97,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 1
+  avatarSetup: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

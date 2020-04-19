@@ -23,6 +23,7 @@ public class Interactable : MonoBehaviour
         TextAsset json_file = Resources.Load("interactable") as TextAsset;
         JSONObject json = new JSONObject(json_file.text);
 
+        Debug.Log(gameObject.name);
         JSONObject interactable_json = json.GetField(gameObject.name);
 
         foreach (JSONObject j in interactable_json.list)

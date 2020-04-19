@@ -64,6 +64,11 @@ public class DialogueManager : MonoBehaviour
         npc_name_text = npc_name.GetComponentInChildren<Text>();
     }
 
+    private void Start()
+    {
+        player_model_position = Camera.main.transform.GetChild(0);
+        npc_model_position = Camera.main.transform.GetChild(1);
+    }
     // Update is called once per frame
     void Update()
     {
