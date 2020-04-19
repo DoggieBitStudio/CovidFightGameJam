@@ -183,7 +183,7 @@ public class DialogueManager : MonoBehaviour
             player_name.SetActive(true);
             SetPlayerName(d_info.name);
             GameObject model_dialogue = Instantiate(FindPrefab(d_info.name), player_model_position, false);
-            if(d_info.animation != null)
+            if (d_info.animation != null)
                 model_dialogue.GetComponent<Animator>().Play(d_info.animation);
         }
         else
@@ -218,8 +218,10 @@ public class DialogueManager : MonoBehaviour
 
     void RemoveModelPrefabs()
     {
-        if(player_model_position.childCount > 0)
+        if (player_model_position.childCount > 0)
+        {
             Destroy(player_model_position.GetChild(0).gameObject);
+        }       
         else if (npc_model_position.childCount > 0)
             Destroy(npc_model_position.GetChild(0).gameObject);
     }
