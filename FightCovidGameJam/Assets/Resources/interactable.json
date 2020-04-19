@@ -279,8 +279,7 @@
       "action": 21,
       "optionText": "Hacer video para youtube explicando medidas",
       "time": 60,
-      "positivism": 5,
-      "health": -1
+      "positivism": 5
     },
     {
       "action": 21,
