@@ -62,16 +62,23 @@ public class Interactable : MonoBehaviour
             task.GetComponentInChildren<Text>().text = interactable.optionText;
             task.transform.SetParent(uiManager.verticalTask.transform);
             task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.RealizeAction(interactable.action, interactable.time, interactable.health, interactable.positivism); });
-            
-            //if (interactable.positivism < 0)
-            //    task.transform.GetChild(1).GetComponent<Image>().sprite = ;
-            //else
-            //    task.transform.GetChild(1).GetComponent<Image>().sprite = ;
+            RawImage postivism_task = task.transform.GetChild(1).GetComponent<RawImage>();
+            RawImage health_task = task.transform.GetChild(2).GetComponent<RawImage>();
 
-            //if (interactable.health < 0)
-            //    task.transform.GetChild(1).GetComponent<Image>().sprite = ;
-            //else
-            //    task.transform.GetChild(1).GetComponent<Image>().sprite = ;
+            if (interactable.positivism < 0)
+                postivism_task.texture = Resources.Load<Texture>("UI/Positivism");
+            else
+                postivism_task.texture = Resources.Load<Texture>("UI/green_face");
+
+            if (Mathf.Abs(interactable.positivism) <= 10)
+                task.transform.GetChild(1).GetComponent<RawImage>().texture = ;
+            else
+                task.transform.GetChild(1).GetComponent<Image>().sprite = ;
+
+            if (Mathf.Abs(interactable.health) <= 1)
+                task.transform.GetChild(1).GetComponent<Image>().sprite = ;
+            else
+                task.transform.GetChild(1).GetComponent<Image>().sprite = ;
         }
 
         //Set Close button

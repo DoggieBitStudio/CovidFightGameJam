@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     bool show_stats = false;
     GUIStyle debug_style;
 
+    public string prevScene;
+
     private void Awake()
     {
         if (!instance)
@@ -136,6 +138,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadSceneFade(string name)
     {
+        prevScene = SceneManager.GetActiveScene().name;
         fade.DOFade(1.0f, 2.0f).OnComplete(()=>LoadScene(name));
     }
 
