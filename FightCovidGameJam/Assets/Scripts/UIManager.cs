@@ -19,6 +19,9 @@ public class UIManager : MonoBehaviour
     public GameObject selection_prefab;
     public GameObject selection_list;
 
+    //Stats
+    public RawImage mask_ui;
+
     Dictionary<string, Texture> emojis;
 
     public void SetTimeText(float time)
@@ -48,6 +51,24 @@ public class UIManager : MonoBehaviour
         GameManager.instance.action_manager.DoAction(action, decimal_time, health, positivism);
 
         CloseTask();
+    }
+
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.F3))
+            GameManager.instance.int_stats["Positivism"] -= 1;
+        if (Input.GetKey(KeyCode.F4))
+            GameManager.instance.int_stats["Positivism"] += 1;
+        if (Input.GetKey(KeyCode.F5))
+            GameManager.instance.int_stats["Health"] -= 1;
+        if (Input.GetKey(KeyCode.F6))
+            GameManager.instance.int_stats["Health"] += 1;
+        if (Input.GetKey(KeyCode.F7))
+            GameManager.instance.boolean_stats["Mask"] = true;
+        if (Input.GetKey(KeyCode.F8))
+            GameManager.instance.boolean_stats["Mask"] = false;
+
+        mask_ui.color = GameManager.instance.boolean_stats["Mask"] ? Color.white : Color.gray;
     }
 
     public void CloseTask()
