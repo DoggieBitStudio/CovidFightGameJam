@@ -25,13 +25,27 @@ public class ShoppingEvent : MonoBehaviour
         GameObject selection_go = Instantiate(shopping_selection_prefab);
         selection_go.GetComponentInChildren<Text>().text = selection.text;
 
-        if (GameManager.instance.boolean_stats.ContainsKey(selection.bool_requirement.stat)
-            && GameManager.instance.boolean_stats[selection.bool_requirement.stat] != selection.bool_requirement.value)
+        bool booleans_check = true;
+        bool ints_check = true;
+
+        foreach (var item in selection.bool_requirements)
         {
-            selection_go.GetComponent<Toggle>().interactable = false;
+            if (GameManager.instance.boolean_stats[item.stat] != item.value)
+            {
+                booleans_check = false;
+                break;
+            }
         }
-        else if (GameManager.instance.int_stats.ContainsKey(selection.int_requirement.stat)
-            && GameManager.instance.int_stats[selection.int_requirement.stat] < selection.int_requirement.value)
+        foreach (var item in selection.int_requirements)
+        {
+            if (GameManager.instance.int_stats[item.stat] < item.value)
+            {
+                ints_check = false;
+                break;
+            }
+        }
+
+        if(!booleans_check || !ints_check)
         {
             selection_go.GetComponent<Toggle>().interactable = false;
         }
@@ -120,20 +134,15 @@ public class ShoppingEvent : MonoBehaviour
 
             j_option.GetField("stat_requirement", delegate (JSONObject stat_requirement)
             {
-                if (stat_requirement.GetField("value").IsBool)
+                foreach (JSONObject j_req in stat_requirement.list)
                 {
-                    selection.bool_requirement = JsonUtility.FromJson<GameManager.Stat<bool>>(stat_requirement.ToString());
-                    selection.int_requirement = new GameManager.Stat<int>("none", 0);
-                }
-                else
-                {
-                    selection.int_requirement = JsonUtility.FromJson<GameManager.Stat<int>>(stat_requirement.ToString());
-                    selection.bool_requirement = new GameManager.Stat<bool>("none", false);
+                    if (j_req.GetField("value").IsBool)
+                        selection.bool_requirements.Add(JsonUtility.FromJson<GameManager.Stat<bool>>(j_req.ToString()));
+                    else
+                        selection.int_requirements.Add(JsonUtility.FromJson<GameManager.Stat<int>>(j_req.ToString()));
                 }
             }, delegate (string name)
             {
-                selection.bool_requirement = new GameManager.Stat<bool>("0", false);
-                selection.int_requirement = new GameManager.Stat<int>("0", 0);
             });
 
             selection.int_effects = new List<GameManager.Stat<int>>();
