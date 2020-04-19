@@ -41,8 +41,8 @@ public class SituationsManager : MonoBehaviour
         day_situations = new List<Situation>();
         completed_situations = new List<Situation>();
 
-        string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
-        string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
+        string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julio_day.ToString();
+        string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julio";
 
         if (SceneManager.GetActiveScene().name == "News")
             LoadSituations("Introduction");
@@ -175,13 +175,13 @@ public class SituationsManager : MonoBehaviour
                 if (GameManager.instance.current_character == CHARACTER.CARMEN)
                     GameManager.instance.carmen_day += (int)current_situation.duration;
                 else
-                    GameManager.instance.julian_day += (int)current_situation.duration;
+                    GameManager.instance.julio_day += (int)current_situation.duration;
 
                 if (GameManager.instance.change_character)
                 {
                     if(GameManager.instance.current_character == CHARACTER.CARMEN){
                         GameManager.instance.LoadSceneFade("HospitalUpdated");
-                        GameManager.instance.current_character = CHARACTER.JULIAN;
+                        GameManager.instance.current_character = CHARACTER.JULIO;
                     }
                     else
                     {
@@ -329,8 +329,8 @@ public class SituationsManager : MonoBehaviour
     {
         if ((scene.name == "Main" || scene.name == "HospitalUpdated") && current_situation.identifier == "Sleep")
         {
-            string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
-            string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
+            string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julio_day.ToString();
+            string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julio";
 
             day_situations.Clear();
             completed_today = 0;

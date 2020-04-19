@@ -9,7 +9,7 @@ using DG.Tweening;
 public enum CHARACTER
 {
     CARMEN,
-    JULIAN
+    JULIO
 }
 public class GameManager : MonoBehaviour
 {
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     public AudioSource audio_source;
 
     internal int carmen_day = 1;
-    internal int julian_day = 8;
+    internal int julio_day = 8;
     public CHARACTER current_character = CHARACTER.CARMEN;
 
     public AudioClip new_day_sfx;
@@ -90,11 +90,10 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Doctor_Out", false);
             boolean_stats.Add("More_Sick_People", false);
 
-            boolean_stats.Add("Carmen_Depressed", false);
-            boolean_stats.Add("End_Normal", false);
+            boolean_stats.Add("End_Carmen_Depressed", false);
             boolean_stats.Add("End_Child_Live", false);
             boolean_stats.Add("End_Child_Die", false);
-            
+
 
             debug_style = new GUIStyle();
             debug_style.fontSize = 22;
@@ -246,9 +245,9 @@ public class GameManager : MonoBehaviour
                 character_text.text = "Carmen";
                 day_text.text = "Día " + carmen_day + " de confinamiento";
                 break;
-            case CHARACTER.JULIAN:
-                day_text.text = "Día " + julian_day + " del estado de alarma";
-                character_text.text = "Julian";
+            case CHARACTER.JULIO:
+                day_text.text = "Día " + julio_day + " del estado de alarma";
+                character_text.text = "Julio";
                 break;
             default:
                 break;
