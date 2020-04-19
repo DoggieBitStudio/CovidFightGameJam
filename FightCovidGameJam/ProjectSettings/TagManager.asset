@@ -8,6 +8,7 @@ TagManager:
   - BathSelectable
   - Fade
   - DialogPosition
+  - SelectableHospital
   layers:
   - Default
   - TransparentFX

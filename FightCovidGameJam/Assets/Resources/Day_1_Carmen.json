@@ -149,8 +149,8 @@
         {
           "step_type": "FADE",
           "time": 2,
-          "index": 2,
-          "next_step": 3
+          "index": 6,
+          "next_step": 7
         },
         {
           "step_type": "DIALOGUE",
@@ -159,7 +159,7 @@
           "name": "Carmen",
           "animation": "Think",
           "speed": 30.0,
-          "index": 6,
+          "index": 7,
           "next_step": 0,
           "stat_requirement": [
             {
@@ -179,7 +179,7 @@
           "name": "Carmen",
           "animation": "Think",
           "speed": 30.0,
-          "index": 7,
+          "index": 8,
           "next_step": 0
         }
       ]
