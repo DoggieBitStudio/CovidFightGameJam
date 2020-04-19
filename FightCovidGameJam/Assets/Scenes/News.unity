@@ -562,6 +562,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.0000002
       objectReference: {fileID: 0}
+    - target: {fileID: 154624313317857458, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: new_day
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 154624313317857460, guid: 041e1b370f7bfd542b0decb0d91d8c95,
         type: 3}
       propertyPath: m_Name

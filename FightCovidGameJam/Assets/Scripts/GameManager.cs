@@ -41,14 +41,14 @@ public class GameManager : MonoBehaviour
 
     public bool ui_opened = false;
 
-    public bool new_day = true;
+    public bool new_day = false;
     public bool change_character = false;
     public Text character_text;
     public Text day_text;
     public AudioSource audio_source;
 
-    internal int carmen_day = 1;
-    internal int julian_day = 8;
+    public int carmen_day = 1;
+    public int julian_day = 1;
     public CHARACTER current_character = CHARACTER.CARMEN;
 
     public AudioClip new_day_sfx;
@@ -99,7 +99,6 @@ public class GameManager : MonoBehaviour
             debug_style = new GUIStyle();
             debug_style.fontSize = 22;
             debug_style.normal.textColor = Color.red;
-            new_day = false;
         }
         else
             Destroy(gameObject);

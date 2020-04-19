@@ -329,6 +329,7 @@ public class SituationsManager : MonoBehaviour
     {
         if ((scene.name == "Main" || scene.name == "HospitalUpdated") && current_situation.identifier == "Sleep")
         {
+            Debug.Log("nose");
             string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
             string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
 
