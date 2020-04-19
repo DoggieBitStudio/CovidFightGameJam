@@ -969,6 +969,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1626259351780267263, guid: 634641d640909e842bd9647f9b3ce100,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2969877210171462824, guid: 634641d640909e842bd9647f9b3ce100,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 3101511055031138039, guid: 634641d640909e842bd9647f9b3ce100,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3294040279992700163, guid: 634641d640909e842bd9647f9b3ce100,
         type: 3}
       propertyPath: m_audioClip
@@ -978,6 +993,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MedicalCarrito
+      objectReference: {fileID: 0}
+    - target: {fileID: 5231767451764682274, guid: 634641d640909e842bd9647f9b3ce100,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742469030251484202, guid: 634641d640909e842bd9647f9b3ce100,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 8785110763001205650, guid: 634641d640909e842bd9647f9b3ce100,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 9133758677330992177, guid: 634641d640909e842bd9647f9b3ce100,
         type: 3}
@@ -1033,6 +1063,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9152401713505392554, guid: 634641d640909e842bd9647f9b3ce100,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 634641d640909e842bd9647f9b3ce100, type: 3}
