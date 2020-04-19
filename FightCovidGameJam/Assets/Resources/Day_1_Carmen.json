@@ -39,7 +39,7 @@
     },
     {
       "identifier": "Random_Text",
-      "activation_time": 8.5,
+      "activation_time": 8,
       "duration": 0,
       "sequence": [
         {
@@ -141,7 +141,7 @@
           "index": 5,
           "next_step": 6,
           "position": {
-            "x": -3,
+            "x": -3.8,
             "y": 2.3,
             "z": -12
           }
@@ -399,8 +399,8 @@
         },
         {
           "step_type": "MOVE_TO",
-          "index": 4,
-          "next_step": 5,
+          "index": 2,
+          "next_step": 3,
           "position": {
             "x": -3,
             "y": 2.3,
@@ -414,22 +414,12 @@
           "name": "Fina",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 2,
-          "next_step": 3
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "y mi niño es asmático...",
-          "player": false,
-          "name": "Fina",
-          "animation": "Talk",
-          "speed": 30.0,
           "index": 3,
           "next_step": 4
         },
         {
           "step_type": "DIALOGUE",
-          "text": "y han dicho que si las personas tienen problemas respiratorios tienen más dificultades con el virus.",
+          "text": "y mi niño es asmático...",
           "player": false,
           "name": "Fina",
           "animation": "Talk",
@@ -439,17 +429,27 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "[anger]¡AY! Qué miedo Carmen.",
+          "text": "y han dicho que si las personas tienen problemas respiratorios tienen más dificultades con el virus.",
           "player": false,
           "name": "Fina",
-          "animation": "AngryTalk",
+          "animation": "Talk",
           "speed": 30.0,
           "index": 5,
           "next_step": 6
         },
         {
-          "step_type": "SELECTION",
+          "step_type": "DIALOGUE",
+          "text": "[anger]¡AY! Qué miedo Carmen.",
+          "player": false,
+          "name": "Fina",
+          "animation": "AngryTalk",
+          "speed": 30.0,
           "index": 6,
+          "next_step": 7
+        },
+        {
+          "step_type": "SELECTION",
+          "index": 7,
           "options": [
             {
               "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na'...",
@@ -459,11 +459,11 @@
                   "value": true
                 }
               ],
-              "next_step": 7
+              "next_step": 8
             },
             {
               "text": "Estate tranquila Fina, lo que debes hacer es...",
-              "next_step": 8
+              "next_step": 9
             },
             {
               "text": "Tira pa' casa y enciérrate a cal y canto...",
@@ -479,7 +479,7 @@
                   "value": -4
                 }
               ],
-              "next_step":10
+              "next_step":11
             }
           ]
         },
@@ -489,7 +489,7 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 7,
+          "index": 8,
           "next_step": 0,
           "text": "No te preocupes tanto Fina. Seguro que esto es una cosilla de na' que se contagiarán cuatro descerebra'os y poco más."
         },
@@ -499,8 +499,8 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 8,
-          "next_step": 9,
+          "index": 9,
+          "next_step": 10,
           "text": "Estate tranquila Fina, lo que debes hacer es tomar todas las medidas de precaución que nos digan y evitar al máximo el salir de casa."
         },
         {
@@ -509,7 +509,7 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 9,
+          "index": 10,
           "next_step": 0,
           "text": "No sé el tiempo que estaremos así, pero tarde o temprano se solucionará. Paciencia, tranquilidad, y actúa con cabeza. De ésta saldremos adelante. ¡Ánimo Fina!"
         },
@@ -519,8 +519,8 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 10,
-          "next_step": 11,
+          "index": 11,
+          "next_step": 12,
           "text": "Tira pa' casa y enciérrate a cal y canto como si no hubiera un mañana."
         },
         {
@@ -529,8 +529,8 @@
           "name": "Carmen",
           "animation": "AngryTalk",
           "speed": 30.0,
-          "index": 11,
-          "next_step": 12,
+          "index": 12,
+          "next_step": 13,
           "text": "[anger]¡El mundo se va a acabar!"
         },
         {
@@ -539,7 +539,7 @@
           "name": "Carmen",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 12,
+          "index": 13,
           "next_step": 0,
           "text": "Vete corriendo al súper y coge to' lo que puedas como si fueses a estar una década encerrá' que lo más seguro e' que pase eso, tú hazme caso Fina que de estas cosas yo entiendo."
         }

@@ -1312,6 +1312,7 @@ MonoBehaviour:
   audio_source: {fileID: 0}
   current_character: 0
   new_day_sfx: {fileID: 8300000, guid: f5a89b02f7648204f9347cc39a8dff2f, type: 3}
+  prevScene: 
 --- !u!114 &154624313317857459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1434,7 +1435,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 72423ce34295cb240ae860bae040d94a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
   m_Pitch: 1
@@ -2107,6 +2108,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaskList
       objectReference: {fileID: 0}
+    - target: {fileID: 4028684464505827713, guid: f5bcc397378d08943998422ab21a1f10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2175,12 +2181,12 @@ PrefabInstance:
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
@@ -2705,12 +2711,12 @@ PrefabInstance:
     - target: {fileID: 9037581983620354588, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
       propertyPath: stat
-      value: Positivism
+      value: Health
       objectReference: {fileID: 0}
     - target: {fileID: 9037581983620354588, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
       propertyPath: max_stat
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9116069555455471104, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}

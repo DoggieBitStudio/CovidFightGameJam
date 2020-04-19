@@ -8534,9 +8534,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lavate las manos correctamente
-
-'
+  m_Text: "Prep\xE1rate para salir"
 --- !u!222 &2042240198
 CanvasRenderer:
   m_ObjectHideFlags: 0
