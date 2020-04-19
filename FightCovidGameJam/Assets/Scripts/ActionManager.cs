@@ -132,7 +132,7 @@ public class ActionManager : MonoBehaviour
         {
             case Actions.TELEVISION_WATCH:
                 {
-                    if ((sofa.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && !firstAction)
+                    if ((sofa.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 && !firstAction)
                     {
                         tv.GetComponent<AudioSource>().Play();
                         tv.transform.GetChild(0).gameObject.SetActive(true);
@@ -149,7 +149,7 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.TELEVISION_EXERCISE:
                 {
-                    if ((tv.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && !firstAction)
+                    if ((tv.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 && !firstAction)
                     {
                         tv.GetComponent<AudioSource>().PlayOneShot(danceMusic);
                         tv.transform.GetChild(0).gameObject.SetActive(true);
@@ -166,13 +166,13 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.READ:
                 {
-                    if ((shelf.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 &&  !firstAction && !secondAction)
+                    if ((shelf.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 &&  !firstAction && !secondAction)
                     {
                         book.SetActive(false);
                         agent.SetDestination(couch.transform.position);
                         firstAction = true;
                     }
-                    else if ((couch.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && firstAction && !secondAction)
+                    else if ((couch.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 && firstAction && !secondAction)
                     {
                         //Book
                         book.SetActive(true);
@@ -187,7 +187,7 @@ public class ActionManager : MonoBehaviour
                         agent.SetDestination(shelf.transform.position);
                         book.SetActive(false);
                     }
-                    else if ((shelf.transform.position - player.transform.position).sqrMagnitude < 3 && agent.remainingDistance == 0 && firstAction && secondAction)
+                    else if ((shelf.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 && firstAction && secondAction)
                     {
                         book.transform.position = bookPos.transform.position;
                         book.SetActive(true);
@@ -296,7 +296,7 @@ public class ActionManager : MonoBehaviour
                     {
                         agent.SetDestination(smartphonePos.transform.position);
                         smartphone.SetActive(false);
-                        if ((smartphonePos.transform.position - player.transform.position).sqrMagnitude < 3)
+                        if ((smartphonePos.transform.position - player.transform.position).sqrMagnitude < 5)
                         {
                             smartphone.SetActive(true);
                             smartphone.transform.position = smartphonePos.transform.position;
@@ -306,13 +306,13 @@ public class ActionManager : MonoBehaviour
                 }
                 break;
             case Actions.BUY_ONLINE:
-                if ((smartphone.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                if ((smartphone.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                 {
                     smartphone.SetActive(false);
                     agent.SetDestination(chair.transform.position);
                     firstAction = true;
                 }
-                else if((chair.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && !secondAction)
+                else if((chair.transform.position - player.transform.position).sqrMagnitude < 5 && firstAction && !secondAction)
                 {
                     smartphone.GetComponent<AudioSource>().PlayOneShot(openAppFx);
                     smartphone.SetActive(true);
@@ -327,7 +327,7 @@ public class ActionManager : MonoBehaviour
                 {
                     agent.SetDestination(smartphonePos.transform.position);
                     smartphone.SetActive(false);
-                    if ((smartphonePos.transform.position - player.transform.position).sqrMagnitude < 3)
+                    if ((smartphonePos.transform.position - player.transform.position).sqrMagnitude < 5)
                     {
                         smartphone.SetActive(true);
                         smartphone.transform.position = smartphonePos.transform.position;
@@ -364,7 +364,7 @@ public class ActionManager : MonoBehaviour
                         agent.SetDestination(swegingBox.transform.position);
                     }
                 }
-                else if ((swegingBox.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && secondAction)
+                else if ((swegingBox.transform.position - player.transform.position).sqrMagnitude < 5 && firstAction && secondAction)
                 {
                     firstAction = false;
                     swegingBox.GetComponent<AudioSource>().Play();
@@ -404,7 +404,7 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.TRASH_OUT:
                 {
-                    if ((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((houseDoor.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                     {
                         //OpenDoor
                         Color col = GameManager.instance.fade.color;
@@ -434,7 +434,7 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.WATER_PLANTS:
                 {
-                    if ((plant.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((plant.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                     {
                         //Water plants animation
                         firstAction = true;
@@ -452,7 +452,7 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.GO_BATHROOM:
                 {
-                    if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                     {
                         Color col = GameManager.instance.fade.color;
                         col.a += (float)0.5 * Time.deltaTime;
@@ -479,7 +479,7 @@ public class ActionManager : MonoBehaviour
                 }
                 break;
             case Actions.WASH_HANDS:
-                if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                 {
                     Color col = GameManager.instance.fade.color;
                     col.a += (float)0.5 * Time.deltaTime;
@@ -504,7 +504,7 @@ public class ActionManager : MonoBehaviour
                 }
                 break;
             case Actions.HYGIENE_GEL:
-                if ((hygieneGel.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                if ((hygieneGel.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                 {
                     hygieneGel.GetComponent<AudioSource>().Play();
                     FinalizeAction();
@@ -512,28 +512,37 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.TEST_PATIENTS:
                 {
-                    if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                     {
                         medicalCarrito.GetComponent<AudioSource>().Play();
                         firstAction = true;
                     }
-                    else if(firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying)
+                    else if (firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying && !secondAction)
+                    {
+                        agent.SetDestination(currentPatient.transform.position);
+                        secondAction = true;
+                    }
+                    else if ((currentPatient.transform.position - player.transform.position).sqrMagnitude < 5 && secondAction && firstAction)
                     {
                         currentPatient.GetComponent<AudioSource>().Play();
                         currentPatient.GetComponent<PatientData>().infected = true;
-
                         FinalizeHospitalAction();
                     }
                 }
                 break;
             case Actions.GIVE_MEDICAMENTS:
                 {
-                    if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                     {
                         medicalCarrito.GetComponent<AudioSource>().Play();
                         firstAction = true;
                     }
-                    else if (firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying)
+                    else if (firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying && !secondAction)
+                    {
+                        agent.SetDestination(currentPatient.transform.position);
+                        secondAction = true;
+                    }
+                    else if ((currentPatient.transform.position - player.transform.position).sqrMagnitude < 5 && secondAction && firstAction)
                     {
                         currentPatient.GetComponent<AudioSource>().Play();
                         FinalizeHospitalAction();
@@ -542,38 +551,33 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.RCP:
                 {
-                    if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                     {
                         medicalCarrito.GetComponent<AudioSource>().Play();
                         firstAction = true;
                     }
-                    else if (firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying)
+                    else if (firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying && !secondAction)
+                    {
+                        agent.SetDestination(currentPatient.transform.position);
+                        secondAction = true;
+                    }
+                    else if ((currentPatient.transform.position - player.transform.position).sqrMagnitude < 5 && secondAction && firstAction)
                     {
                         currentPatient.GetComponent<AudioSource>().Play();
+                        currentPatient.GetComponent<PatientData>().goodBye = true;
                         FinalizeHospitalAction();
                     }
                 }
                 break;
             case Actions.PATIENT_DEATH:
                 {
-                    {
-                        if ((medicalCarrito.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
-                        {
-                            medicalCarrito.GetComponent<AudioSource>().Play();
-                            firstAction = true;
-                        }
-                        else if (firstAction && !medicalCarrito.GetComponent<AudioSource>().isPlaying)
-                        {
-                            currentPatient.GetComponent<AudioSource>().Play();
-                            currentPatient.GetComponent<PatientData>().goodBye = true;
-                            FinalizeHospitalAction();
-                        }
-                    }
+                    FinalizeHospitalAction();
+                    currentPatient.GetComponent<PatientData>().dead = true;
                 }
                 break;
             case Actions.YOUTUBE_VIDEO:
                 {
-                    if ((smartphoneMed.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((smartphoneMed.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                     {
                         smartphoneMed.GetComponent<AudioSource>().Play();
                         firstAction = true;
@@ -696,6 +700,9 @@ public class ActionManager : MonoBehaviour
         if (currentAction != Actions.TAKE_WALK && currentAction != Actions.TRASH_OUT && currentAction != Actions.TALK_NEIGHBOUR)
             GameManager.instance.boolean_stats["Went_Out"] = false;
 
+        if(currentAction != Actions.YOUTUBE_VIDEO)
+            GameManager.instance.patient_manager.CheckTime(timePassed);
+
         firstAction = false;
         secondAction = false;
         isDoingAction = false;
@@ -705,10 +712,11 @@ public class ActionManager : MonoBehaviour
     void FinalizeHospitalAction()
     {
         GameManager.instance.AdvanceTime(timePassed);
-        GameManager.instance.AddHealth(healthGained);
         currentPatient.GetComponent<PatientData>().AddHealth(healthGained);
         
         GameManager.instance.AddPositivism(positivismGained);
+
+        GameManager.instance.patient_manager.CheckTime(timePassed);
 
         firstAction = false;
         secondAction = false;
@@ -718,10 +726,15 @@ public class ActionManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        player = GameObject.FindWithTag("Player");
+        if(player)
+        {
+            agent = player.GetComponent<NavMeshAgent>();
+            animator = player.GetComponentInChildren<Animator>();
+        }
+
         if (level == 0)
         {
-            player = GameObject.FindWithTag("Player");
-            agent = player.GetComponent<NavMeshAgent>();
             if (SceneManager.GetActiveScene().name == "Main")
             {
                 tv = GameObject.Find("Television");
@@ -742,15 +755,13 @@ public class ActionManager : MonoBehaviour
                 kitchen = GameObject.Find("Kitchen");
                 plant = GameObject.Find("Planta");
                 hygieneGel = GameObject.Find("Gel Desinfectante");
-                animator = player.GetComponentInChildren<Animator>();
                 table = GameObject.Find("Mesa");
             }
-            else if (SceneManager.GetActiveScene().name == "HospitalUpdated")
-            {
-                medicalCarrito = GameObject.Find("MedicalCarrito");
-            }
         }
-        //When change day we need to activate
-            // Planta no regada, poner que se pueda regar
+        if (SceneManager.GetActiveScene().name == "HospitalUpdated")
+        {
+            medicalCarrito = GameObject.Find("MedicalCarrito");
+            smartphoneMed = GameObject.Find("Móvil Medico");
+        }
     }
 }
