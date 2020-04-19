@@ -109,6 +109,34 @@ public class UIManager : MonoBehaviour
             img.texture = emojis[selection.int_requirement.stat];
             img.enabled = true;
         }
+
+        foreach (var item in selection.int_effects)
+        {
+            GameObject eff_obj = Instantiate(Resources.Load<GameObject>("UI/Effect_Image"), selection_go.transform.GetChild(2));
+            float scale = 1;
+
+            if (item.stat.Equals("Health"))
+            {
+                eff_obj.GetComponent<RawImage>().texture = item.value > 0 ? Resources.Load<Texture>("UI/Health_Positive"): Resources.Load<Texture>("UI/Health");
+                
+                if (Math.Abs(item.value) < 2.0)
+                    scale = 0.5f;
+            }
+            else
+            {
+                eff_obj.GetComponent<RawImage>().texture = item.value > 0 ? Resources.Load<Texture>("UI/green_face") : Resources.Load<Texture>("UI/Positivism");
+                if (Math.Abs(item.value) < 2.0)
+                    scale = 0.5f;
+                else if (Math.Abs(item.value) >= 4)
+                    scale = 1.5f;
+            }
+                
+
+
+
+            eff_obj.transform.localScale = new Vector3(scale, scale, 1);
+        }
+
         selection_go.GetComponent<Button>().onClick.AddListener(delegate { OnSelection(selection); });
 
         selection_go.transform.SetParent(selection_list.transform, false);

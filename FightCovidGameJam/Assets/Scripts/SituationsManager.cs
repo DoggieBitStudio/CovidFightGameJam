@@ -140,6 +140,7 @@ public class SituationsManager : MonoBehaviour
 
     public void StartNextSituation()
     {
+        Debug.Log(GameManager.instance.time + " " + day_situations[completed_today].activation_time);
         if (completed_today < day_situations.Count() && day_situations[completed_today].activation_time <= GameManager.instance.time)
         {
             current_situation = day_situations[completed_today];

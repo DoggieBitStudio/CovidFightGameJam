@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     bool show_stats = false;
     GUIStyle debug_style;
 
+    public string prevScene;
+
     private void Awake()
     {
         if (!instance)
@@ -127,16 +129,24 @@ public class GameManager : MonoBehaviour
     public void AddPositivism(int p)
     {
         instance.int_stats["Positivism"] += p;
+        if (instance.int_stats["Positivism"] < 0)
+            instance.int_stats["Positivism"] = 0;
+        else if (instance.int_stats["Positivism"] > 100)
+            instance.int_stats["Positivism"] = 100;
+
     }
 
     public void AddHealth(int h)
     {
-        if(instance.int_stats["Health"] > 0)
+        if (instance.int_stats["Health"] > 0)
             instance.int_stats["Health"] += h;
+        else if(instance.int_stats["Health"] >= 5)
+            instance.int_stats["Health"] = 5;
     }
 
     public void LoadSceneFade(string name)
     {
+        prevScene = SceneManager.GetActiveScene().name;
         fade.DOFade(1.0f, 2.0f).OnComplete(()=>LoadScene(name));
     }
 

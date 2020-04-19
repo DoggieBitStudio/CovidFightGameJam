@@ -10,7 +10,7 @@
           "text": "Se decreta el <color=#f1ce51ff>estado de alarma</color> en nuestro país durante los\npróximos 15 días.",
           "player": false,
           "name": "Presentador",
-          "animation": "Think",
+          "animation": "Talk",
           "speed": 30.0,
           "index": 0,
           "next_step": 1
@@ -33,6 +33,23 @@
           "animation": "Talk",
           "speed": 30.0,
           "index": 2,
+          "next_step": 0
+        }
+      ]
+    },
+    {
+      "identifier": "Random_Text",
+      "activation_time": 8,
+      "duration": 0,
+      "sequence": [
+        {
+          "step_type": "DIALOGUE",
+          "text": "Parece que voy a estar mucho tiempo sin poder salir, estaría bien pensar en como pasar el tiempo en casa sin que me coman las paredes.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 0,
           "next_step": 0
         }
       ]
@@ -90,7 +107,7 @@
               "effect": [
                 {
                   "stat": "Health",
-                  "value": -1
+                  "value": -2
                 },
                 {
                   "stat": "Positivism",
