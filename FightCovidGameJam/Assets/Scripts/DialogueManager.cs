@@ -66,8 +66,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        player_model_position = Camera.main.transform.GetChild(0);
-        npc_model_position = Camera.main.transform.GetChild(1);
+
     }
     // Update is called once per frame
     void Update()
@@ -227,10 +226,10 @@ public class DialogueManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        if(level == 0)
+        if(level == 0 || level == 2)
         {
-            player_model_position = GameObject.Find("PlayerModelPosition").transform;
-            npc_model_position = GameObject.Find("NPCModelPosition").transform;
+            player_model_position = Camera.main.transform.GetChild(0);
+            npc_model_position = Camera.main.transform.GetChild(1);
         }
     }
 }
