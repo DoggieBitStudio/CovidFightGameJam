@@ -68,7 +68,7 @@ public class SituationsManager : MonoBehaviour
             case Step_Type.DOCTOR_VOTE:
                 break;
             case Step_Type.MOVE_TO:
-                if (GameManager.instance.action_manager.agent.remainingDistance == 0)
+                if ((GameManager.instance.action_manager.agent.destination - GameManager.instance.action_manager.player.transform.position).sqrMagnitude < 3)
                 {
                     GameManager.instance.ui_opened = false;
                     OnStepFinish();

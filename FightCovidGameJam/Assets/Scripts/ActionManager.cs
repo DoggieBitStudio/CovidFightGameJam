@@ -340,7 +340,6 @@ public class ActionManager : MonoBehaviour
             case Actions.CRAFT_MASK:
                 if ((bathroomDoor.transform.position - player.transform.position).sqrMagnitude < 5 && !firstAction)
                 {
-                    GameManager.instance.fade.gameObject.SetActive(true);
                     Color col = GameManager.instance.fade.color;
                     col.a += (float)0.5 * Time.deltaTime;
                     GameManager.instance.fade.color = col;
@@ -359,7 +358,6 @@ public class ActionManager : MonoBehaviour
 
                     if (col.a <= 0)
                     {
-                        GameManager.instance.fade.gameObject.SetActive(false);
                         secondAction = true;
                         agent.SetDestination(swegingBox.transform.position);
                     }
