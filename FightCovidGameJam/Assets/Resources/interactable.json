@@ -53,7 +53,7 @@
       "optionText": "Ir a hablar con la vecina",
       "time": 60,
       "positivism": 10,
-	    "health": -1
+      "health": -1
     },
     {
       "action": 5,
@@ -148,6 +148,145 @@
       "optionText": "Desinfectarse las manos",
       "time": 5,
       "health": 2
+    }
+  ],
+  "Camilla 1": [
+    {
+      "action": 17,
+      "optionText": "Hacer pruebas",
+      "time": 60
+    },
+    {
+      "action": 18,
+      "optionText": "Darle medicamentos",
+      "time": 20,
+      "health": 1
+    },
+    {
+      "action": 19,
+      "optionText": "Realizar RCP",
+      "time": 10,
+      "health": 1
+    },
+    {
+      "action": 20,
+      "optionText": "Despedirse del paciente",
+      "time": 10,
+      "positivism": -3
+    }
+  ],
+  "Camilla 2": [
+    {
+      "action": 17,
+      "optionText": "Hacer pruebas",
+      "time": 60
+    },
+    {
+      "action": 18,
+      "optionText": "Darle medicamentos",
+      "time": 20,
+      "health": 1
+    },
+    {
+      "action": 19,
+      "optionText": "Realizar RCP",
+      "time": 10,
+      "health": 1
+    },
+    {
+      "action": 20,
+      "optionText": "Despedirse del paciente",
+      "time": 10,
+      "positivism": -3
+    }
+  ],
+  "Camilla 3": [
+    {
+      "action": 17,
+      "optionText": "Hacer pruebas",
+      "health": 60
+    },
+    {
+      "action": 18,
+      "optionText": "Darle medicamentos",
+      "time": 20,
+      "health": 1
+    },
+    {
+      "action": 19,
+      "optionText": "Realizar RCP",
+      "time": 10,
+      "health": 1
+    },
+    {
+      "action": 20,
+      "optionText": "Despedirse del paciente",
+      "time": 10,
+      "positivism": -3
+    }
+  ],
+  "Camilla 4": [
+    {
+      "action": 17,
+      "optionText": "Hacer pruebas",
+      "time": 60
+    },
+    {
+      "action": 18,
+      "optionText": "Darle medicamentos",
+      "time": 20,
+      "health": 1
+    },
+    {
+      "action": 19,
+      "optionText": "Realizar RCP",
+      "time": 10,
+      "health": 1
+    },
+    {
+      "action": 20,
+      "optionText": "Despedirse del paciente",
+      "time": 10,
+      "positivism": -3
+    }
+  ],
+  "Camilla 5": [
+    {
+      "action": 17,
+      "optionText": "Hacer pruebas",
+      "time": 60
+    },
+    {
+      "action": 18,
+      "optionText": "Darle medicamentos",
+      "time": 20,
+      "health": 1
+    },
+    {
+      "action": 19,
+      "optionText": "Realizar RCP",
+      "time": 10,
+      "health": 1
+    },
+    {
+      "action": 20,
+      "optionText": "Despedirse del paciente",
+      "time": 10,
+      "positivism": -3
+    }
+  ],
+  "Móvil Med": [
+    {
+      "action": 21,
+      "optionText": "Hacer video para youtube explicando medidas",
+      "time": 60,
+      "positivism": 5
+    },
+    {
+      "action": 22,
+      "optionText": "Hacer video dando gracias por los aplausos",
+      "time": 60,
+      "positivism": 5
     }
   ]
 }

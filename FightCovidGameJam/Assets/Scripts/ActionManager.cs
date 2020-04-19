@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ActionManager : MonoBehaviour
 {
@@ -19,13 +20,20 @@ public class ActionManager : MonoBehaviour
         BUY_ONLINE = 7,
         CRAFT_MASK = 8,
         WASH_MASK_RIGHT = 9,
-        WASH_MASK_WRONG = 16,
         TRASH_OUT = 10,
         WATER_PLANTS = 11,
         DINNER = 12,
         GO_BATHROOM = 13,
         WASH_HANDS = 14,
-        HYGIENE_GEL = 15
+        HYGIENE_GEL = 15,
+        WASH_MASK_WRONG = 16,
+        TEST_PATIENTS = 17,
+        GIVE_MEDICAMENTS = 18,
+        RCP = 19,
+        PATIENT_DEATH = 20,
+        YOUTUBE_VIDEO = 21,
+        CLAP_VIDEO = 22
+
     }
     Actions currentAction = Actions.NONE;
 
@@ -56,6 +64,9 @@ public class ActionManager : MonoBehaviour
     GameObject hygieneGel;
     GameObject table;
 
+    GameObject medicalCarrito;
+    GameObject smartphoneMed;
+
     AudioSource houseDoorSource;
 
     //Player
@@ -78,26 +89,34 @@ public class ActionManager : MonoBehaviour
     {
         player = GameObject.Find("MariCarmen");
         agent = player.GetComponent<NavMeshAgent>();
-        animator = player.GetComponentInChildren<Animator>();
-        tv = GameObject.Find("Television");
-        sofa = GameObject.Find("Sofa");
-        shelf = GameObject.Find("Estantería");
-        couch = GameObject.Find("Sillón");
-        book = GameObject.Find("Book");
-        bookPos = GameObject.Find("BookPos");
-        houseDoor = GameObject.Find("Puerta");
-        houseDoorSource = houseDoor.GetComponent<AudioSource>();
-        neighbourDoor = GameObject.Find("Puerta Vecino");
-        smartphone = GameObject.Find("Móvil");
-        smartphonePos = GameObject.Find("SmartphonePos");
-        bathroomDoor = GameObject.Find("Lavabo");
-        chair = GameObject.Find("Silla");
-        swegingBox = GameObject.Find("Costurero");
-        washingMachine = GameObject.Find("Lavadora");
-        kitchen = GameObject.Find("Kitchen");
-        plant = GameObject.Find("Planta");
-        hygieneGel = GameObject.Find("Gel Desinfectante");
-        table = GameObject.Find("Mesa");
+        if (SceneManager.GetActiveScene().name == "Main")
+        {
+            animator = player.GetComponentInChildren<Animator>();
+            tv = GameObject.Find("Television");
+            sofa = GameObject.Find("Sofa");
+            shelf = GameObject.Find("Estantería");
+            couch = GameObject.Find("Sillón");
+            book = GameObject.Find("Book");
+            bookPos = GameObject.Find("BookPos");
+            houseDoor = GameObject.Find("Puerta");
+            houseDoorSource = houseDoor.GetComponent<AudioSource>();
+            neighbourDoor = GameObject.Find("Puerta Vecino");
+            smartphone = GameObject.Find("Móvil");
+            smartphonePos = GameObject.Find("SmartphonePos");
+            bathroomDoor = GameObject.Find("Lavabo");
+            chair = GameObject.Find("Silla");
+            swegingBox = GameObject.Find("Costurero");
+            washingMachine = GameObject.Find("Lavadora");
+            kitchen = GameObject.Find("Kitchen");
+            plant = GameObject.Find("Planta");
+            hygieneGel = GameObject.Find("Gel Desinfectante");
+            table = GameObject.Find("Mesa");
+        }
+        else if(SceneManager.GetActiveScene().name == "HospitalUpdated")
+        {
+            medicalCarrito = GameObject.Find("MedicalCarrito");
+            smartphoneMed = GameObject.Find("Móvil Medico");
+        }
     }
 
     // Update is called once per frame
@@ -489,6 +508,24 @@ public class ActionManager : MonoBehaviour
                     FinalizeAction();
                 }
                 break;
+            case Actions.TEST_PATIENTS:
+                { }
+                break;
+            case Actions.GIVE_MEDICAMENTS:
+                { }
+                break;
+            case Actions.RCP:
+                { }
+                break;
+            case Actions.PATIENT_DEATH:
+                { }
+                break;
+            case Actions.YOUTUBE_VIDEO:
+                { }
+                break;
+            case Actions.CLAP_VIDEO:
+                { }
+                break;
         }
     }
 
@@ -549,6 +586,24 @@ public class ActionManager : MonoBehaviour
             case Actions.HYGIENE_GEL:
                 agent.SetDestination(hygieneGel.transform.position);
                 break;
+            case Actions.TEST_PATIENTS:
+                agent.SetDestination(medicalCarrito.transform.position);
+                break;
+            case Actions.GIVE_MEDICAMENTS:
+                agent.SetDestination(medicalCarrito.transform.position);
+                break;
+            case Actions.RCP:
+                agent.SetDestination(medicalCarrito.transform.position);
+                break;
+            case Actions.PATIENT_DEATH:
+                agent.SetDestination(medicalCarrito.transform.position);
+                break;
+            case Actions.YOUTUBE_VIDEO:
+                agent.SetDestination(smartphoneMed.transform.position);
+                break;
+            case Actions.CLAP_VIDEO:
+                agent.SetDestination(smartphoneMed.transform.position);
+                break;
 
         }
         timePassed = (float)time;
@@ -579,32 +634,38 @@ public class ActionManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        if(level == 0)
+        if (level == 0)
         {
             player = GameObject.Find("MariCarmen");
             agent = player.GetComponent<NavMeshAgent>();
-            tv = GameObject.Find("Television");
-            sofa = GameObject.Find("Sofa");
-            shelf = GameObject.Find("Estantería");
-            couch = GameObject.Find("Sillón");
-            book = GameObject.Find("Book");
-            bookPos = GameObject.Find("BookPos");
-            houseDoor = GameObject.Find("Puerta");
-            houseDoorSource = houseDoor.GetComponent<AudioSource>();
-            neighbourDoor = GameObject.Find("Puerta Vecino");
-            smartphone = GameObject.Find("Móvil");
-            smartphonePos = GameObject.Find("SmartphonePos");
-            bathroomDoor = GameObject.Find("Lavabo");
-            chair = GameObject.Find("Silla");
-            swegingBox = GameObject.Find("Costurero");
-            washingMachine = GameObject.Find("Lavadora");
-            kitchen = GameObject.Find("Kitchen");
-            plant = GameObject.Find("Planta");
-            hygieneGel = GameObject.Find("Gel Desinfectante");
-            animator = player.GetComponentInChildren<Animator>();
-            table = GameObject.Find("Mesa");
+            if (SceneManager.GetActiveScene().name == "Main")
+            {
+                tv = GameObject.Find("Television");
+                sofa = GameObject.Find("Sofa");
+                shelf = GameObject.Find("Estantería");
+                couch = GameObject.Find("Sillón");
+                book = GameObject.Find("Book");
+                bookPos = GameObject.Find("BookPos");
+                houseDoor = GameObject.Find("Puerta");
+                houseDoorSource = houseDoor.GetComponent<AudioSource>();
+                neighbourDoor = GameObject.Find("Puerta Vecino");
+                smartphone = GameObject.Find("Móvil");
+                smartphonePos = GameObject.Find("SmartphonePos");
+                bathroomDoor = GameObject.Find("Lavabo");
+                chair = GameObject.Find("Silla");
+                swegingBox = GameObject.Find("Costurero");
+                washingMachine = GameObject.Find("Lavadora");
+                kitchen = GameObject.Find("Kitchen");
+                plant = GameObject.Find("Planta");
+                hygieneGel = GameObject.Find("Gel Desinfectante");
+                animator = player.GetComponentInChildren<Animator>();
+                table = GameObject.Find("Mesa");
+            }
+            else if (SceneManager.GetActiveScene().name == "HospitalUpdated")
+            {
+                medicalCarrito = GameObject.Find("MedicalCarrito");
+            }
         }
-
         //When change day we need to activate
             // Planta no regada, poner que se pueda regar
     }
