@@ -223,6 +223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9116069556598681030}
   - component: {fileID: 9116069556598681029}
+  - component: {fileID: 9037581983620354588}
   m_Layer: 5
   m_Name: Health
   m_TagString: Untagged
@@ -237,7 +238,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9116069556598681031}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -303,6 +304,22 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9037581983620354588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9116069556598681031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e0b2b77461e4714fbc2970b5642b1d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  full_color: {r: 0, g: 1, b: 0, a: 1}
+  low_color: {r: 1, g: 0, b: 0, a: 1}
+  stat: Health
+  max_stat: 10
 --- !u!1 &9116069556626555538
 GameObject:
   m_ObjectHideFlags: 0
