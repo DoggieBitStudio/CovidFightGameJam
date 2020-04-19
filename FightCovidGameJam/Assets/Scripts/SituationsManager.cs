@@ -198,7 +198,7 @@ public class SituationsManager : MonoBehaviour
                 break;
             case Step_Type.FINISH:
                 GameManager.instance.ui_opened = true;
-                GameObject.FindGameObjectWithTag("Black").SetActive(true);
+                GameObject.FindGameObjectWithTag("Black").GetComponent<MeshRenderer>().enabled = true;
                 GameManager.instance.ui_manager.time_text.gameObject.transform.parent.gameObject.SetActive(false);
                 GameManager.instance.ui_manager.mask_ui.gameObject.transform.parent.gameObject.SetActive(false);
                 OnStepFinish();

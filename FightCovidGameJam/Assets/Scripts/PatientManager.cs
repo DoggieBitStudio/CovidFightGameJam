@@ -34,6 +34,7 @@ public class PatientManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
+        patient.Clear();
         for (int i = 1; i <= maxCamillas; ++i)
         {
             patient.Add(GameObject.Find("Camilla " + i));
