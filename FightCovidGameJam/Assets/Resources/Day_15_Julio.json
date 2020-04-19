@@ -36,7 +36,7 @@
           "step_type": "DIALOGUE",
           "text": "Julio, parece que no va a haber mascarillas suficientes hasta que nos abastezcan con más.",
           "player": false,
-          "name": "Adrián",
+          "name": "Adrian",
           "animation": "Talk",
           "speed": 30.0,
           "index": 0,
