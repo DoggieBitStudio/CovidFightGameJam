@@ -1139,7 +1139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &154624313087017050
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1226,7 +1226,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &154624313196774920
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1281,7 +1281,7 @@ Transform:
   m_GameObject: {fileID: 154624313317857460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0000002, y: 1, z: 1.0000002}
   m_Children:
   - {fileID: 154624313468197620}
   m_Father: {fileID: 0}
@@ -1304,13 +1304,16 @@ MonoBehaviour:
   dialogue_manager: {fileID: 0}
   ui_manager: {fileID: 0}
   action_manager: {fileID: 0}
+  patient_manager: {fileID: 0}
   fade: {fileID: 668610987545864464}
   ui_opened: 0
-  new_day: 1
+  new_day: 0
   change_character: 0
   character_text: {fileID: 154624313334618064}
   day_text: {fileID: 154624313558656918}
   audio_source: {fileID: 0}
+  carmen_day: 1
+  julio_day: 1
   current_character: 0
   new_day_sfx: {fileID: 8300000, guid: f5a89b02f7648204f9347cc39a8dff2f, type: 3}
   prevScene: 
@@ -1399,7 +1402,7 @@ MonoBehaviour:
   - name: Presidente
     prefab: {fileID: 6849708609886846192, guid: cb3adeab2f9771746a535448435f1284,
       type: 3}
-  - name: Julian
+  - name: Julio
     prefab: {fileID: 5418899754528459646, guid: 8819b0063dc4ca649ac10027b0760bcd,
       type: 3}
   - name: Adrian
@@ -1412,7 +1415,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154624313317857460}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 749aabab606ffe044bfb15ac4aaedefb, type: 3}
   m_Name: 
@@ -1536,6 +1539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   patient: []
   maxCamillas: 5
+  previous_time: 0
+  current_time: 0
 --- !u!1 &154624313334618066
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,12 +2201,12 @@ PrefabInstance:
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
@@ -2274,7 +2279,7 @@ PrefabInstance:
     - target: {fileID: 943182330321486558, guid: eff0804bfa7f52c4583d88b6d6374d2f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 943182330321486558, guid: eff0804bfa7f52c4583d88b6d6374d2f,
         type: 3}
@@ -2289,7 +2294,7 @@ PrefabInstance:
     - target: {fileID: 943182330321486558, guid: eff0804bfa7f52c4583d88b6d6374d2f,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 943182330627175731, guid: eff0804bfa7f52c4583d88b6d6374d2f,
         type: 3}
@@ -2736,12 +2741,12 @@ PrefabInstance:
     - target: {fileID: 9116069555455471104, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9116069555455471104, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9116069555455471104, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}

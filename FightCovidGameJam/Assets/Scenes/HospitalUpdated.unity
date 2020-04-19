@@ -873,7 +873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 158d23c8ec48230459f75769ff868cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 50
+  distance: 210
 --- !u!195 &847091495
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5968,7 +5968,6 @@ GameObject:
   - component: {fileID: 1359609917}
   - component: {fileID: 1359609920}
   - component: {fileID: 1359609919}
-  - component: {fileID: 1359609918}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Black
@@ -5990,19 +5989,6 @@ Transform:
   m_Father: {fileID: 976928777}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1359609918
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359609916}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1359609919
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8244,6 +8230,11 @@ PrefabInstance:
       propertyPath: npc_model_position
       value: 
       objectReference: {fileID: 654320154}
+    - target: {fileID: 154624313317857456, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 154624313317857457, guid: 041e1b370f7bfd542b0decb0d91d8c95,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/News.unity
+    guid: 5d56f7cc49f549346a201909397deb6c
+  - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: 0d63b91896defbe43868236b277480e6
   - enabled: 1
@@ -14,7 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HospitalUpdated.unity
     guid: 4cf17249e201f714790c60e33a00efed
-  - enabled: 1
-    path: Assets/Scenes/News.unity
-    guid: 5d56f7cc49f549346a201909397deb6c
   m_configObjects: {}
