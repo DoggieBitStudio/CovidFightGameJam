@@ -90,7 +90,7 @@
               "effect": [
                 {
                   "stat": "Health",
-                  "value": -1
+                  "value": -2
                 },
                 {
                   "stat": "Positivism",
