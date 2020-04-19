@@ -15,7 +15,8 @@ public enum Step_Type
     DOCTOR_VOTE,
     MOVE_TO,
     PLAY_ANIMATION,
-    FADE
+    FADE,
+    FINISH
 }
 
 [System.Serializable]
