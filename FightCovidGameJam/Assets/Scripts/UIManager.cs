@@ -53,6 +53,15 @@ public class UIManager : MonoBehaviour
         CloseTask();
     }
 
+    public void RealizeActionHospital(GameObject patient, int action, uint time, int health, int positivism)
+    {
+        double decimal_time = (float)time / 60.0;
+        GameManager.instance.action_manager.DoActionHospital(patient, action, decimal_time, health, positivism);
+
+        CloseTask();
+    }
+
+
     public void Update()
     {
         if (Input.GetKey(KeyCode.F3))
@@ -88,26 +97,31 @@ public class UIManager : MonoBehaviour
         GameObject selection_go = Instantiate(selection_prefab);
         selection_go.GetComponentInChildren<Text>().text = selection.text;
 
-        if (GameManager.instance.boolean_stats.ContainsKey(selection.bool_requirement.stat) 
-            && GameManager.instance.boolean_stats[selection.bool_requirement.stat] != selection.bool_requirement.value)
+        foreach (var item in selection.bool_requirements)
         {
-            selection_go.GetComponent<Image>().color = Color.gray;
-            selection_go.GetComponent<Button>().interactable = false;
+            if (GameManager.instance.boolean_stats[item.stat] != item.value)
+            {
+                selection_go.GetComponent<Image>().color = Color.gray;
+                selection_go.GetComponent<Button>().interactable = false;
 
-            RawImage img = selection_go.GetComponentInChildren<RawImage>();
-            Debug.Log(selection.bool_requirement.stat);
-            img.texture = emojis[selection.bool_requirement.stat];
-            img.enabled = true;
+                RawImage img = selection_go.GetComponentInChildren<RawImage>();
+                img.texture = emojis[item.stat];
+                img.enabled = true;
+                break;
+            }
         }
-        else if (GameManager.instance.int_stats.ContainsKey(selection.int_requirement.stat) 
-            && GameManager.instance.int_stats[selection.int_requirement.stat] < selection.int_requirement.value)
+        foreach (var item in selection.int_requirements)
         {
-            selection_go.GetComponent<Image>().color = Color.gray;
-            selection_go.GetComponent<Button>().interactable = false;
+            if (GameManager.instance.int_stats[item.stat] < item.value)
+            {
+                selection_go.GetComponent<Image>().color = Color.gray;
+                selection_go.GetComponent<Button>().interactable = false;
 
-            RawImage img = selection_go.GetComponentInChildren<RawImage>();
-            img.texture = emojis[selection.int_requirement.stat];
-            img.enabled = true;
+                RawImage img = selection_go.GetComponentInChildren<RawImage>();
+                img.texture = emojis[item.stat];
+                img.enabled = true;
+                break;
+            }
         }
 
         foreach (var item in selection.int_effects)
@@ -130,9 +144,6 @@ public class UIManager : MonoBehaviour
                 else if (Math.Abs(item.value) >= 4)
                     scale = 1.5f;
             }
-                
-
-
 
             eff_obj.transform.localScale = new Vector3(scale, scale, 1);
         }

@@ -88,11 +88,18 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
             boolean_stats.Add("Doctor_Out", false);
+            boolean_stats.Add("More_Sick_People", false);
+
+            boolean_stats.Add("Carmen_Depressed", false);
+            boolean_stats.Add("End_Normal", false);
+            boolean_stats.Add("End_Child_Live", false);
+            boolean_stats.Add("End_Child_Die", false);
+            
 
             debug_style = new GUIStyle();
             debug_style.fontSize = 22;
             debug_style.normal.textColor = Color.red;
-            new_day = true;
+            new_day = false;
         }
         else
             Destroy(gameObject);
@@ -180,9 +187,15 @@ public class GameManager : MonoBehaviour
 
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
+        if(prevScene == "News")
+        {
+            new_day = true;
+            action_manager.enabled = true;
+            ui_manager.time_text.gameObject.transform.parent.gameObject.SetActive(true);
+            ui_manager.mask_ui.gameObject.transform.parent.gameObject.SetActive(true);
+        }
         ui_opened = true;
         HideFade();
-        situations_manager.OnLevelFinshedLoading(scene);
     }
 
 
@@ -204,7 +217,7 @@ public class GameManager : MonoBehaviour
     void HidePrepTexts()
     {
         day_text.DOFade(0.0f, 2.0f);
-        character_text.DOFade(0.0f, 2.0f).OnComplete(situations_manager.StartSituation);
+        character_text.DOFade(0.0f, 2.0f).OnComplete(() => situations_manager.OnLevelFinshedLoading(SceneManager.GetActiveScene()));
         ui_opened = false;
     }
 
@@ -218,10 +231,12 @@ public class GameManager : MonoBehaviour
         {
             fade.DOFade(0.0f, 2.0f);
             ui_opened = false;
-            if (prevScene == "bathroom")
-                situations_manager.OnStepFinish();
-        }         
-    }
+        }
+
+        if (prevScene == "bathroom")
+            situations_manager.OnStepFinish();        
+    }         
+   
 
     void NewDay()
     {
@@ -239,6 +254,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         character_text.DOFade(1.0f, 2.0f).OnComplete(ShowDayText);
+
         new_day = false;
     }
 

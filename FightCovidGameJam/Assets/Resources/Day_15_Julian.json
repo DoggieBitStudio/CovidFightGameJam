@@ -49,10 +49,6 @@
           "options": [
             {
               "text": "Vamos a tener que reutilizar...",
-              "stat_requirement": {
-                "stat": "Positivism",
-                "value": 50
-              },
               "next_step": 2
             },
             {
@@ -63,28 +59,38 @@
                   "value": -1
                 }
               ],
-              "next_step": 3
+              "next_step": 4
             }
           ]
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Vamos a tener que reutilizar.",
+          "text": "Vamos a tener que reutilizar las mascarillas. Introdúcelas en una dilución de lejía 1:50 con agua tibia durante 30 minutos.",
           "player": true,
           "name": "Julian",
           "animation": "Talk",
           "speed": 30.0,
           "index": 2,
+          "next_step": 3
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Después lavalas con agua y jabón y acláralas bien para eliminar cualquier resto de lejía y dejalas secar.",
+          "player": true,
+          "name": "Julian",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 3,
           "next_step": 0
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Yo ya estoy hasta arriba y no voy a poder atender a más, busca a otro médico que tenga más tiempo libre.",
+          "text": "Continuemos sin mascarillas, no podemos parar y la culpa del desabastecimiento no es nuestra. En la conciencia de otro quedará.",
           "player": true,
           "name": "Julian",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 3,
+          "index": 4,
           "next_step": 0
         }
       ]
@@ -96,17 +102,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Ya se oyen los ánimos de la gente, hoy cambiaban la hora a las 8 para que los niños también participaran.",
-          "player": true,
-          "name": "Julian",
-          "animation": "Think",
-          "speed": 30.0,
-          "index": 0,
-          "next_step": 1
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "No sé a quién se le habrá ocurrido esta iniciativa, pero la verdad es que si que anima mucho. La participación es más alta de lo que esperaba. ¡Gracias!",
+          "text": "Ya son las ocho. Cada vez se oye a más gente aplaudiendo... son incansables... escucharlos me anima... aún hay esperanza.",
           "player": true,
           "name": "Julian",
           "animation": "Think",
@@ -118,12 +114,12 @@
     },
     {
       "identifier": "Leave_work",
-      "activation_time": 22,
+      "activation_time": 23,
       "duration": 7,
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Ya se está haciendo tarde y llevo todo el día trabajando. Necesito irme a descansar un rato para estar más fresco mañana.",
+          "text": "Necesito irme a descansar un rato para estar más fresco mañana.",
           "player": true,
           "name": "Julian",
           "animation": "Think",

@@ -68,6 +68,11 @@ public class CharacterOrthController : MonoBehaviour
                     hit.collider.gameObject.GetComponent<Interactable>().OnTap(hit.point);
                     MoveToDestination(hit.point);
                 }
+                else if (hit.collider.CompareTag("SelectableHospital") && !uiManager.isTaskMenuOpen && !GameManager.instance.action_manager.isDoingAction && !GameManager.instance.ui_opened)
+                {
+                    hit.collider.gameObject.GetComponent<Interactable>().OnTapHospital(hit.point);
+                    MoveToDestination(hit.point);
+                }
             }
         }
     }
@@ -89,6 +94,11 @@ public class CharacterOrthController : MonoBehaviour
                 if (hit.collider.CompareTag("Selectable") && !uiManager.isTaskMenuOpen && !GameManager.instance.action_manager.isDoingAction && !GameManager.instance.ui_opened)
                 {
                     hit.collider.gameObject.GetComponent<Interactable>().OnTap(hit.point);
+                    MoveToDestination(hit.point);
+                }
+                else if (hit.collider.CompareTag("SelectableHospital") && !uiManager.isTaskMenuOpen && !GameManager.instance.action_manager.isDoingAction && !GameManager.instance.ui_opened)
+                {
+                    hit.collider.gameObject.GetComponent<Interactable>().OnTapHospital(hit.point);
                     MoveToDestination(hit.point);
                 }
             }
