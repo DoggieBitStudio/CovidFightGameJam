@@ -87,10 +87,12 @@
           "options": [
             {
               "text": "Salir a que haga sus necesidades.",
-              "stat_requirement": {
-                "stat": "Positivism",
-                "value": 50
-              },
+              "stat_requirement": [
+                {
+                  "stat": "Positivism",
+                  "value": 50
+                }
+              ],
               "time_investment": 20,
               "next_step": 3
             },
@@ -125,7 +127,23 @@
         {
           "step_type": "BATHROOM",
           "index": 3,
-          "next_step": 0
+          "next_step": 4
+        },
+        {
+          "step_type": "MOVE_TO",
+          "index": 4,
+          "next_step": 5,
+          "position": {
+            "x": -3,
+            "y": 2.3,
+            "z": -12
+          }
+        },
+        {
+          "step_type": "FADE",
+          "time": 2,
+          "index": 5,
+          "next_step": 6
         }
       ]
     },
@@ -150,10 +168,12 @@
           "options": [
             {
               "text": "Contestar a través de la puerta sin abrirla.",
-              "stat_requirement": {
-                "stat": "Positivism",
-                "value": 60
-              },
+              "stat_requirement": [
+                {
+                  "stat": "Positivism",
+                  "value": 60
+                }
+              ],
               "effect": [
                 {
                   "stat": "DoorClosed",
@@ -270,10 +290,12 @@
             },
             {
               "text": "De ninguna manera le pueden echar, pero ¿en qué mundo vivimos?...",
-              "stat_requirement": {
-                "stat": "Clap",
-                "value": true
-              },
+              "stat_requirement": [
+                {
+                  "stat": "Clap",
+                  "value": true
+                }
+              ],
               "effect": [
                 {
                   "stat": "Positivism",
@@ -333,7 +355,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Me faltan provisiones para aguantar el confinamiento, pero antes de todo necesito hacer una lista de la compra para tener claras las prioridades ante esta situación.",
+          "text": "Haré una lista de la compra con todo lo que necesito comprar para tener claras las prioridades.",
           "player": true,
           "name": "Carmen",
           "animation": "Think",
@@ -394,7 +416,23 @@
         {
           "step_type": "BATHROOM",
           "index": 2,
-          "next_step": 0
+          "next_step": 3
+        },
+        {
+          "step_type": "MOVE_TO",
+          "index": 3,
+          "next_step": 4,
+          "position": {
+            "x": -3,
+            "y": 2.3,
+            "z": -12
+          }
+        },
+        {
+          "step_type": "FADE",
+          "time": 2,
+          "index": 4,
+          "next_step": 5
         }
       ]
     },
@@ -549,10 +587,12 @@
           "speed": 30.0,
           "index": 0,
           "next_step": 2,
-          "stat_requirement": {
-            "stat": "Positivism",
-            "value": 50
-          }
+          "stat_requirement": [
+            {
+              "stat": "Positivism",
+              "value": 50
+            }
+          ]
         },
         {
           "step_type": "DIALOGUE",

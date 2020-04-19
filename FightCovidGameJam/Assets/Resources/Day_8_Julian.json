@@ -49,10 +49,22 @@
           "options": [
             {
               "text": "Mientras haya camas libres, yo me ocuparé de ellos...",
-              "stat_requirement": {
-                "stat": "Positivism",
-                "value": 50
-              },
+              "stat_requirement": [
+                {
+                  "stat": "Positivism",
+                  "value": 50
+                }
+              ],
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": 1
+                },
+                {
+                  "stat": "More_Sick_People",
+                  "value": true
+                }
+              ],
               "next_step": 2
             },
             {
@@ -111,8 +123,8 @@
           "name": "Julian",
           "animation": "Think",
           "speed": 30.0,
-          "index": 0,
-          "next_step": 1
+          "index": 1,
+          "next_step": 2
         }
       ]
     },
@@ -123,7 +135,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Ya se está haciendo tarde y llevo todo el día trabajando. Necesito irme a descansar un rato para estar más fresco mañana.",
+          "text": "Estoy agotado. Mejor me voy a descansar para continuar la lucha mañana con más fuerza.",
           "player": true,
           "name": "Julian",
           "animation": "Think",
