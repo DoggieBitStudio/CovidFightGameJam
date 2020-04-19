@@ -325,7 +325,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Estas gotículas caen sobre los objetos y superficies que rodean a la persona, de modo que otras personas pueden contraer la COVID-19 si tocan estos objetos o superficies y luego se tocan los ojos, la nariz o la boca.",
+          "text": "Estas gotículas caen sobre los objetos y superficies que rodean a la persona, de modo que otras personas pueden contraer la COVID-19 si tocan estos objetos o superficies...",
           "player": true,
           "name": "Julian",
           "animation": "Talk",
@@ -335,7 +335,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "También pueden contagiarse si inhalan las gotículas que haya esparcido una persona con COVID-19 al toser o exhalar.",
+          "text": "...y luego se tocan los ojos, la nariz o la boca.",
           "player": true,
           "name": "Julian",
           "animation": "Talk",
@@ -345,9 +345,9 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Entonces, ¿qué debemos hacer para protegernos y para evitar la propagación del COVID-19?",
-          "player": false,
-          "name": "Presentador",
+          "text": "También pueden contagiarse si inhalan las gotículas que haya esparcido una persona con COVID-19 al toser o exhalar.",
+          "player": true,
+          "name": "Julian",
           "animation": "Talk",
           "speed": 30.0,
           "index": 34,
@@ -355,9 +355,9 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Hay varias precauciones que se pueden adoptar para reducir la probabilidad de contraer o de contagiar la COVID-19.",
-          "player": true,
-          "name": "Julian",
+          "text": "Entonces, ¿qué debemos hacer para protegernos y para evitar la propagación del COVID-19?",
+          "player": false,
+          "name": "Presentador",
           "animation": "Talk",
           "speed": 30.0,
           "index": 35,
@@ -365,7 +365,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Por ejemplo, lavarse las manos con agua y jabón o usando un desinfectante a base de alcohol mata los virus que pueda haber en las manos.",
+          "text": "Hay varias precauciones que se pueden adoptar para reducir la probabilidad de contraer o de contagiar la COVID-19.",
           "player": true,
           "name": "Julian",
           "animation": "Talk",
@@ -375,7 +375,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Si mantenemos una distancia mínima de 1 metro hacia cualquier persona que tosa o estornude podríamos evitar el respirar las gotículas que llevan la COVID-19 si la persona que tose tiene la enfermedad.",
+          "text": "Por ejemplo, lavarse las manos con agua y jabón o usando un desinfectante a base de alcohol mata los virus que pueda haber en las manos.",
           "player": true,
           "name": "Julian",
           "animation": "Talk",
@@ -385,7 +385,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Debemos evitar tocarnos los ojos, la nariz y la boca ya que las manos podrían transferir el virus entrando en el cuerpo por estas vías.",
+          "text": "Si mantenemos una distancia mínima de 1 metro hacia cualquier persona que tosa o estornude podríamos evitar respirar las gotículas que llevan la COVID-19...",
           "player": true,
           "name": "Julian",
           "animation": "Talk",
@@ -395,7 +395,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "En caso de encontrarse mal, permanecer en casa y llamar a las autoridades competentes para que le indiquen lo que debe hacer, protegiéndose usted y ayudando a prevenir la propagación del virus y otras infecciones.",
+          "text": "...si la persona que tose tiene la enfermedad.",
           "player": true,
           "name": "Julian",
           "animation": "Talk",
@@ -405,13 +405,43 @@
         },
         {
           "step_type": "DIALOGUE",
+          "text": "Debemos evitar tocarnos los ojos, la nariz y la boca ya que las manos podrían transferir el virus entrando en el cuerpo por estas vías.",
+          "player": true,
+          "name": "Julian",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 40,
+          "next_step": 41
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "En caso de encontrarse mal, permanecer en casa y llamar a las autoridades competentes para que le indiquen lo que debe hacer, protegiéndose usted...",
+          "player": true,
+          "name": "Julian",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 41,
+          "next_step": 42
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "...y ayudando a prevenir la propagación del virus y otras infecciones.",
+          "player": true,
+          "name": "Julian",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 42,
+          "next_step": 43
+        },
+        {
+          "step_type": "DIALOGUE",
           "text": "Muchas gracias Julian por todo, desde aquí le damos toda la fuerza posible para que siga luchando contra esta situación que nos afecta a todos.",
           "player": false,
           "name": "Presentador",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 40,
-          "next_step": 41
+          "index": 43,
+          "next_step": 44
         },
         {
           "step_type": "DIALOGUE",
@@ -420,8 +450,8 @@
           "name": "Presentador",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 41,
-          "next_step": 42
+          "index": 44,
+          "next_step": 45
         },
         {
           "step_type": "DIALOGUE",
@@ -430,12 +460,12 @@
           "name": "Presentador",
           "animation": "Talk",
           "speed": 30.0,
-          "index": 42,
-          "next_step": 43
+          "index": 45,
+          "next_step": 46
         },
         {
           "step_type": "SLEEP",
-          "index": 43,
+          "index": 46,
           "next_step": 0
         }
       ]
