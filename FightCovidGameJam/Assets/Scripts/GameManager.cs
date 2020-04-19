@@ -206,7 +206,7 @@ public class GameManager : MonoBehaviour
                 day_text.text = "Día " + carmen_day + " de confinamiento";
                 break;
             case CHARACTER.JULIAN:
-                day_text.text = "Día " + julian_day + " de confinamiento";
+                day_text.text = "Día " + julian_day + " del estado de alarma";
                 character_text.text = "Julian";
                 break;
             default:

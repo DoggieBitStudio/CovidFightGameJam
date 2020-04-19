@@ -378,6 +378,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1892019366992691041, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1892019366992691041, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3290177201923012394, guid: 041e1b370f7bfd542b0decb0d91d8c95,
         type: 3}
       propertyPath: player_model_position
@@ -463,6 +473,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 847091492}
+    - target: {fileID: 3290177201923012407, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: current_character
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3290177201939707988, guid: 041e1b370f7bfd542b0decb0d91d8c95,
         type: 3}
       propertyPath: m_AnchorMin.y
