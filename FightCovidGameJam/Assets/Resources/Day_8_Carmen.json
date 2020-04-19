@@ -257,7 +257,7 @@
           "step_type": "FADE",
           "time": 2,
           "index": 4,
-          "next_step": 5
+          "next_step": 0
         }
       ]
     },

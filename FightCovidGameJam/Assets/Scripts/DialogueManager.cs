@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class DialogueManager : MonoBehaviour
@@ -228,7 +229,7 @@ public class DialogueManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        if(level == 0 || level == 2)
+        if(SceneManager.GetActiveScene().name == "Main" || SceneManager.GetActiveScene().name == "HospitalUpdated")
         {
             player_model_position = Camera.main.transform.GetChild(0);
             npc_model_position = Camera.main.transform.GetChild(1);

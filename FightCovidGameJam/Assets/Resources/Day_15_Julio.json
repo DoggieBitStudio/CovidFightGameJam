@@ -8,8 +8,8 @@
         {
           "step_type": "DIALOGUE",
           "text": "Ya son 15 días. Con tan pocos descansos, o incluso inexistentes algunos días, parece que las fuerzas se me desvanecen.",
-          "player": false,
-          "name": "Julian",
+          "player": true,
+          "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
@@ -17,9 +17,9 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Venga Julian, tu puedes, lo difícil se consigue y lo imposible se intenta.",
-          "player": false,
-          "name": "Julian",
+          "text": "Venga Julio, tú puedes, lo difícil se consigue y lo imposible se intenta.",
+          "player": true,
+          "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
           "index": 1,
@@ -34,9 +34,9 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Julian, parece que no va a haber mascarillas suficientes hasta que nos abastezcan con más.",
+          "text": "Julio, parece que no va a haber mascarillas suficientes hasta que nos abastezcan con más.",
           "player": false,
-          "name": "Adrián",
+          "name": "Adrian",
           "animation": "Talk",
           "speed": 30.0,
           "index": 0,
@@ -67,7 +67,7 @@
           "step_type": "DIALOGUE",
           "text": "Vamos a tener que reutilizar las mascarillas. Introdúcelas en una dilución de lejía 1:50 con agua tibia durante 30 minutos.",
           "player": true,
-          "name": "Julian",
+          "name": "Julio",
           "animation": "Talk",
           "speed": 30.0,
           "index": 2,
@@ -77,7 +77,7 @@
           "step_type": "DIALOGUE",
           "text": "Después lavalas con agua y jabón y acláralas bien para eliminar cualquier resto de lejía y dejalas secar.",
           "player": true,
-          "name": "Julian",
+          "name": "Julio",
           "animation": "Talk",
           "speed": 30.0,
           "index": 3,
@@ -87,7 +87,7 @@
           "step_type": "DIALOGUE",
           "text": "Continuemos sin mascarillas, no podemos parar y la culpa del desabastecimiento no es nuestra. En la conciencia de otro quedará.",
           "player": true,
-          "name": "Julian",
+          "name": "Julio",
           "animation": "SadTalk",
           "speed": 30.0,
           "index": 4,
@@ -104,16 +104,16 @@
           "step_type": "DIALOGUE",
           "text": "Ya son las ocho. Cada vez se oye a más gente aplaudiendo... son incansables... escucharlos me anima... aún hay esperanza.",
           "player": true,
-          "name": "Julian",
+          "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 0
         }
       ]
     },
     {
-      "identifier": "Leave_work",
+      "identifier": "Sleep",
       "activation_time": 23,
       "duration": 7,
       "sequence": [
@@ -121,14 +121,14 @@
           "step_type": "DIALOGUE",
           "text": "Necesito irme a descansar un rato para estar más fresco mañana.",
           "player": true,
-          "name": "Julian",
+          "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
           "next_step": 1
         },
         {
-          "step_type": "LEAVEWORK",
+          "step_type": "SLEEP",
           "index": 1,
           "next_step": 0
         }

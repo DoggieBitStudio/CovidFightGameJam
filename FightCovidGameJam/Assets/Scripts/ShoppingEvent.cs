@@ -71,6 +71,7 @@ public class ShoppingEvent : MonoBehaviour
     public void Accept()
     {
         float time_increment = 0;
+        bool food = false;
 
         foreach (var item in toggles)
         {
@@ -85,9 +86,14 @@ public class ShoppingEvent : MonoBehaviour
                 foreach (var bools in item.Value.bool_effects)
                 {
                     GameManager.instance.boolean_stats[bools.stat] = bools.value;
+                    if (bools.stat.Equals("Shop"))
+                        food = true;
                 }
             }
         }
+
+        if(!food)
+            GameManager.instance.boolean_stats["Shop"] = false;
 
         GameManager.instance.situations_manager.current_situation.duration += time_increment;
         GameManager.instance.situations_manager.OnStepFinish();
@@ -100,6 +106,7 @@ public class ShoppingEvent : MonoBehaviour
     {
         GameManager.instance.situations_manager.current_situation.duration = 0;
         GameManager.instance.situations_manager.OnSituationEnd();
+        GameManager.instance.boolean_stats["Shop"] = false;
 
         gameObject.SetActive(false);
         GameManager.instance.ui_opened = false;

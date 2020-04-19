@@ -1,0 +1,219 @@
+{
+  "Situations": [
+    {
+      "identifier": "Final",
+      "activation_time": 8,
+      "duration": 10,
+      "sequence": [
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ultima hora: Una mujer se ha quitado la vida a las 23:20 de esta noche. Según su familia la mujer estaba pasando un mal momento debido a toda esta situción,...",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1,
+          "stat_requirement": [
+            {
+              "stat": "End_Carmen_Depressed",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "...su optimismo y felicidad por la vida parecía haberse apagado ultimamente. La familia está totalmente concernada.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 1,
+          "next_step": 2,
+          "stat_requirement": [
+            {
+              "stat": "End_Carmen_Depressed",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "En la situación actual no van a poder despedir a Carmen como hubiesen esperado. Desde aquí les damos mucho ánimo para superar esta difícil situación.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 2,
+          "next_step": 0,
+          "stat_requirement": [
+            {
+              "stat": "End_Carmen_Depressed",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ultima hora: Un niño de 10 años con COVID-19 ha sido ingresado en la UCI. El niño padecía asma y fue contagiado por su vecina.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 3,
+          "next_step": 4,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Por suerte, gracias a la ayuda y gran entusiasmo del Doctor Julio el niño a estas horas está estable y mejora notablemente.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 4,
+          "next_step": 5,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "El Doctor se ha volcado profundamente por salvar al niño. Hace unos días hubo una votación comenzada por el propio Doctor.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 5,
+          "next_step": 6,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Preguntaba si preferían que se fuese de la comunidad al ser personal sanitario, y la respuesta unánime de que se quedase en la comunidad conmovió profundamente al Doctor.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 6,
+          "next_step": 0,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Live",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ultima hora: Un niño de 10 años con COVID-19 ha fallecido esta noche en la UCI. El niño padecía asma y fue contagiado por su vecina.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 7,
+          "next_step": 8,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Die",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "El Doctor se ha volcado profundamente por salvar al niño. Hace unos días hubo una votación comenzada por el propio Doctor.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 8,
+          "next_step": 9,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Die",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Preguntaba si preferían que se fuese de la comunidad al ser personal sanitario, y la respuesta unánime de que se fuese de la comunidad afectó profundamente al Doctor.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 9,
+          "next_step": 0,
+          "stat_requirement": [
+            {
+              "stat": "End_Child_Die",
+              "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ultima Hora: Este juego te reconoce como un ciudadano ejemplar que toma decisiones con cabeza y sentido común.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 10,
+          "next_step": 11,
+          "stat_requirement": [
+            {
+              "stat": "End_Carmen_Depressed",
+              "value": false
+            },
+            {
+              "stat": "End_Child_Live",
+              "value": false
+            },
+            {
+              "stat": "End_Child_Die",
+              "value": false
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Esperamos y deseamos que esta situación pase lo más rápido posible y con las mínimas consecuencias. \nUn saludo de parte del equipo de DoggieBitStudio",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 11,
+          "next_step": 12,
+          "stat_requirement": [
+            {
+              "stat": "End_Carmen_Depressed",
+              "value": false
+            },
+            {
+              "stat": "End_Child_Live",
+              "value": false
+            },
+            {
+              "stat": "End_Child_Die",
+              "value": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
