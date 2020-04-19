@@ -1,0 +1,439 @@
+{
+  "Situations": [
+    {
+      "identifier": "Introduction",
+      "sequence": [
+        {
+          "step_type": "DIALOGUE",
+          "text": "Hoy tenemos una programación especial.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Debido a la situación que estamos pasando hemos invitado a un doctor que trabaja en la Unidad de Cuidados Intensivos para que nos pueda informar más.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 1,
+          "next_step": 2
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Buenos días Julían.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 2,
+          "next_step": 3
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Buenos días Matías. Aquí estoy para resolver cualquier duda.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 3,
+          "next_step": 4
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "De acuerdo, pues si te parece bien, empecemos con lo básico. ¿Qué es un Coronavirus?",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 4,
+          "next_step": 5
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Los coronavirus son una extensa familia de virus que pueden causar enfermedades tanto en animales como en humanos.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 5,
+          "next_step": 6
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "En los humanos, se sabe que varios coronavirus causan infecciones respiratorias que pueden ir desde el resfriado común",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 6,
+          "next_step": 7
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "hasta enfermedades más graves como el síndrome respiratorio de Oriente Medio y el síndrome respiratorio agudo severo.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 7,
+          "next_step": 8
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "El coronavirus que se ha descubierto más recientemente es el coronavirus 2 del síndrome respiratorio agudo grave, SARS-CoV-2 y es el que causa la enfermedad por coronavirus COVID-19.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 8,
+          "next_step": 9
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Entonces la COVID-19, ¿qué es exactamente?",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 9,
+          "next_step": 10
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "La COVID-19, es la enfermedad infecciosa causada por este nuevo coronavirus.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 10,
+          "next_step": 11
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Tanto el nuevo virus como la enfermedad eran desconocidos antes de que estallara el brote en Wuhan en diciembre de 2019.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 11,
+          "next_step": 12
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "¿Qué síntomas produce la COVID-19?",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 12,
+          "next_step": 13
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Los síntomas más comunes son fiebre, cansancio y tos seca.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 13,
+          "next_step": 14
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Pero algunos pacientes pueden presentar dolores, congestión nasal, rinorrea, dolor de garganta o diarrea. Los síntomas suelen ser leves y aparecen de forma gradual.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 14,
+          "next_step": 15
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "¿Puedes estar contagiado y no tener síntomas?",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 15,
+          "next_step": 16
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Sí, efectivamente. Algunas personas se infectan pero no desarrollan ningún síntoma y no se encuentran mal.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 16,
+          "next_step": 17
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Si una persona tiene síntomas, ¿qué debe hacer?",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 17,
+          "next_step": 18
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "La mayoría de las personas, alrededor de un 80%, se recupera de la enfermedad sin necesidad de realizar ningún tratamiento especial.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 18,
+          "next_step": 19
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Pero hay otras personas que desarrollan una enfermedad grave y tienen dificultad para respirar.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 19,
+          "next_step": 20
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Las personas mayores y las que padecen afecciones médicas subyacentes, como hipertensión arterial,...",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 20,
+          "next_step": 21
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "...problemas cardiacos o diabetes, tienen más probabilidades de desarrollar una enfermedad grave.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 21,
+          "next_step": 22
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Las personas que tengan fiebre, tos y dificultad para respirar deben buscar atención médica.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 22,
+          "next_step": 23
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Tengo una pregunta, pero no sé si hacerla.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 23,
+          "next_step": 24
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Me has invitado para resolver todas tus dudas, así que, adelante, pregunta.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 24,
+          "next_step": 25
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "¿Se sabe que índice de mortandad tiene esta enfermedad?",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 25,
+          "next_step": 26
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Bueno, es pronto aún para tener datos exactos, pero desgraciadamente, en torno al 2% de las personas que han contraído la enfermedad han muerto.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 26,
+          "next_step": 27
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Se está luchando a nivel mundial para encontrar alguna cura efectiva a la enfermedad y se están haciendo muchos estudios para desarrollar una vacuna contra el virus lo antes posible.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 27,
+          "next_step": 28
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Muchas gracias Julián por tu información, pasemos a hablar sobre el contagio si te parece.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 28,
+          "next_step": 29
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Claro, la forma que tenemos ahora para luchar contra la COVID-19 es evitar el contagio del coronavirus SARS-Cov-2.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 29,
+          "next_step": 30
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Vale, pues empecemos con la pregunta estrella, ¿cómo se propaga la COVID-19?",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 30,
+          "next_step": 31
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "La enfermedad puede propagarse de persona a persona a través de las gotículas procedentes de la nariz o la boca que salen despedidas cuando una persona infectada tose o exhala.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 31,
+          "next_step": 32
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Estas gotículas caen sobre los objetos y superficies que rodean a la persona, de modo que otras personas pueden contraer la COVID-19 si tocan estos objetos o superficies y luego se tocan los ojos, la nariz o la boca.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 32,
+          "next_step": 33
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "También pueden contagiarse si inhalan las gotículas que haya esparcido una persona con COVID-19 al toser o exhalar.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 33,
+          "next_step": 34
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Entonces, ¿qué debemos hacer para protegernos y para evitar la propagación del COVID-19?",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 34,
+          "next_step": 35
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Hay varias precauciones que se pueden adoptar para reducir la probabilidad de contraer o de contagiar la COVID-19.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 35,
+          "next_step": 36
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Por ejemplo, lavarse las manos con agua y jabón o usando un desinfectante a base de alcohol mata los virus que pueda haber en las manos.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 36,
+          "next_step": 37
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Si mantenemos una distancia mínima de 1 metro hacia cualquier persona que tosa o estornude podríamos evitar el respirar las gotículas que llevan la COVID-19 si la persona que tose tiene la enfermedad.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 37,
+          "next_step": 38
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Debemos evitar tocarnos los ojos, la nariz y la boca ya que las manos podrían transferir el virus entrando en el cuerpo por estas vías.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 38,
+          "next_step": 39
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "En caso de encontrarse mal, permanecer en casa y llamar a las autoridades competentes para que le indiquen lo que debe hacer, protegiéndose usted y ayudando a prevenir la propagación del virus y otras infecciones.",
+          "player": true,
+          "name": "Julián",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 39,
+          "next_step": 40
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Muchas gracias Julián por todo, desde aquí le damos toda la fuerza posible para que siga luchando contra esta situación que nos afecta a todos.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 40,
+          "next_step": 41
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "No me cansaré de decirlo, muchas gracias a todo el personal sanitario y trabajadores que luchan día a día contra esta enfermedad.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 41,
+          "next_step": 42
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Esto ha sido todo por hoy, hasta la próxima espectadores.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "Talk",
+          "speed": 30.0,
+          "index": 42,
+          "next_step": 0
+        }
+      ]
+    }
+  ]
+}

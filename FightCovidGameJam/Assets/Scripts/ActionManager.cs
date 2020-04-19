@@ -203,7 +203,7 @@ public class ActionManager : MonoBehaviour
                             houseDoorSource.PlayOneShot(dramaticFx);
                         }
                     }
-                    else if((neighbourDoor.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction)
+                    else if(!houseDoorSource.isPlaying && firstAction)
                     {
                         Color col = GameManager.instance.fade.color;
                         col.a -= (float)0.5 * Time.deltaTime;
@@ -215,6 +215,7 @@ public class ActionManager : MonoBehaviour
                             {
                                 GameManager.instance.boolean_stats["Infection"] = true;
                             }
+                            GameManager.instance.boolean_stats["Went_Out"] = true;
                             FinalizeAction();
                         }
                     }
@@ -513,7 +514,6 @@ public class ActionManager : MonoBehaviour
                 agent.SetDestination(houseDoor.transform.position);
                 break;
             case Actions.TAKE_WALK:
-                GameManager.instance.fade.gameObject.SetActive(true);
                 houseDoorSource.Play();
                 break;
             case Actions.VIDEOCALL:
@@ -568,7 +568,7 @@ public class ActionManager : MonoBehaviour
         else if(GameManager.instance.boolean_stats["Went_Out"])
             GameManager.instance.AddHealth(healthGained);
 
-        if (currentAction != Actions.TAKE_WALK && currentAction != Actions.TRASH_OUT)
+        if (currentAction != Actions.TAKE_WALK && currentAction != Actions.TRASH_OUT && currentAction != Actions.TALK_NEIGHBOUR)
             GameManager.instance.boolean_stats["Went_Out"] = false;
 
         firstAction = false;

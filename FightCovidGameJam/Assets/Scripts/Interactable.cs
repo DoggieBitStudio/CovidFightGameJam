@@ -65,9 +65,9 @@ public class Interactable : MonoBehaviour
             RawImage postivism_task = task.transform.GetChild(1).GetComponent<RawImage>();
             RawImage health_task = task.transform.GetChild(2).GetComponent<RawImage>();
 
-            //Health
+            //Positivism
             GameObject eff_obj = task.transform.GetChild(1).gameObject;
-            float scale = 1.0f;
+            float scale = 1.2f;
 
             if (interactable.positivism == 0)
                 eff_obj.SetActive(false);
@@ -78,16 +78,16 @@ public class Interactable : MonoBehaviour
             }
 
             if (Mathf.Abs(interactable.positivism) <= 5)
-                scale = 0.5f;
-            else if (Mathf.Abs(interactable.positivism) > 5 && Mathf.Abs(interactable.positivism) < 10)
                 scale = 0.7f;
+            else if (Mathf.Abs(interactable.positivism) > 5 && Mathf.Abs(interactable.positivism) < 10)
+                scale = 1.0f;
 
             eff_obj.transform.localScale = new Vector3(scale, scale, 1);
 
-            //Positivism
-            eff_obj = task.transform.GetChild(1).gameObject;
+            //Health
+            eff_obj = task.transform.GetChild(2).gameObject;
 
-            if (interactable.health == 0)
+            if (interactable.health == 0 || (!GameManager.instance.boolean_stats["Went_Out"] && interactable.health > 0))
                 eff_obj.SetActive(false);
             else
             {
@@ -96,7 +96,7 @@ public class Interactable : MonoBehaviour
             }
 
             if (Mathf.Abs(interactable.health) <= 1)
-                scale = 0.5f;
+                scale = 0.7f;
 
             eff_obj.transform.localScale = new Vector3(scale, scale, 1);
         }
@@ -106,6 +106,8 @@ public class Interactable : MonoBehaviour
         task.GetComponentInChildren<Text>().text = "Mejor hago otra cosa";
         task.transform.SetParent(uiManager.verticalTask.transform);
         task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.CloseTask(); });
+        task.transform.GetChild(1).gameObject.SetActive(false);
+        task.transform.GetChild(2).gameObject.SetActive(false);
 
         uiManager.isTaskMenuOpen = true;
         uiManager.verticalTask.transform.position = CalculatePositionOffset(Camera.main.WorldToScreenPoint(hitPos));

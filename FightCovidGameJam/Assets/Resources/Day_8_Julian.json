@@ -1,15 +1,15 @@
 {
   "Situations": [
     {
-      "identifier": "Day15_Thoughts",
+      "identifier": "Day8_Thoughts",
       "activation_time": 8,
       "duration": 10,
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Ya son 15 días. Con tan pocos descansos, o incluso inexistentes algunos días, parece que las fuerzas se me desvanecen.",
-          "player": false,
-          "name": "Julián",
+          "text": "Uff, llevamos 8 días desde el estado de alarma y cada vez tenemos más pacientes en la UCI.",
+          "player": true,
+          "name": "Julian",
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
@@ -17,9 +17,9 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Venga Julián, tu puedes, lo difícil se consigue y lo imposible se intenta.",
-          "player": false,
-          "name": "Julián",
+          "text": "Jamás había vivido una situación como esta. Decir que estamos estresados es un eufemismo. Ánimo Julian, otro día más, tu puedes.",
+          "player": true,
+          "name": "Julian",
           "animation": "Think",
           "speed": 30.0,
           "index": 1,
@@ -28,15 +28,15 @@
       ]
     },
     {
-      "identifier": "No_Masks",
-      "activation_time": 16,
+      "identifier": "Patients_coming",
+      "activation_time": 12,
       "duration": 20,
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Julián, parece que no va a haber mascarillas suficientes hasta que nos abastezcan con más.",
+          "text": "Julian, estan llegando muchos más casos de los que podemos atender, ¿Qué hacemos?",
           "player": false,
-          "name": "Adrián",
+          "name": "Adrian",
           "animation": "Talk",
           "speed": 30.0,
           "index": 0,
@@ -48,7 +48,7 @@
           "index": 1,
           "options": [
             {
-              "text": "Vamos a tener que reutilizar...",
+              "text": "Mientras haya camas libres, yo me ocuparé de ellos...",
               "stat_requirement": {
                 "stat": "Positivism",
                 "value": 50
@@ -56,7 +56,7 @@
               "next_step": 2
             },
             {
-              "text": "Continuemos sin mascarillas...",
+              "text": "Yo ya estoy hasta arriba y no voy a poder atender a más...",
               "effect": [
                 {
                   "stat": "Health",
@@ -69,7 +69,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Vamos a tener que reutilizar.",
+          "text": "Mientras haya camas libres, yo me ocuparé de ellos, lo importante es atenderlos a todos, ve haciéndoles pruebas para poder organizarlos mejor.",
           "player": true,
           "name": "Julian",
           "animation": "Talk",
@@ -132,7 +132,7 @@
           "next_step": 1
         },
         {
-          "step_type": "LEAVEWORK",
+          "step_type": "SLEEP",
           "index": 1,
           "next_step": 0
         }
