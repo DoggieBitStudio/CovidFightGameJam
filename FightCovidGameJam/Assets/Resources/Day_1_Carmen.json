@@ -39,7 +39,7 @@
     },
     {
       "identifier": "Random_Text",
-      "activation_time": 8.5,
+      "activation_time": 8,
       "duration": 0,
       "sequence": [
         {
