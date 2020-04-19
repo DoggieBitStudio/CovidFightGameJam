@@ -90,6 +90,12 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Doctor_Out", false);
             boolean_stats.Add("More_Sick_People", false);
 
+            boolean_stats.Add("Carmen_Depressed", false);
+            boolean_stats.Add("End_Normal", false);
+            boolean_stats.Add("End_Child_Live", false);
+            boolean_stats.Add("End_Child_Die", false);
+            
+
             debug_style = new GUIStyle();
             debug_style.fontSize = 22;
             debug_style.normal.textColor = Color.red;

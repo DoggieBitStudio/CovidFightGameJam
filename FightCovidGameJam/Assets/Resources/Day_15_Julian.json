@@ -119,7 +119,7 @@
       "sequence": [
         {
           "step_type": "DIALOGUE",
-          "text": "Cada vez son más las muertes. Necesito irme a descansar un rato para estar más fresco mañana.",
+          "text": "Necesito irme a descansar un rato para estar más fresco mañana.",
           "player": true,
           "name": "Julian",
           "animation": "Think",
