@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class BathGame : MonoBehaviour
 {
@@ -12,27 +13,67 @@ public class BathGame : MonoBehaviour
     public GameObject soapWin;
     public GameObject soapLose;
     public GameObject mask;
+    public Image help;
     public float distance = 50f;
     int selected_objects = 0;
     bool fucked_up = false;
     bool cleared = false;
+    bool hasStarted = false;
+
+    float current_time = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
+        help.gameObject.transform.DOPunchScale(new Vector3(0.4f, 0.5f, 0.1f), 1f);
+
         if (!GameManager.instance.boolean_stats["Mask"])
             mask.SetActive(false);
         else
             mask.SetActive(true);
+
+        current_time = Time.time;
     }
 
     // Update is called once per frame
     void Update()
     {
 #if UNITY_STANDALONE_WIN
-        HandleStandaloneInput();
+        if(hasStarted)
+            HandleStandaloneInput();
+        else if(Time.time - current_time > 2)
+        {
+            Color h_col = help.color;
+            h_col.a -= 0.01f;
+            help.color = h_col;
+
+            foreach(Transform child in help.gameObject.transform)
+            {
+                if(child.gameObject.GetComponent<Image>())
+                    FadeObject(child.gameObject);
+            }
+
+            if (h_col.a <= 0)
+                hasStarted = true;
+        }
 #endif
 #if UNITY_ANDROID
-        HandlePhoneInput();
+        if (hasStarted)
+            HandlePhoneInput();
+        else if(Time.time - current_time > 4)
+        {
+            float alpha = 0.0f;
+            foreach(Transform child in help.gameObject.transform)
+            {
+                if(child.gameObject.GetComponent<Image>())
+                    alpha = FadeObject(child.gameObject);
+            }
+
+            if (alpha <= 0)
+            {
+                hasStarted = true;
+            }
+        }
+           
 #endif
     }
 
@@ -136,7 +177,6 @@ public class BathGame : MonoBehaviour
 
 
     }
-
     public void Finish()
     {
         if (cleared)
@@ -173,5 +213,13 @@ public class BathGame : MonoBehaviour
         }
 
     }
-}
 
+    float FadeObject(GameObject obj)
+    {
+        Color col = obj.GetComponent<Image>().color;
+        col.a -= 0.01f;
+        obj.GetComponent<Image>().color = col;
+
+        return col.a;
+    }
+}

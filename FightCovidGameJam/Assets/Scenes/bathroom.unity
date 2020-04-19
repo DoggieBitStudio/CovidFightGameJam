@@ -1307,7 +1307,7 @@ GameObject:
   - component: {fileID: 680543372}
   - component: {fileID: 680543371}
   m_Layer: 5
-  m_Name: Arrow (1)
+  m_Name: rrow (1))
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1800,6 +1800,7 @@ MonoBehaviour:
   soapWin: {fileID: 671384572}
   soapLose: {fileID: 1087501621}
   mask: {fileID: 8296172668237054375}
+  help: {fileID: 1253877762}
   distance: 50
 --- !u!114 &1033283599
 MonoBehaviour:
@@ -2124,7 +2125,7 @@ RectTransform:
   m_GameObject: {fileID: 1253877759}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.8807656, y: 1.8807656, z: 1.8807656}
   m_Children:
   - {fileID: 84442376}
   - {fileID: 1270641045}
@@ -2138,7 +2139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0.000005722046, y: 24}
+  m_AnchoredPosition: {x: 0.000005722046, y: 54.3}
   m_SizeDelta: {x: 304.26, y: 39.910004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1253877761
@@ -2179,7 +2180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.48340157, g: 0.6698113, b: 0.6137479, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
