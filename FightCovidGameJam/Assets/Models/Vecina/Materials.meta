@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:FightCovidGameJam/Assets/Library.meta
+guid: df2d6f05c1bc5f241b6f9bf563863212
+=======
 guid: c0ac3f7f7360df9488b18d71d777e073
+>>>>>>> 737e96bf1cac9afbb2fd688d23a6a57d994602e1:FightCovidGameJam/Assets/Models/Vecina/Materials.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
