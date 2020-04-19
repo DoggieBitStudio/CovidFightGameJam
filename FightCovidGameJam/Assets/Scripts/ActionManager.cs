@@ -93,6 +93,8 @@ public class ActionManager : MonoBehaviour
         if(player)
         {
             agent = player.GetComponent<NavMeshAgent>();
+            if(player.name == "MariCarmen")
+                animator = player.GetComponent<Animator>();
         }
         
         if (SceneManager.GetActiveScene().name == "Main")
@@ -729,9 +731,11 @@ public class ActionManager : MonoBehaviour
     private void OnLevelWasLoaded(int level)
     {
         player = GameObject.FindWithTag("Player");
-        if(player)
+        if (player)
         {
             agent = player.GetComponent<NavMeshAgent>();
+            if (player.name == "MariCarmen")
+                animator = player.GetComponent<Animator>();
         }
 
         if (SceneManager.GetActiveScene().name == "Main")
