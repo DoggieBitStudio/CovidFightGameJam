@@ -5975,7 +5975,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1359609917
 Transform:
   m_ObjectHideFlags: 0
@@ -6010,7 +6010,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359609916}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -8229,6 +8229,21 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 154624313317857455, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: dialogue_models.Array.data[7].name
+      value: Julio
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313317857455, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: player_model_position
+      value: 
+      objectReference: {fileID: 2101937979}
+    - target: {fileID: 154624313317857455, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: npc_model_position
+      value: 
+      objectReference: {fileID: 654320154}
     - target: {fileID: 154624313317857457, guid: 041e1b370f7bfd542b0decb0d91d8c95,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -8283,6 +8298,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313317857458, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: current_character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313317857458, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: carmen_day
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313317857458, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: julio_day
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313317857458, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: change_character
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313317857459, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: current_situation.identifier
+      value: Sleep
       objectReference: {fileID: 0}
     - target: {fileID: 154624313317857460, guid: 041e1b370f7bfd542b0decb0d91d8c95,
         type: 3}
