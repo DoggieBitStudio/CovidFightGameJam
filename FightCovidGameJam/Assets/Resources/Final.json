@@ -45,7 +45,7 @@
           "animation": "SadTalk",
           "speed": 30.0,
           "index": 2,
-          "next_step": 3,
+          "next_step": 0,
           "stat_requirement": [
             {
               "stat": "End_Carmen_Depressed",
@@ -60,8 +60,8 @@
           "name": "Presentador",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 0,
-          "next_step": 1,
+          "index": 3,
+          "next_step": 4,
           "stat_requirement": [
             {
               "stat": "End_Child_Live",
@@ -76,8 +76,8 @@
           "name": "Presentador",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 0,
-          "next_step": 1,
+          "index": 4,
+          "next_step": 5,
           "stat_requirement": [
             {
               "stat": "End_Child_Live",
@@ -92,8 +92,8 @@
           "name": "Presentador",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 0,
-          "next_step": 1,
+          "index": 5,
+          "next_step": 6,
           "stat_requirement": [
             {
               "stat": "End_Child_Live",
@@ -108,8 +108,8 @@
           "name": "Presentador",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 0,
-          "next_step": 1,
+          "index": 6,
+          "next_step": 0,
           "stat_requirement": [
             {
               "stat": "End_Child_Live",
@@ -124,8 +124,8 @@
           "name": "Presentador",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 0,
-          "next_step": 1,
+          "index": 7,
+          "next_step": 8,
           "stat_requirement": [
             {
               "stat": "End_Child_Die",
@@ -140,11 +140,11 @@
           "name": "Presentador",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 0,
-          "next_step": 1,
+          "index": 8,
+          "next_step": 9,
           "stat_requirement": [
             {
-              "stat": "End_Child_Live",
+              "stat": "End_Child_Die",
               "value": true
             }
           ]
@@ -156,12 +156,60 @@
           "name": "Presentador",
           "animation": "SadTalk",
           "speed": 30.0,
-          "index": 0,
-          "next_step": 1,
+          "index": 9,
+          "next_step": 0,
           "stat_requirement": [
             {
-              "stat": "End_Child_Live",
+              "stat": "End_Child_Die",
               "value": true
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ultima Hora: Este juego te reconoce como un ciudadano ejemplar que toma decisiones con cabeza y sentido común.",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 10,
+          "next_step": 11,
+          "stat_requirement": [
+            {
+              "stat": "End_Carmen_Depressed",
+              "value": false
+            },
+            {
+              "stat": "End_Child_Live",
+              "value": false
+            },
+            {
+              "stat": "End_Child_Die",
+              "value": false
+            }
+          ]
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Esperamos y deseamos que esta situación pase lo más rápido posible y con las mínimas consecuencias. \nUn saludo de parte del equipo de DoggieBitStudio",
+          "player": false,
+          "name": "Presentador",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 11,
+          "next_step": 12,
+          "stat_requirement": [
+            {
+              "stat": "End_Carmen_Depressed",
+              "value": false
+            },
+            {
+              "stat": "End_Child_Live",
+              "value": false
+            },
+            {
+              "stat": "End_Child_Die",
+              "value": false
             }
           ]
         }
