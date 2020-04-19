@@ -1959,7 +1959,7 @@ PrefabInstance:
     - target: {fileID: 820279485512507872, guid: a933ae431e692b44293b1785837e9fd8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 820279485512507873, guid: a933ae431e692b44293b1785837e9fd8,
         type: 3}
@@ -2108,6 +2108,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TaskList
       objectReference: {fileID: 0}
+    - target: {fileID: 4028684464505827713, guid: f5bcc397378d08943998422ab21a1f10,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2176,12 +2181,12 @@ PrefabInstance:
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 4028684464505827838, guid: f5bcc397378d08943998422ab21a1f10,
         type: 3}
@@ -2706,12 +2711,12 @@ PrefabInstance:
     - target: {fileID: 9037581983620354588, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
       propertyPath: stat
-      value: Positivism
+      value: Health
       objectReference: {fileID: 0}
     - target: {fileID: 9037581983620354588, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}
       propertyPath: max_stat
-      value: 100
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 9116069555455471104, guid: 1530f22b27629bf488e5c5e46862441f,
         type: 3}

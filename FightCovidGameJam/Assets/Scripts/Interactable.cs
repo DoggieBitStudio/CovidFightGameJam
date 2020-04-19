@@ -154,7 +154,7 @@ public class Interactable : MonoBehaviour
             //Health
             eff_obj = task.transform.GetChild(2).gameObject;
 
-            if (interactable.health == 0 || (!GameManager.instance.boolean_stats["Went_Out"] && interactable.health > 0))
+            if (interactable.health == 0)
                 eff_obj.SetActive(false);
             else
             {

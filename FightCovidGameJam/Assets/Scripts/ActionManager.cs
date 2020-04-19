@@ -197,7 +197,7 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.SLEEP_SOFA:
                 {
-                    if((sofa.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if((sofa.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 && !firstAction)
                     {
                         animator.Play("Lie Down");
                         sofa.GetComponent<AudioSource>().Play();
@@ -212,7 +212,7 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.TALK_NEIGHBOUR:
                 {
-                    if ((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((houseDoor.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 && !firstAction)
                     {
                         Color col = GameManager.instance.fade.color;
                         col.a += (float)0.5 * Time.deltaTime;
@@ -245,7 +245,7 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.TAKE_WALK:
                 {
-                    if((houseDoor.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if((houseDoor.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 && !firstAction)
                     {
                         Color col = GameManager.instance.fade.color;
                         col.a += (float)0.5 * Time.deltaTime;
@@ -278,13 +278,13 @@ public class ActionManager : MonoBehaviour
                 break;
             case Actions.VIDEOCALL:
                 {
-                    if ((smartphone.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
+                    if ((smartphone.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 && !firstAction)
                     {
                         agent.SetDestination(chair.transform.position);
                         smartphone.SetActive(false);
                         firstAction = true;
                     }
-                    else if ((chair.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction && !secondAction)
+                    else if ((chair.transform.position - player.transform.position).sqrMagnitude < 5 && agent.remainingDistance == 0 && firstAction && !secondAction)
                     {
                         //Smartphone
                         smartphone.SetActive(true);
