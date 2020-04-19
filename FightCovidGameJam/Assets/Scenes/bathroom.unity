@@ -1799,6 +1799,7 @@ MonoBehaviour:
   secuence: {fileID: 686646067}
   soapWin: {fileID: 671384572}
   soapLose: {fileID: 1087501621}
+  mask: {fileID: 8296172668237054375}
   distance: 50
 --- !u!114 &1033283599
 MonoBehaviour:

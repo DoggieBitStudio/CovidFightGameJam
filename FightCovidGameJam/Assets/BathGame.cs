@@ -11,6 +11,7 @@ public class BathGame : MonoBehaviour
     public GameObject secuence;
     public GameObject soapWin;
     public GameObject soapLose;
+    public GameObject mask;
     public float distance = 50f;
     int selected_objects = 0;
     bool fucked_up = false;
@@ -18,7 +19,10 @@ public class BathGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!GameManager.instance.boolean_stats["Mask"])
+            mask.SetActive(false);
+        else
+            mask.SetActive(true);
     }
 
     // Update is called once per frame
