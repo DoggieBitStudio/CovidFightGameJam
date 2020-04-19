@@ -17,7 +17,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "Venga Julio, tu puedes, lo difícil se consigue y lo imposible se intenta.",
+          "text": "Venga Julio, tú puedes, lo difícil se consigue y lo imposible se intenta.",
           "player": true,
           "name": "Julio",
           "animation": "Think",
