@@ -143,7 +143,34 @@ public class SituationsManager : MonoBehaviour
         if (completed_today < day_situations.Count() && day_situations[completed_today].activation_time <= GameManager.instance.time)
         {
             current_situation = day_situations[completed_today];
-            current_situation.current_step = current_situation.sequence[0].Item1;
+
+            if (current_situation.sequence[0].Item1.bool_requirement.stat != null)
+            {
+                if (GameManager.instance.boolean_stats[current_situation.sequence[0].Item1.bool_requirement.stat]
+                    == current_situation.sequence[0].Item1.bool_requirement.value)
+                {
+                    current_situation.current_step = current_situation.sequence[0].Item1;
+                }
+                else
+                {
+                    current_situation.current_step = current_situation.sequence[1].Item1;
+                }
+            }
+            else if (current_situation.sequence[0].Item1.int_requirement.stat != null)
+            {
+                if (GameManager.instance.int_stats[current_situation.sequence[0].Item1.int_requirement.stat]
+                     == current_situation.sequence[0].Item1.int_requirement.value)
+                {
+                    current_situation.current_step = current_situation.sequence[0].Item1;
+                }
+                else
+                {
+                    current_situation.current_step = current_situation.sequence[1].Item1;
+                }
+            }
+            else
+                current_situation.current_step = current_situation.sequence[0].Item1;
+
             StartStep();
         }
     }
@@ -292,8 +319,35 @@ public class SituationsManager : MonoBehaviour
 
     public void StartSituation()
     {
-        current_situation = day_situations[4];
-        current_situation.current_step = current_situation.sequence[0].Item1;
+        current_situation = day_situations[0];
+
+        if (current_situation.sequence[0].Item1.bool_requirement.stat != null)
+        {
+            if (GameManager.instance.boolean_stats[current_situation.sequence[0].Item1.bool_requirement.stat]
+                == current_situation.sequence[0].Item1.bool_requirement.value)
+            {
+                current_situation.current_step = current_situation.sequence[0].Item1;
+            }
+            else
+            {
+                current_situation.current_step = current_situation.sequence[1].Item1;
+            }
+        }
+        else if (current_situation.sequence[0].Item1.int_requirement.stat != null)
+        {
+            if (GameManager.instance.int_stats[current_situation.sequence[0].Item1.int_requirement.stat]
+                 == current_situation.sequence[0].Item1.int_requirement.value)
+            {
+                current_situation.current_step = current_situation.sequence[0].Item1;
+            }
+            else
+            {
+                current_situation.current_step = current_situation.sequence[1].Item1;
+            }
+        }
+        else
+            current_situation.current_step = current_situation.sequence[0].Item1;
+
         StartStep();
     }
 
@@ -308,6 +362,7 @@ public class SituationsManager : MonoBehaviour
             completed_today = 0;
             GameManager.instance.ResetTime();
             LoadSituations("Day_" + day + "_" + character);
+            GameManager.instance.int_stats["Positivism"] -= GameManager.instance.carmen_day;
         }
     }
 }
