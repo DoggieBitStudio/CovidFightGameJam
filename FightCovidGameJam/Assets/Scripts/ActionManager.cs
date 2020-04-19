@@ -514,7 +514,6 @@ public class ActionManager : MonoBehaviour
                 agent.SetDestination(houseDoor.transform.position);
                 break;
             case Actions.TAKE_WALK:
-                GameManager.instance.fade.gameObject.SetActive(true);
                 houseDoorSource.Play();
                 break;
             case Actions.VIDEOCALL:

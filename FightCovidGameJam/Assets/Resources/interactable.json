@@ -52,8 +52,8 @@
       "action": 4,
       "optionText": "Ir a hablar con la vecina",
       "time": 60,
-      "positivism": 10
-	  "health": -1
+      "positivism": 10,
+	    "health": -1
     },
     {
       "action": 5,
