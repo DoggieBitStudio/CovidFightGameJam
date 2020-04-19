@@ -269,7 +269,7 @@
           "next_step": 1
         },
         {
-          "step_type": "LEAVEWORK",
+          "step_type": "FINISH",
           "index": 1,
           "next_step": 0
         }
