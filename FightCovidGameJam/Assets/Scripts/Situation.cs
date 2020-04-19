@@ -14,7 +14,8 @@ public enum Step_Type
     SLEEP,
     DOCTOR_VOTE,
     MOVE_TO,
-    PLAY_ANIMATION
+    PLAY_ANIMATION,
+    FADE
 }
 
 [System.Serializable]
@@ -24,8 +25,8 @@ public struct Step
     public int next_step;
     public int index;
 
-    public GameManager.Stat<int> int_requirement;
-    public GameManager.Stat<bool> bool_requirement;
+    public List<GameManager.Stat<int>> int_requirements;
+    public List<GameManager.Stat<bool>> bool_requirements;
 }
 
 [System.Serializable]

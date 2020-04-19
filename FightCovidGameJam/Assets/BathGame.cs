@@ -191,7 +191,6 @@ public class BathGame : MonoBehaviour
 
         GameManager.instance.boolean_stats["Went_Out"] = true;
         GameManager.instance.LoadSceneFade("Main");
-        GameManager.instance.situations_manager.OnStepFinish();
     }
 
     void FillStep(string name)
