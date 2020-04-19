@@ -13,23 +13,7 @@
           "animation": "SadTalk",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1,
-          "stat_requirement": [
-            {
-              "stat": "Doctor_Out",
-              "value": true
-            }
-          ]
-        },
-        {
-          "step_type": "DIALOGUE",
-          "text": "Y encima mis vecinos me han echado de mi propia casa... En el fondo entiendo sus miedos... Pero su respuesta carece de humanidad.",
-          "player": false,
-          "name": "Julio",
-          "animation": "SadTalk",
-          "speed": 30.0,
-          "index": 1,
-          "next_step": 0,
+          "next_step": 2,
           "stat_requirement": [
             {
               "stat": "Doctor_Out",
@@ -45,13 +29,17 @@
           "animation": "Think",
           "speed": 30.0,
           "index": 1,
-          "next_step": 2,
-          "stat_requirement": [
-            {
-              "stat": "Doctor_Out",
-              "value": false
-            }
-          ]
+          "next_step": 3
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Y encima mis vecinos me han echado de mi propia casa... En el fondo entiendo sus miedos... Pero su respuesta carece de humanidad.",
+          "player": false,
+          "name": "Julio",
+          "animation": "SadTalk",
+          "speed": 30.0,
+          "index": 2,
+          "next_step": 0
         },
         {
           "step_type": "DIALOGUE",
@@ -60,14 +48,8 @@
           "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
-          "index": 2,
-          "next_step": 3,
-          "stat_requirement": [
-            {
-              "stat": "Doctor_Out",
-              "value": false
-            }
-          ]
+          "index": 3,
+          "next_step": 4
         },
         {
           "step_type": "DIALOGUE",
@@ -76,14 +58,8 @@
           "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
-          "index": 3,
-          "next_step": 4,
-          "stat_requirement": [
-            {
-              "stat": "Doctor_Out",
-              "value": false
-            }
-          ]
+          "index": 4,
+          "next_step": 0
         }
       ]
     },
@@ -158,7 +134,7 @@
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 0
         }
       ]
     },
@@ -191,13 +167,7 @@
           "animation": "Talk",
           "speed": 30.0,
           "index": 1,
-          "next_step": 2,
-          "stat_requirement": [
-            {
-              "stat": "Infection",
-              "value": false
-            }
-          ]
+          "next_step": 2
         },
         {
           "step_type": "SELECTION",
