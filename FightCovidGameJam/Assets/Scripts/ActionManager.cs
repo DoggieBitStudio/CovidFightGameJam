@@ -698,7 +698,7 @@ public class ActionManager : MonoBehaviour
         if (currentAction != Actions.TAKE_WALK && currentAction != Actions.TRASH_OUT && currentAction != Actions.TALK_NEIGHBOUR)
             GameManager.instance.boolean_stats["Went_Out"] = false;
 
-        if(currentAction != Actions.YOUTUBE_VIDEO)
+        if(currentAction == Actions.YOUTUBE_VIDEO)
             GameManager.instance.patient_manager.CheckTime(timePassed);
 
         firstAction = false;

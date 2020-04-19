@@ -8,7 +8,7 @@
         {
           "step_type": "DIALOGUE",
           "text": "Ya son 15 días. Con tan pocos descansos, o incluso inexistentes algunos días, parece que las fuerzas se me desvanecen.",
-          "player": false,
+          "player": true,
           "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
@@ -18,7 +18,7 @@
         {
           "step_type": "DIALOGUE",
           "text": "Venga Julio, tu puedes, lo difícil se consigue y lo imposible se intenta.",
-          "player": false,
+          "player": true,
           "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
@@ -36,7 +36,7 @@
           "step_type": "DIALOGUE",
           "text": "Julio, parece que no va a haber mascarillas suficientes hasta que nos abastezcan con más.",
           "player": false,
-          "name": "Adrián",
+          "name": "Adrian",
           "animation": "Talk",
           "speed": 30.0,
           "index": 0,
@@ -108,7 +108,7 @@
           "animation": "Think",
           "speed": 30.0,
           "index": 0,
-          "next_step": 1
+          "next_step": 0
         }
       ]
     },
