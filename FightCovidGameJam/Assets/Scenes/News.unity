@@ -517,6 +517,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 154624313334618065, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313334618065, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313334618065, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313334618065, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313334618065, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313334618065, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313558656919, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313558656919, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313558656919, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313558656919, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313558656919, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 154624313558656919, guid: 041e1b370f7bfd542b0decb0d91d8c95,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041e1b370f7bfd542b0decb0d91d8c95, type: 3}
 --- !u!1 &686721099

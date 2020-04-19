@@ -146,9 +146,10 @@ public class GameManager : MonoBehaviour
 
     public void AddHealth(int h)
     {
-        if (instance.int_stats["Health"] > 0)
-            instance.int_stats["Health"] += h;
-        else if(instance.int_stats["Health"] >= 5)
+        instance.int_stats["Health"] += h;
+        if (instance.int_stats["Health"] < 0)
+            instance.int_stats["Health"] = 0;
+        else if (instance.int_stats["Health"] >= 5)
             instance.int_stats["Health"] = 5;
     }
 

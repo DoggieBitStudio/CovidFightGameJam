@@ -94,12 +94,11 @@ public class ActionManager : MonoBehaviour
         {
             agent = player.GetComponent<NavMeshAgent>();
             if(player.name == "MariCarmen")
-                animator = player.GetComponent<Animator>();
+                animator = player.GetComponentInChildren<Animator>();
         }
         
         if (SceneManager.GetActiveScene().name == "Main")
         {
-            animator = player.GetComponentInChildren<Animator>();
             tv = GameObject.Find("Television");
             sofa = GameObject.Find("Sofa");
             shelf = GameObject.Find("Estantería");
@@ -735,7 +734,7 @@ public class ActionManager : MonoBehaviour
         {
             agent = player.GetComponent<NavMeshAgent>();
             if (player.name == "MariCarmen")
-                animator = player.GetComponent<Animator>();
+                animator = player.GetComponentInChildren<Animator>();
         }
 
         if (SceneManager.GetActiveScene().name == "Main")
