@@ -122,8 +122,6 @@ public class ActionManager : MonoBehaviour
                     else if (firstAction && !tv.GetComponent<AudioSource>().isPlaying)
                     {
                         tv.transform.GetChild(0).gameObject.SetActive(false);
-                        currentAction = Actions.NONE;
-                        firstAction = false;
                         FinalizeAction();
                     }
                 }
@@ -141,8 +139,6 @@ public class ActionManager : MonoBehaviour
                     else if (firstAction && !tv.GetComponent<AudioSource>().isPlaying)
                     {
                         tv.transform.GetChild(0).gameObject.SetActive(false);
-                        currentAction = Actions.NONE;
-                        firstAction = false;
                         FinalizeAction();
                     }
                 }
@@ -174,9 +170,6 @@ public class ActionManager : MonoBehaviour
                     {
                         book.transform.position = bookPos.transform.position;
                         book.SetActive(true);
-                        currentAction = Actions.NONE;
-                        firstAction = false;
-                        secondAction = false;
                         FinalizeAction();
                     }
                 }
@@ -192,8 +185,6 @@ public class ActionManager : MonoBehaviour
                     else if(firstAction && !sofa.GetComponent<AudioSource>().isPlaying)
                     {
                         animator.Play("Idle");
-                        firstAction = false;
-                        currentAction = Actions.NONE;
                         FinalizeAction();
                     }
                 }
@@ -220,9 +211,6 @@ public class ActionManager : MonoBehaviour
 
                         if (col.a <= 0)
                         {
-                            firstAction = false;
-                            secondAction = false;
-                            currentAction = Actions.NONE;
                             if (GameManager.instance.int_stats["Health"] <= 0)
                             {
                                 GameManager.instance.boolean_stats["Infection"] = true;
@@ -260,9 +248,7 @@ public class ActionManager : MonoBehaviour
 
                         if (col.a <= 0)
                         {
-                            firstAction = false;
-                            secondAction = false;
-                            currentAction = Actions.NONE;
+                            GameManager.instance.boolean_stats["Went_Out"] = true;
                             FinalizeAction();
                         }
                     }
@@ -292,9 +278,6 @@ public class ActionManager : MonoBehaviour
                         {
                             smartphone.SetActive(true);
                             smartphone.transform.position = smartphonePos.transform.position;
-                            currentAction = Actions.NONE;
-                            firstAction = false;
-                            secondAction = false;
                             FinalizeAction();
                         }
                     }
@@ -326,9 +309,6 @@ public class ActionManager : MonoBehaviour
                     {
                         smartphone.SetActive(true);
                         smartphone.transform.position = smartphonePos.transform.position;
-                        currentAction = Actions.NONE;
-                        firstAction = false;
-                        secondAction = false;
                         GameManager.instance.boolean_stats["Shop"] = true;
                         GameManager.instance.boolean_stats["Went_Out"] = true;
                         FinalizeAction();
@@ -369,9 +349,6 @@ public class ActionManager : MonoBehaviour
                     GameManager.instance.boolean_stats["Mask_Crafted"] = true;
                     GameManager.instance.boolean_stats["Mask"] = true;
                     swegingBox.tag = "Untagged";
-                    firstAction = false;
-                    secondAction = false;
-                    currentAction = Actions.NONE;
                     washingMachine.tag = "Selectable";
                     FinalizeAction();
                 }
@@ -384,10 +361,8 @@ public class ActionManager : MonoBehaviour
                 }
                 else if(firstAction && !washingMachine.GetComponent<AudioSource>().isPlaying)
                 {
-                    firstAction = false;
                     washingMachine.tag = "Untagged";
                     GameManager.instance.boolean_stats["Mask"] = true;
-                    currentAction = Actions.NONE;
                     FinalizeAction();
                 }
                 break;
@@ -399,11 +374,9 @@ public class ActionManager : MonoBehaviour
                 }
                 else if (firstAction && !washingMachine.GetComponent<AudioSource>().isPlaying)
                 {
-                    firstAction = false;
                     washingMachine.tag = "Untagged";
                     GameManager.instance.boolean_stats["Mask"] = true;
                     GameManager.instance.boolean_stats["Badly_Wash"] = true;
-                    currentAction = Actions.NONE;
                     FinalizeAction();
                 }
                 break;
@@ -430,8 +403,7 @@ public class ActionManager : MonoBehaviour
 
                         if (col.a <= 0)
                         {
-                            firstAction = false;
-                            currentAction = Actions.NONE;
+                            GameManager.instance.boolean_stats["Went_Out"] = true;
                             FinalizeAction();
                         }
                     }
@@ -448,8 +420,6 @@ public class ActionManager : MonoBehaviour
                     }
                     else if(firstAction /*&& player animation is finished*/)
                     {
-                        firstAction = false;
-                        currentAction = Actions.NONE;
                         GameManager.instance.boolean_stats["Plant"] = true;
                         plant.tag = "Untagged";
                         FinalizeAction();
@@ -480,8 +450,6 @@ public class ActionManager : MonoBehaviour
 
                         if (col.a <= 0)
                         {
-                            firstAction = false;
-                            currentAction = Actions.NONE;
                             FinalizeAction();
                         }
                     }
@@ -509,8 +477,6 @@ public class ActionManager : MonoBehaviour
 
                     if (col.a <= 0)
                     {
-                        firstAction = false;
-                        currentAction = Actions.NONE;
                         FinalizeAction();
                     }
                 }
@@ -519,8 +485,6 @@ public class ActionManager : MonoBehaviour
                 if ((hygieneGel.transform.position - player.transform.position).sqrMagnitude < 3 && !firstAction)
                 {
                     hygieneGel.GetComponent<AudioSource>().Play();
-                    firstAction = false;
-                    currentAction = Actions.NONE;
                     FinalizeAction();
                 }
                 break;
@@ -598,9 +562,19 @@ public class ActionManager : MonoBehaviour
         GameManager.instance.AdvanceTime(timePassed);
 
         GameManager.instance.AddPositivism(positivismGained);
-        GameManager.instance.AddHealth(healthGained);
-        GameManager.instance.boolean_stats["Went_Out"] = false;
+
+        if (currentAction != Actions.HYGIENE_GEL && currentAction != Actions.WASH_HANDS)
+            GameManager.instance.AddHealth(healthGained);
+        else if(GameManager.instance.boolean_stats["Went_Out"])
+            GameManager.instance.AddHealth(healthGained);
+
+        if (currentAction != Actions.TAKE_WALK && currentAction != Actions.TRASH_OUT)
+            GameManager.instance.boolean_stats["Went_Out"] = false;
+
+        firstAction = false;
+        secondAction = false;
         isDoingAction = false;
+        currentAction = Actions.NONE;
     }
 
     private void OnLevelWasLoaded(int level)
