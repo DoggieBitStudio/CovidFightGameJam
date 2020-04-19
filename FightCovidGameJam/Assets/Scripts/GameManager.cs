@@ -88,6 +88,7 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Plant", false);
             boolean_stats.Add("Went_Out", false);
             boolean_stats.Add("Doctor_Out", false);
+            boolean_stats.Add("More_Sick_People", false);
 
             debug_style = new GUIStyle();
             debug_style.fontSize = 22;

@@ -65,7 +65,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "En los humanos, se sabe que varios coronavirus causan infecciones respiratorias que pueden ir desde el resfriado común",
+          "text": "En los humanos, se sabe que varios coronavirus causan infecciones respiratorias que pueden ir desde el resfriado común...",
           "player": true,
           "name": "Julián",
           "animation": "Talk",
@@ -75,7 +75,7 @@
         },
         {
           "step_type": "DIALOGUE",
-          "text": "hasta enfermedades más graves como el síndrome respiratorio de Oriente Medio y el síndrome respiratorio agudo severo.",
+          "text": "...hasta enfermedades más graves como el síndrome respiratorio de Oriente Medio y el síndrome respiratorio agudo severo.",
           "player": true,
           "name": "Julián",
           "animation": "Talk",
