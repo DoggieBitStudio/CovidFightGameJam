@@ -580,9 +580,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f2c05ff38e27f7a4d81a5dfc0d1af03e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5d305103bf2718a4ea1416de7d00c303, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -694,6 +694,7 @@ MonoBehaviour:
   goodBye: 0
   dead: 0
   health: 5
+  previous_time: 8
 --- !u!1 &4741282982502530611
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,7 +705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4741282982502530612}
   m_Layer: 0
-  m_Name: Camilla 3
+  m_Name: Camilla 3  Padre
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1457,7 +1458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4741282983139137564}
   m_Layer: 0
-  m_Name: Camilla 5
+  m_Name: Camilla 5 Padre
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2069,9 +2070,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f2c05ff38e27f7a4d81a5dfc0d1af03e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5d305103bf2718a4ea1416de7d00c303, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2183,6 +2184,7 @@ MonoBehaviour:
   goodBye: 0
   dead: 0
   health: 5
+  previous_time: 8
 --- !u!1 &4741282983685338091
 GameObject:
   m_ObjectHideFlags: 0
@@ -2509,7 +2511,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4741282983786022030}
   m_Layer: 0
-  m_Name: Camilla 4
+  m_Name: Camilla 4  Padre
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2647,9 +2649,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f2c05ff38e27f7a4d81a5dfc0d1af03e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5d305103bf2718a4ea1416de7d00c303, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2761,6 +2763,7 @@ MonoBehaviour:
   goodBye: 0
   dead: 0
   health: 5
+  previous_time: 8
 --- !u!1 &4741282983885042325
 GameObject:
   m_ObjectHideFlags: 0
@@ -3061,9 +3064,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f2c05ff38e27f7a4d81a5dfc0d1af03e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5d305103bf2718a4ea1416de7d00c303, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3175,6 +3178,7 @@ MonoBehaviour:
   goodBye: 0
   dead: 0
   health: 5
+  previous_time: 8
 --- !u!1 &4741282984007243438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3518,9 +3522,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: f2c05ff38e27f7a4d81a5dfc0d1af03e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5d305103bf2718a4ea1416de7d00c303, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3632,6 +3636,7 @@ MonoBehaviour:
   goodBye: 0
   dead: 0
   health: 5
+  previous_time: 8
 --- !u!1 &4741282984197522841
 GameObject:
   m_ObjectHideFlags: 0
@@ -3939,7 +3944,7 @@ PrefabInstance:
     - target: {fileID: 448547322053719274, guid: ee7c4606a9a756c449e19b90ee32d148,
         type: 3}
       propertyPath: m_Name
-      value: "M\xF3vil Med"
+      value: "M\xF3vil Medico"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee7c4606a9a756c449e19b90ee32d148, type: 3}
@@ -3999,7 +4004,7 @@ PrefabInstance:
     - target: {fileID: 6064249503864067147, guid: e879684e4807b6d408e7f71d03585b77,
         type: 3}
       propertyPath: m_Name
-      value: Camilla 1
+      value: Camilla 1 Padre
       objectReference: {fileID: 0}
     - target: {fileID: 6064249503864067147, guid: e879684e4807b6d408e7f71d03585b77,
         type: 3}
@@ -4159,7 +4164,7 @@ PrefabInstance:
     - target: {fileID: 6064249503864067147, guid: e879684e4807b6d408e7f71d03585b77,
         type: 3}
       propertyPath: m_Name
-      value: Camilla 2
+      value: Camilla 2  Padre
       objectReference: {fileID: 0}
     - target: {fileID: 6064249503864067147, guid: e879684e4807b6d408e7f71d03585b77,
         type: 3}

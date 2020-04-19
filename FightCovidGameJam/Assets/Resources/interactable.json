@@ -265,8 +265,7 @@
     {
       "action": 19,
       "optionText": "Realizar RCP",
-      "time": 10,
-      "health": 1
+      "time": 10
     },
     {
       "action": 20,
@@ -275,7 +274,7 @@
       "positivism": -3
     }
   ],
-  "Móvil Med": [
+  "Móvil Medico": [
     {
       "action": 21,
       "optionText": "Hacer video para youtube explicando medidas",

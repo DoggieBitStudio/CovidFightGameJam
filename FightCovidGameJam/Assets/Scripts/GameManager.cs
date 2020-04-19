@@ -9,7 +9,7 @@ using DG.Tweening;
 public enum CHARACTER
 {
     CARMEN,
-    JULIAN
+    JULIO
 }
 public class GameManager : MonoBehaviour
 {
@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public DialogueManager dialogue_manager;
     public UIManager ui_manager;
     public ActionManager action_manager;
+    public PatientManager patient_manager;
     public Image fade;
 
     public bool ui_opened = false;
@@ -48,7 +49,8 @@ public class GameManager : MonoBehaviour
     public AudioSource audio_source;
 
     public int carmen_day = 1;
-    public int julian_day = 1;
+    public int julio_day = 1;
+
     public CHARACTER current_character = CHARACTER.CARMEN;
 
     public AudioClip new_day_sfx;
@@ -69,6 +71,7 @@ public class GameManager : MonoBehaviour
             dialogue_manager = GetComponent<DialogueManager>();
             ui_manager = GetComponent<UIManager>();
             action_manager = GetComponent<ActionManager>();
+            patient_manager = GetComponent<PatientManager>();
             audio_source = GetComponent<AudioSource>();
 
             int_stats = new Dictionary<string, int>();
@@ -90,11 +93,10 @@ public class GameManager : MonoBehaviour
             boolean_stats.Add("Doctor_Out", false);
             boolean_stats.Add("More_Sick_People", false);
 
-            boolean_stats.Add("Carmen_Depressed", false);
-            boolean_stats.Add("End_Normal", false);
+            boolean_stats.Add("End_Carmen_Depressed", false);
             boolean_stats.Add("End_Child_Live", false);
             boolean_stats.Add("End_Child_Die", false);
-            
+
 
             debug_style = new GUIStyle();
             debug_style.fontSize = 22;
@@ -245,9 +247,9 @@ public class GameManager : MonoBehaviour
                 character_text.text = "Carmen";
                 day_text.text = "Día " + carmen_day + " de confinamiento";
                 break;
-            case CHARACTER.JULIAN:
-                day_text.text = "Día " + julian_day + " del estado de alarma";
-                character_text.text = "Julian";
+            case CHARACTER.JULIO:
+                day_text.text = "Día " + julio_day + " del estado de alarma";
+                character_text.text = "Julio";
                 break;
             default:
                 break;

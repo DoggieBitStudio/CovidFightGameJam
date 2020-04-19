@@ -522,7 +522,7 @@
           "stat_requirement": [
             {
               "stat": "Positivism",
-              "value": 10
+              "value": 20
             }
           ] 
         },
@@ -534,7 +534,13 @@
           "animation": "SadTalk",
           "speed": 30.0,
           "index": 1,
-          "next_step": 2
+          "next_step": 2,
+          "effect": [
+            {
+              "stat": "End_Carmen_Depressed",
+              "value": true
+            }
+          ]
         },
         {
           "step_type": "SLEEP",
