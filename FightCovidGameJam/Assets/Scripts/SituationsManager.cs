@@ -38,14 +38,14 @@ public class SituationsManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        Debug.Log("asd");
         day_situations = new List<Situation>();
         completed_situations = new List<Situation>();
 
         string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
         string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";
 
+        if (SceneManager.GetActiveScene().name == "News")
+            LoadSituations("Introduction");
     }
 
     // Update is called once per frame
@@ -286,6 +286,7 @@ public class SituationsManager : MonoBehaviour
 
             day_situations.Add(situation);
         }
+        StartSituation();
     }
 
     public void StartSituation()
@@ -326,7 +327,7 @@ public class SituationsManager : MonoBehaviour
 
     public void OnLevelFinshedLoading(Scene scene)
     {
-        if((scene.name == "Main" || scene.name == "HospitalUpdated") && current_situation.identifier == "Sleep")
+        if ((scene.name == "Main" || scene.name == "HospitalUpdated") && current_situation.identifier == "Sleep")
         {
             string day = GameManager.instance.current_character == CHARACTER.CARMEN ? GameManager.instance.carmen_day.ToString() : GameManager.instance.julian_day.ToString();
             string character = GameManager.instance.current_character == CHARACTER.CARMEN ? "Carmen" : "Julian";

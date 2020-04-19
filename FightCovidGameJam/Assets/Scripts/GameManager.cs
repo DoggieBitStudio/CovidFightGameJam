@@ -182,13 +182,13 @@ public class GameManager : MonoBehaviour
     {
         if(prevScene == "News")
         {
+            new_day = true;
             action_manager.enabled = true;
             ui_manager.time_text.gameObject.transform.parent.gameObject.SetActive(true);
             ui_manager.mask_ui.gameObject.transform.parent.gameObject.SetActive(true);
         }
         ui_opened = true;
         HideFade();
-        situations_manager.OnLevelFinshedLoading(scene);
     }
 
 
@@ -210,7 +210,7 @@ public class GameManager : MonoBehaviour
     void HidePrepTexts()
     {
         day_text.DOFade(0.0f, 2.0f);
-        character_text.DOFade(0.0f, 2.0f).OnComplete(situations_manager.StartSituation);
+        character_text.DOFade(0.0f, 2.0f).OnComplete(() => situations_manager.OnLevelFinshedLoading(SceneManager.GetActiveScene()));
         ui_opened = false;
     }
 
@@ -226,15 +226,8 @@ public class GameManager : MonoBehaviour
             ui_opened = false;
         }
 
-        if (SceneManager.GetActiveScene().name == "News")
-        {
-            Debug.Log("asd");
-            situations_manager.LoadSituations("Introduction");
-        }
-
         if (prevScene == "bathroom")
-            situations_manager.OnStepFinish();
-            
+            situations_manager.OnStepFinish();        
     }         
    
 
@@ -254,6 +247,7 @@ public class GameManager : MonoBehaviour
                 break;
         }
         character_text.DOFade(1.0f, 2.0f).OnComplete(ShowDayText);
+
         new_day = false;
     }
 
