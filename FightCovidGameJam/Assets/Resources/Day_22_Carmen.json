@@ -110,10 +110,12 @@
           "speed": 30.0,
           "index": 1,
           "next_step": 3,
-          "stat_requirement": {
-            "stat": "Positivism",
-            "value": 20
-          }
+          "stat_requirement": [
+            {
+              "stat": "Positivism",
+              "value": 20
+            }
+          ]
         },
         {
           "step_type": "DIALOGUE",
@@ -131,10 +133,12 @@
           "options": [
             {
               "text": "Salir a que haga sus necesidades.",
-              "stat_requirement": {
-                "stat": "Positivism",
-                "value": 50
-              },
+              "stat_requirement": [
+                {
+                  "stat": "Positivism",
+                  "value": 50
+                }
+              ],
               "time_investment": 20,
               "next_step": 4
             },
@@ -169,7 +173,23 @@
         {
           "step_type": "BATHROOM",
           "index": 4,
-          "next_step": 0
+          "next_step": 5
+        },
+        {
+          "step_type": "MOVE_TO",
+          "index": 5,
+          "next_step": 6,
+          "position": {
+            "x": -3,
+            "y": 2.3,
+            "z": -12
+          }
+        },
+        {
+          "step_type": "FADE",
+          "time": 2,
+          "index": 6,
+          "next_step": 7
         }
       ]
     },
@@ -244,10 +264,12 @@
             },
             {
               "text": "Eso ha sí'o al lavarlo a tanta temperatura...",
-              "stat_requirement": {
-                "stat": "Positivism",
-                "value": 40
-              },
+              "stat_requirement": [
+                {
+                  "stat": "Positivism",
+                  "value": 40
+                }
+              ],
               "effect": [
                 {
                   "stat": "Positivism",
@@ -315,52 +337,106 @@
       ]
     },
     {
-      "step_type": "SHOPPING",
-      "index": 1,
-      "next_step": 2,
-      "options": [
+      "identifier": "SHOPPING",
+      "activation_time": 17,
+      "duration": 45,
+      "sequence": [
         {
-          "text": "Comida y bebida",
-          "effect": [
+          "step_type": "DIALOGUE",
+          "text": "Haré una lista de la compra con todo lo que necesito comprar para tener claras las prioridades.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 0,
+          "next_step": 1
+        },
+        {
+          "step_type": "SHOPPING",
+          "index": 1,
+          "next_step": 2,
+          "options": [
             {
-              "stat": "Shop",
-              "value": true
+              "text": "Comida y bebida",
+              "effect": [
+                {
+                  "stat": "Shop",
+                  "value": true
+                }
+              ]
+            },
+            {
+              "text": "Comprar algún capricho",
+              "effect": [
+                {
+                  "stat": "Health",
+                  "value": -1
+                },
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                }
+              ],
+              "time_investment": 10
+            },
+            {
+              "text": "Papel higiénico",
+              "stat_requirement": [
+                {
+                  "stat": "Positivism",
+                  "value": 200
+                }
+              ],
+              "effect": [
+                {
+                  "stat": "Positivism",
+                  "value": 1
+                }
+              ],
+              "time_investment": 10
+            },
+            {
+              "text": "Gel desinfectante",
+              "effect": [
+                {
+                  "stat": "Gel",
+                  "value": true
+                }
+              ],
+              "time_investment": 10
             }
           ]
         },
         {
-          "text": "Comprar algún capricho",
-          "effect": [
-            {
-              "stat": "Health",
-              "value": -1
-            },
-            {
-              "stat": "Positivism",
-              "value": 1
-            }
-          ],
-          "time_investment": 10
+          "step_type": "DIALOGUE",
+          "text": "A prepararse para salir a la calle.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 2,
+          "next_step": 3
         },
         {
-          "text": "Papel higiénico",
-          "effect": [
-            {
-              "stat": "Positivism",
-              "value": 1
-            }
-          ],
-          "time_investment": 10
+          "step_type": "BATHROOM",
+          "index": 3,
+          "next_step": 4
         },
         {
-          "text": "Gel desinfectante",
-          "effect": [
-            {
-              "stat": "Gel",
-              "value": true
-            }
-          ],
-          "time_investment": 10
+          "step_type": "MOVE_TO",
+          "index": 4,
+          "next_step": 5,
+          "position": {
+            "x": -3,
+            "y": 2.3,
+            "z": -12
+          }
+        },
+        {
+          "step_type": "FADE",
+          "time": 2,
+          "index": 5,
+          "next_step": 6
         }
       ]
     },
@@ -443,10 +519,12 @@
           "speed": 30.0,
           "index": 0,
           "next_step": 2,
-          "stat_requirement": {
-            "stat": "Positivism",
-            "value": 10
-          }
+          "stat_requirement": [
+            {
+              "stat": "Positivism",
+              "value": 10
+            }
+          ] 
         },
         {
           "step_type": "DIALOGUE",
