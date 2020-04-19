@@ -62,6 +62,43 @@ public class Interactable : MonoBehaviour
             task.GetComponentInChildren<Text>().text = interactable.optionText;
             task.transform.SetParent(uiManager.verticalTask.transform);
             task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.RealizeAction(interactable.action, interactable.time, interactable.health, interactable.positivism); });
+            RawImage postivism_task = task.transform.GetChild(1).GetComponent<RawImage>();
+            RawImage health_task = task.transform.GetChild(2).GetComponent<RawImage>();
+
+            //Positivism
+            GameObject eff_obj = task.transform.GetChild(1).gameObject;
+            float scale = 1.2f;
+
+            if (interactable.positivism == 0)
+                eff_obj.SetActive(false);
+            else
+            {
+                eff_obj.SetActive(true);
+                eff_obj.GetComponent<RawImage>().texture = interactable.positivism > 0 ? Resources.Load<Texture>("UI/green_face") : Resources.Load<Texture>("UI/Positivism");
+            }
+
+            if (Mathf.Abs(interactable.positivism) <= 5)
+                scale = 0.7f;
+            else if (Mathf.Abs(interactable.positivism) > 5 && Mathf.Abs(interactable.positivism) < 10)
+                scale = 1.0f;
+
+            eff_obj.transform.localScale = new Vector3(scale, scale, 1);
+
+            //Health
+            eff_obj = task.transform.GetChild(2).gameObject;
+
+            if (interactable.health == 0 || (!GameManager.instance.boolean_stats["Went_Out"] && interactable.health > 0))
+                eff_obj.SetActive(false);
+            else
+            {
+                eff_obj.SetActive(true);
+                eff_obj.GetComponent<RawImage>().texture = interactable.health > 0 ? Resources.Load<Texture>("UI/Health_Positive") : Resources.Load<Texture>("UI/Health");
+            }
+
+            if (Mathf.Abs(interactable.health) <= 1)
+                scale = 0.7f;
+
+            eff_obj.transform.localScale = new Vector3(scale, scale, 1);
         }
 
         //Set Close button
@@ -69,6 +106,8 @@ public class Interactable : MonoBehaviour
         task.GetComponentInChildren<Text>().text = "Mejor hago otra cosa";
         task.transform.SetParent(uiManager.verticalTask.transform);
         task.GetComponent<Button>().onClick.AddListener(delegate { uiManager.CloseTask(); });
+        task.transform.GetChild(1).gameObject.SetActive(false);
+        task.transform.GetChild(2).gameObject.SetActive(false);
 
         uiManager.isTaskMenuOpen = true;
         uiManager.verticalTask.transform.position = CalculatePositionOffset(Camera.main.WorldToScreenPoint(hitPos));

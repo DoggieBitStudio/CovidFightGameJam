@@ -76,31 +76,28 @@ public class ActionManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("MariCarmen");
         agent = player.GetComponent<NavMeshAgent>();
         animator = player.GetComponentInChildren<Animator>();
-        if (player.name == "MariCarmen")
-        {
-            tv = GameObject.Find("Television");
-            sofa = GameObject.Find("Sofa");
-            shelf = GameObject.Find("Estantería");
-            couch = GameObject.Find("Sillón");
-            book = GameObject.Find("Book");
-            bookPos = GameObject.Find("BookPos");
-            houseDoor = GameObject.Find("Puerta");
-            houseDoorSource = houseDoor.GetComponent<AudioSource>();
-            neighbourDoor = GameObject.Find("Puerta Vecino");
-            smartphone = GameObject.Find("Móvil");
-            smartphonePos = GameObject.Find("SmartphonePos");
-            bathroomDoor = GameObject.Find("Lavabo");
-            chair = GameObject.Find("Silla");
-            swegingBox = GameObject.Find("Costurero");
-            washingMachine = GameObject.Find("Lavadora");
-            kitchen = GameObject.Find("Kitchen");
-            plant = GameObject.Find("Planta");
-            hygieneGel = GameObject.Find("Gel Desinfectante");
-            table = GameObject.Find("Mesa");
-        }
+        tv = GameObject.Find("Television");
+        sofa = GameObject.Find("Sofa");
+        shelf = GameObject.Find("Estantería");
+        couch = GameObject.Find("Sillón");
+        book = GameObject.Find("Book");
+        bookPos = GameObject.Find("BookPos");
+        houseDoor = GameObject.Find("Puerta");
+        houseDoorSource = houseDoor.GetComponent<AudioSource>();
+        neighbourDoor = GameObject.Find("Puerta Vecino");
+        smartphone = GameObject.Find("Móvil");
+        smartphonePos = GameObject.Find("SmartphonePos");
+        bathroomDoor = GameObject.Find("Lavabo");
+        chair = GameObject.Find("Silla");
+        swegingBox = GameObject.Find("Costurero");
+        washingMachine = GameObject.Find("Lavadora");
+        kitchen = GameObject.Find("Kitchen");
+        plant = GameObject.Find("Planta");
+        hygieneGel = GameObject.Find("Gel Desinfectante");
+        table = GameObject.Find("Mesa");
     }
 
     // Update is called once per frame
@@ -206,7 +203,7 @@ public class ActionManager : MonoBehaviour
                             houseDoorSource.PlayOneShot(dramaticFx);
                         }
                     }
-                    else if((neighbourDoor.transform.position - player.transform.position).sqrMagnitude < 3 && firstAction)
+                    else if(!houseDoorSource.isPlaying && firstAction)
                     {
                         Color col = GameManager.instance.fade.color;
                         col.a -= (float)0.5 * Time.deltaTime;
@@ -218,6 +215,7 @@ public class ActionManager : MonoBehaviour
                             {
                                 GameManager.instance.boolean_stats["Infection"] = true;
                             }
+                            GameManager.instance.boolean_stats["Went_Out"] = true;
                             FinalizeAction();
                         }
                     }
@@ -516,7 +514,6 @@ public class ActionManager : MonoBehaviour
                 agent.SetDestination(houseDoor.transform.position);
                 break;
             case Actions.TAKE_WALK:
-                GameManager.instance.fade.gameObject.SetActive(true);
                 houseDoorSource.Play();
                 break;
             case Actions.VIDEOCALL:
@@ -571,7 +568,7 @@ public class ActionManager : MonoBehaviour
         else if(GameManager.instance.boolean_stats["Went_Out"])
             GameManager.instance.AddHealth(healthGained);
 
-        if (currentAction != Actions.TAKE_WALK && currentAction != Actions.TRASH_OUT)
+        if (currentAction != Actions.TAKE_WALK && currentAction != Actions.TRASH_OUT && currentAction != Actions.TALK_NEIGHBOUR)
             GameManager.instance.boolean_stats["Went_Out"] = false;
 
         firstAction = false;

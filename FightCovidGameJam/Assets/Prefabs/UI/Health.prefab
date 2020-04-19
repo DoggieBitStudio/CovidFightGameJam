@@ -319,7 +319,7 @@ MonoBehaviour:
   full_color: {r: 0, g: 1, b: 0, a: 1}
   low_color: {r: 1, g: 0, b: 0, a: 1}
   stat: Health
-  max_stat: 10
+  max_stat: 5
 --- !u!1 &9116069556626555538
 GameObject:
   m_ObjectHideFlags: 0

@@ -1306,6 +1306,7 @@ MonoBehaviour:
   fade: {fileID: 668610987545864464}
   ui_opened: 0
   new_day: 1
+  change_character: 0
   character_text: {fileID: 154624313334618064}
   day_text: {fileID: 154624313558656918}
   audio_source: {fileID: 0}
@@ -1382,21 +1383,24 @@ MonoBehaviour:
   - name: Rufus
     prefab: {fileID: 797694093498988452, guid: 45e5699c2f9f1624e8bedf17f140ac48, type: 3}
   - name: Presentador
-    prefab: {fileID: 5418899754528459646, guid: 8819b0063dc4ca649ac10027b0760bcd,
+    prefab: {fileID: 5418899754528459646, guid: f9cd26612663b4143964c25efda434ad,
       type: 3}
   - name: Fina
-    prefab: {fileID: 6849708609886846192, guid: cb3adeab2f9771746a535448435f1284,
+    prefab: {fileID: 6757380822530604458, guid: 48eb88d7aef6874468e2c1bd42f1b383,
       type: 3}
   - name: Jaime
-    prefab: {fileID: 6849708609886846192, guid: cb3adeab2f9771746a535448435f1284,
+    prefab: {fileID: 2767938410499571783, guid: ebd05a0fce1ac9143b688ec1baa9e638,
       type: 3}
   - name: Alfonso
-    prefab: {fileID: 6849708609886846192, guid: cb3adeab2f9771746a535448435f1284,
+    prefab: {fileID: 5418899754528459646, guid: f9cd26612663b4143964c25efda434ad,
       type: 3}
   - name: Presidente
     prefab: {fileID: 6849708609886846192, guid: cb3adeab2f9771746a535448435f1284,
       type: 3}
   - name: Julian
+    prefab: {fileID: 5418899754528459646, guid: 8819b0063dc4ca649ac10027b0760bcd,
+      type: 3}
+  - name: Adrian
     prefab: {fileID: 5418899754528459646, guid: 8819b0063dc4ca649ac10027b0760bcd,
       type: 3}
 --- !u!114 &154624313317857456
@@ -1954,7 +1958,7 @@ PrefabInstance:
     - target: {fileID: 820279485512507872, guid: a933ae431e692b44293b1785837e9fd8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 820279485512507873, guid: a933ae431e692b44293b1785837e9fd8,
         type: 3}
