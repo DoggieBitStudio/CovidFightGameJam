@@ -65,20 +65,40 @@ public class Interactable : MonoBehaviour
             RawImage postivism_task = task.transform.GetChild(1).GetComponent<RawImage>();
             RawImage health_task = task.transform.GetChild(2).GetComponent<RawImage>();
 
-            if (interactable.positivism < 0)
-                postivism_task.texture = Resources.Load<Texture>("UI/Positivism");
-            else
-                postivism_task.texture = Resources.Load<Texture>("UI/green_face");
+            //Health
+            GameObject eff_obj = task.transform.GetChild(1).gameObject;
+            float scale = 1.0f;
 
-            if (Mathf.Abs(interactable.positivism) <= 10)
-                task.transform.GetChild(1).GetComponent<RawImage>().texture = ;
+            if (interactable.positivism == 0)
+                eff_obj.SetActive(false);
             else
-                task.transform.GetChild(1).GetComponent<Image>().sprite = ;
+            {
+                eff_obj.SetActive(true);
+                eff_obj.GetComponent<RawImage>().texture = interactable.positivism > 0 ? Resources.Load<Texture>("UI/green_face") : Resources.Load<Texture>("UI/Positivism");
+            }
+
+            if (Mathf.Abs(interactable.positivism) <= 5)
+                scale = 0.5f;
+            else if (Mathf.Abs(interactable.positivism) > 5 && Mathf.Abs(interactable.positivism) < 10)
+                scale = 0.7f;
+
+            eff_obj.transform.localScale = new Vector3(scale, scale, 1);
+
+            //Positivism
+            eff_obj = task.transform.GetChild(1).gameObject;
+
+            if (interactable.health == 0)
+                eff_obj.SetActive(false);
+            else
+            {
+                eff_obj.SetActive(true);
+                eff_obj.GetComponent<RawImage>().texture = interactable.health > 0 ? Resources.Load<Texture>("UI/Health_Positive") : Resources.Load<Texture>("UI/Health");
+            }
 
             if (Mathf.Abs(interactable.health) <= 1)
-                task.transform.GetChild(1).GetComponent<Image>().sprite = ;
-            else
-                task.transform.GetChild(1).GetComponent<Image>().sprite = ;
+                scale = 0.5f;
+
+            eff_obj.transform.localScale = new Vector3(scale, scale, 1);
         }
 
         //Set Close button
