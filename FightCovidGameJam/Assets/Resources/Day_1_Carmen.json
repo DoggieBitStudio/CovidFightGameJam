@@ -103,8 +103,52 @@
           ]
         },
         {
-          "step_type": "BATHROOM",
+          "step_type": "DIALOGUE",
+          "text": "Primero vamos a preparanos en el baño para salir a la calle.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Think",
+          "speed": 30.0,
           "index": 3,
+          "next_step": 4
+        },
+        {
+          "step_type": "BATHROOM",
+          "index": 4,
+          "next_step": 5
+        },
+        {
+          "step_type": "MOVE_TO",
+          "index": 5,
+          "next_step": 6,
+          "position": {
+            "x": -3,
+            "y": 2.3,
+            "z": -12
+          }
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ha sido raro salir con el estado de alarma, y encima me he quedado sin mascarilla porque esta era de un solo uso, tendré que fabricarme una.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 6,
+          "next_step": 0,
+          "stat_requirement": {
+            "stat": "Mask",
+            "value": false
+          }
+        },
+        {
+          "step_type": "DIALOGUE",
+          "text": "Ha sido raro salir con el estado de alarma.",
+          "player": true,
+          "name": "Carmen",
+          "animation": "Think",
+          "speed": 30.0,
+          "index": 7,
           "next_step": 0
         }
       ]
