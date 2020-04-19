@@ -19,6 +19,9 @@ public class UIManager : MonoBehaviour
     public GameObject selection_prefab;
     public GameObject selection_list;
 
+    //Stats
+    public RawImage mask_ui;
+
     Dictionary<string, Texture> emojis;
 
     public void SetTimeText(float time)
@@ -48,6 +51,24 @@ public class UIManager : MonoBehaviour
         GameManager.instance.action_manager.DoAction(action, decimal_time, health, positivism);
 
         CloseTask();
+    }
+
+    public void Update()
+    {
+        if (Input.GetKey(KeyCode.F3))
+            GameManager.instance.int_stats["Positivism"] -= 1;
+        if (Input.GetKey(KeyCode.F4))
+            GameManager.instance.int_stats["Positivism"] += 1;
+        if (Input.GetKey(KeyCode.F5))
+            GameManager.instance.int_stats["Health"] -= 1;
+        if (Input.GetKey(KeyCode.F6))
+            GameManager.instance.int_stats["Health"] += 1;
+        if (Input.GetKey(KeyCode.F7))
+            GameManager.instance.boolean_stats["Mask"] = true;
+        if (Input.GetKey(KeyCode.F8))
+            GameManager.instance.boolean_stats["Mask"] = false;
+
+        mask_ui.color = GameManager.instance.boolean_stats["Mask"] ? Color.white : Color.gray;
     }
 
     public void CloseTask()
@@ -88,6 +109,34 @@ public class UIManager : MonoBehaviour
             img.texture = emojis[selection.int_requirement.stat];
             img.enabled = true;
         }
+
+        foreach (var item in selection.int_effects)
+        {
+            GameObject eff_obj = Instantiate(Resources.Load<GameObject>("UI/Effect_Image"), selection_go.transform.GetChild(2));
+            float scale = 1;
+
+            if (item.stat.Equals("Health"))
+            {
+                eff_obj.GetComponent<RawImage>().texture = item.value > 0 ? Resources.Load<Texture>("UI/Health_Positive"): Resources.Load<Texture>("UI/Health");
+                
+                if (Math.Abs(item.value) < 2.0)
+                    scale = 0.5f;
+            }
+            else
+            {
+                eff_obj.GetComponent<RawImage>().texture = item.value > 0 ? Resources.Load<Texture>("UI/green_face") : Resources.Load<Texture>("UI/Positivism");
+                if (Math.Abs(item.value) < 2.0)
+                    scale = 0.5f;
+                else if (Math.Abs(item.value) >= 4)
+                    scale = 1.5f;
+            }
+                
+
+
+
+            eff_obj.transform.localScale = new Vector3(scale, scale, 1);
+        }
+
         selection_go.GetComponent<Button>().onClick.AddListener(delegate { OnSelection(selection); });
 
         selection_go.transform.SetParent(selection_list.transform, false);

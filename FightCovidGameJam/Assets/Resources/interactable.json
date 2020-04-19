@@ -3,49 +3,48 @@
     {
       "action": 0,
       "optionText": "Ver un episodio en Netflix",
-      "time": 30,
-      "positivism": 2
+      "time": 45,
+      "positivism": 5
     },
     {
       "action": 0,
       "optionText": "Ver una pelicula dominguera",
-      "time": 90,
-      "positivism": 1
+      "time": 160,
+      "positivism": 10
     },
     {
       "action": 1,
       "optionText": "Hacer cardio",
-      "time": 30,
-      "positivism": 1
+      "time": 45,
+      "positivism": 5
     },
     {
       "action": 1,
       "optionText": "Hacer yoga",
-      "time": 60,
-      "health": 1,
-      "positivism": 2
+      "time": 120,
+      "positivism": 10
     }
   ],
   "Estantería": [
     {
       "action": 2,
       "optionText": "Leer una revista",
-      "time": 20,
-      "positivism": 1
+      "time": 30,
+      "positivism": 3
     },
     {
       "action": 2,
       "optionText": "Leer un libro",
-      "time": 40,
-      "positivism": 2
+      "time": 120,
+      "positivism": 10
     }
   ],
   "Sofa": [
     {
       "action": 3,
       "optionText": "Echarse una siesta",
-      "time": 40,
-      "positivism": 1
+      "time": 60,
+      "positivism": 5
     }
   ],
   "Puerta": [
@@ -53,7 +52,8 @@
       "action": 4,
       "optionText": "Ir a hablar con la vecina",
       "time": 60,
-      "positivism": 1
+      "positivism": 10
+	  "health": -1
     },
     {
       "action": 5,
@@ -66,20 +66,20 @@
     {
       "action": 6,
       "optionText": "Hacer videollamada con amigos",
-      "time": 60,
-      "positivism": 3
+      "time": 120,
+      "positivism": 10
     },
     {
       "action": 6,
       "optionText": "Hacer videollamada familiar",
-      "time": 30,
-      "positivism": 1
+      "time": 45,
+      "positivism": 5
     },
     {
       "action": 7,
       "optionText": "Hacer compra online",
       "time": 60,
-      "positivism": 1
+      "positivism": 5
     }
   ],
   "Costurero": [
@@ -93,22 +93,22 @@
     {
       "action": 9,
       "optionText": "Lavar mascarilla a 90ºC",
-      "time": 20,
-      "positivism": 1
+      "time": 40,
+      "positivism": 5
     },
     {
       "action": 16,
       "optionText": "Lavar mascarilla a 30ºC",
-      "time": 1.0,
-      "positivism": 1
+      "time": 40,
+      "positivism": 5
     }
   ],
   "Basura": [
     {
       "action": 10,
       "optionText": "Sacar la basura",
-      "time": 10,
-      "positivism": 1,
+      "time": 15,
+      "positivism": 5,
       "health": -1
     }
   ],
@@ -116,7 +116,7 @@
     {
       "action": 11,
       "optionText": "Regar las plantas",
-      "time": 5,
+      "time": 10,
       "positivism": 1
     }
   ],
@@ -125,7 +125,7 @@
       "action": 12,
       "optionText": "Comer",
       "time": 60,
-      "positivism": 1
+      "positivism": 5
     }
   ],
   "Lavabo": [
