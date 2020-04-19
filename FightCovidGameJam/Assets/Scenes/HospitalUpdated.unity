@@ -969,6 +969,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3294040279992700163, guid: 634641d640909e842bd9647f9b3ce100,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 36df5ce3b37c90e47b14b03e8dd1daa9, type: 3}
     - target: {fileID: 5231767451764682274, guid: 634641d640909e842bd9647f9b3ce100,
         type: 3}
       propertyPath: m_Name
@@ -27900,11 +27905,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 535531187480933516, guid: ed59f21a08df02a4db4efe28e12f5a82,
-        type: 3}
-      propertyPath: m_Name
-      value: "M\xF3vil Medico"
-      objectReference: {fileID: 0}
     - target: {fileID: 4741282983885042325, guid: ed59f21a08df02a4db4efe28e12f5a82,
         type: 3}
       propertyPath: m_Name

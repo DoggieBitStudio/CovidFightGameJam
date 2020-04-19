@@ -124,7 +124,7 @@
           "animation": "Think",
           "speed": 30.0,
           "index": 1,
-          "next_step": 2
+          "next_step": 0
         }
       ]
     },

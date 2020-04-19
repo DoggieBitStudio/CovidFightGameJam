@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     public DialogueManager dialogue_manager;
     public UIManager ui_manager;
     public ActionManager action_manager;
+    public PatientManager patient_manager;
     public Image fade;
 
     public bool ui_opened = false;
@@ -69,6 +70,7 @@ public class GameManager : MonoBehaviour
             dialogue_manager = GetComponent<DialogueManager>();
             ui_manager = GetComponent<UIManager>();
             action_manager = GetComponent<ActionManager>();
+            patient_manager = GetComponent<PatientManager>();
             audio_source = GetComponent<AudioSource>();
 
             int_stats = new Dictionary<string, int>();
