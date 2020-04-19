@@ -8,7 +8,7 @@
         {
           "step_type": "DIALOGUE",
           "text": "Cada vez son más las muertes. No puedo seguir viendo como se me escapan así. Esta impotencia me está matando.",
-          "player": false,
+          "player": true,
           "name": "Julio",
           "animation": "SadTalk",
           "speed": 30.0,
@@ -24,7 +24,7 @@
         {
           "step_type": "DIALOGUE",
           "text": "Y encima mis vecinos me han echado de mi propia casa... En el fondo entiendo sus miedos... Pero su respuesta carece de humanidad.",
-          "player": false,
+          "player": true,
           "name": "Julio",
           "animation": "SadTalk",
           "speed": 30.0,
@@ -40,7 +40,7 @@
         {
           "step_type": "DIALOGUE",
           "text": "Hoy vengo algo más animado, ya se me notaba decaido. Un pequeño cambio en positivo puede cambiar tu vida entera, o eso dicen.",
-          "player": false,
+          "player": true,
           "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
@@ -56,7 +56,7 @@
         {
           "step_type": "DIALOGUE",
           "text": "Además mis vecinos han demostrado tener fuerza y humanidad. Fuí yo quién le dijo al presidente que realizara la encuesta por si tenían demasiado miedo...",
-          "player": false,
+          "player": true,
           "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
@@ -72,7 +72,7 @@
         {
           "step_type": "DIALOGUE",
           "text": "...y buscarme otro sitio, pero resultó que son más valientes que yo. Han respondido unanimamente que me quede allí. Gracias vecinos.",
-          "player": false,
+          "player": true,
           "name": "Julio",
           "animation": "Think",
           "speed": 30.0,
