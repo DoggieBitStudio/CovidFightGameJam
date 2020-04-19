@@ -758,7 +758,7 @@ PrefabInstance:
     - target: {fileID: 820279485512507872, guid: a933ae431e692b44293b1785837e9fd8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 820279485512507873, guid: a933ae431e692b44293b1785837e9fd8,
         type: 3}
@@ -2627,6 +2627,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 53978951028225742, guid: 8eefbba5e462f1b4baa3ce509eb2097e,
+        type: 3}
+      propertyPath: m_DynamicOccludee
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 53978951028225742, guid: 8eefbba5e462f1b4baa3ce509eb2097e,
+        type: 3}
+      propertyPath: m_MotionVectors
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 65604875416217726, guid: 8eefbba5e462f1b4baa3ce509eb2097e,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2646,12 +2656,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0e354c45864a4cb4daefd7cafb01183c, type: 2}
+      objectReference: {fileID: 2100000, guid: d5ab4e4e7058f9140b8dddd90eedbfde, type: 2}
     - target: {fileID: 909436649424238329, guid: 8eefbba5e462f1b4baa3ce509eb2097e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0e354c45864a4cb4daefd7cafb01183c, type: 2}
+      objectReference: {fileID: 2100000, guid: d5ab4e4e7058f9140b8dddd90eedbfde, type: 2}
     - target: {fileID: 964371233675677283, guid: 8eefbba5e462f1b4baa3ce509eb2097e,
         type: 3}
       propertyPath: m_Size.x
@@ -2821,7 +2831,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0e354c45864a4cb4daefd7cafb01183c, type: 2}
+      objectReference: {fileID: 2100000, guid: d5ab4e4e7058f9140b8dddd90eedbfde, type: 2}
     - target: {fileID: 8412767921253140680, guid: 8eefbba5e462f1b4baa3ce509eb2097e,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3150,7 +3160,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
